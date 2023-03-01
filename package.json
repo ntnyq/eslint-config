@@ -1,0 +1,66 @@
+{
+  "name": "@ntnyq/eslint-config",
+  "type": "module",
+  "packageManager": "pnpm@7.28.0",
+  "version": "1.3.1",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": {
+    "name": "ntnyq",
+    "email": "ntnyq13@gmail.com"
+  },
+  "files": [
+    "index.js",
+    "lib"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "release": "bumpp && pnpm publish"
+  },
+  "main": "./index.js",
+  "module": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    "types": "./index.d.ts",
+    "require": "./index.js",
+    "import": "./index.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@ntnyq/prettier-config": "^1.3.1",
+    "@types/node": "^18.14.2",
+    "bumpp": "^9.0.0",
+    "eslint": "^8.35.0",
+    "eslint-define-config": "^1.15.0",
+    "husky": "^8.0.3",
+    "nano-staged": "^0.8.0",
+    "typescript": "5.0.0-beta"
+  },
+  "peerDependencies": {
+    "eslint": "^8.30.0"
+  },
+  "dependencies": {
+    "@eslint/js": "^8.35.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsonc": "^2.6.0",
+    "eslint-plugin-markdown": "^3.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-unicorn": "^45.0.2",
+    "eslint-plugin-yml": "^1.5.0",
+    "globals": "^13.20.0",
+    "jsonc-eslint-parser": "^2.1.0",
+    "prettier": "^2.8.4",
+    "yaml-eslint-parser": "^1.1.0"
+  },
+  "prettier": "@ntnyq/prettier-config",
+  "engines": {
+    "node": ">=14.19.0"
+  }
+}

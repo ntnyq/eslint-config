@@ -1,0 +1,33 @@
+{
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "vue",
+    "html",
+    "yaml",
+    "markdown",
+    "json",
+    "jsonc",
+    "json5"
+  ],
+  "editor.formatOnSave": true,
+  "eslint.experimental.useFlatConfig": true,
+  "cSpell.words": [
+    "antfu",
+    "bumpp",
+    "changelogithub",
+    "ependencies",
+    "eqeqeq",
+    "iife",
+    "jsdelivr",
+    "npmrc",
+    "pnpm",
+    "stroustrup",
+    "sxzz",
+    "vitepress",
+    "vuepress"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}

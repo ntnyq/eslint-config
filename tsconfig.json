@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "ESNext",
+    "lib": ["ES2019"],
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "resolveJsonModule": true,
+    "types": ["node"],
+    "allowJs": true,
+    "declaration": true,
+    "emitDeclarationOnly": true
+  },
+  "include": ["*.js", "lib"]
+}
