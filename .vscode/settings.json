@@ -11,6 +11,9 @@
     "json5"
   ],
   "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
   "eslint.experimental.useFlatConfig": true,
   "cSpell.words": [
     "antfu",
