@@ -24,7 +24,7 @@
   ],
   "scripts": {
     "lint": "eslint .",
-    "release": "bumpp && pnpm publish"
+    "release": "bumpp && pnpm publish --tag next"
   },
   "publishConfig": {
     "access": "public"
