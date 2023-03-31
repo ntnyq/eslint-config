@@ -49,6 +49,7 @@
     "eslint-plugin-yml": "^1.5.0",
     "globals": "^13.20.0",
     "jsonc-eslint-parser": "^2.2.0",
+    "local-pkg": "^0.4.3",
     "prettier": "^2.8.7",
     "vue-eslint-parser": "^9.1.1",
     "yaml-eslint-parser": "^1.2.0"
@@ -64,7 +65,7 @@
     "typescript": "5.0.3"
   },
   "engines": {
-    "node": ">=14.19.0"
+    "node": ">=16.14.0"
   },
   "prettier": "@ntnyq/prettier-config"
 }

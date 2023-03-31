@@ -7,3 +7,5 @@ export * from './lib/jsonc.js'
 export * from './lib/prettier.js'
 export * from './lib/markdown.js'
 export * from './lib/eslint-comments.js'
+
+export * from './lib/presets.js'
