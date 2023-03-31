@@ -1,14 +1,14 @@
 {
   "eslint.validate": [
-    "javascript",
-    "typescript",
     "vue",
     "html",
     "yaml",
-    "markdown",
     "json",
     "jsonc",
-    "json5"
+    "json5",
+    "markdown",
+    "javascript",
+    "typescript"
   ],
   "editor.formatOnSave": true,
   "[javascript]": {

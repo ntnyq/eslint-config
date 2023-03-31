@@ -1,8 +1,7 @@
 .DS_Store
 node_modules
 *.log*
-.cache
-.temp
 *.local
+.cache
 dist
 .eslintcache
