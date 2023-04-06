@@ -10,14 +10,14 @@
     "name": "ntnyq",
     "email": "ntnyq13@gmail.com"
   },
-  "main": "./index.js",
-  "module": "./index.js",
-  "types": "./index.d.ts",
   "exports": {
     "types": "./index.d.ts",
     "require": "./index.js",
     "import": "./index.js"
   },
+  "main": "./index.js",
+  "module": "./index.js",
+  "types": "./index.d.ts",
   "files": [
     "index.js",
     "lib"
