@@ -2,9 +2,9 @@ import globals from 'globals'
 import jsConfig from '@eslint/js'
 import importPlugin from 'eslint-plugin-import'
 import unicornPlugin from 'eslint-plugin-unicorn'
+import type { FlatESLintConfig } from 'eslint-define-config'
 
-/** @type {import('eslint-define-config').FlatESLintConfig[]} */
-export const js = [
+export const js: FlatESLintConfig[] = [
   jsConfig.configs.recommended,
   {
     languageOptions: {
@@ -372,8 +372,7 @@ export const js = [
   },
 ]
 
-/** @type {import('eslint-define-config').FlatESLintConfig[]} */
-export const jsx = [
+export const jsx: FlatESLintConfig[] = [
   {
     files: ['**/*.jsx'],
     languageOptions: {
@@ -386,8 +385,7 @@ export const jsx = [
   },
 ]
 
-/** @type {import('eslint-define-config').FlatESLintConfig[]} */
-export const imports = [
+export const imports: FlatESLintConfig[] = [
   {
     plugins: {
       import: importPlugin,
@@ -428,8 +426,7 @@ export const imports = [
   },
 ]
 
-/** @type {import('eslint-define-config').FlatESLintConfig[]} */
-export const unicorn = [
+export const unicorn: FlatESLintConfig[] = [
   {
     plugins: {
       unicorn: unicornPlugin,

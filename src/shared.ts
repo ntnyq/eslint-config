@@ -1,4 +1,6 @@
-// @ts-check
+/**
+ * @file shared constants
+ */
 
 export const GLOB_SRC = '**/*.?([mt])[jt]s?(x)'
 

@@ -2,7 +2,7 @@
   "name": "@ntnyq/eslint-config",
   "type": "module",
   "version": "2.0.0-beta.5",
-  "packageManager": "pnpm@8.1.1",
+  "packageManager": "pnpm@8.2.0",
   "description": "",
   "keywords": [],
   "license": "MIT",
@@ -10,21 +10,18 @@
     "name": "ntnyq",
     "email": "ntnyq13@gmail.com"
   },
-  "exports": {
-    "types": "./index.d.ts",
-    "require": "./index.js",
-    "import": "./index.js"
-  },
-  "main": "./index.js",
-  "module": "./index.js",
-  "types": "./index.d.ts",
+  "exports": "./dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "index.js",
-    "index.d.ts",
-    "lib"
+    "dist"
   ],
   "scripts": {
-    "lint": "eslint .",
+    "build": "tsup",
+    "lint": "ESLINT_USE_FLAT_CONFIG=true eslint .",
+    "postinstall": "pnpm run build",
+    "prepare": "husky install",
     "release": "bumpp && pnpm publish --tag next"
   },
   "publishConfig": {
@@ -34,10 +31,10 @@
     "eslint": "^8.30.0"
   },
   "dependencies": {
-    "@eslint/js": "^8.37.0",
-    "@typescript-eslint/eslint-plugin": "^5.57.1",
-    "@typescript-eslint/parser": "^5.57.1",
-    "astro-eslint-parser": "^0.13.2",
+    "@eslint/js": "^8.38.0",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "astro-eslint-parser": "^0.13.3",
     "eslint-config-prettier": "^8.8.0",
     "eslint-define-config": "^1.17.0",
     "eslint-plugin-astro": "^0.26.1",
@@ -60,13 +57,18 @@
     "@ntnyq/prettier-config": "^1.6.1",
     "@types/node": "^18.15.11",
     "bumpp": "^9.1.0",
-    "eslint": "^8.37.0",
+    "eslint": "^8.38.0",
     "husky": "^8.0.3",
     "nano-staged": "^0.8.0",
-    "typescript": "5.0.3"
+    "pnpm": "^8.2.0",
+    "tsup": "^6.7.0",
+    "typescript": "5.0.4"
   },
   "engines": {
     "node": ">=16.14.0"
   },
-  "prettier": "@ntnyq/prettier-config"
+  "prettier": "@ntnyq/prettier-config",
+  "nano-staged": {
+    "*.{js,ts,json,jsonc,md,yaml,yml}": "pnpm run lint --fix"
+  }
 }

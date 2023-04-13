@@ -8,11 +8,7 @@
     "moduleResolution": "node",
     "skipLibCheck": true,
     "noUnusedLocals": true,
-    "resolveJsonModule": true,
-    "types": ["node"],
-    "allowJs": true,
-    "declaration": true,
-    "emitDeclarationOnly": true
+    "types": ["node"]
   },
-  "include": ["*.js", "*.ts", "lib"]
+  "include": ["./src/**/*.ts"]
 }

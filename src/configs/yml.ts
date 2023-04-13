@@ -1,17 +1,19 @@
 import ymlPlugin, { configs } from 'eslint-plugin-yml'
 import ymlParser from 'yaml-eslint-parser'
-import { GLOB_YAML } from './shared.js'
+import { GLOB_YAML } from '../shared'
+import type { FlatESLintConfig } from 'eslint-define-config'
 
-/** @type {import('eslint-define-config').FlatESLintConfig[]} */
-export const yml = [
+export const yml: FlatESLintConfig[] = [
   {
     files: [GLOB_YAML],
     languageOptions: {
+      // @ts-expect-error 2322
       parser: ymlParser,
     },
     plugins: {
       yml: ymlPlugin,
     },
+    // @ts-expect-error 2322
     rules: {
       ...configs.standard.rules,
       ...configs.prettier.rules,

@@ -1,9 +1,9 @@
 import jsoncPlugin, { configs } from 'eslint-plugin-jsonc'
 import jsoncParser from 'jsonc-eslint-parser'
-import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from './shared.js'
+import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../shared'
+import type { FlatESLintConfig } from 'eslint-define-config'
 
-/** @type {import('eslint-define-config').FlatESLintConfig[]} */
-export const jsonc = [
+export const jsonc: FlatESLintConfig[] = [
   {
     files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC, '**/*rc'],
     plugins: {
@@ -12,6 +12,7 @@ export const jsonc = [
     languageOptions: {
       parser: jsoncParser,
     },
+    // @ts-expect-error 2322
     rules: {
       ...configs['recommended-with-jsonc'].rules,
       'jsonc/array-bracket-spacing': ['error', 'never'],
@@ -44,8 +45,7 @@ export const jsonc = [
   },
 ]
 
-/** @type {import('eslint-define-config').FlatESLintConfig[]} */
-export const pkgOrder = [
+export const pkgOrder: FlatESLintConfig[] = [
   {
     files: ['**/package.json'],
     rules: {

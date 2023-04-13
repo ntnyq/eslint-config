@@ -1,8 +1,8 @@
 import prettierPlugin from 'eslint-plugin-prettier'
 import prettierConfig from 'eslint-config-prettier'
+import type { FlatESLintConfig } from 'eslint-define-config'
 
-/** @type {import('eslint-define-config').FlatESLintConfigItem[]} */
-export const prettier = [
+export const prettier: FlatESLintConfig[] = [
   {
     plugins: {
       prettier: prettierPlugin,

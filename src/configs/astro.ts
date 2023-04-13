@@ -1,9 +1,9 @@
 import astroPlugin, { configs } from 'eslint-plugin-astro'
 import astroParser from 'astro-eslint-parser'
-import { GLOB_ASTRO } from './shared.js'
+import { GLOB_ASTRO } from '../shared'
+import type { FlatESLintConfig } from 'eslint-define-config'
 
-/** @type {import('eslint-define-config').FlatESLintConfig[]} */
-export const astro = [
+export const astro: FlatESLintConfig[] = [
   {
     files: [GLOB_ASTRO],
     plugins: {
@@ -16,8 +16,9 @@ export const astro = [
         extraFileExtensions: ['.astro'],
       },
     },
+    // @ts-expect-error 2322
     rules: {
-      ...configs.recommended,
+      ...configs.recommended.rules,
     },
   },
 ]

@@ -1,14 +1,15 @@
 import tsParser from '@typescript-eslint/parser'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
-import { GLOB_TS, GLOB_TSX } from './shared.js'
+import { GLOB_TS, GLOB_TSX } from '../shared'
+import type { FlatESLintConfig } from 'eslint-define-config'
 
 export { tsParser, tsPlugin }
 
-/** @type {import('eslint-define-config').FlatESLintConfig[]} */
-export const ts = [
+export const ts: FlatESLintConfig[] = [
   {
     files: [GLOB_TS, GLOB_TSX],
     languageOptions: {
+      // @ts-expect-error 2322
       parser: tsParser,
       parserOptions: {
         sourceType: 'module',
@@ -18,7 +19,7 @@ export const ts = [
       '@typescript-eslint': tsPlugin,
     },
     rules: {
-      ...tsPlugin.configs['eslint-recommended'].overrides[0].rules,
+      ...tsPlugin!.configs!['eslint-recommended']!.overrides![0].rules,
       ...tsPlugin.configs.recommended.rules,
 
       '@typescript-eslint/no-unused-vars': 'error',
