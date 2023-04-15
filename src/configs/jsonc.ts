@@ -1,6 +1,6 @@
 import jsoncPlugin, { configs } from 'eslint-plugin-jsonc'
 import jsoncParser from 'jsonc-eslint-parser'
-import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../shared'
+import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../shared.js'
 import type { FlatESLintConfig } from 'eslint-define-config'
 
 export const jsonc: FlatESLintConfig[] = [

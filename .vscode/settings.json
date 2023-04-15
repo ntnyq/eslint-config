@@ -6,13 +6,17 @@
     "json",
     "jsonc",
     "json5",
+    "react",
+    "astro",
     "markdown",
     "javascript",
-    "typescript"
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
   ],
   "editor.formatOnSave": true,
-  "[javascript]": {
-    "editor.formatOnSave": true
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   },
   "eslint.experimental.useFlatConfig": true,
   "cSpell.words": [
@@ -31,8 +35,5 @@
     "tsup",
     "vitepress",
     "vuepress"
-  ],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
+  ]
 }

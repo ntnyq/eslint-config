@@ -2,8 +2,8 @@ import { getPackageInfoSync } from 'local-pkg'
 import vuePlugin from 'eslint-plugin-vue'
 import vueParser from 'vue-eslint-parser'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
-import { GLOB_VUE } from '../shared'
-import { ts } from './ts'
+import { GLOB_VUE } from '../shared.js'
+import { ts } from './ts.js'
 import type { FlatESLintConfig, Rules } from 'eslint-define-config'
 
 export { vueParser, vuePlugin }

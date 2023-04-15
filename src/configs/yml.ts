@@ -1,6 +1,6 @@
 import ymlPlugin, { configs } from 'eslint-plugin-yml'
 import ymlParser from 'yaml-eslint-parser'
-import { GLOB_YAML } from '../shared'
+import { GLOB_YAML } from '../shared.js'
 import type { FlatESLintConfig } from 'eslint-define-config'
 
 export const yml: FlatESLintConfig[] = [

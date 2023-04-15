@@ -5,7 +5,7 @@
     "lib": ["ES2019"],
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "skipLibCheck": true,
     "noUnusedLocals": true,
     "types": ["node"]

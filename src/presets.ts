@@ -20,48 +20,67 @@ import {
 import { GLOB_EXCLUDE } from './shared.js'
 import type { FlatESLintConfig } from 'eslint-define-config'
 
+/**
+ * @see https://eslint.org/docs/latest/use/configure/configuration-files-new#globally-ignoring-files-with-ignores
+ */
+const GLOBAL_IGNORE = { ignores: GLOB_EXCLUDE }
+
+/**
+ * no framework
+ */
 export const basic: FlatESLintConfig[] = [
-  { ignores: GLOB_EXCLUDE },
+  GLOBAL_IGNORE,
   ...js,
   ...jsx,
   ...ts,
-  ...vue,
   ...yml,
   ...imports,
   ...unicorn,
   ...jsonc,
   ...pkgOrder,
-  ...markdown,
   ...eslintComments,
 ]
 
-export const all: FlatESLintConfig[] = [...vue, ...react, ...astro, ...basic, ...prettier]
+/**
+ * all supported framework
+ */
+export const all: FlatESLintConfig[] = [
+  ...basic,
+  ...vue,
+  ...react,
+  ...astro,
+  ...prettier,
+  ...markdown,
+]
 
+/**
+ * custom framework support
+ */
 export function ntnyq(
   config: FlatESLintConfig | FlatESLintConfig[] = [],
   {
-    vue: enableVue = true,
-    react: enableReact = true,
-    astro: enableAstro = true,
-    prettier: enablePrettier = true,
-    markdown: enableMarkdown = true,
+    vue: enableVue = false,
+    react: enableReact = false,
+    astro: enableAstro = false,
+    prettier: enablePrettier = false,
+    markdown: enableMarkdown = false,
   } = {},
 ) {
   const configs: FlatESLintConfig[] = [...basic]
 
-  if (enableVue !== false) {
+  if (enableVue) {
     configs.push(...vue)
   }
-  if (enableReact !== false) {
+  if (enableReact) {
     configs.push(...react)
   }
-  if (enableAstro !== false) {
+  if (enableAstro) {
     configs.push(...astro)
   }
-  if (enableMarkdown !== false) {
+  if (enableMarkdown) {
     configs.push(...markdown)
   }
-  if (enablePrettier !== false) {
+  if (enablePrettier) {
     configs.push(...prettier)
   }
 
