@@ -3,13 +3,19 @@
   "type": "module",
   "version": "2.0.0-beta.6",
   "packageManager": "pnpm@8.2.0",
-  "description": "",
-  "keywords": [],
+  "description": "ESLint flat config of ntnyq",
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "eslint-flat-config",
+    "ntnyq"
+  ],
   "license": "MIT",
   "author": {
     "name": "ntnyq",
     "email": "ntnyq13@gmail.com"
   },
+  "repository": "ntnyq/eslint-config",
   "exports": "./dist/index.js",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
