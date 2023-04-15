@@ -25,10 +25,13 @@
   ],
   "scripts": {
     "build": "tsup",
+    "clean": "rimraf dist",
     "lint": "ESLINT_USE_FLAT_CONFIG=true eslint .",
     "postinstall": "pnpm run build",
     "prepare": "husky install",
-    "release": "bumpp && pnpm publish --tag next",
+    "release": "run-s release:check release:version",
+    "release:check": "run-s clean build lint typecheck",
+    "release:version": "bumpp && pnpm publish --tag next",
     "typecheck": "tsc --noEmit"
   },
   "publishConfig": {
@@ -69,7 +72,9 @@
     "eslint": "^8.38.0",
     "husky": "^8.0.3",
     "nano-staged": "^0.8.0",
+    "npm-run-all": "^4.1.5",
     "pnpm": "^8.2.0",
+    "rimraf": "^5.0.0",
     "tsup": "^6.7.0",
     "typescript": "5.0.4"
   },
