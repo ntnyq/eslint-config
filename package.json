@@ -27,7 +27,6 @@
     "build": "tsup",
     "clean": "rimraf dist",
     "lint": "ESLINT_USE_FLAT_CONFIG=true eslint .",
-    "postinstall": "pnpm run build",
     "prepare": "husky install",
     "release": "run-s release:check release:version",
     "release:check": "run-s clean build lint typecheck",
@@ -66,7 +65,7 @@
     "yaml-eslint-parser": "^1.2.0"
   },
   "devDependencies": {
-    "@ntnyq/prettier-config": "^1.6.1",
+    "@ntnyq/prettier-config": "^1.7.0",
     "@types/node": "^18.15.11",
     "bumpp": "^9.1.0",
     "eslint": "^8.38.0",
