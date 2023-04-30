@@ -13,7 +13,7 @@ pnpm add @ntnyq/eslint-config@next eslint-define-config -D
 
 ## Usage
 
-Config in `eslint.config.{js,cjs,mjs}`:
+Config in `eslint.config.js`:
 
 ```js
 import { defineFlatConfig } from 'eslint-define-config'

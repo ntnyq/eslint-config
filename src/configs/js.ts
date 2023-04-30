@@ -400,10 +400,10 @@ export const imports: FlatESLintConfig[] = [
       'import/no-absolute-path': 'off',
       'import/no-named-as-default-member': 'off',
 
-      'import/newline-after-import': 'error',
       'import/first': 'error',
-      'import/no-mutable-exports': 'error',
       'import/no-duplicates': 'error',
+      'import/no-mutable-exports': 'error',
+      'import/newline-after-import': 'error',
       'import/order': [
         'error',
         {

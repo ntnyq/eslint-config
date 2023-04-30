@@ -2,10 +2,10 @@
   "compilerOptions": {
     "target": "ES2021",
     "module": "ESNext",
-    "lib": ["ES2019"],
+    "lib": ["ES2020"],
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution": "nodenext",
+    "moduleResolution": "NodeNext",
     "skipLibCheck": true,
     "noUnusedLocals": true,
     "types": ["node"]

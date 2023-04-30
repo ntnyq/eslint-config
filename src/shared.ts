@@ -2,6 +2,7 @@
  * @file shared constants
  */
 
+export const GLOB_SRC_EXT = '?([mt])[jt]s?(x)'
 export const GLOB_SRC = '**/*.?([mt])[jt]s?(x)'
 
 export const GLOB_JS = '**/*.?([mt])js'
@@ -44,9 +45,15 @@ export const GLOB_EXCLUDE = [
   GLOB_NODE_MODULES,
   GLOB_DIST,
   ...GLOB_LOCKFILE,
+
   '**/CHANGELOG*.md',
   '**/*.min.*',
   '**/LICENSE*',
+  '**/__snapshots__',
+
+  '**/auto-import.d.ts',
+  '**/components.d.ts',
+
   '**/output',
   '**/coverage',
   '**/temp',
@@ -56,9 +63,6 @@ export const GLOB_EXCLUDE = [
   '**/.nuxt',
   '**/.vercel',
   '**/.changeset',
-  '**/__snapshots__',
-  '**/auto-import.d.ts',
-  '**/components.d.ts',
   '**/.npmrc',
   '**/.yarnrc',
 ]
