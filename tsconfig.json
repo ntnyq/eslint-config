@@ -5,7 +5,7 @@
     "lib": ["ES2020"],
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "bundler",
     "skipLibCheck": true,
     "noUnusedLocals": true,
     "types": ["node"]

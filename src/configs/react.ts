@@ -1,6 +1,6 @@
 import reactPlugin from 'eslint-plugin-react'
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
-import { GLOB_JSX, GLOB_TSX } from '../shared.js'
+import { GLOB_JSX, GLOB_TSX } from '../shared'
 import type { FlatESLintConfig } from 'eslint-define-config'
 
 export { reactPlugin, reactHooksPlugin }

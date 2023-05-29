@@ -1,6 +1,6 @@
 import tsParser from '@typescript-eslint/parser'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
-import { GLOB_TS, GLOB_TSX } from '../shared.js'
+import { GLOB_TS, GLOB_TSX } from '../shared'
 import type { FlatESLintConfig } from 'eslint-define-config'
 
 export { tsParser, tsPlugin }

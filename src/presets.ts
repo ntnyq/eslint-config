@@ -16,8 +16,8 @@ import {
   unicorn,
   vue,
   yml,
-} from './configs/index.js'
-import { GLOB_EXCLUDE } from './shared.js'
+} from './configs'
+import { GLOB_EXCLUDE } from './shared'
 import type { FlatESLintConfig } from 'eslint-define-config'
 
 /**

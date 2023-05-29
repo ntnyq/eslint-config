@@ -1,6 +1,6 @@
 import astroPlugin, { configs } from 'eslint-plugin-astro'
 import astroParser from 'astro-eslint-parser'
-import { GLOB_ASTRO } from '../shared.js'
+import { GLOB_ASTRO } from '../shared'
 import type { FlatESLintConfig } from 'eslint-define-config'
 
 export const astro: FlatESLintConfig[] = [
