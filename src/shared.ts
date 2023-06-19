@@ -51,7 +51,7 @@ export const GLOB_EXCLUDE = [
   '**/LICENSE*',
   '**/__snapshots__',
 
-  '**/auto-import.d.ts',
+  '**/auto-import?(s).d.ts',
   '**/components.d.ts',
 
   '**/output',
