@@ -461,6 +461,13 @@ export const unicorn: FlatESLintConfig[] = [
       'unicorn/prefer-optional-catch-binding': 'error',
       'unicorn/prefer-prototype-methods': 'error',
       'unicorn/prefer-reflect-apply': 'error',
+      'unicorn/catch-error-name': [
+        'error',
+        {
+          name: 'err',
+          ignore: ['^_.'],
+        },
+      ],
 
       'unicorn/prefer-date-now': 'error',
 
