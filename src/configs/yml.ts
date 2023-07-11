@@ -1,5 +1,5 @@
 import ymlPlugin, { configs } from 'eslint-plugin-yml'
-import ymlParser from 'yaml-eslint-parser'
+import * as ymlParser from 'yaml-eslint-parser'
 import { GLOB_YAML } from '../shared'
 import type { FlatESLintConfig } from 'eslint-define-config'
 

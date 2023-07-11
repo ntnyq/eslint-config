@@ -1,4 +1,4 @@
-import tsParser from '@typescript-eslint/parser'
+import * as tsParser from '@typescript-eslint/parser'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
 import { GLOB_TS, GLOB_TSX } from '../shared'
 import type { FlatESLintConfig } from 'eslint-define-config'
@@ -19,8 +19,8 @@ export const ts: FlatESLintConfig[] = [
       '@typescript-eslint': tsPlugin,
     },
     rules: {
-      ...tsPlugin!.configs!['eslint-recommended']!.overrides![0].rules,
-      ...tsPlugin.configs.recommended.rules,
+      ...tsPlugin.configs['recommended-type-checked'].rules,
+      ...tsPlugin.configs['stylistic-type-checked'].rules,
 
       '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/no-redeclare': 'error',
