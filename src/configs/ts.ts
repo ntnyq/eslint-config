@@ -13,14 +13,15 @@ export const ts: FlatESLintConfig[] = [
       parser: tsParser,
       parserOptions: {
         sourceType: 'module',
+        project: true,
       },
     },
     plugins: {
       '@typescript-eslint': tsPlugin,
     },
     rules: {
-      ...tsPlugin.configs['recommended-type-checked'].rules,
-      ...tsPlugin.configs['stylistic-type-checked'].rules,
+      ...tsPlugin.configs.recommended.rules,
+      ...tsPlugin.configs.stylistic.rules,
 
       '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/no-redeclare': 'error',

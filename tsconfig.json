@@ -10,5 +10,5 @@
     "noUnusedLocals": true,
     "types": ["node"]
   },
-  "include": ["./src/**/*.ts"]
+  "include": ["./src/**/*.ts", "./tsup.config.ts"]
 }
