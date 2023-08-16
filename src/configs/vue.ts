@@ -35,8 +35,7 @@ export const vue: FlatESLintConfig[] = [
       '@typescript-eslint': tsPlugin,
     },
     languageOptions: {
-      // @ts-expect-error 2322
-      parser: vueParser,
+      parser: vueParser as any,
       parserOptions: {
         parser: '@typescript-eslint/parser',
         sourceType: 'module',

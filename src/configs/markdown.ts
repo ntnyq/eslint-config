@@ -38,6 +38,7 @@ export const markdown: FlatESLintConfig[] = [
       '@typescript-eslint/no-redeclare': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-var-requires': 'off',
+      '@typescript-eslint/no-extraneous-class': 'off',
       '@typescript-eslint/no-use-before-define': 'off',
 
       'unused-imports/no-unused-imports': 'off',

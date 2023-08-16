@@ -9,8 +9,7 @@ export const ts: FlatESLintConfig[] = [
   {
     files: [GLOB_TS, GLOB_TSX],
     languageOptions: {
-      // @ts-expect-error 2322
-      parser: tsParser,
+      parser: tsParser as any,
       parserOptions: {
         sourceType: 'module',
         project: true,

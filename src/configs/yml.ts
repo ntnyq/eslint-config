@@ -7,8 +7,7 @@ export const yml: FlatESLintConfig[] = [
   {
     files: [GLOB_YAML],
     languageOptions: {
-      // @ts-expect-error 2322
-      parser: ymlParser,
+      parser: ymlParser as any,
     },
     plugins: {
       yml: ymlPlugin,
