@@ -12,7 +12,6 @@ export const ts: FlatESLintConfig[] = [
       parser: tsParser as any,
       parserOptions: {
         sourceType: 'module',
-        project: true,
       },
     },
     plugins: {
