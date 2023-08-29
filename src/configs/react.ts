@@ -10,7 +10,7 @@ export const react: FlatESLintConfig[] = [
     files: [GLOB_JSX, GLOB_TSX],
     plugins: {
       react: reactPlugin,
-      reactHooks: reactHooksPlugin,
+      'react-hooks': reactHooksPlugin,
     },
     settings: {
       react: {
