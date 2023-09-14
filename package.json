@@ -17,6 +17,7 @@
   },
   "repository": "ntnyq/eslint-config",
   "exports": {
+    "./package.json": "./package.json",
     ".": {
       "import": {
         "types": "./dist/index.d.ts",
