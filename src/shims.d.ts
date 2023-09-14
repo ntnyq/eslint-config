@@ -16,3 +16,5 @@ declare module 'eslint-plugin-markdown'
 declare module 'eslint-plugin-react'
 declare module 'eslint-plugin-react-hooks'
 declare module 'eslint-plugin-eslint-comments'
+
+declare module '@unocss/eslint-plugin'

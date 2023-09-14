@@ -14,6 +14,7 @@ import {
   react,
   ts,
   unicorn,
+  unocss,
   vue,
   yml,
 } from './configs'
@@ -49,6 +50,7 @@ export const all: FlatESLintConfig[] = [
   ...vue,
   ...react,
   ...astro,
+  ...unocss,
   ...prettier,
   ...markdown,
 ]
@@ -64,6 +66,7 @@ export function ntnyq(
     astro: enableAstro = false,
     prettier: enablePrettier = false,
     markdown: enableMarkdown = false,
+    unocss: enableUnoCSS = false,
   } = {},
 ) {
   const configs: FlatESLintConfig[] = [...basic]
@@ -76,6 +79,9 @@ export function ntnyq(
   }
   if (enableAstro) {
     configs.push(...astro)
+  }
+  if (enableUnoCSS) {
+    configs.push(...unocss)
   }
   if (enableMarkdown) {
     configs.push(...markdown)
