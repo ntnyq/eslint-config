@@ -2,7 +2,7 @@
   "name": "@ntnyq/eslint-config",
   "type": "module",
   "version": "2.0.0-beta.16",
-  "packageManager": "pnpm@8.7.0",
+  "packageManager": "pnpm@8.7.5",
   "description": "ESLint flat config of ntnyq",
   "keywords": [
     "eslint",
@@ -51,9 +51,9 @@
     "eslint": "^8.30.0"
   },
   "dependencies": {
-    "@eslint/js": "^8.48.0",
-    "@typescript-eslint/eslint-plugin": "^6.5.0",
-    "@typescript-eslint/parser": "^6.5.0",
+    "@eslint/js": "^8.49.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
     "astro-eslint-parser": "^0.15.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-define-config": "^1.23.0",
@@ -67,29 +67,29 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unicorn": "^48.0.1",
     "eslint-plugin-vue": "^9.17.0",
-    "eslint-plugin-yml": "^1.8.0",
+    "eslint-plugin-yml": "^1.9.0",
     "globals": "^13.21.0",
     "jsonc-eslint-parser": "^2.3.0",
     "local-pkg": "^0.4.3",
-    "prettier": "^3.0.2",
+    "prettier": "^3.0.3",
     "vue-eslint-parser": "^9.3.1",
     "yaml-eslint-parser": "^1.2.2"
   },
   "devDependencies": {
-    "@ntnyq/prettier-config": "^1.12.4",
-    "@types/node": "^20.5.7",
+    "@ntnyq/prettier-config": "^1.13.0",
+    "@types/node": "^20.6.0",
     "bumpp": "^9.2.0",
-    "eslint": "^8.48.0",
+    "eslint": "^8.49.0",
     "husky": "^8.0.3",
     "nano-staged": "^0.8.0",
     "npm-run-all": "^4.1.5",
-    "pnpm": "^8.7.0",
+    "pnpm": "^8.7.5",
     "rimraf": "^5.0.1",
     "tsup": "^7.2.0",
     "typescript": "5.2.2"
   },
   "engines": {
-    "node": ">=16.14.0"
+    "node": ">=18.12"
   },
   "prettier": "@ntnyq/prettier-config",
   "nano-staged": {
