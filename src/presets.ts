@@ -63,12 +63,10 @@ export function ntnyq(
     vue: enableVue = false,
     react: enableReact = false,
     astro: enableAstro = false,
-    prettier: enablePrettier = false,
-    markdown: enableMarkdown = false,
     unocss: enableUnoCSS = false,
   } = {},
 ) {
-  const configs: FlatESLintConfig[] = [...basic]
+  const configs: FlatESLintConfig[] = [...common]
 
   if (enableVue) {
     configs.push(...vue)
@@ -81,12 +79,6 @@ export function ntnyq(
   }
   if (enableUnoCSS) {
     configs.push(...unocss)
-  }
-  if (enableMarkdown) {
-    configs.push(...markdown)
-  }
-  if (enablePrettier) {
-    configs.push(...prettier)
   }
 
   if (Object.keys(config).length > 0) {
