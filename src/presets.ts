@@ -6,10 +6,10 @@ import {
   eslintComments,
   imports,
   js,
+  jsonOrder,
   jsonc,
   jsx,
   markdown,
-  pkgOrder,
   prettier,
   react,
   ts,
@@ -38,7 +38,7 @@ export const basic: FlatESLintConfig[] = [
   ...imports,
   ...unicorn,
   ...jsonc,
-  ...pkgOrder,
+  ...jsonOrder,
   ...eslintComments,
 ]
 

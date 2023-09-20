@@ -4,9 +4,6 @@
 
 declare module '@eslint/js'
 
-declare module 'jsonc-eslint-parser'
-declare module 'astro-eslint-parser'
-
 declare module 'eslint-config-prettier'
 
 declare module 'eslint-plugin-vue'

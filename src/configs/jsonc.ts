@@ -1,5 +1,5 @@
 import jsoncPlugin, { configs } from 'eslint-plugin-jsonc'
-import jsoncParser from 'jsonc-eslint-parser'
+import * as jsoncParser from 'jsonc-eslint-parser'
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../shared'
 import type { FlatESLintConfig } from 'eslint-define-config'
 
@@ -45,7 +45,7 @@ export const jsonc: FlatESLintConfig[] = [
   },
 ]
 
-export const pkgOrder: FlatESLintConfig[] = [
+export const jsonOrder: FlatESLintConfig[] = [
   {
     files: ['**/package.json'],
     rules: {
