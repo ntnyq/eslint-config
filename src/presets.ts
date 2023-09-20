@@ -27,33 +27,32 @@ import type { FlatESLintConfig } from 'eslint-define-config'
 const GLOBAL_IGNORE = { ignores: GLOB_EXCLUDE }
 
 /**
- * no framework
+ * only js and ts
  */
 export const basic: FlatESLintConfig[] = [
   GLOBAL_IGNORE,
   ...js,
   ...jsx,
   ...ts,
-  ...yml,
   ...imports,
   ...unicorn,
+  ...eslintComments,
+]
+
+// no framework
+export const common: FlatESLintConfig[] = [
+  ...basic,
+  ...yml,
   ...jsonc,
   ...jsonOrder,
-  ...eslintComments,
+  ...prettier,
+  ...markdown,
 ]
 
 /**
  * all supported framework
  */
-export const all: FlatESLintConfig[] = [
-  ...basic,
-  ...vue,
-  ...react,
-  ...astro,
-  ...unocss,
-  ...prettier,
-  ...markdown,
-]
+export const all: FlatESLintConfig[] = [...common, ...vue, ...react, ...astro, ...unocss]
 
 /**
  * custom framework support
