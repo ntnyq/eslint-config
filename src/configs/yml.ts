@@ -1,21 +1,20 @@
-import ymlPlugin, { configs } from 'eslint-plugin-yml'
-import * as ymlParser from 'yaml-eslint-parser'
+import { pluginYml } from '../plugins'
+import { parserYml } from '../parsers'
 import { GLOB_YAML } from '../shared'
-import type { FlatESLintConfig } from 'eslint-define-config'
+import type { FlatESLintConfigItem, Rules } from 'eslint-define-config'
 
-export const yml: FlatESLintConfig[] = [
+export const yml: FlatESLintConfigItem[] = [
   {
     files: [GLOB_YAML],
     languageOptions: {
-      parser: ymlParser as any,
+      parser: parserYml,
     },
     plugins: {
-      yml: ymlPlugin,
+      yml: pluginYml,
     },
-    // @ts-expect-error 2322
     rules: {
-      ...configs.standard.rules,
-      ...configs.prettier.rules,
+      ...(pluginYml.configs.standard.rules as Rules),
+      ...(pluginYml.configs.prettier.rules as Rules),
       'yml/no-empty-mapping-value': 'off',
     },
   },

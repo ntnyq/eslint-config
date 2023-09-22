@@ -1,24 +1,23 @@
-import astroPlugin, { configs } from 'eslint-plugin-astro'
-import * as astroParser from 'astro-eslint-parser'
+import { pluginAstro } from '../plugins'
+import { parserAstro } from '../parsers'
 import { GLOB_ASTRO } from '../shared'
-import type { FlatESLintConfig } from 'eslint-define-config'
+import type { FlatESLintConfigItem, Rules } from 'eslint-define-config'
 
-export const astro: FlatESLintConfig[] = [
+export const astro: FlatESLintConfigItem[] = [
   {
     files: [GLOB_ASTRO],
     plugins: {
-      astro: astroPlugin,
+      astro: pluginAstro,
     },
     languageOptions: {
-      parser: astroParser,
+      parser: parserAstro,
       parserOptions: {
         parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.astro'],
       },
     },
-    // @ts-expect-error 2322
     rules: {
-      ...configs.recommended.rules,
+      ...(pluginAstro.configs.recommended.rules as Rules),
     },
   },
 ]

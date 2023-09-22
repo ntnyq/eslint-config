@@ -1,15 +1,15 @@
-import prettierPlugin from 'eslint-plugin-prettier'
 import prettierConfig from 'eslint-config-prettier'
-import type { FlatESLintConfig } from 'eslint-define-config'
+import { pluginPrettier } from '../plugins'
+import type { FlatESLintConfigItem } from 'eslint-define-config'
 
-export const prettier: FlatESLintConfig[] = [
+export const prettier: FlatESLintConfigItem[] = [
   {
     plugins: {
-      prettier: prettierPlugin,
+      prettier: pluginPrettier,
     },
     rules: {
       ...prettierConfig.rules,
-      ...prettierPlugin.configs.recommended.rules,
+      ...pluginPrettier.configs.recommended.rules,
       'prettier/prettier': 'warn',
     },
   },

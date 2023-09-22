@@ -1,16 +1,13 @@
-import reactPlugin from 'eslint-plugin-react'
-import reactHooksPlugin from 'eslint-plugin-react-hooks'
 import { GLOB_JSX, GLOB_TSX } from '../shared'
-import type { FlatESLintConfig } from 'eslint-define-config'
+import { pluginReact, pluginReactHooks } from '../plugins'
+import type { FlatESLintConfigItem } from 'eslint-define-config'
 
-export { reactPlugin, reactHooksPlugin }
-
-export const react: FlatESLintConfig[] = [
+export const react: FlatESLintConfigItem[] = [
   {
     files: [GLOB_JSX, GLOB_TSX],
     plugins: {
-      react: reactPlugin,
-      'react-hooks': reactHooksPlugin,
+      react: pluginReact,
+      'react-hooks': pluginReactHooks,
     },
     settings: {
       react: {
@@ -25,8 +22,8 @@ export const react: FlatESLintConfig[] = [
       },
     },
     rules: {
-      ...reactPlugin.configs.recommended.rules,
-      ...reactHooksPlugin.configs.recommended.rules,
+      ...pluginReact.configs.recommended.rules,
+      ...pluginReactHooks.configs.recommended.rules,
       'jsx-quotes': ['error', 'prefer-double'],
       'react/react-in-jsx-scope': 'off',
     },

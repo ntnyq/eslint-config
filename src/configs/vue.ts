@@ -1,12 +1,9 @@
 import { getPackageInfoSync } from 'local-pkg'
-import vuePlugin from 'eslint-plugin-vue'
-import vueParser from 'vue-eslint-parser'
-import tsPlugin from '@typescript-eslint/eslint-plugin'
 import { GLOB_VUE } from '../shared'
-import { ts } from './ts'
-import type { FlatESLintConfig, Rules } from 'eslint-define-config'
-
-export { vueParser, vuePlugin }
+import { parserVue } from '../parsers'
+import { pluginTypescript, pluginVue } from '../plugins'
+import { typescript } from './typescript'
+import type { FlatESLintConfigItem, Rules } from 'eslint-define-config'
 
 export function getVueVersion() {
   const pkg = getPackageInfoSync('vue', { paths: [process.cwd()] })
@@ -27,15 +24,15 @@ const vue3Rules: Rules = {
   ...vueBaseRules,
 }
 
-export const vue: FlatESLintConfig[] = [
+export const vue: FlatESLintConfigItem[] = [
   {
     files: [GLOB_VUE],
     plugins: {
-      vue: vuePlugin,
-      '@typescript-eslint': tsPlugin,
+      vue: pluginVue,
+      '@typescript-eslint': pluginTypescript,
     },
     languageOptions: {
-      parser: vueParser as any,
+      parser: parserVue,
       parserOptions: {
         parser: '@typescript-eslint/parser',
         sourceType: 'module',
@@ -45,15 +42,14 @@ export const vue: FlatESLintConfig[] = [
         },
       },
     },
-    processor: vuePlugin.processors['.vue'],
+    processor: pluginVue.processors['.vue'],
     rules: {
-      // @ts-expect-error 2339
-      ...ts[0].rules,
+      ...typescript[0].rules,
     },
   },
   {
     plugins: {
-      vue: vuePlugin,
+      vue: pluginVue,
     },
     rules: isVue3 ? vue3Rules : vue2Rules,
   },

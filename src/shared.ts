@@ -40,7 +40,12 @@ export const GLOB_ALL_SRC = [
 
 export const GLOB_NODE_MODULES = '**/node_modules/**'
 export const GLOB_DIST = '**/dist/**'
-export const GLOB_LOCKFILE = ['**/package-lock.json', '**/yarn.lock', '**/pnpm-lock.yaml']
+export const GLOB_LOCKFILE = [
+  '**/package-lock.json',
+  '**/yarn.lock',
+  '**/pnpm-lock.yaml',
+  '**/bun.lockb',
+]
 export const GLOB_EXCLUDE = [
   GLOB_NODE_MODULES,
   GLOB_DIST,

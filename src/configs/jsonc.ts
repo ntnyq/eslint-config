@@ -1,20 +1,19 @@
-import jsoncPlugin, { configs } from 'eslint-plugin-jsonc'
-import * as jsoncParser from 'jsonc-eslint-parser'
+import { pluginJsonc } from '../plugins'
+import { parserJsonc } from '../parsers'
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../shared'
-import type { FlatESLintConfig } from 'eslint-define-config'
+import type { FlatESLintConfigItem, Rules } from 'eslint-define-config'
 
-export const jsonc: FlatESLintConfig[] = [
+export const jsonc: FlatESLintConfigItem[] = [
   {
     files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC, '**/*rc'],
     plugins: {
-      jsonc: jsoncPlugin,
+      jsonc: pluginJsonc,
     },
     languageOptions: {
-      parser: jsoncParser,
+      parser: parserJsonc,
     },
-    // @ts-expect-error 2322
     rules: {
-      ...configs['recommended-with-jsonc'].rules,
+      ...(pluginJsonc.configs['recommended-with-jsonc'].rules as Rules),
       'jsonc/array-bracket-spacing': ['error', 'never'],
       'jsonc/comma-dangle': ['error', 'never'],
       'jsonc/comma-style': ['error', 'last'],
@@ -45,7 +44,7 @@ export const jsonc: FlatESLintConfig[] = [
   },
 ]
 
-export const jsonOrder: FlatESLintConfig[] = [
+export const jsonOrder: FlatESLintConfigItem[] = [
   {
     files: ['**/package.json'],
     rules: {

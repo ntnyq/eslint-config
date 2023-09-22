@@ -1,46 +1,42 @@
 /**
  * @file presets
  */
+
 import {
   astro,
-  eslintComments,
+  comments,
+  ignores,
   imports,
-  js,
+  javascript,
   jsonOrder,
   jsonc,
   jsx,
   markdown,
   prettier,
   react,
-  ts,
+  typescript,
   unicorn,
   unocss,
   vue,
   yml,
 } from './configs'
-import { GLOB_EXCLUDE } from './shared'
-import type { FlatESLintConfig } from 'eslint-define-config'
-
-/**
- * @see https://eslint.org/docs/latest/use/configure/configuration-files-new#globally-ignoring-files-with-ignores
- */
-const GLOBAL_IGNORE = { ignores: GLOB_EXCLUDE }
+import type { FlatESLintConfigItem } from 'eslint-define-config'
 
 /**
  * only js and ts
  */
-export const basic: FlatESLintConfig[] = [
-  GLOBAL_IGNORE,
-  ...js,
+export const basic: FlatESLintConfigItem[] = [
+  ...ignores,
+  ...javascript,
   ...jsx,
-  ...ts,
+  ...typescript,
   ...imports,
   ...unicorn,
-  ...eslintComments,
+  ...comments,
 ]
 
 // no framework
-export const common: FlatESLintConfig[] = [
+export const common: FlatESLintConfigItem[] = [
   ...basic,
   ...yml,
   ...jsonc,
@@ -52,13 +48,13 @@ export const common: FlatESLintConfig[] = [
 /**
  * all supported framework
  */
-export const all: FlatESLintConfig[] = [...common, ...vue, ...react, ...astro, ...unocss]
+export const all: FlatESLintConfigItem[] = [...common, ...vue, ...react, ...astro, ...unocss]
 
 /**
  * custom framework support
  */
 export function ntnyq(
-  config: FlatESLintConfig | FlatESLintConfig[] = [],
+  config: FlatESLintConfigItem | FlatESLintConfigItem[] = [],
   {
     vue: enableVue = false,
     react: enableReact = false,
@@ -66,7 +62,7 @@ export function ntnyq(
     unocss: enableUnoCSS = false,
   } = {},
 ) {
-  const configs: FlatESLintConfig[] = [...common]
+  const configs: FlatESLintConfigItem[] = [...common]
 
   if (enableVue) {
     configs.push(...vue)
