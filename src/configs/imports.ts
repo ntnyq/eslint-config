@@ -17,6 +17,7 @@ export const imports: FlatESLintConfigItem[] = [
       'import/no-named-as-default-member': 'off',
 
       'import/first': 'error',
+      'import/export': 'error',
       'import/no-duplicates': 'error',
       'import/no-mutable-exports': 'error',
       'import/newline-after-import': 'error',

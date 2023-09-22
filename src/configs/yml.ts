@@ -16,6 +16,7 @@ export const yml: FlatESLintConfigItem[] = [
       ...(pluginYml.configs.standard.rules as Rules),
       ...(pluginYml.configs.prettier.rules as Rules),
       'yml/no-empty-mapping-value': 'off',
+      'yml/quotes': ['error', { avoidEscape: false, prefer: 'single' }],
     },
   },
 ]

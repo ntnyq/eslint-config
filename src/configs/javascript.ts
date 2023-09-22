@@ -15,7 +15,7 @@ export const javascript: FlatESLintConfigItem[] = [
     },
 
     rules: {
-      // standard v 17.0.0
+      // standard v17.0.0
       'accessor-pairs': ['error', { setWithoutGet: true, enforceForClassMembers: true }],
       'array-bracket-spacing': ['error', 'never'],
       'arrow-spacing': ['error', { before: true, after: true }],

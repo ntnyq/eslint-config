@@ -2,6 +2,7 @@
  * @file eslint plugins
  */
 
+import * as _pluginNode from 'eslint-plugin-n'
 import * as _pluginVue from 'eslint-plugin-vue'
 import * as _pluginReact from 'eslint-plugin-react'
 import * as _pluginUnoCSS from '@unocss/eslint-plugin'
@@ -17,6 +18,7 @@ function interopDefault(mod: any) {
 }
 
 export const pluginVue = interopDefault(_pluginVue)
+export const pluginNode = interopDefault(_pluginNode)
 export const pluginReact = interopDefault(_pluginReact)
 export const pluginUnoCSS = interopDefault(_pluginUnoCSS)
 export const pluginUnicorn = interopDefault(_pluginUnicorn)
@@ -34,4 +36,4 @@ export * as pluginYml from 'eslint-plugin-yml'
 export * as pluginAstro from 'eslint-plugin-astro'
 
 export * as pluginJsonc from 'eslint-plugin-jsonc'
-export * as pluginImport from 'eslint-plugin-import'
+export * as pluginImport from 'eslint-plugin-i'
