@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
     "lib": ["ES2022"],
-    "strict": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "types": ["node"],
     "esModuleInterop": true,
-    "moduleResolution": "bundler",
-    "skipLibCheck": true,
-    "noUnusedLocals": true,
-    "types": ["node"]
+    "strict": true,
+    "skipLibCheck": true
   },
   "include": ["./src/**/*.ts", "./tsup.config.ts"]
 }

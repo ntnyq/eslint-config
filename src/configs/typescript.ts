@@ -1,6 +1,6 @@
 import { GLOB_TS, GLOB_TSX } from '../shared'
 import { parserTypescript } from '../parsers'
-import { pluginTypescript } from '../plugins'
+import { pluginTypeScript } from '../plugins'
 import type { FlatESLintConfigItem } from 'eslint-define-config'
 
 export const typescript: FlatESLintConfigItem[] = [
@@ -13,11 +13,11 @@ export const typescript: FlatESLintConfigItem[] = [
       },
     },
     plugins: {
-      '@typescript-eslint': pluginTypescript,
+      '@typescript-eslint': pluginTypeScript,
     },
     rules: {
-      ...pluginTypescript.configs.recommended.rules,
-      ...pluginTypescript.configs.stylistic.rules,
+      ...pluginTypeScript.configs.recommended.rules,
+      ...pluginTypeScript.configs.stylistic.rules,
 
       '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/no-redeclare': 'error',

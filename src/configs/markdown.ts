@@ -1,5 +1,5 @@
 import { GLOB_MARKDOWN, GLOB_SRC, GLOB_VUE } from '../shared'
-import { pluginMarkdown, pluginTypescript } from '../plugins'
+import { pluginMarkdown, pluginTypeScript } from '../plugins'
 import type { FlatESLintConfigItem } from 'eslint-define-config'
 
 export const markdown: FlatESLintConfigItem[] = [
@@ -20,7 +20,7 @@ export const markdown: FlatESLintConfigItem[] = [
       },
     },
     plugins: {
-      '@typescript-eslint': pluginTypescript,
+      '@typescript-eslint': pluginTypeScript,
     },
     rules: {
       ...pluginMarkdown.configs.recommended.overrides[1].rules,

@@ -6,6 +6,8 @@ declare module '@eslint/js'
 
 declare module 'eslint-config-prettier'
 
+declare module 'eslint-plugin-i'
+declare module 'eslint-plugin-n'
 declare module 'eslint-plugin-vue'
 declare module 'eslint-plugin-import'
 declare module 'eslint-plugin-unicorn'

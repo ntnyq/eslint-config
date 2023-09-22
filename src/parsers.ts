@@ -2,8 +2,8 @@
  * @file eslint parsers
  */
 
-export * as parserYml from 'yaml-eslint-parser'
-export * as parserVue from 'vue-eslint-parser'
-export * as parserJsonc from 'jsonc-eslint-parser'
-export * as parserAstro from 'astro-eslint-parser'
-export * as parserTypescript from '@typescript-eslint/parser'
+export { default as parserYml } from 'yaml-eslint-parser'
+export { default as parserVue } from 'vue-eslint-parser'
+export { default as parserJsonc } from 'jsonc-eslint-parser'
+export { default as parserAstro } from 'astro-eslint-parser'
+export { default as parserTypescript } from '@typescript-eslint/parser'
