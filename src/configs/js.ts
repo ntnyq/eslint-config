@@ -418,7 +418,7 @@ export const imports: FlatESLintConfig[] = [
             'type',
           ],
           'newlines-between': 'never',
-          pathGroups: [{ pattern: '@/**', group: 'internal' }],
+          pathGroups: [{ pattern: '{{@,~}/,#}**', group: 'internal' }],
           pathGroupsExcludedImportTypes: ['type'],
         },
       ],

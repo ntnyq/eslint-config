@@ -31,6 +31,13 @@ export const ts: FlatESLintConfig[] = [
           disallowTypeAnnotations: false,
         },
       ],
+      '@typescript-eslint/consistent-type-assertions': [
+        'error',
+        {
+          assertionStyle: 'as',
+          objectLiteralTypeAssertions: 'allow-as-parameter',
+        },
+      ],
       '@typescript-eslint/prefer-as-const': 'warn',
 
       '@typescript-eslint/ban-types': 'off',
