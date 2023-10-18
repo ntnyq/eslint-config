@@ -1,12 +1,14 @@
 /**
- * @file eslint plugins
+ * @file plugins & parsers
  */
 
+// @ts-nocheck
+
+export * as pluginYaml from 'eslint-plugin-yml'
+export * as pluginAstro from 'eslint-plugin-astro'
 export { default as pluginNode } from 'eslint-plugin-n'
 export { default as pluginImport } from 'eslint-plugin-i'
-export { default as pluginYml } from 'eslint-plugin-yml'
 export { default as pluginVue } from 'eslint-plugin-vue'
-export { default as pluginAstro } from 'eslint-plugin-astro'
 export { default as pluginJsonc } from 'eslint-plugin-jsonc'
 export { default as pluginReact } from 'eslint-plugin-react'
 export { default as pluginUnoCSS } from '@unocss/eslint-plugin'
@@ -15,4 +17,10 @@ export { default as pluginPrettier } from 'eslint-plugin-prettier'
 export { default as pluginMarkdown } from 'eslint-plugin-markdown'
 export { default as pluginReactHooks } from 'eslint-plugin-react-hooks'
 export { default as pluginComments } from 'eslint-plugin-eslint-comments'
-export { default as pluginTypeScript } from '@typescript-eslint/eslint-plugin'
+export { default as pluginTs } from '@typescript-eslint/eslint-plugin'
+
+export { default as parserYaml } from 'yaml-eslint-parser'
+export { default as parserVue } from 'vue-eslint-parser'
+export { default as parserJsonc } from 'jsonc-eslint-parser'
+export { default as parserAstro } from 'astro-eslint-parser'
+export * as parserTs from '@typescript-eslint/parser'

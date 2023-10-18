@@ -15,9 +15,6 @@
     "typescriptreact"
   ],
   "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
   "eslint.experimental.useFlatConfig": true,
   "eslint.options": {
     "overrideConfigFile": "./eslint.config.mjs"
@@ -31,6 +28,7 @@
     "iife",
     "jsdelivr",
     "lockb",
+    "nocheck",
     "npmrc",
     "nuxt",
     "pnpm",

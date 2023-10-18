@@ -1,5 +1,4 @@
-import { pluginYml } from '../plugins'
-import { parserYml } from '../parsers'
+import { parserYaml, pluginYaml } from '../plugins'
 import { GLOB_YAML } from '../shared'
 import type { FlatESLintConfigItem, Rules } from 'eslint-define-config'
 
@@ -7,14 +6,14 @@ export const yml: FlatESLintConfigItem[] = [
   {
     files: [GLOB_YAML],
     languageOptions: {
-      parser: parserYml,
+      parser: parserYaml,
     },
     plugins: {
-      yml: pluginYml,
+      yml: pluginYaml as any,
     },
     rules: {
-      ...(pluginYml.configs.standard.rules as Rules),
-      ...(pluginYml.configs.prettier.rules as Rules),
+      ...(pluginYaml.configs.standard.rules as Rules),
+      ...(pluginYaml.configs.prettier.rules as Rules),
       'yml/no-empty-mapping-value': 'off',
       'yml/quotes': ['error', { avoidEscape: false, prefer: 'single' }],
     },

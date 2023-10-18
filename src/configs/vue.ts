@@ -1,8 +1,7 @@
 import process from 'node:process'
 import { getPackageInfoSync } from 'local-pkg'
 import { GLOB_VUE } from '../shared'
-import { parserVue } from '../parsers'
-import { pluginTypeScript, pluginVue } from '../plugins'
+import { parserVue, pluginTs, pluginVue } from '../plugins'
 import { typescript } from './typescript'
 import type { FlatESLintConfigItem, Rules } from 'eslint-define-config'
 
@@ -30,7 +29,7 @@ export const vue: FlatESLintConfigItem[] = [
     files: [GLOB_VUE],
     plugins: {
       vue: pluginVue,
-      '@typescript-eslint': pluginTypeScript,
+      '@typescript-eslint': pluginTs as any,
     },
     languageOptions: {
       parser: parserVue,

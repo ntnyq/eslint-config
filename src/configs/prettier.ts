@@ -9,7 +9,7 @@ export const prettier: FlatESLintConfigItem[] = [
     },
     rules: {
       ...prettierConfig.rules,
-      ...pluginPrettier.configs.recommended.rules,
+      ...(pluginPrettier.configs!.recommended as FlatESLintConfigItem).rules,
       'prettier/prettier': 'warn',
     },
   },

@@ -1,23 +1,22 @@
 import { GLOB_TS, GLOB_TSX } from '../shared'
-import { parserTypescript } from '../parsers'
-import { pluginTypeScript } from '../plugins'
+import { parserTs, pluginTs } from '../plugins'
 import type { FlatESLintConfigItem } from 'eslint-define-config'
 
 export const typescript: FlatESLintConfigItem[] = [
   {
     files: [GLOB_TS, GLOB_TSX],
     languageOptions: {
-      parser: parserTypescript,
+      parser: parserTs,
       parserOptions: {
         sourceType: 'module',
       },
     },
     plugins: {
-      '@typescript-eslint': pluginTypeScript,
+      '@typescript-eslint': pluginTs as any,
     },
     rules: {
-      ...pluginTypeScript.configs.recommended.rules,
-      ...pluginTypeScript.configs.stylistic.rules,
+      ...pluginTs.configs.recommended.rules,
+      ...pluginTs.configs.stylistic.rules,
 
       '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/no-redeclare': 'error',

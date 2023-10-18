@@ -1,5 +1,4 @@
-import { pluginJsonc } from '../plugins'
-import { parserJsonc } from '../parsers'
+import { parserJsonc, pluginJsonc } from '../plugins'
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../shared'
 import type { FlatESLintConfigItem, Rules } from 'eslint-define-config'
 
@@ -7,7 +6,7 @@ export const jsonc: FlatESLintConfigItem[] = [
   {
     files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC, '**/*rc'],
     plugins: {
-      jsonc: pluginJsonc,
+      jsonc: pluginJsonc as any,
     },
     languageOptions: {
       parser: parserJsonc,
