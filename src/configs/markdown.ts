@@ -1,8 +1,8 @@
+import { defineFlatConfig } from 'eslint-define-config'
 import { GLOB_MARKDOWN, GLOB_SRC, GLOB_VUE } from '../shared'
 import { pluginMarkdown, pluginTs } from '../plugins'
-import type { FlatESLintConfigItem } from 'eslint-define-config'
 
-export const markdown: FlatESLintConfigItem[] = [
+export const markdown = defineFlatConfig([
   {
     files: [GLOB_MARKDOWN],
     plugins: {
@@ -44,4 +44,4 @@ export const markdown: FlatESLintConfigItem[] = [
       'unused-imports/no-unused-vars': 'off',
     },
   },
-]
+])

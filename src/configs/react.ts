@@ -1,8 +1,8 @@
+import { defineFlatConfig } from 'eslint-define-config'
 import { GLOB_JSX, GLOB_TSX } from '../shared'
 import { pluginReact, pluginReactHooks } from '../plugins'
-import type { FlatESLintConfigItem } from 'eslint-define-config'
 
-export const react: FlatESLintConfigItem[] = [
+export const react = defineFlatConfig([
   {
     files: [GLOB_JSX, GLOB_TSX],
     plugins: {
@@ -28,4 +28,4 @@ export const react: FlatESLintConfigItem[] = [
       'react/react-in-jsx-scope': 'off',
     },
   },
-]
+])

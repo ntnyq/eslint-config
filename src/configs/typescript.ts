@@ -1,8 +1,8 @@
+import { defineFlatConfig } from 'eslint-define-config'
 import { GLOB_TS, GLOB_TSX } from '../shared'
 import { parserTs, pluginTs } from '../plugins'
-import type { FlatESLintConfigItem } from 'eslint-define-config'
 
-export const typescript: FlatESLintConfigItem[] = [
+export const typescript = defineFlatConfig([
   {
     files: [GLOB_TS, GLOB_TSX],
     languageOptions: {
@@ -78,4 +78,4 @@ export const typescript: FlatESLintConfigItem[] = [
       '@typescript-eslint/no-var-requires': 'off',
     },
   },
-]
+])

@@ -1,7 +1,7 @@
+import { defineFlatConfig } from 'eslint-define-config'
 import { pluginUnicorn } from '../plugins'
-import type { FlatESLintConfigItem } from 'eslint-define-config'
 
-export const unicorn: FlatESLintConfigItem[] = [
+export const unicorn = defineFlatConfig([
   {
     plugins: {
       unicorn: pluginUnicorn,
@@ -78,4 +78,4 @@ export const unicorn: FlatESLintConfigItem[] = [
       'unicorn/prefer-array-index-of': 'error',
     },
   },
-]
+])

@@ -1,11 +1,11 @@
+import { defineFlatConfig } from 'eslint-define-config'
 import { GLOB_EXCLUDE } from '../shared'
-import type { FlatESLintConfigItem } from 'eslint-define-config'
 
 /**
  * @see https://eslint.org/docs/latest/use/configure/configuration-files-new#globally-ignoring-files-with-ignores
  */
-export const ignores: FlatESLintConfigItem[] = [
+export const ignores = defineFlatConfig([
   {
     ignores: GLOB_EXCLUDE,
   },
-]
+])

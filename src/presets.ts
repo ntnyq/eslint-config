@@ -2,6 +2,7 @@
  * @file presets
  */
 
+import { defineFlatConfig } from 'eslint-define-config'
 import {
   astro,
   comments,
@@ -22,12 +23,12 @@ import {
   vue,
   yml,
 } from './configs'
-import type { FlatESLintConfigItem } from 'eslint-define-config'
+import type { FlatESLintConfig } from 'eslint-define-config'
 
 /**
  * only js and ts
  */
-export const basic: FlatESLintConfigItem[] = [
+export const basic = defineFlatConfig([
   ...ignores,
   ...javascript,
   ...jsx,
@@ -36,10 +37,10 @@ export const basic: FlatESLintConfigItem[] = [
   ...imports,
   ...unicorn,
   ...comments,
-]
+])
 
 // no framework
-export const common: FlatESLintConfigItem[] = [
+export const common = defineFlatConfig([
   ...basic,
   ...yml,
   ...jsonc,
@@ -47,18 +48,18 @@ export const common: FlatESLintConfigItem[] = [
   ...sortTsConfig,
   ...prettier,
   ...markdown,
-]
+])
 
 /**
  * all supported framework
  */
-export const all: FlatESLintConfigItem[] = [...common, ...vue, ...react, ...astro, ...unocss]
+export const all = defineFlatConfig([...common, ...vue, ...react, ...astro, ...unocss])
 
 /**
  * custom framework support
  */
 export function ntnyq(
-  config: FlatESLintConfigItem | FlatESLintConfigItem[] = [],
+  config: FlatESLintConfig | FlatESLintConfig[] = [],
   {
     vue: enableVue = false,
     react: enableReact = false,
@@ -66,7 +67,7 @@ export function ntnyq(
     unocss: enableUnoCSS = false,
   } = {},
 ) {
-  const configs: FlatESLintConfigItem[] = [...common]
+  const configs = defineFlatConfig([...common])
 
   if (enableVue) {
     configs.push(...vue)

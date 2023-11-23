@@ -1,6 +1,6 @@
-import type { FlatESLintConfigItem } from 'eslint-define-config'
+import { defineFlatConfig } from 'eslint-define-config'
 
-export const sortPackageJson: FlatESLintConfigItem[] = [
+export const sortPackageJson = defineFlatConfig([
   {
     files: ['**/package.json'],
     rules: {
@@ -77,9 +77,9 @@ export const sortPackageJson: FlatESLintConfigItem[] = [
       ],
     },
   },
-]
+])
 
-export const sortTsConfig: FlatESLintConfigItem[] = [
+export const sortTsConfig = defineFlatConfig([
   {
     files: ['**/tsconfig.json', '**/tsconfig.*.json'],
     rules: {
@@ -193,4 +193,4 @@ export const sortTsConfig: FlatESLintConfigItem[] = [
       ],
     },
   },
-]
+])

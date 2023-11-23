@@ -1,9 +1,10 @@
 import process from 'node:process'
 import { getPackageInfoSync } from 'local-pkg'
+import { defineFlatConfig } from 'eslint-define-config'
 import { GLOB_VUE } from '../shared'
 import { parserVue, pluginTs, pluginVue } from '../plugins'
 import { typescript } from './typescript'
-import type { FlatESLintConfigItem, Rules } from 'eslint-define-config'
+import type { FlatESLintConfig } from 'eslint-define-config'
 
 export function getVueVersion() {
   const pkg = getPackageInfoSync('vue', { paths: [process.cwd()] })
@@ -14,17 +15,17 @@ export function getVueVersion() {
 }
 const isVue3 = getVueVersion() === 3
 
-const vueBaseRules: Rules = {}
+const vueBaseRules: FlatESLintConfig['rules'] = {}
 
-const vue2Rules: Rules = {
+const vue2Rules: FlatESLintConfig['rules'] = {
   ...vueBaseRules,
 }
 
-const vue3Rules: Rules = {
+const vue3Rules: FlatESLintConfig['rules'] = {
   ...vueBaseRules,
 }
 
-export const vue: FlatESLintConfigItem[] = [
+export const vue = defineFlatConfig([
   {
     files: [GLOB_VUE],
     plugins: {
@@ -53,4 +54,4 @@ export const vue: FlatESLintConfigItem[] = [
     },
     rules: isVue3 ? vue3Rules : vue2Rules,
   },
-]
+])

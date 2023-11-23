@@ -1,8 +1,9 @@
+import { defineFlatConfig } from 'eslint-define-config'
 import { parserJsonc, pluginJsonc } from '../plugins'
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../shared'
-import type { FlatESLintConfigItem, Rules } from 'eslint-define-config'
+import type { Rules } from 'eslint-define-config'
 
-export const jsonc: FlatESLintConfigItem[] = [
+export const jsonc = defineFlatConfig([
   {
     files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC, '**/*rc'],
     plugins: {
@@ -12,7 +13,7 @@ export const jsonc: FlatESLintConfigItem[] = [
       parser: parserJsonc,
     },
     rules: {
-      ...(pluginJsonc.configs['recommended-with-jsonc'].rules as Rules),
+      ...(pluginJsonc.configs['recommended-with-jsonc'].rules as unknown as Rules),
       'jsonc/array-bracket-spacing': ['error', 'never'],
       'jsonc/comma-dangle': ['error', 'never'],
       'jsonc/comma-style': ['error', 'last'],
@@ -41,4 +42,4 @@ export const jsonc: FlatESLintConfigItem[] = [
       ],
     },
   },
-]
+])

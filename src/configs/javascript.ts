@@ -1,8 +1,8 @@
 import globals from 'globals'
 import jsConfig from '@eslint/js'
-import type { FlatESLintConfigItem } from 'eslint-define-config'
+import { defineFlatConfig } from 'eslint-define-config'
 
-export const javascript: FlatESLintConfigItem[] = [
+export const javascript = defineFlatConfig([
   jsConfig.configs.recommended,
   {
     languageOptions: {
@@ -368,9 +368,9 @@ export const javascript: FlatESLintConfigItem[] = [
       'max-lines-per-function': 'off',
     },
   },
-]
+])
 
-export const jsx: FlatESLintConfigItem[] = [
+export const jsx = defineFlatConfig([
   {
     files: ['**/*.jsx'],
     languageOptions: {
@@ -381,4 +381,4 @@ export const jsx: FlatESLintConfigItem[] = [
       },
     },
   },
-]
+])

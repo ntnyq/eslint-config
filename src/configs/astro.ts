@@ -1,8 +1,9 @@
+import { defineFlatConfig } from 'eslint-define-config'
 import { parserAstro, pluginAstro } from '../plugins'
 import { GLOB_ASTRO } from '../shared'
-import type { FlatESLintConfigItem, Rules } from 'eslint-define-config'
+import type { Rules } from 'eslint-define-config'
 
-export const astro: FlatESLintConfigItem[] = [
+export const astro = defineFlatConfig([
   {
     files: [GLOB_ASTRO],
     plugins: {
@@ -16,7 +17,7 @@ export const astro: FlatESLintConfigItem[] = [
       },
     },
     rules: {
-      ...(pluginAstro.configs.recommended.rules as Rules),
+      ...(pluginAstro.configs.recommended.rules as unknown as Rules),
     },
   },
-]
+])

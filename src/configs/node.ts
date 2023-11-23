@@ -1,7 +1,7 @@
+import { defineFlatConfig } from 'eslint-define-config'
 import { pluginNode } from '../plugins'
-import type { FlatESLintConfigItem } from 'eslint-define-config'
 
-export const node: FlatESLintConfigItem[] = [
+export const node = defineFlatConfig([
   {
     plugins: {
       node: pluginNode,
@@ -17,4 +17,4 @@ export const node: FlatESLintConfigItem[] = [
       'node/process-exit-as-throw': 'error',
     },
   },
-]
+])

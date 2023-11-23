@@ -1,7 +1,7 @@
+import { defineFlatConfig } from 'eslint-define-config'
 import { pluginComments } from '../plugins'
-import type { FlatESLintConfigItem } from 'eslint-define-config'
 
-export const comments: FlatESLintConfigItem[] = [
+export const comments = defineFlatConfig([
   {
     plugins: {
       'eslint-comments': pluginComments,
@@ -11,4 +11,4 @@ export const comments: FlatESLintConfigItem[] = [
       'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
     },
   },
-]
+])
