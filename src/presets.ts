@@ -4,7 +4,6 @@
 
 import { defineFlatConfig } from 'eslint-define-config'
 import {
-  astro,
   comments,
   ignores,
   imports,
@@ -14,7 +13,6 @@ import {
   markdown,
   node,
   prettier,
-  react,
   sortPackageJson,
   sortTsConfig,
   typescript,
@@ -53,30 +51,19 @@ export const common = defineFlatConfig([
 /**
  * all supported framework
  */
-export const all = defineFlatConfig([...common, ...vue, ...react, ...astro, ...unocss])
+export const all = defineFlatConfig([...common, ...vue, ...unocss])
 
 /**
  * custom framework support
  */
 export function ntnyq(
   config: FlatESLintConfig | FlatESLintConfig[] = [],
-  {
-    vue: enableVue = false,
-    react: enableReact = false,
-    astro: enableAstro = false,
-    unocss: enableUnoCSS = false,
-  } = {},
+  { vue: enableVue = false, unocss: enableUnoCSS = false } = {},
 ) {
   const configs = defineFlatConfig([...common])
 
   if (enableVue) {
     configs.push(...vue)
-  }
-  if (enableReact) {
-    configs.push(...react)
-  }
-  if (enableAstro) {
-    configs.push(...astro)
   }
   if (enableUnoCSS) {
     configs.push(...unocss)
