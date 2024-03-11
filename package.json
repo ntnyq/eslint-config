@@ -37,7 +37,7 @@
   "scripts": {
     "build": "tsup",
     "clean": "rimraf dist",
-    "lint": "ESLINT_USE_FLAT_CONFIG=true eslint -c eslint.config.mjs .",
+    "lint": "eslint .",
     "prepare": "husky",
     "release": "run-s release:check release:version",
     "release:check": "run-s clean build lint typecheck",
@@ -48,23 +48,23 @@
     "access": "public"
   },
   "peerDependencies": {
-    "eslint": "^8.50.0"
+    "eslint": "^8.57.0"
   },
   "dependencies": {
-    "@eslint/js": "^8.56.0",
-    "@typescript-eslint/eslint-plugin": "^7.0.1",
-    "@typescript-eslint/parser": "^7.0.1",
+    "@eslint/js": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
     "@unocss/eslint-plugin": "^0.58.5",
     "eslint-config-prettier": "^9.1.0",
     "eslint-define-config": "^2.1.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-i": "^2.29.1",
     "eslint-plugin-jsonc": "^2.13.0",
-    "eslint-plugin-markdown": "^3.0.1",
+    "eslint-plugin-markdown": "^4.0.1",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-unicorn": "^51.0.1",
-    "eslint-plugin-vue": "^9.21.1",
+    "eslint-plugin-vue": "^9.22.0",
     "eslint-plugin-yml": "^1.12.2",
     "globals": "^14.0.0",
     "jsonc-eslint-parser": "^2.4.0",
@@ -75,15 +75,15 @@
   },
   "devDependencies": {
     "@ntnyq/prettier-config": "^1.20.3",
-    "@types/node": "^20.11.19",
-    "bumpp": "^9.3.0",
-    "eslint": "^8.56.0",
+    "@types/node": "^20.11.25",
+    "bumpp": "^9.4.0",
+    "eslint": "^8.57.0",
     "husky": "^9.0.11",
     "nano-staged": "^0.8.0",
     "npm-run-all": "^4.1.5",
     "rimraf": "^5.0.5",
     "tsup": "^8.0.2",
-    "typescript": "5.2.2"
+    "typescript": "^5.4.2"
   },
   "engines": {
     "node": ">=18.18"

@@ -20,10 +20,10 @@ export const markdown = defineFlatConfig([
       },
     },
     plugins: {
-      '@typescript-eslint': pluginTs as any,
+      '@typescript-eslint': pluginTs,
     },
     rules: {
-      ...pluginMarkdown.configs.recommended.overrides[1].rules,
+      ...pluginMarkdown.configs['recommended-legacy'].overrides[1].rules,
       'no-undef': 'off',
       'no-alert': 'off',
       'no-console': 'off',
