@@ -60,11 +60,16 @@ export const GLOB_EXCLUDE = [
 
   '**/output',
   '**/coverage',
+
   '**/temp',
   '**/cache',
+
   '**/fixtures',
+
   '**/.vitepress/cache',
   '**/.nuxt',
+  '**/.output',
+  '**/.nitro',
   '**/.vercel',
   '**/.changeset',
   '**/.npmrc',
