@@ -9,6 +9,7 @@ import {
   ignores,
   imports,
   javascript,
+  jsdoc,
   jsonc,
   jsx,
   markdown,
@@ -29,12 +30,13 @@ import type { FlatESLintConfig } from 'eslint-define-config'
  */
 export const presetJavaScript = [
   ...ignores,
-  ...javascript,
+  ...jsdoc,
   ...jsx,
   ...node,
   ...imports,
   ...unicorn,
   ...comments,
+  ...javascript,
 ]
 
 /**
@@ -61,7 +63,7 @@ export const presetCommon = [...presetBasic, ...presetLanguageExtensions, ...pre
 export const presetAll = [...presetCommon, ...vue, ...unocss]
 
 /**
- * custom framework support
+ * Custom framework support
  */
 export function ntnyq(
   config: FlatESLintConfig | FlatESLintConfig[] = [],

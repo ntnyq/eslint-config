@@ -56,8 +56,12 @@ export const sortPackageJson = defineFlatConfig([
           ],
         },
         {
-          pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies$',
+          pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$',
           order: { type: 'asc' },
+        },
+        {
+          order: { type: 'asc' },
+          pathPattern: '^(?:resolutions|overrides|pnpm.overrides)$',
         },
         {
           pathPattern: '^exports.*$',
@@ -66,6 +70,22 @@ export const sortPackageJson = defineFlatConfig([
         {
           pathPattern: '^scripts$',
           order: { type: 'asc' },
+        },
+        {
+          order: [
+            // client hooks only
+            'pre-commit',
+            'prepare-commit-msg',
+            'commit-msg',
+            'post-commit',
+            'pre-rebase',
+            'post-rewrite',
+            'post-checkout',
+            'post-merge',
+            'pre-push',
+            'pre-auto-gc',
+          ],
+          pathPattern: '^(?:gitHooks|husky|simple-git-hooks)$',
         },
       ],
       'jsonc/sort-array-values': [

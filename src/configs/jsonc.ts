@@ -7,7 +7,7 @@ export const jsonc = defineFlatConfig([
   {
     files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC, '**/*rc'],
     plugins: {
-      jsonc: pluginJsonc as any,
+      jsonc: pluginJsonc,
     },
     languageOptions: {
       parser: parserJsonc,

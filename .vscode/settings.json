@@ -16,6 +16,7 @@
   "eslint.experimental.useFlatConfig": true,
   "cSpell.words": [
     "antfu",
+    "attributify",
     "bumpp",
     "changelogithub",
     "ependencies",

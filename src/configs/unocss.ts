@@ -4,10 +4,12 @@ import { pluginUnoCSS } from '../plugins'
 export const unocss = defineFlatConfig([
   {
     plugins: {
-      '@unocss': pluginUnoCSS,
+      unocss: pluginUnoCSS,
     },
     rules: {
-      ...pluginUnoCSS.configs.recommended.rules,
+      'unocss/order': 'error',
+      // We don't use this
+      'unocss/order-attributify': 'off',
     },
   },
 ])
