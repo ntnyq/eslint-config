@@ -41,14 +41,14 @@
     "prepare": "husky",
     "release": "run-s release:check release:version",
     "release:check": "run-s clean build lint typecheck",
-    "release:version": "bumpp && npm publish --tag next",
+    "release:version": "bumpp && npm publish",
     "typecheck": "tsc --noEmit"
   },
   "publishConfig": {
     "access": "public"
   },
   "peerDependencies": {
-    "eslint": "^8.57.0"
+    "eslint": "^9.0.0"
   },
   "dependencies": {
     "@eslint/js": "^9.1.1",

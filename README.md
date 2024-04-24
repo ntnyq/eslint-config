@@ -3,23 +3,22 @@
 > Flat ESLint config for JavaScript, TypeScript, Vue 2, Vue 3, Prettier.
 
 [![CI](https://github.com/ntnyq/eslint-config/workflows/CI/badge.svg)](https://github.com/ntnyq/eslint-config/actions)
-[![NPM VERSION](https://img.shields.io/npm/v/@ntnyq/eslint-config/next.svg)](https://www.npmjs.com/package/@ntnyq/eslint-config/v/next)
+[![NPM VERSION](https://img.shields.io/npm/v/@ntnyq/eslint-config/latest.svg)](https://www.npmjs.com/package/@ntnyq/eslint-config/v/latest)
 
 ## Install
 
 ```bash
-pnpm add @ntnyq/eslint-config@next eslint-define-config -D
+pnpm add @ntnyq/eslint-config -D
 ```
 
 ## Usage
 
-Config in `eslint.config.js`:
+Config in `eslint.config.{[cm]?js}`:
 
 ```js
-import { defineFlatConfig } from 'eslint-define-config'
-import { all } from '@ntnyq/eslint-config'
+import { ntnyq } from '@ntnyq/eslint-config'
 
-export default defineFlatConfig(all)
+export default ntnyq()
 ```
 
 Make sure to config `"eslint.experimental.useFlatConfig": true` in `.vscode/settings.json`
