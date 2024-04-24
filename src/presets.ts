@@ -3,6 +3,7 @@
  */
 
 import { defineFlatConfig } from 'eslint-define-config'
+import { hasUnoCSS, hasVue } from './env'
 import {
   comments,
   ignores,
@@ -24,49 +25,66 @@ import {
 import type { FlatESLintConfig } from 'eslint-define-config'
 
 /**
- * only js and ts
+ * JavaScript preset
  */
-export const basic = defineFlatConfig([
+export const presetJavaScript = [
   ...ignores,
   ...javascript,
   ...jsx,
   ...node,
-  ...typescript,
   ...imports,
   ...unicorn,
   ...comments,
-])
-
-// no framework
-export const common = defineFlatConfig([
-  ...basic,
-  ...yml,
-  ...jsonc,
-  ...sortPackageJson,
-  ...sortTsConfig,
-  ...prettier,
-  ...markdown,
-])
+]
 
 /**
- * all supported framework
+ * JavaScript & TypeScript
  */
-export const all = defineFlatConfig([...common, ...vue, ...unocss])
+export const presetBasic = [...presetJavaScript, ...typescript]
+
+/**
+ * JSON and sort json keys
+ */
+export const presetJsonc = [...jsonc, ...sortPackageJson, ...sortTsConfig]
+
+/**
+ * JSON YAML Markdown
+ */
+export const presetLanguageExtensions = [...presetJsonc, ...yml, ...markdown]
+
+// No framework
+export const presetCommon = [...presetBasic, ...presetLanguageExtensions, ...prettier]
+
+/**
+ * All supported framework
+ */
+export const presetAll = [...presetCommon, ...vue, ...unocss]
 
 /**
  * custom framework support
  */
 export function ntnyq(
   config: FlatESLintConfig | FlatESLintConfig[] = [],
-  { vue: enableVue = false, unocss: enableUnoCSS = false } = {},
+  {
+    vue: enableVue = hasVue,
+    unocss: enableUnoCSS = hasUnoCSS,
+    prettier: enablePrettier = true,
+    markdown: enableMarkdown = true,
+  } = {},
 ) {
-  const configs = defineFlatConfig([...common])
+  const configs = defineFlatConfig([...presetBasic, ...yml, ...presetJsonc])
 
   if (enableVue) {
     configs.push(...vue)
   }
   if (enableUnoCSS) {
     configs.push(...unocss)
+  }
+  if (enablePrettier) {
+    configs.push(...prettier)
+  }
+  if (enableMarkdown) {
+    configs.push(...markdown)
   }
 
   if (Object.keys(config).length > 0) {
