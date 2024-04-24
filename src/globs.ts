@@ -1,5 +1,5 @@
 /**
- * @file shared constants
+ * @file globs constants
  */
 
 export const GLOB_SRC_EXT = '?([cm])[jt]s?(x)'
@@ -58,20 +58,33 @@ export const GLOB_EXCLUDE = [
   '**/auto-import?(s).d.ts',
   '**/components.d.ts',
 
-  '**/output',
   '**/coverage',
+  '**/fixtures',
+
+  '**/output',
+  '**/public',
+  '**/static',
 
   '**/temp',
   '**/cache',
 
-  '**/fixtures',
-
   '**/.vitepress/cache',
+  '**/.eslintcache',
+  '**/.stylelintcache',
+
+  '**/.vite-inspect',
   '**/.nuxt',
   '**/.output',
+  '**/.tsup',
   '**/.nitro',
   '**/.vercel',
   '**/.changeset',
   '**/.npmrc',
   '**/.yarnrc',
+
+  // Force lint
+  '!.github',
+  '!.vitepress',
+  '!.vuepress',
+  '!.vscode',
 ]

@@ -1,6 +1,6 @@
 import { defineFlatConfig } from 'eslint-define-config'
 import { parserYaml, pluginYaml } from '../plugins'
-import { GLOB_YAML } from '../shared'
+import { GLOB_YAML } from '../globs'
 import type { Rules } from 'eslint-define-config'
 
 export const yml = defineFlatConfig([

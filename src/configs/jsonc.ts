@@ -1,6 +1,6 @@
 import { defineFlatConfig } from 'eslint-define-config'
 import { parserJsonc, pluginJsonc } from '../plugins'
-import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../shared'
+import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs'
 import type { Rules } from 'eslint-define-config'
 
 export const jsonc = defineFlatConfig([
