@@ -4,7 +4,7 @@ import { pluginUnoCSS } from '../plugins'
 export const unocss = defineFlatConfig([
   {
     plugins: {
-      unocss: pluginUnoCSS,
+      unocss: pluginUnoCSS as any,
     },
     rules: {
       'unocss/order': 'error',

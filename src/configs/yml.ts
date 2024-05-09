@@ -10,7 +10,7 @@ export const yml = defineFlatConfig([
       parser: parserYaml,
     },
     plugins: {
-      yml: pluginYaml,
+      yml: pluginYaml as any,
     },
     rules: {
       ...(pluginYaml.configs.standard.rules as unknown as Rules),

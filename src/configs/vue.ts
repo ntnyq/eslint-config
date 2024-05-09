@@ -39,7 +39,7 @@ export const vue = defineFlatConfig([
     files: [GLOB_VUE],
     plugins: {
       vue: pluginVue,
-      '@typescript-eslint': tseslint.plugin,
+      '@typescript-eslint': tseslint.plugin as any,
     },
     languageOptions: {
       parser: parserVue,

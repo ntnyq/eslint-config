@@ -4,7 +4,7 @@ import { pluginImport } from '../plugins'
 export const imports = defineFlatConfig([
   {
     plugins: {
-      import: pluginImport,
+      import: pluginImport as any,
     },
     settings: {
       'import/resolver': {
