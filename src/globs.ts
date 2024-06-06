@@ -74,6 +74,7 @@ export const GLOB_EXCLUDE = [
 
   '**/.vite-inspect',
   '**/.nuxt',
+  '**/.wxt',
   '**/.output',
   '**/.tsup',
   '**/.nitro',
