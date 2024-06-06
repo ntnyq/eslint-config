@@ -21,8 +21,6 @@ import { ntnyq } from '@ntnyq/eslint-config'
 export default ntnyq()
 ```
 
-Make sure to config `"eslint.experimental.useFlatConfig": true` in `.vscode/settings.json`
-
 ## Credits
 
 - [@sxzz/eslint-config](https://github.com/sxzz/eslint-config)
