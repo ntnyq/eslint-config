@@ -55,8 +55,12 @@ export const GLOB_EXCLUDE = [
   '**/LICENSE*',
   '**/__snapshots__',
 
+  // unplugin-auto-import
   '**/auto-import?(s).d.ts',
+  // unplugin-vue-components
   '**/components.d.ts',
+  // unplugin-vue-router
+  '**/typed-router.d.ts',
 
   '**/coverage',
   '**/fixtures',

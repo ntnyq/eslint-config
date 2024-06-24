@@ -33,6 +33,7 @@
     "sxzz",
     "tseslint",
     "tsup",
+    "unplugin",
     "vitepress",
     "vuepress"
   ]
