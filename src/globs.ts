@@ -50,6 +50,12 @@ export const GLOB_EXCLUDE = [
   GLOB_DIST,
   ...GLOB_LOCKFILE,
 
+  // Force lint
+  '!.github',
+  '!.vitepress',
+  '!.vuepress',
+  '!.vscode',
+
   '**/CHANGELOG*.md',
   '**/*.min.*',
   '**/LICENSE*',
@@ -69,10 +75,10 @@ export const GLOB_EXCLUDE = [
   '**/public',
   '**/static',
 
-  '**/temp',
-  '**/cache',
+  // VitePress VuePress
+  '**/?(.)temp',
+  '**/?(.)cache',
 
-  '**/.vitepress/cache',
   '**/.eslintcache',
   '**/.stylelintcache',
 
@@ -86,10 +92,4 @@ export const GLOB_EXCLUDE = [
   '**/.changeset',
   '**/.npmrc',
   '**/.yarnrc',
-
-  // Force lint
-  '!.github',
-  '!.vitepress',
-  '!.vuepress',
-  '!.vscode',
 ]
