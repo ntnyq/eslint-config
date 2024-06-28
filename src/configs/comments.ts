@@ -1,7 +1,7 @@
-import { defineFlatConfig } from 'eslint-define-config'
+import { defineConfig } from '../types'
 import { pluginComments } from '../plugins'
 
-export const comments = defineFlatConfig([
+export const comments = defineConfig([
   {
     plugins: {
       'eslint-comments': pluginComments,

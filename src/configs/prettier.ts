@@ -1,16 +1,16 @@
 import prettierConfig from 'eslint-config-prettier'
-import { defineFlatConfig } from 'eslint-define-config'
+import { defineConfig } from '../types'
 import { pluginPrettier } from '../plugins'
-import type { FlatESLintConfig } from 'eslint-define-config'
+import type { RuleRecordEntry } from '../types'
 
-export const prettier = defineFlatConfig([
+export const prettier = defineConfig([
   {
     plugins: {
       prettier: pluginPrettier,
     },
     rules: {
       ...prettierConfig.rules,
-      ...(pluginPrettier.configs!.recommended as FlatESLintConfig).rules,
+      ...(pluginPrettier.configs!.recommended as RuleRecordEntry).rules,
       'prettier/prettier': 'warn',
     },
   },

@@ -2,7 +2,7 @@
  * @file presets
  */
 
-import { defineFlatConfig } from 'eslint-define-config'
+import { defineConfig } from './types'
 import { hasUnoCSS, hasVue } from './env'
 import {
   comments,
@@ -23,7 +23,7 @@ import {
   vue,
   yml,
 } from './configs'
-import type { FlatESLintConfig } from 'eslint-define-config'
+import type { FlatConfig } from './types'
 
 /**
  * JavaScript preset
@@ -66,7 +66,7 @@ export const presetAll = [...presetCommon, ...vue, ...unocss]
  * Custom framework support
  */
 export function ntnyq(
-  config: FlatESLintConfig | FlatESLintConfig[] = [],
+  config: FlatConfig | FlatConfig[] = [],
   {
     vue: enableVue = hasVue,
     unocss: enableUnoCSS = hasUnoCSS,
@@ -74,7 +74,7 @@ export function ntnyq(
     markdown: enableMarkdown = true,
   } = {},
 ) {
-  const configs = defineFlatConfig([...presetBasic, ...yml, ...presetJsonc])
+  const configs = defineConfig([...presetBasic, ...yml, ...presetJsonc])
 
   if (enableVue) {
     configs.push(...vue)

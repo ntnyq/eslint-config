@@ -1,7 +1,7 @@
-import { defineFlatConfig } from 'eslint-define-config'
+import { defineConfig } from '../types'
 import { tseslint } from '../plugins'
 import { GLOB_JS, GLOB_TS, GLOB_TSX } from '../globs'
-import type { FlatESLintConfig } from 'eslint-define-config'
+import type { FlatConfig } from '../types'
 
 export const typescriptCore = tseslint.config({
   extends: [...tseslint.configs.recommended],
@@ -61,9 +61,9 @@ export const typescriptCore = tseslint.config({
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/consistent-indexed-object-style': 'off',
   },
-}) as FlatESLintConfig[]
+}) as FlatConfig[]
 
-export const typescript = defineFlatConfig([
+export const typescript = defineConfig([
   ...typescriptCore,
 
   {

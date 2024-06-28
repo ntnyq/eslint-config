@@ -1,10 +1,10 @@
 import process from 'node:process'
 import { getPackageInfoSync } from 'local-pkg'
-import { defineFlatConfig } from 'eslint-define-config'
+import { defineConfig } from '../types'
 import { GLOB_VUE } from '../globs'
 import { parserVue, pluginVue, tseslint } from '../plugins'
 import { typescriptCore } from './typescript'
-import type { FlatESLintConfig, Rules } from 'eslint-define-config'
+import type { FlatConfig, RuleRecord } from '../types'
 
 export function getVueVersion() {
   const pkg = getPackageInfoSync('vue', { paths: [process.cwd()] })
@@ -15,25 +15,25 @@ export function getVueVersion() {
 }
 const isVue3 = getVueVersion() === 3
 
-const vue2Rules: Rules = {
+const vue2Rules: RuleRecord = {
   ...pluginVue.configs.base.rules,
   ...pluginVue.configs.essential.rules,
   ...pluginVue.configs['strongly-recommended'].rules,
   ...pluginVue.configs.recommended.rules,
 }
 
-const vue3Rules: Rules = {
+const vue3Rules: RuleRecord = {
   ...pluginVue.configs.base.rules,
   ...pluginVue.configs['vue3-essential'].rules,
   ...pluginVue.configs['vue3-strongly-recommended'].rules,
   ...pluginVue.configs['vue3-recommended'].rules,
 }
 
-export const vue = defineFlatConfig([
+export const vue = defineConfig([
   ...(tseslint.config({
     files: [GLOB_VUE],
-    extends: typescriptCore as any[],
-  }) as FlatESLintConfig[]),
+    extends: typescriptCore,
+  }) as FlatConfig[]),
 
   {
     files: [GLOB_VUE],

@@ -1,8 +1,8 @@
-import { defineFlatConfig } from 'eslint-define-config'
+import { defineConfig } from '../types'
 import { GLOB_MARKDOWN, GLOB_SRC, GLOB_VUE } from '../globs'
 import { pluginMarkdown } from '../plugins'
 
-export const markdown = defineFlatConfig([
+export const markdown = defineConfig([
   ...pluginMarkdown.configs.recommended,
 
   {

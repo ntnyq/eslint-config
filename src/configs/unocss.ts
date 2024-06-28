@@ -1,7 +1,7 @@
-import { defineFlatConfig } from 'eslint-define-config'
+import { defineConfig } from '../types'
 import { pluginUnoCSS } from '../plugins'
 
-export const unocss = defineFlatConfig([
+export const unocss = defineConfig([
   {
     plugins: {
       unocss: pluginUnoCSS as any,

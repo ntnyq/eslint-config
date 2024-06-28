@@ -1,4 +1,6 @@
 {
+  "eslint.enable": true,
+  "prettier.enable": true,
   "eslint.validate": [
     "vue",
     "html",
@@ -13,7 +15,7 @@
     "typescriptreact"
   ],
   "editor.formatOnSave": true,
-  "eslint.experimental.useFlatConfig": true,
+  "cSpell.allowCompoundWords": true,
   "cSpell.words": [
     "antfu",
     "attributify",

@@ -1,7 +1,7 @@
-import { defineFlatConfig } from 'eslint-define-config'
+import { defineConfig } from '../types'
 import { pluginJsdoc } from '../plugins'
 
-export const jsdoc = defineFlatConfig([
+export const jsdoc = defineConfig([
   {
     plugins: {
       jsdoc: pluginJsdoc,

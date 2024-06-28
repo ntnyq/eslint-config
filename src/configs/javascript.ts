@@ -1,8 +1,8 @@
 import globals from 'globals'
 import jsConfig from '@eslint/js'
-import { defineFlatConfig } from 'eslint-define-config'
+import { defineConfig } from '../types'
 
-export const javascript = defineFlatConfig([
+export const javascript = defineConfig([
   jsConfig.configs.recommended,
   {
     languageOptions: {
@@ -370,7 +370,7 @@ export const javascript = defineFlatConfig([
   },
 ])
 
-export const jsx = defineFlatConfig([
+export const jsx = defineConfig([
   {
     files: ['**/*.jsx'],
     languageOptions: {

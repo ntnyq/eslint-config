@@ -1,6 +1,6 @@
-import { defineFlatConfig } from 'eslint-define-config'
+import { defineConfig } from '../types'
 
-export const sortPackageJson = defineFlatConfig([
+export const sortPackageJson = defineConfig([
   {
     files: ['**/package.json'],
     rules: {
@@ -99,7 +99,7 @@ export const sortPackageJson = defineFlatConfig([
   },
 ])
 
-export const sortTsConfig = defineFlatConfig([
+export const sortTsConfig = defineConfig([
   {
     files: ['**/tsconfig.json', '**/tsconfig.*.json'],
     rules: {

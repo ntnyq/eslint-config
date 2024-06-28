@@ -1,7 +1,7 @@
-import { defineFlatConfig } from 'eslint-define-config'
+import { defineConfig } from '../types'
 import { pluginImport } from '../plugins'
 
-export const imports = defineFlatConfig([
+export const imports = defineConfig([
   {
     plugins: {
       import: pluginImport as any,
