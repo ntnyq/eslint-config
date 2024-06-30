@@ -14,6 +14,7 @@ export * from './javascript'
 export * from './typescript'
 
 export * from './unocss'
+export * from './command'
 
 export * from './yml'
 export * from './sort'

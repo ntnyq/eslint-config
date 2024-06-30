@@ -5,6 +5,7 @@
 import { defineConfig } from './types'
 import { hasUnoCSS, hasVue } from './env'
 import {
+  command,
   comments,
   ignores,
   imports,
@@ -72,6 +73,7 @@ export function ntnyq(
     unocss: enableUnoCSS = hasUnoCSS,
     prettier: enablePrettier = true,
     markdown: enableMarkdown = true,
+    command: enableCommand = true,
   } = {},
 ) {
   const configs = defineConfig([...presetBasic, ...yml, ...presetJsonc])
@@ -87,6 +89,9 @@ export function ntnyq(
   }
   if (enableMarkdown) {
     configs.push(...markdown)
+  }
+  if (enableCommand) {
+    configs.push(...command)
   }
 
   if (Object.keys(config).length > 0) {
