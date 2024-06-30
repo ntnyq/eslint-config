@@ -13,7 +13,7 @@ pnpm add @ntnyq/eslint-config -D
 
 ## Usage
 
-Config in `eslint.config.{[cm]?js}`:
+Config in `eslint.config.mjs`:
 
 ```js
 import { ntnyq } from '@ntnyq/eslint-config'
