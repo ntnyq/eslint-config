@@ -7,7 +7,11 @@ export const unicorn = defineConfig([
       unicorn: pluginUnicorn,
     },
     rules: {
+      // Disabled
       'unicorn/no-unsafe-regex': 'off',
+      'unicorn/prefer-top-level-await': 'off',
+      'unicorn/explicit-length-check': 'off',
+      'unicorn/no-array-callback-reference': 'off',
 
       'unicorn/error-message': 'error',
       'unicorn/escape-case': 'error',
@@ -22,12 +26,10 @@ export const unicorn = defineConfig([
       'unicorn/prefer-set-size': 'error',
       'unicorn/better-regex': 'error',
       'unicorn/prefer-regexp-test': 'error',
-      'unicorn/prefer-top-level-await': 'error',
       'unicorn/no-static-only-class': 'error',
       'unicorn/no-zero-fractions': 'error',
       'unicorn/custom-error-definition': 'error',
       'unicorn/prefer-modern-math-apis': 'error',
-      'unicorn/explicit-length-check': 'error',
       'unicorn/new-for-builtins': 'error',
       'unicorn/no-console-spaces': 'error',
       'unicorn/no-for-loop': 'error',
@@ -70,7 +72,6 @@ export const unicorn = defineConfig([
       'unicorn/no-new-array': 'error',
       'unicorn/no-instanceof-array': 'error',
       'unicorn/no-array-push-push': 'error',
-      'unicorn/no-array-callback-reference': 'error',
       'unicorn/no-array-method-this-argument': 'error',
       'unicorn/prefer-array-find': 'error',
       'unicorn/prefer-array-some': 'error',
