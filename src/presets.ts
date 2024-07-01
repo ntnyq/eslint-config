@@ -16,6 +16,7 @@ import {
   markdown,
   node,
   prettier,
+  regexp,
   sortPackageJson,
   sortTsConfig,
   typescript,
@@ -38,6 +39,7 @@ export const presetJavaScript = [
   ...unicorn,
   ...comments,
   ...javascript,
+  ...regexp,
 ]
 
 /**

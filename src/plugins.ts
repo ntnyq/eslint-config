@@ -22,6 +22,7 @@ export { default as pluginYaml } from 'eslint-plugin-yml'
 export { default as pluginJsonc } from 'eslint-plugin-jsonc'
 export { default as pluginImport } from 'eslint-plugin-import-x'
 export { default as pluginJsdoc } from 'eslint-plugin-jsdoc'
+export * as pluginRegexp from 'eslint-plugin-regexp'
 
 import tseslint from 'typescript-eslint'
 
