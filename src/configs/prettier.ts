@@ -5,6 +5,7 @@ import type { RuleRecordEntry } from '../types'
 
 export const prettier = defineConfig([
   {
+    name: 'ntnyq/prettier',
     plugins: {
       prettier: pluginPrettier,
     },

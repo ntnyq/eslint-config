@@ -38,6 +38,7 @@
   "scripts": {
     "build": "tsup",
     "clean": "rimraf dist",
+    "dev": "tsup --watch",
     "lint": "eslint .",
     "prepare": "husky",
     "release": "run-s release:check release:version",

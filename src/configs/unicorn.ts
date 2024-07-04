@@ -3,6 +3,7 @@ import { pluginUnicorn } from '../plugins'
 
 export const unicorn = defineConfig([
   {
+    name: 'ntnyq/unicorn',
     plugins: {
       unicorn: pluginUnicorn,
     },

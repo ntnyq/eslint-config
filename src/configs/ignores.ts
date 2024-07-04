@@ -6,6 +6,7 @@ import { GLOB_EXCLUDE } from '../globs'
  */
 export const ignores = defineConfig([
   {
+    name: 'ntnyq/ignores',
     ignores: GLOB_EXCLUDE,
   },
 ])

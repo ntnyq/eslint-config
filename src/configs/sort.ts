@@ -2,6 +2,7 @@ import { defineConfig } from '../types'
 
 export const sortPackageJson = defineConfig([
   {
+    name: 'ntnyq/sort/package-json',
     files: ['**/package.json'],
     rules: {
       'jsonc/sort-keys': [
@@ -101,6 +102,7 @@ export const sortPackageJson = defineConfig([
 
 export const sortTsConfig = defineConfig([
   {
+    name: 'ntnyq/sort/tsconfig',
     files: ['**/tsconfig.json', '**/tsconfig.*.json'],
     rules: {
       'jsonc/sort-keys': [

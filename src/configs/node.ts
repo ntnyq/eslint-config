@@ -3,6 +3,7 @@ import { pluginNode } from '../plugins'
 
 export const node = defineConfig([
   {
+    name: 'ntnyq/node',
     plugins: {
       node: pluginNode,
     },

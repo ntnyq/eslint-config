@@ -3,8 +3,12 @@ import jsConfig from '@eslint/js'
 import { defineConfig } from '../types'
 
 export const javascript = defineConfig([
-  jsConfig.configs.recommended,
   {
+    name: 'ntnyq/js/recommended',
+    ...jsConfig.configs.recommended,
+  },
+  {
+    name: 'ntnyq/js/core',
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -355,6 +359,7 @@ export const javascript = defineConfig([
   },
 
   {
+    name: 'ntnyq/js/script',
     files: ['**/scripts/*', '**/cli.*'],
     rules: {
       'no-console': 'off',
@@ -362,6 +367,7 @@ export const javascript = defineConfig([
   },
 
   {
+    name: 'ntnyq/js/test',
     files: ['**/*.{test,spec}.js?(x)'],
     rules: {
       'no-unused-expressions': 'off',
@@ -372,6 +378,7 @@ export const javascript = defineConfig([
 
 export const jsx = defineConfig([
   {
+    name: 'ntnyq/jsx',
     files: ['**/*.jsx'],
     languageOptions: {
       parserOptions: {

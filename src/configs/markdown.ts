@@ -3,9 +3,12 @@ import { GLOB_MARKDOWN, GLOB_SRC, GLOB_VUE } from '../globs'
 import { pluginMarkdown } from '../plugins'
 
 export const markdown = defineConfig([
+  // TODO: Add config name for markdown plugin
+  // wait for https://github.com/eslint/eslint-plugin-markdown/pull/256
   ...pluginMarkdown.configs.recommended,
 
   {
+    name: 'ntnyq/markdown/extensions',
     files: [`${GLOB_MARKDOWN}/${GLOB_SRC}`, `${GLOB_MARKDOWN}/${GLOB_VUE}`],
     rules: {
       'no-undef': 'off',

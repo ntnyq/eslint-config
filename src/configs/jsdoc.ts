@@ -3,6 +3,7 @@ import { pluginJsdoc } from '../plugins'
 
 export const jsdoc = defineConfig([
   {
+    name: 'ntnyq/jsdoc',
     plugins: {
       jsdoc: pluginJsdoc,
     },

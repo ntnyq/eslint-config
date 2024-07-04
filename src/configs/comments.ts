@@ -3,6 +3,7 @@ import { pluginComments } from '../plugins'
 
 export const comments = defineConfig([
   {
+    name: 'ntnyq/eslint-comments',
     plugins: {
       'eslint-comments': pluginComments,
     },

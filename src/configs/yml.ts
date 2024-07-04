@@ -5,6 +5,7 @@ import type { ESLintPlugin, RuleRecord } from '../types'
 
 export const yml = defineConfig([
   {
+    name: 'ntnyq/yaml',
     files: [GLOB_YAML],
     languageOptions: {
       parser: parserYaml,

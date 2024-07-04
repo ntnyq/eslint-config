@@ -3,6 +3,7 @@ import { pluginImport } from '../plugins'
 
 export const imports = defineConfig([
   {
+    name: 'ntnyq/imports',
     plugins: {
       import: pluginImport as any,
     },

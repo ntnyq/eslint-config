@@ -1,3 +1,6 @@
 import { ntnyq } from './dist/index.js'
 
-export default ntnyq()
+export default ntnyq([], {
+  vue: true,
+  unocss: true,
+})

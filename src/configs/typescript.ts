@@ -4,6 +4,7 @@ import { GLOB_JS, GLOB_TS, GLOB_TSX } from '../globs'
 import type { FlatConfig } from '../types'
 
 export const typescriptCore = tseslint.config({
+  name: 'ntnyq/ts/core',
   extends: [...tseslint.configs.recommended],
   files: [GLOB_TS, GLOB_TSX],
   languageOptions: {
@@ -67,6 +68,7 @@ export const typescript = defineConfig([
   ...typescriptCore,
 
   {
+    name: 'ntnyq/ts/dts',
     files: ['**/*.d.ts'],
     rules: {
       'import/no-duplicates': 'off',
@@ -75,6 +77,7 @@ export const typescript = defineConfig([
   },
 
   {
+    name: 'ntnyq/ts/test',
     files: ['**/*.{spec,test}.ts?(x)'],
     rules: {
       'no-unused-expressions': 'off',
@@ -83,6 +86,7 @@ export const typescript = defineConfig([
   },
 
   {
+    name: 'ntnyq/ts/cjs',
     files: [GLOB_JS, '**/*.cjs'],
     rules: {
       '@typescript-eslint/no-var-requires': 'off',

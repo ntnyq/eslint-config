@@ -5,5 +5,8 @@ export const regexp = defineConfig([
   /**
    * https://github.com/ota-meshi/eslint-plugin-regexp/blob/master/lib/configs/rules/recommended.ts
    */
-  pluginRegexp.configs['flat/recommended'],
+  {
+    name: 'ntnyq/regexp',
+    ...pluginRegexp.configs['flat/recommended'],
+  },
 ])

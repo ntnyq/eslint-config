@@ -3,6 +3,7 @@ import { pluginUnoCSS } from '../plugins'
 
 export const unocss = defineConfig([
   {
+    name: 'ntnyq/unocss',
     plugins: {
       unocss: pluginUnoCSS as any,
     },

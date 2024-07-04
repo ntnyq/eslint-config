@@ -31,11 +31,13 @@ const vue3Rules: RuleRecord = {
 
 export const vue = defineConfig([
   ...(tseslint.config({
+    name: 'ntnyq/vue/ts',
     files: [GLOB_VUE],
     extends: typescriptCore,
   }) as FlatConfig[]),
 
   {
+    name: 'ntnyq/vue/core',
     files: [GLOB_VUE],
     plugins: {
       vue: pluginVue,
