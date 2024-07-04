@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "github": {},
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm run generate:site",
+  "outputDirectory": ".eslint-config-inspector"
+}

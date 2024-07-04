@@ -39,6 +39,7 @@
     "build": "tsup",
     "clean": "rimraf dist",
     "dev": "tsup --watch",
+    "generate:site": "node scripts/generateSite.mjs",
     "lint": "eslint .",
     "prepare": "husky",
     "release": "run-s release:check release:version",
@@ -88,7 +89,8 @@
     "npm-run-all2": "^6.2.2",
     "rimraf": "^5.0.7",
     "tsup": "^8.1.0",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "zx": "^8.1.4"
   },
   "engines": {
     "node": ">=18.18"
