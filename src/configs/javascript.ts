@@ -204,7 +204,6 @@ export const javascript = defineConfig([
       semi: ['error', 'never'],
       'semi-spacing': ['error', { before: false, after: true }],
       'space-before-blocks': ['error', 'always'],
-      'space-before-function-paren': ['error', 'never'],
       'space-in-parens': ['error', 'never'],
       'space-infix-ops': 'error',
       'space-unary-ops': ['error', { words: true, nonwords: false }],
@@ -220,7 +219,6 @@ export const javascript = defineConfig([
       ],
       'valid-typeof': ['error', { requireStringLiterals: true }],
       'wrap-iife': ['error', 'any', { functionPrototypeMethods: true }],
-      'yield-star-spacing': ['error', 'both'],
       yoda: ['error', 'never'],
 
       // es6+

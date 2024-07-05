@@ -8,8 +8,7 @@ export const unicorn = defineConfig([
       unicorn: pluginUnicorn,
     },
     rules: {
-      // Disabled
-      'unicorn/no-unsafe-regex': 'off',
+      // Disabled for now
       'unicorn/prefer-top-level-await': 'off',
       'unicorn/explicit-length-check': 'off',
       'unicorn/no-array-callback-reference': 'off',
