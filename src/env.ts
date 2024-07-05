@@ -15,9 +15,6 @@ export const hasVue =
 
 export const hasUnoCSS =
   isPackageExists('unocss') ||
-  isPackageExists('unocss', {
-    paths: [resolve(process.cwd(), 'playground')],
-  }) ||
   isPackageExists('@unocss/postcss') ||
   isPackageExists('@unocss/webpack') ||
   isPackageExists('@unocss/nuxt')
