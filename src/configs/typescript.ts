@@ -1,6 +1,6 @@
 import { defineConfig } from '../types'
 import { tseslint } from '../plugins'
-import { GLOB_JS, GLOB_TS, GLOB_TSX } from '../globs'
+import { GLOB_DTS, GLOB_JS, GLOB_TS, GLOB_TSX } from '../globs'
 import type { FlatConfig } from '../types'
 
 export const typescriptCore = tseslint.config({
@@ -35,6 +35,12 @@ export const typescriptCore = tseslint.config({
         disallowTypeAnnotations: false,
       },
     ],
+    '@typescript-eslint/no-empty-object-type': [
+      'error',
+      {
+        allowInterfaces: 'always',
+      },
+    ],
     '@typescript-eslint/consistent-type-assertions': [
       'error',
       {
@@ -52,7 +58,6 @@ export const typescriptCore = tseslint.config({
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/naming-convention': 'off',
-    '@typescript-eslint/no-empty-object-type': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/triple-slash-reference': 'off',
     '@typescript-eslint/no-parameter-properties': 'off',
@@ -68,8 +73,9 @@ export const typescript = defineConfig([
 
   {
     name: 'ntnyq/ts/dts',
-    files: ['**/*.d.ts'],
+    files: [GLOB_DTS],
     rules: {
+      'no-restricted-syntax': 'off',
       'import/no-duplicates': 'off',
       'import/newline-after-import': 'off',
     },
@@ -86,7 +92,7 @@ export const typescript = defineConfig([
 
   {
     name: 'ntnyq/ts/cjs',
-    files: [GLOB_JS, '**/*.cjs'],
+    files: [GLOB_JS],
     rules: {
       '@typescript-eslint/no-var-requires': 'off',
     },
