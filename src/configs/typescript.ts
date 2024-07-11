@@ -75,6 +75,7 @@ export const typescript = defineConfig([
     name: 'ntnyq/ts/dts',
     files: [GLOB_DTS],
     rules: {
+      'no-use-before-define': 'off',
       'no-restricted-syntax': 'off',
       'import/no-duplicates': 'off',
       'import/newline-after-import': 'off',
