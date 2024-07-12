@@ -39,6 +39,7 @@ export const typescriptCore = tseslint.config({
       'error',
       {
         allowInterfaces: 'always',
+        allowObjectTypes: 'always',
       },
     ],
     '@typescript-eslint/consistent-type-assertions': [

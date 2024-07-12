@@ -90,6 +90,7 @@ export const GLOB_EXCLUDE = [
   '**/.tsup',
   '**/.nitro',
   '**/.vercel',
+  '**/.wrangler',
   '**/.changeset',
   '**/.npmrc',
   '**/.yarnrc',
