@@ -1,11 +1,11 @@
-import { defineConfig } from '../types'
+import { defineConfig } from '../utils'
 import { pluginImport } from '../plugins'
 
 export const imports = defineConfig([
   {
     name: 'ntnyq/imports',
     plugins: {
-      import: pluginImport as any,
+      import: pluginImport,
     },
     settings: {
       'import/resolver': {

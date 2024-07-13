@@ -1,4 +1,4 @@
-import { defineConfig } from '../types'
+import { defineConfig } from '../utils'
 import { pluginNode } from '../plugins'
 
 export const node = defineConfig([

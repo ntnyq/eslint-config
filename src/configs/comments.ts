@@ -1,4 +1,4 @@
-import { defineConfig } from '../types'
+import { defineConfig } from '../utils'
 import { pluginComments } from '../plugins'
 
 export const comments = defineConfig([

@@ -1,4 +1,4 @@
-import { defineConfig } from '../types'
+import { defineConfig } from '../utils'
 import { pluginJsdoc } from '../plugins'
 
 export const jsdoc = defineConfig([

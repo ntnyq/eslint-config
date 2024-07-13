@@ -1,4 +1,4 @@
 import createCommandPlugin from 'eslint-plugin-command/config'
-import { defineConfig } from '../types'
+import { defineConfig } from '../utils'
 
-export const command = defineConfig([createCommandPlugin({})])
+export const command = defineConfig([createCommandPlugin()])

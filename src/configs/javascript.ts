@@ -1,6 +1,6 @@
 import globals from 'globals'
 import jsConfig from '@eslint/js'
-import { defineConfig } from '../types'
+import { defineConfig } from '../utils'
 
 export const javascript = defineConfig([
   {

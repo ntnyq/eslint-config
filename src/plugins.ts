@@ -2,14 +2,9 @@
  * @file plugins & parsers
  */
 
-/* eslint-disable import/first */
+import tseslint from 'typescript-eslint'
 
-export type InteropDefault<T> = T extends { default: infer U } ? U : T
-
-/* #__NO_SIDE_EFFECTS__ */
-export function interopDefault<T>(m: T): InteropDefault<T> {
-  return (m as any).default || m
-}
+export { tseslint }
 
 export * as pluginRegexp from 'eslint-plugin-regexp'
 export { default as pluginNode } from 'eslint-plugin-n'
@@ -23,10 +18,6 @@ export { default as pluginImport } from 'eslint-plugin-import-x'
 export { default as pluginPrettier } from 'eslint-plugin-prettier'
 export { default as pluginMarkdown } from 'eslint-plugin-markdown'
 export { default as pluginComments } from '@eslint-community/eslint-plugin-eslint-comments'
-
-import tseslint from 'typescript-eslint'
-
-export { tseslint }
 
 export * as parserYaml from 'yaml-eslint-parser'
 export * as parserVue from 'vue-eslint-parser'

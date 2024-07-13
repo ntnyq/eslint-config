@@ -1,10 +1,10 @@
 import process from 'node:process'
 import { getPackageInfoSync } from 'local-pkg'
-import { defineConfig } from '../types'
+import { defineConfig } from '../utils'
 import { GLOB_VUE } from '../globs'
 import { parserVue, pluginVue, tseslint } from '../plugins'
 import { typescriptCore } from './typescript'
-import type { FlatConfig, RuleRecord } from '../types'
+import type { RuleRecord, TypedConfigItem } from '../types'
 
 export function getVueVersion() {
   const pkg = getPackageInfoSync('vue', { paths: [process.cwd()] })
@@ -34,14 +34,14 @@ export const vue = defineConfig([
     name: 'ntnyq/vue/ts',
     files: [GLOB_VUE],
     extends: typescriptCore,
-  }) as FlatConfig[]),
+  }) as TypedConfigItem[]),
 
   {
     name: 'ntnyq/vue/core',
     files: [GLOB_VUE],
     plugins: {
       vue: pluginVue,
-      '@typescript-eslint': tseslint.plugin as any,
+      '@typescript-eslint': tseslint.plugin,
     },
     languageOptions: {
       parser: parserVue,
@@ -63,7 +63,6 @@ export const vue = defineConfig([
       'vue/require-default-prop': 'off',
       'vue/multi-word-component-names': 'off',
       'vue/no-setup-props-reactivity-loss': 'off',
-
       'vue/html-self-closing': [
         'error',
         {
