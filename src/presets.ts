@@ -18,6 +18,7 @@ import {
   regexp,
   sortPackageJson,
   sortTsConfig,
+  toml,
   typescript,
   unicorn,
   unocss,
@@ -54,7 +55,7 @@ export const presetJsonc = [...jsonc, ...sortPackageJson, ...sortTsConfig]
 /**
  * JSON YAML Markdown
  */
-export const presetLanguageExtensions = [...presetJsonc, ...yml, ...markdown]
+export const presetLanguageExtensions = [...presetJsonc, ...yml, ...toml, ...markdown]
 
 // No framework
 export const presetCommon = [...presetBasic, ...presetLanguageExtensions, ...prettier]
@@ -77,7 +78,7 @@ export function ntnyq(
     command: enableCommand = true,
   } = {},
 ) {
-  const configs = defineConfig([...presetBasic, ...yml, ...presetJsonc])
+  const configs = defineConfig([...presetBasic, ...yml, ...toml, ...presetJsonc])
 
   if (enableVue) {
     configs.push(...vue)

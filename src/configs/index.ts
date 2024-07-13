@@ -18,6 +18,7 @@ export * from './unocss'
 export * from './command'
 
 export * from './yml'
+export * from './toml'
 export * from './sort'
 export * from './jsonc'
 export * from './markdown'

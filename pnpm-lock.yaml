@@ -50,6 +50,9 @@ importers:
       eslint-plugin-regexp:
         specifier: ^2.6.0
         version: 2.6.0(eslint@9.6.0)
+      eslint-plugin-toml:
+        specifier: ^0.11.1
+        version: 0.11.1(eslint@9.6.0)
       eslint-plugin-unicorn:
         specifier: ^54.0.0
         version: 54.0.0(eslint@9.6.0)
@@ -74,6 +77,9 @@ importers:
       prettier:
         specifier: ^3.3.2
         version: 3.3.2
+      toml-eslint-parser:
+        specifier: ^0.10.0
+        version: 0.10.0
       typescript-eslint:
         specifier: ^8.0.0-alpha.41
         version: 8.0.0-alpha.41(eslint@9.6.0)(typescript@5.5.3)
@@ -1096,6 +1102,12 @@ packages:
     peerDependencies:
       eslint: '>=8.44.0'
 
+  eslint-plugin-toml@0.11.1:
+    resolution: {integrity: sha512-Y1WuMSzfZpeMIrmlP1nUh3kT8p96mThIq4NnHrYUhg10IKQgGfBZjAWnrg9fBqguiX4iFps/x/3Hb5TxBisfdw==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      eslint: '>=6.0.0'
+
   eslint-plugin-unicorn@54.0.0:
     resolution: {integrity: sha512-XxYLRiYtAWiAjPv6z4JREby1TAE2byBC7wlh0V4vWDCpccOSU1KovWV//jqPXF6bq3WKxqX9rdjoRQ1EhdmNdQ==}
     engines: {node: '>=18.18'}
@@ -2032,6 +2044,10 @@ packages:
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
+
+  toml-eslint-parser@0.10.0:
+    resolution: {integrity: sha512-khrZo4buq4qVmsGzS5yQjKe/WsFvV8fGfOjDQN0q4iy9FjRfPWRgTFrU8u1R2iu/SfWLhY9WnCi4Jhdrcbtg+g==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
   tr46@1.0.1:
     resolution: {integrity: sha512-dTpowEjclQ7Kgx5SdBkqRzVhERQXov8/l9Ft9dVM9fmg0W0KQSVaXX9T4i6twCPNtYiZM53lpSSUAwJbFPOHxA==}
@@ -3101,6 +3117,16 @@ snapshots:
       regexp-ast-analysis: 0.7.1
       scslre: 0.3.0
 
+  eslint-plugin-toml@0.11.1(eslint@9.6.0):
+    dependencies:
+      debug: 4.3.5
+      eslint: 9.6.0
+      eslint-compat-utils: 0.5.0(eslint@9.6.0)
+      lodash: 4.17.21
+      toml-eslint-parser: 0.10.0
+    transitivePeerDependencies:
+      - supports-color
+
   eslint-plugin-unicorn@54.0.0(eslint@9.6.0):
     dependencies:
       '@babel/helper-validator-identifier': 7.24.5
@@ -4069,6 +4095,10 @@ snapshots:
   to-regex-range@5.0.1:
     dependencies:
       is-number: 7.0.0
+
+  toml-eslint-parser@0.10.0:
+    dependencies:
+      eslint-visitor-keys: 3.4.3
 
   tr46@1.0.1:
     dependencies:

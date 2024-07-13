@@ -17,6 +17,7 @@ import {
   regexp,
   sortPackageJson,
   sortTsConfig,
+  toml,
   typescript,
   unicorn,
   unocss,
@@ -51,6 +52,7 @@ const configs = defineConfig([
   ...unocss,
   ...vue,
   ...yml,
+  ...toml,
 ])
 
 const configNames = configs.map(i => i.name).filter(Boolean)
