@@ -83,6 +83,7 @@ export const GLOB_EXCLUDE = [
   '**/.eslintcache',
   '**/.stylelintcache',
 
+  '**/.eslint-config-inspector',
   '**/.vite-inspect',
   '**/.nuxt',
   '**/.wxt',
