@@ -1,4 +1,4 @@
-import { defineConfig } from '../types'
+import { defineConfig } from '../utils'
 import { pluginUnicorn } from '../plugins'
 
 export const unicorn = defineConfig([

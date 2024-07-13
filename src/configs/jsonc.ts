@@ -1,4 +1,4 @@
-import { defineConfig } from '../types'
+import { defineConfig } from '../utils'
 import { parserJsonc, pluginJsonc } from '../plugins'
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs'
 import type { RuleRecord } from '../types'
@@ -8,7 +8,7 @@ export const jsonc = defineConfig([
     name: 'ntnyq/jsonc',
     files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC, '**/*rc'],
     plugins: {
-      jsonc: pluginJsonc as any,
+      jsonc: pluginJsonc,
     },
     languageOptions: {
       parser: parserJsonc,

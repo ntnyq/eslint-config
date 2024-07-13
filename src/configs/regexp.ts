@@ -1,5 +1,5 @@
 import { pluginRegexp } from '../plugins'
-import { defineConfig } from '../types'
+import { defineConfig } from '../utils'
 
 export const regexp = defineConfig([
   /**

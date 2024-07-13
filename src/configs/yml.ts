@@ -1,7 +1,7 @@
-import { defineConfig } from '../types'
+import { defineConfig } from '../utils'
 import { parserYaml, pluginYaml } from '../plugins'
 import { GLOB_YAML } from '../globs'
-import type { ESLintPlugin, RuleRecord } from '../types'
+import type { RuleRecord } from '../types'
 
 export const yml = defineConfig([
   {
@@ -11,7 +11,7 @@ export const yml = defineConfig([
       parser: parserYaml,
     },
     plugins: {
-      yml: pluginYaml as ESLintPlugin,
+      yml: pluginYaml,
     },
     rules: {
       ...(pluginYaml.configs.standard.rules as RuleRecord),

@@ -1,4 +1,4 @@
-import { defineConfig } from '../types'
+import { defineConfig } from '../utils'
 import { GLOB_EXCLUDE } from '../globs'
 
 /**

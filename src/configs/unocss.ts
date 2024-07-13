@@ -1,11 +1,11 @@
-import { defineConfig } from '../types'
+import { defineConfig } from '../utils'
 import { pluginUnoCSS } from '../plugins'
 
 export const unocss = defineConfig([
   {
     name: 'ntnyq/unocss',
     plugins: {
-      unocss: pluginUnoCSS as any,
+      unocss: pluginUnoCSS,
     },
     rules: {
       'unocss/order': 'error',

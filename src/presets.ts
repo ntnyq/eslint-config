@@ -2,8 +2,7 @@
  * @file presets
  */
 
-import { defineConfig } from './types'
-import { hasUnoCSS, hasVue } from './env'
+import { defineConfig, hasUnoCSS, hasVue } from './utils'
 import {
   command,
   comments,
@@ -25,7 +24,7 @@ import {
   vue,
   yml,
 } from './configs'
-import type { FlatConfig } from './types'
+import type { TypedConfigItem } from './types'
 
 /**
  * JavaScript preset
@@ -69,7 +68,7 @@ export const presetAll = [...presetCommon, ...vue, ...unocss]
  * Custom framework support
  */
 export function ntnyq(
-  config: FlatConfig | FlatConfig[] = [],
+  config: TypedConfigItem | TypedConfigItem[] = [],
   {
     vue: enableVue = hasVue,
     unocss: enableUnoCSS = hasUnoCSS,

@@ -1,5 +1,5 @@
 import prettierConfig from 'eslint-config-prettier'
-import { defineConfig } from '../types'
+import { defineConfig } from '../utils'
 import { pluginPrettier } from '../plugins'
 import type { RuleRecordEntry } from '../types'
 
