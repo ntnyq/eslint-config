@@ -5,11 +5,11 @@ export const comments = defineConfig([
   {
     name: 'ntnyq/eslint-comments',
     plugins: {
-      'eslint-comments': pluginComments,
+      '@eslint-community/eslint-comments': pluginComments,
     },
     rules: {
       ...pluginComments.configs.recommended.rules,
-      'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
+      '@eslint-community/eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
     },
   },
 ])
