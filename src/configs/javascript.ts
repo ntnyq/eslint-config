@@ -317,7 +317,7 @@ export const javascript = defineConfig([
       'max-lines-per-function': [
         'error',
         {
-          max: 100,
+          max: 200,
           skipComments: true,
           skipBlankLines: true,
         },
