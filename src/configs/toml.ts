@@ -13,6 +13,11 @@ export const toml = defineConfig([
       toml: pluginToml,
     },
     rules: {
+      // Prettier do not have official support for TOML currently
+      'prettier/prettier': 'off',
+      // Avoid conflicts with js comment
+      'spaced-comment': 'off',
+
       'toml/comma-style': 'error',
       'toml/keys-order': 'error',
       'toml/no-space-dots': 'error',
@@ -24,8 +29,8 @@ export const toml = defineConfig([
       'toml/indent': ['error', 2],
       'toml/vue-custom-block/no-parsing-error': 'error',
       'toml/array-bracket-newline': 'error',
-      'toml/array-bracket-spacing': 'error',
-      'toml/array-element-newline': 'error',
+      'toml/array-bracket-spacing': ['error', 'never'],
+      'toml/array-element-newline': ['error', 'never'],
       'toml/inline-table-curly-spacing': 'error',
       'toml/key-spacing': 'error',
       'toml/padding-line-between-pairs': 'error',
