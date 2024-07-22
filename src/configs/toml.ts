@@ -13,8 +13,6 @@ export const toml = defineConfig([
       toml: pluginToml,
     },
     rules: {
-      // Prettier do not have official support for TOML currently
-      'prettier/prettier': 'off',
       // Avoid conflicts with js comment
       'spaced-comment': 'off',
 
