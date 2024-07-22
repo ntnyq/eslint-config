@@ -2,8 +2,8 @@
  * @file export
  */
 
+export * from './core'
 export * from './utils'
 export * from './globs'
-export * from './presets'
 export * from './configs'
 export * from './plugins'

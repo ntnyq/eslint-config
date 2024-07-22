@@ -28,44 +28,6 @@ import {
 import type { TypedConfigItem } from './types'
 
 /**
- * JavaScript preset
- */
-export const presetJavaScript = [
-  ...ignores,
-  ...jsdoc,
-  ...jsx,
-  ...node,
-  ...imports,
-  ...unicorn,
-  ...comments,
-  ...javascript,
-  ...regexp,
-]
-
-/**
- * JavaScript & TypeScript
- */
-export const presetBasic = [...presetJavaScript, ...typescript]
-
-/**
- * JSON and sort json keys
- */
-export const presetJsonc = [...jsonc, ...sortPackageJson, ...sortTsConfig]
-
-/**
- * JSON YAML Markdown
- */
-export const presetLanguageExtensions = [...presetJsonc, ...yml, ...toml, ...markdown]
-
-// No framework
-export const presetCommon = [...presetBasic, ...presetLanguageExtensions, ...prettier]
-
-/**
- * All supported framework
- */
-export const presetAll = [...presetCommon, ...vue, ...unocss]
-
-/**
  * Custom framework support
  */
 export function ntnyq(
@@ -78,7 +40,30 @@ export function ntnyq(
     command: enableCommand = true,
   } = {},
 ) {
-  const configs = defineConfig([...presetBasic, ...yml, ...toml, ...presetJsonc])
+  const configs = defineConfig([
+    /**
+     * Basic
+     */
+    ...ignores,
+    ...jsdoc,
+    ...jsx,
+    ...node,
+    ...imports,
+    ...unicorn,
+    ...comments,
+    ...javascript,
+    ...regexp,
+    ...typescript,
+
+    /**
+     * Language extensions
+     */
+    ...yml,
+    ...toml,
+    ...jsonc,
+    ...sortPackageJson,
+    ...sortTsConfig,
+  ])
 
   if (enableVue) {
     configs.push(...vue)
@@ -86,14 +71,18 @@ export function ntnyq(
   if (enableUnoCSS) {
     configs.push(...unocss)
   }
-  if (enablePrettier) {
-    configs.push(...prettier)
-  }
   if (enableMarkdown) {
     configs.push(...markdown)
   }
   if (enableCommand) {
     configs.push(...command)
+  }
+
+  /**
+   * Keep prettier at last
+   */
+  if (enablePrettier) {
+    configs.push(...prettier)
   }
 
   if (Object.keys(config).length > 0) {
