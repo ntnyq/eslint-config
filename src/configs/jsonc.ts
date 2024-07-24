@@ -6,7 +6,7 @@ import type { RuleRecord } from '../types'
 export const jsonc = defineConfig([
   {
     name: 'ntnyq/jsonc',
-    files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC, '**/*rc'],
+    files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
     plugins: {
       jsonc: pluginJsonc,
     },
