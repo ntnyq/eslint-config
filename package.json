@@ -1,7 +1,7 @@
 {
   "name": "@ntnyq/eslint-config",
   "type": "module",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "packageManager": "pnpm@9.6.0",
   "description": "ESLint flat config of ntnyq",
   "keywords": [
