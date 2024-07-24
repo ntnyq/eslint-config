@@ -47,6 +47,7 @@ export const GLOB_LOCKFILE = [
   '**/yarn.lock',
   '**/pnpm-lock.yaml',
   '**/bun.lockb',
+  '**/deno.lock',
 ]
 export const GLOB_EXCLUDE = [
   GLOB_NODE_MODULES,
@@ -71,6 +72,9 @@ export const GLOB_EXCLUDE = [
   // unplugin-vue-router
   '**/typed-router.d.ts',
 
+  // vite-plugin-uni-pages
+  '**/uni-pages.d.ts',
+
   '**/coverage',
   '**/fixtures',
 
@@ -78,7 +82,7 @@ export const GLOB_EXCLUDE = [
   '**/public',
   '**/static',
 
-  // VitePress VuePress
+  // VitePress and VuePress
   '**/?(.)temp',
   '**/?(.)cache',
 
