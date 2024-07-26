@@ -17,7 +17,8 @@ export const typescriptCore = tseslint.config({
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
-        args: 'all',
+        // Args after the last used will be reported
+        args: 'after-used',
         argsIgnorePattern: '^_',
         caughtErrors: 'all',
         caughtErrorsIgnorePattern: '^_',
