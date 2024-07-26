@@ -11,7 +11,7 @@ export type Awaitable<T> = T | Promise<T>
 export type InteropModuleDefault<T> = T extends { default: infer U } ? U : T
 
 export interface OverridesOptions<Rules = TypedConfigItem['rules']> {
-  files?: TypedConfigItem['rules']
+  files?: TypedConfigItem['files']
   rules?: Rules
   parserOptions?: ParserOptions
 }

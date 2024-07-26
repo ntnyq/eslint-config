@@ -14,7 +14,7 @@ export type Rules = RuleOptions
 /**
  * Typed flat config item
  */
-export type TypedConfigItem = Omit<Linter.FlatConfig<Linter.RulesRecord & Rules>, 'plugins'> & {
+export type TypedConfigItem = Omit<Linter.Config<Linter.RulesRecord & Rules>, 'plugins'> & {
   /**
    * Most plugin are not properly typed
    */
