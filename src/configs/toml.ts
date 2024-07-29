@@ -13,9 +13,6 @@ export const toml = defineConfig([
       toml: pluginToml,
     },
     rules: {
-      // Avoid conflicts with js comment
-      'spaced-comment': 'off',
-
       'toml/comma-style': 'error',
       'toml/keys-order': 'error',
       'toml/no-space-dots': 'error',
