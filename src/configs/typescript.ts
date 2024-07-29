@@ -96,8 +96,6 @@ export const typescript = defineConfig([
   {
     name: 'ntnyq/ts/cjs',
     files: [GLOB_JS],
-    rules: {
-      '@typescript-eslint/no-var-requires': 'off',
-    },
+    rules: {},
   },
 ])

@@ -14,9 +14,6 @@ export const yml = defineConfig([
       yml: pluginYaml,
     },
     rules: {
-      // Avoid conflicts with js comment
-      'spaced-comment': 'off',
-
       ...(pluginYaml.configs.standard.rules as RuleRecord),
       ...(pluginYaml.configs.prettier.rules as RuleRecord),
 
