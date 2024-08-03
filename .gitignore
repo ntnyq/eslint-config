@@ -9,5 +9,5 @@ node_modules
 
 dist
 
-src/types/typegen.d.ts
+src/types/typegen.ts
 .eslint-config-inspector

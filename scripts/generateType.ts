@@ -58,4 +58,4 @@ dts += `
 export type ConfigName = ${configNames.map(i => `'${i}'`).join(' | ')}
 `
 
-await writeFile(`src/types/typegen.d.ts`, dts)
+await writeFile(`src/types/typegen.ts`, dts)
