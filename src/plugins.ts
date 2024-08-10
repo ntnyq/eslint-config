@@ -18,6 +18,7 @@ export { default as pluginUnicorn } from 'eslint-plugin-unicorn'
 export { default as pluginImport } from 'eslint-plugin-import-x'
 export { default as pluginPrettier } from 'eslint-plugin-prettier'
 export { default as pluginMarkdown } from 'eslint-plugin-markdown'
+export { default as pluginPerfectionist } from 'eslint-plugin-perfectionist'
 export { default as pluginUnusedImports } from '@antfu/eslint-plugin-unused-imports'
 export { default as pluginComments } from '@eslint-community/eslint-plugin-eslint-comments'
 

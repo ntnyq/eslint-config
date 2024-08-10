@@ -13,6 +13,7 @@ export * from './comments'
 export * from './javascript'
 export * from './typescript'
 export * from './unusedImports'
+export * from './perfectionist'
 
 export * from './regexp'
 export * from './unocss'
