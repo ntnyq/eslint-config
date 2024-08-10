@@ -21,6 +21,14 @@ import { ntnyq } from '@ntnyq/eslint-config'
 export default ntnyq()
 ```
 
+Config in `eslint.config.{cjs,cts}`
+
+```js
+const ntnyq = require('@ntnyq/eslint-config')
+
+module.exports = ntnyq()
+```
+
 ## Credits
 
 - [@sxzz/eslint-config](https://github.com/sxzz/eslint-config)
