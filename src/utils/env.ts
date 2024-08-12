@@ -4,6 +4,8 @@ import { isPackageExists } from 'local-pkg'
 
 export const hasTypeScript = isPackageExists('typescript')
 
+export const hasVitest = isPackageExists('vitest')
+
 export const hasVue =
   isPackageExists('vue') ||
   isPackageExists('nuxt') ||

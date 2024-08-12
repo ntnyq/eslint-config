@@ -21,6 +21,7 @@ import {
   typescript,
   unicorn,
   unocss,
+  // vitest,
   vue,
   yml,
 } from '../src'
@@ -45,6 +46,7 @@ const configs = defineConfig([
   ...unicorn,
   ...unocss,
   ...vue,
+  // ...vitest,
   ...yml,
   ...toml,
 ])

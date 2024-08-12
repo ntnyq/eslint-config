@@ -2,7 +2,7 @@
  * @file presets
  */
 
-import { defineConfig, hasUnoCSS, hasVue } from './utils'
+import { defineConfig, hasUnoCSS, hasVitest, hasVue } from './utils'
 import {
   command,
   comments,
@@ -22,6 +22,7 @@ import {
   typescript,
   unicorn,
   unocss,
+  vitest,
   vue,
   yml,
 } from './configs'
@@ -35,6 +36,7 @@ export function ntnyq(
   {
     vue: enableVue = hasVue,
     unocss: enableUnoCSS = hasUnoCSS,
+    vitest: enableVitest = hasVitest,
     prettier: enablePrettier = true,
     markdown: enableMarkdown = true,
     command: enableCommand = true,
@@ -67,6 +69,9 @@ export function ntnyq(
 
   if (enableVue) {
     configs.push(...vue)
+  }
+  if (enableVitest) {
+    configs.push(...vitest)
   }
   if (enableUnoCSS) {
     configs.push(...unocss)

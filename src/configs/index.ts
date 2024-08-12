@@ -19,10 +19,12 @@ export * from './regexp'
 export * from './unocss'
 export * from './command'
 
+export * from './vitest'
+
+export * from './vue'
+
 export * from './yml'
 export * from './toml'
 export * from './sort'
 export * from './jsonc'
 export * from './markdown'
-
-export * from './vue'
