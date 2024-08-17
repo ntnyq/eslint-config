@@ -2,7 +2,7 @@
  * @file presets
  */
 
-import { getOverrides, hasTypeScript, hasVitest, hasVue, toArray } from './utils'
+import { getOverrides, hasTypeScript, hasUnoCSS, hasVitest, hasVue, toArray } from './utils'
 import {
   command,
   comments,
@@ -138,7 +138,7 @@ export function ntnyq(options: ConfigOptions = {}, customConfig: Arrayable<Typed
     )
   }
 
-  if (options.vitest ?? hasVitest) {
+  if (options.unocss ?? hasUnoCSS) {
     configs.push(
       ...unocss({
         overrides: getOverrides(options, 'unocss'),
