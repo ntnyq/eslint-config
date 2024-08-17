@@ -1,7 +1,7 @@
-import { defineConfig } from '../utils'
 import { pluginUnusedImports } from '../plugins'
+import type { ConfigUnusedImportsOptions, LinterConfig } from '../types'
 
-export const unusedImports = defineConfig([
+export const unusedImports = (options: ConfigUnusedImportsOptions = {}): LinterConfig[] => [
   {
     name: 'ntnyq/unused-imports',
     plugins: {
@@ -19,6 +19,9 @@ export const unusedImports = defineConfig([
           argsIgnorePattern: '^_',
         },
       ],
+
+      // Overrides built-in rules
+      ...options.overrides,
     },
   },
-])
+]

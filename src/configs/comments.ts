@@ -1,7 +1,7 @@
-import { defineConfig } from '../utils'
 import { pluginComments } from '../plugins'
+import type { ConfigCommentsOptions, LinterConfig } from '../types'
 
-export const comments = defineConfig([
+export const comments = (options: ConfigCommentsOptions = {}): LinterConfig[] => [
   {
     name: 'ntnyq/eslint-comments',
     plugins: {
@@ -10,6 +10,9 @@ export const comments = defineConfig([
     rules: {
       ...pluginComments.configs.recommended.rules,
       '@eslint-community/eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
+
+      // Overrides built-in rules
+      ...options.overrides,
     },
   },
-])
+]

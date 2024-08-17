@@ -1,7 +1,7 @@
-import { defineConfig } from '../utils'
 import { pluginPerfectionist } from '../plugins'
+import type { ConfigPerfectionistOptions, LinterConfig } from '../types'
 
-export const perfectionist = defineConfig([
+export const perfectionist = (options: ConfigPerfectionistOptions = {}): LinterConfig[] => [
   {
     name: 'ntnyq/perfectionist',
     plugins: {
@@ -33,6 +33,9 @@ export const perfectionist = defineConfig([
       ],
       'perfectionist/sort-named-exports': ['warn', { groupKind: 'values-first' }],
       'perfectionist/sort-named-imports': ['warn', { groupKind: 'values-first' }],
+
+      // Overrides built-in rules
+      ...options.overrides,
     },
   },
-])
+]

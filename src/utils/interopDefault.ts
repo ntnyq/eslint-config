@@ -7,5 +7,5 @@ import type { Awaitable, InteropModuleDefault } from '../types'
  */
 export async function interopDefault<T>(mod: Awaitable<T>): Promise<InteropModuleDefault<T>> {
   const resolved = await mod
-  return (resolved as any).default || resolved
+  return (resolved as { default?: any }).default || resolved
 }

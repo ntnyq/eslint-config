@@ -1,7 +1,7 @@
-import { defineConfig } from '../utils'
 import { pluginJsdoc } from '../plugins'
+import type { ConfigJsdocOptions, LinterConfig } from '../types'
 
-export const jsdoc = defineConfig([
+export const jsdoc = (options: ConfigJsdocOptions = {}): LinterConfig[] => [
   {
     name: 'ntnyq/jsdoc',
     plugins: {
@@ -25,6 +25,9 @@ export const jsdoc = defineConfig([
       'jsdoc/require-yields-check': 'warn',
       'jsdoc/check-alignment': 'warn',
       'jsdoc/multiline-blocks': 'warn',
+
+      // Overrides built-in rules
+      ...options.overrides,
     },
   },
-])
+]

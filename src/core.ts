@@ -2,7 +2,7 @@
  * @file presets
  */
 
-import { defineConfig, hasUnoCSS, hasVitest, hasVue } from './utils'
+import { getOverrides, hasTypeScript, hasVitest, hasVue, toArray } from './utils'
 import {
   command,
   comments,
@@ -26,72 +26,148 @@ import {
   vue,
   yml,
 } from './configs'
-import type { TypedConfigItem } from './types'
+import type { Arrayable, ConfigOptions, TypedConfigItem } from './types'
 
 /**
- * Custom framework support
+ * Config factory
  */
-export function ntnyq(
-  config: TypedConfigItem | TypedConfigItem[] = [],
-  {
-    vue: enableVue = hasVue,
-    unocss: enableUnoCSS = hasUnoCSS,
-    vitest: enableVitest = hasVitest,
-    prettier: enablePrettier = true,
-    markdown: enableMarkdown = true,
-    command: enableCommand = true,
-  } = {},
-) {
-  const configs = defineConfig([
+// eslint-disable-next-line complexity
+export function ntnyq(options: ConfigOptions = {}, customConfig: Arrayable<TypedConfigItem> = []) {
+  const configs: TypedConfigItem[] = [
     /**
      * Basic
      */
-    ...ignores,
-    ...jsdoc,
-    ...jsx,
-    ...node,
-    ...imports,
-    ...unicorn,
-    ...comments,
-    ...javascript,
-    ...regexp,
-    ...typescript,
+    ...ignores(options.ignores),
+    ...jsx(),
+    ...node({
+      overrides: getOverrides(options, 'node'),
+    }),
+    ...imports({
+      overrides: getOverrides(options, 'imports'),
+    }),
+    ...javascript({
+      overrides: getOverrides(options, 'javascript'),
+    }),
+  ]
 
-    /**
-     * Language extensions
-     */
-    ...yml,
-    ...toml,
-    ...jsonc,
-    ...sortPackageJson,
-    ...sortTsConfig,
-  ])
+  if (options.unicorn ?? true) {
+    configs.push(
+      ...unicorn({
+        overrides: getOverrides(options, 'unicorn'),
+      }),
+    )
+  }
 
-  if (enableVue) {
-    configs.push(...vue)
+  if (options.regexp ?? true) {
+    configs.push(
+      ...regexp({
+        overrides: getOverrides(options, 'regexp'),
+      }),
+    )
   }
-  if (enableVitest) {
-    configs.push(...vitest)
+
+  if (options.jsdoc ?? true) {
+    configs.push(
+      ...jsdoc({
+        overrides: getOverrides(options, 'jsdoc'),
+      }),
+    )
   }
-  if (enableUnoCSS) {
-    configs.push(...unocss)
+
+  if (options.comments ?? true) {
+    configs.push(
+      ...comments({
+        overrides: getOverrides(options, 'comments'),
+      }),
+    )
   }
-  if (enableMarkdown) {
-    configs.push(...markdown)
+
+  if (options.typescript ?? hasTypeScript) {
+    configs.push(
+      ...typescript({
+        overrides: getOverrides(options, 'typescript'),
+      }),
+    )
   }
-  if (enableCommand) {
-    configs.push(...command)
+
+  if (options.sortTsConfig ?? true) {
+    configs.push(...sortTsConfig())
   }
+
+  if (options.sortPackageJson ?? true) {
+    configs.push(...sortPackageJson())
+  }
+
+  if (options.yml ?? true) {
+    configs.push(
+      ...yml({
+        overrides: getOverrides(options, 'yml'),
+      }),
+    )
+  }
+
+  if (options.toml ?? true) {
+    configs.push(
+      ...toml({
+        overrides: getOverrides(options, 'toml'),
+      }),
+    )
+  }
+
+  if (options.jsonc ?? true) {
+    configs.push(
+      ...jsonc({
+        overrides: getOverrides(options, 'jsonc'),
+      }),
+    )
+  }
+
+  if (options.vue ?? hasVue) {
+    configs.push(
+      ...vue({
+        overrides: getOverrides(options, 'vue'),
+      }),
+    )
+  }
+
+  if (options.vitest ?? hasVitest) {
+    configs.push(
+      ...vitest({
+        overrides: getOverrides(options, 'vitest'),
+      }),
+    )
+  }
+
+  if (options.vitest ?? hasVitest) {
+    configs.push(
+      ...unocss({
+        overrides: getOverrides(options, 'unocss'),
+      }),
+    )
+  }
+
+  if (options.markdown ?? true) {
+    configs.push(
+      ...markdown({
+        overrides: getOverrides(options, 'markdown'),
+      }),
+    )
+  }
+  if (options.command ?? true) {
+    configs.push(...command())
+  }
+
+  configs.push(...toArray(customConfig))
 
   /**
    * Keep prettier at last
    */
-  if (enablePrettier) {
-    configs.push(...prettier)
-  }
-
-  if (Object.keys(config).length > 0) {
-    configs.push(...(Array.isArray(config) ? config : [config]))
+  if (options.prettier ?? true) {
+    configs.push(
+      ...prettier({
+        overrides: getOverrides(options, 'prettier'),
+      }),
+    )
   }
 
   return configs

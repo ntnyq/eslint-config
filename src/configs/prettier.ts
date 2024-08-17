@@ -1,9 +1,8 @@
-import { defineConfig } from '../utils'
 import { pluginPrettier } from '../plugins'
 import { GLOB_TOML } from '../globs'
-import type { RuleRecordEntry } from '../types'
+import type { ConfigPrettierOptions, LinterConfig, RuleRecordEntry } from '../types'
 
-export const prettier = defineConfig([
+export const prettier = (options: ConfigPrettierOptions = {}): LinterConfig[] => [
   {
     name: 'ntnyq/prettier',
     plugins: {
@@ -49,13 +48,17 @@ export const prettier = defineConfig([
       'vue/template-curly-spacing': 'off',
       ...(pluginPrettier.configs!.recommended as RuleRecordEntry).rules,
       'prettier/prettier': 'warn',
+
+      // Overrides built-in rules
+      ...options.overrides,
     },
   },
+
   /**
    * Languages that prettier currently does not support
    */
   {
-    name: 'ntnyq/prettier/ignore',
+    name: 'ntnyq/prettier/disabled',
     files: [GLOB_TOML],
     plugins: {
       prettier: pluginPrettier,
@@ -64,4 +67,4 @@ export const prettier = defineConfig([
       'prettier/prettier': 'off',
     },
   },
-])
+]

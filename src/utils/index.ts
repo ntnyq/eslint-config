@@ -1,4 +1,6 @@
 export * from './env'
+export * from './toArray'
 export * from './loadPlugin'
-export * from './defineConfig'
+export * from './getOverrides'
 export * from './interopDefault'
+export * from './resolveSubOptions'

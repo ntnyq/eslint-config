@@ -1,8 +1,8 @@
-import { defineConfig } from '../utils'
 import { parserToml, pluginToml } from '../plugins'
 import { GLOB_TOML } from '../globs'
+import type { ConfigTomlOptions, LinterConfig } from '../types'
 
-export const toml = defineConfig([
+export const toml = (options: ConfigTomlOptions = {}): LinterConfig[] => [
   {
     name: 'ntnyq/toml',
     files: [GLOB_TOML],
@@ -33,6 +33,9 @@ export const toml = defineConfig([
       'toml/quoted-keys': 'error',
       'toml/spaced-comment': 'error',
       'toml/table-bracket-spacing': 'error',
+
+      // Overrides built-in rules
+      ...options.overrides,
     },
   },
-])
+]

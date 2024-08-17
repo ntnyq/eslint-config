@@ -1,6 +1,6 @@
-import { defineConfig } from '../utils'
+import type { LinterConfig } from '../types'
 
-export const sortPackageJson = defineConfig([
+export const sortPackageJson = (): LinterConfig[] => [
   {
     name: 'ntnyq/sort/package-json',
     files: ['**/package.json'],
@@ -98,9 +98,9 @@ export const sortPackageJson = defineConfig([
       ],
     },
   },
-])
+]
 
-export const sortTsConfig = defineConfig([
+export const sortTsConfig = (): LinterConfig[] => [
   {
     name: 'ntnyq/sort/tsconfig',
     files: ['**/tsconfig.json', '**/tsconfig.*.json'],
@@ -215,4 +215,4 @@ export const sortTsConfig = defineConfig([
       ],
     },
   },
-])
+]

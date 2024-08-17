@@ -3,7 +3,6 @@ import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
 import {
   command,
   comments,
-  defineConfig,
   ignores,
   imports,
   javascript,
@@ -26,30 +25,30 @@ import {
   yml,
 } from '../src'
 
-const configs = defineConfig([
-  ...command,
-  ...comments,
-  ...ignores,
-  ...imports,
-  ...javascript,
-  ...jsdoc,
-  ...jsonc,
-  ...jsx,
-  ...markdown,
-  ...node,
-  ...prettier,
-  ...regexp,
-  ...perfectionist,
-  ...sortPackageJson,
-  ...sortTsConfig,
-  ...typescript,
-  ...unicorn,
-  ...unocss,
-  ...vue,
-  // ...vitest,
-  ...yml,
-  ...toml,
-])
+const configs = [
+  ...command(),
+  ...comments(),
+  ...ignores(),
+  ...imports(),
+  ...javascript(),
+  ...jsdoc(),
+  ...jsonc(),
+  ...jsx(),
+  ...markdown(),
+  ...node(),
+  ...prettier(),
+  ...regexp(),
+  ...perfectionist(),
+  ...sortPackageJson(),
+  ...sortTsConfig(),
+  ...typescript(),
+  ...unicorn(),
+  ...unocss(),
+  ...vue(),
+  // ...vitest(),
+  ...yml(),
+  ...toml(),
+]
 
 const configNames = configs.map(i => i.name).filter(Boolean)
 

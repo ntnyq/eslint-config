@@ -1,8 +1,9 @@
 import globals from 'globals'
 import jsConfig from '@eslint/js'
-import { defineConfig } from '../utils'
+import type { ConfigJavaScriptOptions, LinterConfig } from '../types'
 
-export const javascript = defineConfig([
+// eslint-disable-next-line max-lines-per-function
+export const javascript = (option: ConfigJavaScriptOptions = {}): LinterConfig[] => [
   {
     name: 'ntnyq/js/recommended',
     ...jsConfig.configs.recommended,
@@ -217,6 +218,9 @@ export const javascript = defineConfig([
           allowSeparatedGroups: false,
         },
       ],
+
+      // Overrides built-in rules
+      ...option.overrides,
     },
   },
 
@@ -236,9 +240,9 @@ export const javascript = defineConfig([
       'max-lines-per-function': 'off',
     },
   },
-])
+]
 
-export const jsx = defineConfig([
+export const jsx = (): LinterConfig[] => [
   {
     name: 'ntnyq/jsx',
     files: ['**/*.jsx'],
@@ -250,4 +254,4 @@ export const jsx = defineConfig([
       },
     },
   },
-])
+]

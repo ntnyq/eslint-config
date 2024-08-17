@@ -1,7 +1,7 @@
-import { defineConfig } from '../utils'
 import { pluginImport } from '../plugins'
+import type { ConfigImportsOptions, LinterConfig } from '../types'
 
-export const imports = defineConfig([
+export const imports = (options: ConfigImportsOptions = {}): LinterConfig[] => [
   {
     name: 'ntnyq/imports',
     plugins: {
@@ -40,6 +40,9 @@ export const imports = defineConfig([
           pathGroupsExcludedImportTypes: ['type'],
         },
       ],
+
+      // Overrides built-in rules
+      ...options.overrides,
     },
   },
-])
+]
