@@ -1,12 +1,17 @@
-import { defineConfig } from '../utils'
 import { GLOB_EXCLUDE } from '../globs'
+import type { ConfigIgnoresOptions, LinterConfig } from '../types'
 
 /**
  * @see https://eslint.org/docs/latest/use/configure/configuration-files-new#globally-ignoring-files-with-ignores
  */
-export const ignores = defineConfig([
+export const ignores = (customIgnores: ConfigIgnoresOptions = []): LinterConfig[] => [
   {
     name: 'ntnyq/ignores',
-    ignores: GLOB_EXCLUDE,
+    ignores: [
+      ...GLOB_EXCLUDE,
+
+      // Overrides built-in ignores
+      ...customIgnores,
+    ],
   },
-])
+]

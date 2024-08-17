@@ -1,9 +1,8 @@
-import { defineConfig } from '../utils'
 import { parserJsonc, pluginJsonc } from '../plugins'
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs'
-import type { RuleRecord } from '../types'
+import type { ConfigJsoncOptions, LinterConfig, RuleRecord } from '../types'
 
-export const jsonc = defineConfig([
+export const jsonc = (options: ConfigJsoncOptions = {}): LinterConfig[] => [
   {
     name: 'ntnyq/jsonc',
     files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
@@ -41,6 +40,9 @@ export const jsonc = defineConfig([
           allowMultiplePropertiesPerLine: true,
         },
       ],
+
+      // Overrides built-in rules
+      ...options.overrides,
     },
   },
-])
+]

@@ -1,7 +1,7 @@
-import { defineConfig } from '../utils'
 import { pluginNode } from '../plugins'
+import type { ConfigNodeOptions, LinterConfig } from '../types'
 
-export const node = defineConfig([
+export const node = (options: ConfigNodeOptions = {}): LinterConfig[] => [
   {
     name: 'ntnyq/node',
     plugins: {
@@ -16,6 +16,9 @@ export const node = defineConfig([
       'node/prefer-global/buffer': ['error', 'never'],
       'node/prefer-global/process': ['error', 'never'],
       'node/process-exit-as-throw': 'error',
+
+      // Overrides built-in rules
+      ...options.overrides,
     },
   },
-])
+]

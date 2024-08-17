@@ -1,10 +1,9 @@
 import process from 'node:process'
 import { getPackageInfoSync } from 'local-pkg'
-import { defineConfig } from '../utils'
 import { GLOB_VUE } from '../globs'
 import { parserVue, pluginVue, tseslint } from '../plugins'
 import { typescriptCore } from './typescript'
-import type { RuleRecord, TypedConfigItem } from '../types'
+import type { ConfigVueOptions, LinterConfig, RuleRecord, TypedConfigItem } from '../types'
 
 export function getVueVersion() {
   const pkg = getPackageInfoSync('vue', { paths: [process.cwd()] })
@@ -29,11 +28,12 @@ const vue3Rules: RuleRecord = {
   ...pluginVue.configs['vue3-recommended'].rules,
 }
 
-export const vue = defineConfig([
+// eslint-disable-next-line max-lines-per-function
+export const vue = (options: ConfigVueOptions = {}): LinterConfig[] => [
   ...(tseslint.config({
     name: 'ntnyq/vue/ts',
     files: [GLOB_VUE],
-    extends: typescriptCore,
+    extends: typescriptCore(),
   }) as TypedConfigItem[]),
 
   {
@@ -255,6 +255,9 @@ export const vue = defineConfig([
           multiline: 1,
         },
       ],
+
+      // Overrides built-in rules
+      ...options.overrides,
     },
   },
-])
+]

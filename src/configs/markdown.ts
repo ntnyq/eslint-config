@@ -1,8 +1,8 @@
-import { defineConfig } from '../utils'
 import { GLOB_MARKDOWN, GLOB_SRC, GLOB_VUE } from '../globs'
 import { pluginMarkdown } from '../plugins'
+import type { ConfigMarkdownOptions, LinterConfig } from '../types'
 
-export const markdown = defineConfig([
+export const markdown = (options: ConfigMarkdownOptions = {}): LinterConfig[] => [
   ...pluginMarkdown.configs.recommended,
 
   {
@@ -30,6 +30,9 @@ export const markdown = defineConfig([
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-extraneous-class': 'off',
       '@typescript-eslint/no-use-before-define': 'off',
+
+      // Overrides built-in rules
+      ...options.overrides,
     },
   },
-])
+]

@@ -22,6 +22,11 @@ export type TypedConfigItem = Omit<Linter.Config<Linter.RulesRecord & Rules>, 'p
 }
 
 /**
+ * Refined `Linter.Config` type
+ */
+export type LinterConfig = TypedConfigItem
+
+/**
  * ESLint rules
  */
 export type RuleRecord = Linter.RulesRecord

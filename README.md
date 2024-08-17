@@ -9,7 +9,7 @@
 ## Install
 
 ```bash
-pnpm add @ntnyq/eslint-config -D
+pnpm add eslint prettier typescript @ntnyq/eslint-config @ntnyq/prettier-config -D
 ```
 
 ## Usage

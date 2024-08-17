@@ -1,7 +1,7 @@
-import { defineConfig } from '../utils'
 import { pluginUnoCSS } from '../plugins'
+import type { ConfigUnoCSSOptions, LinterConfig } from '../types'
 
-export const unocss = defineConfig([
+export const unocss = (options: ConfigUnoCSSOptions = {}): LinterConfig[] => [
   {
     name: 'ntnyq/unocss',
     plugins: {
@@ -11,6 +11,9 @@ export const unocss = defineConfig([
       'unocss/order': 'error',
       // We don't use this
       'unocss/order-attributify': 'off',
+
+      // Overrides built-in rules
+      ...options.overrides,
     },
   },
-])
+]

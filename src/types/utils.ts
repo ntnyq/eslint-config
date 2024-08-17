@@ -15,3 +15,5 @@ export interface OverridesOptions<Rules = TypedConfigItem['rules']> {
   rules?: Rules
   parserOptions?: ParserOptions
 }
+
+export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>

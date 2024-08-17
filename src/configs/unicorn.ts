@@ -1,7 +1,7 @@
-import { defineConfig } from '../utils'
 import { pluginUnicorn } from '../plugins'
+import type { ConfigUnicornOptions, LinterConfig } from '../types'
 
-export const unicorn = defineConfig([
+export const unicorn = (options: ConfigUnicornOptions = {}): LinterConfig[] => [
   {
     name: 'ntnyq/unicorn',
     plugins: {
@@ -77,6 +77,9 @@ export const unicorn = defineConfig([
       'unicorn/prefer-array-some': 'error',
       'unicorn/prefer-array-flat-map': 'error',
       'unicorn/prefer-array-index-of': 'error',
+
+      // Overrides built-in rules
+      ...options.overrides,
     },
   },
-])
+]

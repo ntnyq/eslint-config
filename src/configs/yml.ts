@@ -1,9 +1,8 @@
-import { defineConfig } from '../utils'
 import { parserYaml, pluginYaml } from '../plugins'
 import { GLOB_YAML } from '../globs'
-import type { RuleRecord } from '../types'
+import type { ConfigYmlOptions, LinterConfig, RuleRecord } from '../types'
 
-export const yml = defineConfig([
+export const yml = (options: ConfigYmlOptions = {}): LinterConfig[] => [
   {
     name: 'ntnyq/yaml',
     files: [GLOB_YAML],
@@ -19,6 +18,9 @@ export const yml = defineConfig([
 
       'yml/no-empty-mapping-value': 'off',
       'yml/quotes': ['error', { avoidEscape: false, prefer: 'single' }],
+
+      // Overrides built-in rules
+      ...options.overrides,
     },
   },
-])
+]
