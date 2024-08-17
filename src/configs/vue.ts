@@ -33,8 +33,6 @@ export const vue = defineConfig([
   ...(tseslint.config({
     name: 'ntnyq/vue/ts',
     files: [GLOB_VUE],
-    // TODO: Remove this when `typescript-eslint` is aligned with `eslint`
-    // @ts-expect-error - `typescript-eslint` is not aligned with eslint
     extends: typescriptCore,
   }) as TypedConfigItem[]),
 
