@@ -1,7 +1,7 @@
 import { pluginImport } from '../plugins'
-import type { ConfigImportsOptions, LinterConfig } from '../types'
+import type { ConfigImportsOptions, TypedConfigItem } from '../types'
 
-export const imports = (options: ConfigImportsOptions = {}): LinterConfig[] => [
+export const imports = (options: ConfigImportsOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/imports',
     plugins: {

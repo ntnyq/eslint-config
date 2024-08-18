@@ -1,7 +1,7 @@
 import { pluginUnicorn } from '../plugins'
-import type { ConfigUnicornOptions, LinterConfig } from '../types'
+import type { ConfigUnicornOptions, TypedConfigItem } from '../types'
 
-export const unicorn = (options: ConfigUnicornOptions = {}): LinterConfig[] => [
+export const unicorn = (options: ConfigUnicornOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/unicorn',
     plugins: {

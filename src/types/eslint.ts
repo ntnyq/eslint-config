@@ -20,18 +20,3 @@ export type TypedConfigItem = Omit<Linter.Config<Linter.RulesRecord & Rules>, 'p
    */
   plugins?: Record<string, any>
 }
-
-/**
- * Refined `Linter.Config` type
- */
-export type LinterConfig = TypedConfigItem
-
-/**
- * ESLint rules
- */
-export type RuleRecord = Linter.RulesRecord
-
-/**
- * ESLint rules entry
- */
-export type RuleRecordEntry = Record<string, RuleRecord>

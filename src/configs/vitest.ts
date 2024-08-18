@@ -1,8 +1,8 @@
 import { pluginVitest } from '../plugins'
 import { GLOB_TEST } from '../globs'
-import type { ConfigVitestOptions, LinterConfig } from '../types'
+import type { ConfigVitestOptions, TypedConfigItem } from '../types'
 
-export const vitest = (options: ConfigVitestOptions = {}): LinterConfig[] => [
+export const vitest = (options: ConfigVitestOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/test',
     plugins: {

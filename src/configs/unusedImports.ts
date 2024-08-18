@@ -1,7 +1,7 @@
 import { pluginUnusedImports } from '../plugins'
-import type { ConfigUnusedImportsOptions, LinterConfig } from '../types'
+import type { ConfigUnusedImportsOptions, TypedConfigItem } from '../types'
 
-export const unusedImports = (options: ConfigUnusedImportsOptions = {}): LinterConfig[] => [
+export const unusedImports = (options: ConfigUnusedImportsOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/unused-imports',
     plugins: {

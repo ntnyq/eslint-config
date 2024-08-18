@@ -1,9 +1,12 @@
+import process from 'node:process'
 import { tseslint } from '../plugins'
 import { GLOB_DTS, GLOB_JS, GLOB_TS, GLOB_TSX } from '../globs'
-import type { ConfigTypeScriptOptions, LinterConfig, TypedConfigItem } from '../types'
+import type { ConfigTypeScriptOptions, TypedConfigItem } from '../types'
 
-export const typescriptCore = (options: ConfigTypeScriptOptions = {}) =>
-  tseslint.config({
+export const typescriptCore = (options: ConfigTypeScriptOptions = {}) => {
+  const isTypeAware = !!options.tsconfigPath
+
+  const configs = tseslint.config({
     name: 'ntnyq/ts/core',
     extends: [...tseslint.configs.recommended],
     files: [GLOB_TS, GLOB_TSX],
@@ -11,6 +14,14 @@ export const typescriptCore = (options: ConfigTypeScriptOptions = {}) =>
       parser: tseslint.parser,
       parserOptions: {
         sourceType: 'module',
+        ...(isTypeAware
+          ? {
+              projectService: {
+                defaultProject: options.tsconfigPath,
+              },
+              tsconfigRootDir: process.cwd(),
+            }
+          : {}),
       },
     },
     rules: {
@@ -71,9 +82,11 @@ export const typescriptCore = (options: ConfigTypeScriptOptions = {}) =>
 
     // Overrides built-in rules
     ...options.overrides,
-  }) as TypedConfigItem[]
+  })
+  return configs as TypedConfigItem[]
+}
 
-export const typescript = (options: ConfigTypeScriptOptions = {}): LinterConfig[] => [
+export const typescript = (options: ConfigTypeScriptOptions = {}): TypedConfigItem[] => [
   ...typescriptCore(options),
 
   {

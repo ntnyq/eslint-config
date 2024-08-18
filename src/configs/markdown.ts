@@ -1,8 +1,8 @@
 import { GLOB_MARKDOWN, GLOB_SRC, GLOB_VUE } from '../globs'
 import { pluginMarkdown } from '../plugins'
-import type { ConfigMarkdownOptions, LinterConfig } from '../types'
+import type { ConfigMarkdownOptions, TypedConfigItem } from '../types'
 
-export const markdown = (options: ConfigMarkdownOptions = {}): LinterConfig[] => [
+export const markdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[] => [
   ...pluginMarkdown.configs.recommended,
 
   {

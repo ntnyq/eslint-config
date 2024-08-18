@@ -1,7 +1,7 @@
 import { pluginUnoCSS } from '../plugins'
-import type { ConfigUnoCSSOptions, LinterConfig } from '../types'
+import type { ConfigUnoCSSOptions, TypedConfigItem } from '../types'
 
-export const unocss = (options: ConfigUnoCSSOptions = {}): LinterConfig[] => [
+export const unocss = (options: ConfigUnoCSSOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/unocss',
     plugins: {

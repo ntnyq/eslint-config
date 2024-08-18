@@ -1,7 +1,7 @@
 import createCommandPlugin from 'eslint-plugin-command/config'
-import type { LinterConfig } from '../types'
+import type { TypedConfigItem } from '../types'
 
-export const command = (): LinterConfig[] => [
+export const command = (): TypedConfigItem[] => [
   {
     ...createCommandPlugin(),
     name: 'ntnyq/command',

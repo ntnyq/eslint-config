@@ -2,7 +2,7 @@
  * @file Config options
  */
 
-import type { TypedConfigItem } from './eslint'
+import type { ParserOptions, TypedConfigItem } from './eslint'
 
 /**
  * Options for overrides `files`
@@ -32,7 +32,14 @@ export interface ConfigImportsOptions extends OptionsOverrides {}
 
 export interface ConfigNodeOptions extends OptionsOverrides {}
 
-export interface ConfigPrettierOptions extends OptionsOverrides {}
+export interface ConfigPrettierOptions extends OptionsOverrides {
+  /**
+   * Prettier level
+   *
+   * @default 'warn'
+   */
+  level?: 'warn' | 'error'
+}
 
 export interface ConfigPerfectionistOptions extends OptionsOverrides {}
 
@@ -40,9 +47,26 @@ export interface ConfigCommentsOptions extends OptionsOverrides {}
 
 export interface ConfigRegexpOptions extends OptionsOverrides {}
 
-export interface ConfigJavaScriptOptions extends OptionsOverrides {}
+export interface ConfigJavaScriptOptions extends OptionsOverrides {
+  /**
+   * Enable strict checking for JavaScript files
+   *
+   * @default false
+   */
+  strict?: boolean
+}
 
-export interface ConfigTypeScriptOptions extends OptionsOverrides {}
+export interface ConfigTypeScriptOptions extends OptionsOverrides {
+  /**
+   * Enable type aware check for TypeScript files
+   */
+  tsconfigPath?: string
+
+  /**
+   * Additional parser options
+   */
+  parserOptions?: Partial<ParserOptions>
+}
 
 export interface ConfigJsoncOptions extends OptionsOverrides {}
 
@@ -52,7 +76,14 @@ export interface ConfigMarkdownOptions extends OptionsOverrides {}
 
 export interface ConfigTomlOptions extends OptionsOverrides {}
 
-export interface ConfigVueOptions extends OptionsOverrides {}
+export interface ConfigVueOptions extends OptionsOverrides {
+  /**
+   * Vue version
+   *
+   * @default 3
+   */
+  vueVersion?: 2 | 3
+}
 
 export interface ConfigVitestOptions extends OptionsOverrides {}
 

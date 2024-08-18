@@ -1,8 +1,8 @@
 import { parserToml, pluginToml } from '../plugins'
 import { GLOB_TOML } from '../globs'
-import type { ConfigTomlOptions, LinterConfig } from '../types'
+import type { ConfigTomlOptions, TypedConfigItem } from '../types'
 
-export const toml = (options: ConfigTomlOptions = {}): LinterConfig[] => [
+export const toml = (options: ConfigTomlOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/toml',
     files: [GLOB_TOML],

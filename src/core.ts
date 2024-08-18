@@ -2,7 +2,15 @@
  * @file presets
  */
 
-import { getOverrides, hasTypeScript, hasUnoCSS, hasVitest, hasVue, toArray } from './utils'
+import {
+  getOverrides,
+  hasTypeScript,
+  hasUnoCSS,
+  hasVitest,
+  hasVue,
+  resolveSubOptions,
+  toArray,
+} from './utils'
 import {
   command,
   comments,
@@ -31,7 +39,6 @@ import type { Arrayable, ConfigOptions, TypedConfigItem } from './types'
 /**
  * Config factory
  */
-// eslint-disable-next-line complexity
 export function ntnyq(options: ConfigOptions = {}, customConfig: Arrayable<TypedConfigItem> = []) {
   const configs: TypedConfigItem[] = [
     /**
@@ -46,6 +53,7 @@ export function ntnyq(options: ConfigOptions = {}, customConfig: Arrayable<Typed
       overrides: getOverrides(options, 'imports'),
     }),
     ...javascript({
+      ...resolveSubOptions(options, 'javascript'),
       overrides: getOverrides(options, 'javascript'),
     }),
   ]
@@ -85,6 +93,7 @@ export function ntnyq(options: ConfigOptions = {}, customConfig: Arrayable<Typed
   if (options.typescript ?? hasTypeScript) {
     configs.push(
       ...typescript({
+        ...resolveSubOptions(options, 'typescript'),
         overrides: getOverrides(options, 'typescript'),
       }),
     )
@@ -125,6 +134,7 @@ export function ntnyq(options: ConfigOptions = {}, customConfig: Arrayable<Typed
   if (options.vue ?? hasVue) {
     configs.push(
       ...vue({
+        ...resolveSubOptions(options, 'vue'),
         overrides: getOverrides(options, 'vue'),
       }),
     )
@@ -165,6 +175,7 @@ export function ntnyq(options: ConfigOptions = {}, customConfig: Arrayable<Typed
   if (options.prettier ?? true) {
     configs.push(
       ...prettier({
+        ...resolveSubOptions(options, 'prettier'),
         overrides: getOverrides(options, 'prettier'),
       }),
     )

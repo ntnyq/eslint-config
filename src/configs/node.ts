@@ -1,7 +1,7 @@
 import { pluginNode } from '../plugins'
-import type { ConfigNodeOptions, LinterConfig } from '../types'
+import type { ConfigNodeOptions, TypedConfigItem } from '../types'
 
-export const node = (options: ConfigNodeOptions = {}): LinterConfig[] => [
+export const node = (options: ConfigNodeOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/node',
     plugins: {

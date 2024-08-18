@@ -1,7 +1,7 @@
 import { pluginPerfectionist } from '../plugins'
-import type { ConfigPerfectionistOptions, LinterConfig } from '../types'
+import type { ConfigPerfectionistOptions, TypedConfigItem } from '../types'
 
-export const perfectionist = (options: ConfigPerfectionistOptions = {}): LinterConfig[] => [
+export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/perfectionist',
     plugins: {

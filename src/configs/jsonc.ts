@@ -1,8 +1,8 @@
 import { parserJsonc, pluginJsonc } from '../plugins'
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs'
-import type { ConfigJsoncOptions, LinterConfig, RuleRecord } from '../types'
+import type { ConfigJsoncOptions, TypedConfigItem } from '../types'
 
-export const jsonc = (options: ConfigJsoncOptions = {}): LinterConfig[] => [
+export const jsonc = (options: ConfigJsoncOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/jsonc',
     files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
@@ -13,7 +13,7 @@ export const jsonc = (options: ConfigJsoncOptions = {}): LinterConfig[] => [
       parser: parserJsonc,
     },
     rules: {
-      ...(pluginJsonc.configs['recommended-with-jsonc'].rules as RuleRecord),
+      ...(pluginJsonc.configs['recommended-with-jsonc'].rules as TypedConfigItem['rules']),
       'jsonc/array-bracket-spacing': ['error', 'never'],
       'jsonc/comma-dangle': ['error', 'never'],
       'jsonc/comma-style': ['error', 'last'],

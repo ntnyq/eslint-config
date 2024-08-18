@@ -1,7 +1,7 @@
 import { pluginJsdoc } from '../plugins'
-import type { ConfigJsdocOptions, LinterConfig } from '../types'
+import type { ConfigJsdocOptions, TypedConfigItem } from '../types'
 
-export const jsdoc = (options: ConfigJsdocOptions = {}): LinterConfig[] => [
+export const jsdoc = (options: ConfigJsdocOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/jsdoc',
     plugins: {
