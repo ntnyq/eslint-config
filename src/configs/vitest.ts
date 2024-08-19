@@ -4,7 +4,7 @@ import type { ConfigVitestOptions, TypedConfigItem } from '../types'
 
 export const vitest = (options: ConfigVitestOptions = {}): TypedConfigItem[] => [
   {
-    name: 'ntnyq/test',
+    name: 'ntnyq/vitest',
     plugins: {
       vitest: pluginVitest,
     },
