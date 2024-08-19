@@ -97,6 +97,8 @@ export interface ConfigOptions {
 
   sortTsConfig?: boolean
 
+  sortI18nLocale?: boolean
+
   sortPackageJson?: boolean
 
   ignores?: ConfigIgnoresOptions

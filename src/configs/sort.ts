@@ -216,3 +216,18 @@ export const sortTsConfig = (): TypedConfigItem[] => [
     },
   },
 ]
+
+export const sortI18nLocale = (): TypedConfigItem[] => [
+  {
+    files: ['**/{locales,i18n}/*.json', '**/{locales,i18n}/*.y?(a)ml'],
+    rules: {
+      'jsonc/sort-keys': [
+        'error',
+        {
+          pathPattern: '.*',
+          order: { type: 'asc' },
+        },
+      ],
+    },
+  },
+]

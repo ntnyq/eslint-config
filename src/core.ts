@@ -24,6 +24,7 @@ import {
   node,
   prettier,
   regexp,
+  sortI18nLocale,
   sortPackageJson,
   sortTsConfig,
   toml,
@@ -97,6 +98,10 @@ export function ntnyq(options: ConfigOptions = {}, customConfig: Arrayable<Typed
         overrides: getOverrides(options, 'typescript'),
       }),
     )
+  }
+
+  if (options.sortI18nLocale ?? true) {
+    configs.push(...sortI18nLocale())
   }
 
   if (options.sortTsConfig ?? true) {
