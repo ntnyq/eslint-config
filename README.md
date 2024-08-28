@@ -30,6 +30,33 @@ const ntnyq = require('@ntnyq/eslint-config')
 module.exports = ntnyq()
 ```
 
+## VSCode Config
+
+```json
+{
+  "eslint.enable": true,
+  "prettier.enable": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": [
+    "vue",
+    "html",
+    "yaml",
+    "toml",
+    "json",
+    "jsonc",
+    "json5",
+    "markdown",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ]
+}
+```
+
 ## Credits
 
 - [@sxzz/eslint-config](https://github.com/sxzz/eslint-config)

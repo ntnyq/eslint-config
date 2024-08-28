@@ -19,6 +19,8 @@ export const imports = (options: ConfigImportsOptions = {}): TypedConfigItem[] =
 
       'import/first': 'error',
       'import/export': 'error',
+      // 'import/no-named-default': 'error',
+      'import/no-self-import': 'error',
       'import/no-duplicates': 'error',
       'import/no-mutable-exports': 'error',
       'import/newline-after-import': 'error',

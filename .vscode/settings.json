@@ -1,10 +1,15 @@
 {
   "eslint.enable": true,
   "prettier.enable": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
   "eslint.validate": [
     "vue",
     "html",
     "yaml",
+    "toml",
     "json",
     "jsonc",
     "json5",
@@ -14,7 +19,6 @@
     "javascriptreact",
     "typescriptreact"
   ],
-  "editor.formatOnSave": true,
   "cSpell.allowCompoundWords": true,
   "cSpell.words": [
     "antfu",
