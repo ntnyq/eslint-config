@@ -53,7 +53,9 @@ export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
         'vue/require-prop-types': 'off',
         'vue/require-default-prop': 'off',
         'vue/multi-word-component-names': 'off',
+        'vue/no-v-text-v-html-on-component': 'off',
         'vue/no-setup-props-reactivity-loss': 'off',
+
         'vue/html-self-closing': [
           'error',
           {
@@ -97,7 +99,22 @@ export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
             exceptions: ['-'],
           },
         ],
+        'vue/no-restricted-v-bind': ['error', '/^v-/'],
+        'vue/no-useless-v-bind': 'error',
+        'vue/padding-line-between-blocks': 'error',
+        'vue/next-tick-style': ['error', 'promise'],
         'vue/array-bracket-spacing': ['error', 'never'],
+        'vue/prefer-separate-static-class': 'error',
+        'vue/no-constant-condition': 'error',
+        'vue/prefer-true-attribute-shorthand': ['error', 'always'],
+        'vue/prefer-define-options': 'error',
+        'vue/valid-define-options': 'error',
+
+        // TypeScript enhancements
+        'vue/define-emits-declaration': ['error', 'type-literal'],
+
+        'vue/no-unused-emit-declarations': 'error',
+        'vue/this-in-template': ['error', 'never'],
         'vue/arrow-spacing': ['error', { before: true, after: true }],
         'vue/block-spacing': ['error', 'always'],
         'vue/brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
