@@ -3,6 +3,7 @@ import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
 import {
   command,
   comments,
+  gitignore,
   ignores,
   imports,
   javascript,
@@ -30,6 +31,7 @@ const configs = [
   ...comments(),
   ...ignores(),
   ...imports(),
+  ...gitignore(),
   ...javascript(),
   ...jsdoc(),
   ...jsonc(),

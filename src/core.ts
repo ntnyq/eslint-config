@@ -14,6 +14,7 @@ import {
 import {
   command,
   comments,
+  gitignore,
   ignores,
   imports,
   javascript,
@@ -41,7 +42,13 @@ import type { Arrayable, ConfigOptions, TypedConfigItem } from './types'
  * Config factory
  */
 export function ntnyq(options: ConfigOptions = {}, customConfig: Arrayable<TypedConfigItem> = []) {
-  const configs: TypedConfigItem[] = [
+  const configs: TypedConfigItem[] = []
+
+  if (options.gitignore ?? true) {
+    configs.push(...gitignore(resolveSubOptions(options, 'gitignore')))
+  }
+
+  configs.push(
     /**
      * Basic
      */
@@ -57,7 +64,7 @@ export function ntnyq(options: ConfigOptions = {}, customConfig: Arrayable<Typed
       ...resolveSubOptions(options, 'javascript'),
       overrides: getOverrides(options, 'javascript'),
     }),
-  ]
+  )
 
   if (options.unicorn ?? true) {
     configs.push(

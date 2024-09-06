@@ -17,6 +17,8 @@ export * from './perfectionist'
 
 export * from './regexp'
 export * from './unocss'
+
+export * from './gitignore'
 export * from './command'
 
 export * from './vitest'
