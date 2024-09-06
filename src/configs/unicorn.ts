@@ -9,6 +9,7 @@ export const unicorn = (options: ConfigUnicornOptions = {}): TypedConfigItem[] =
     },
     rules: {
       // Disabled for now
+      'unicorn/better-regex': 'off',
       'unicorn/prefer-top-level-await': 'off',
       'unicorn/explicit-length-check': 'off',
       'unicorn/no-array-callback-reference': 'off',
@@ -24,7 +25,6 @@ export const unicorn = (options: ConfigUnicornOptions = {}): TypedConfigItem[] =
       'unicorn/switch-case-braces': ['error', 'avoid'],
       'unicorn/no-typeof-undefined': 'error',
       'unicorn/prefer-set-size': 'error',
-      'unicorn/better-regex': 'error',
       'unicorn/prefer-regexp-test': 'error',
       'unicorn/no-static-only-class': 'error',
       'unicorn/no-zero-fractions': 'error',
