@@ -45,7 +45,11 @@ export function ntnyq(options: ConfigOptions = {}, customConfig: Arrayable<Typed
   const configs: TypedConfigItem[] = []
 
   if (options.gitignore ?? true) {
-    configs.push(...gitignore(resolveSubOptions(options, 'gitignore')))
+    configs.push(
+      ...gitignore({
+        ...resolveSubOptions(options, 'gitignore'),
+      }),
+    )
   }
 
   configs.push(
@@ -176,7 +180,11 @@ export function ntnyq(options: ConfigOptions = {}, customConfig: Arrayable<Typed
     )
   }
   if (options.command ?? true) {
-    configs.push(...command())
+    configs.push(
+      ...command({
+        ...resolveSubOptions(options, 'command'),
+      }),
+    )
   }
 
   configs.push(...toArray(customConfig))

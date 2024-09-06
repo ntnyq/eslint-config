@@ -3,6 +3,7 @@
  */
 
 import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
+import type { ESLintPluginCommandOptions } from 'eslint-plugin-command/types'
 import type { ParserOptions, TypedConfigItem } from './eslint'
 
 /**
@@ -24,6 +25,8 @@ export interface OptionsOverrides<
 export type ConfigIgnoresOptions = string[]
 
 export type ConfigGitIgnoreOptions = FlatGitignoreOptions
+
+export type ConfigCommandOptions = ESLintPluginCommandOptions
 
 export interface ConfigJsdocOptions extends OptionsOverrides {}
 
@@ -96,8 +99,6 @@ export interface ConfigUnusedImportsOptions extends OptionsOverrides {}
  * Config factory options
  */
 export interface ConfigOptions {
-  command?: boolean
-
   sortTsConfig?: boolean
 
   sortI18nLocale?: boolean
@@ -105,6 +106,8 @@ export interface ConfigOptions {
   sortPackageJson?: boolean
 
   ignores?: ConfigIgnoresOptions
+
+  command?: boolean | ConfigCommandOptions
 
   gitignore?: boolean | ConfigGitIgnoreOptions
 

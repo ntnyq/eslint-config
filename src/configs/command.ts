@@ -1,9 +1,9 @@
 import createCommandPlugin from 'eslint-plugin-command/config'
-import type { TypedConfigItem } from '../types'
+import type { ConfigCommandOptions, TypedConfigItem } from '../types'
 
-export const command = (): TypedConfigItem[] => [
+export const command = (options: ConfigCommandOptions = {}): TypedConfigItem[] => [
   {
-    ...createCommandPlugin(),
+    ...createCommandPlugin(options),
     name: 'ntnyq/command',
   },
 ]
