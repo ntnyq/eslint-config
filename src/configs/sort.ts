@@ -219,6 +219,7 @@ export const sortTsConfig = (): TypedConfigItem[] => [
 
 export const sortI18nLocale = (): TypedConfigItem[] => [
   {
+    name: 'ntnyq/sort/i18n-locale',
     files: ['**/{locales,i18n}/*.json', '**/{locales,i18n}/*.y?(a)ml'],
     rules: {
       'jsonc/sort-keys': [
