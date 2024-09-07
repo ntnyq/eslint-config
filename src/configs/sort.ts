@@ -13,6 +13,7 @@ export const sortPackageJson = (): TypedConfigItem[] => [
             'publisher',
             'name',
             'displayName',
+            'preview',
             'type',
             'version',
             'private',
