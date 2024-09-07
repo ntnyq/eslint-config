@@ -14,9 +14,6 @@ importers:
       '@eslint/js':
         specifier: ^9.10.0
         version: 9.10.0
-      '@types/eslint':
-        specifier: ^9.6.1
-        version: 9.6.1
       '@unocss/eslint-plugin':
         specifier: ^0.62.3
         version: 0.62.3(eslint@9.10.0(jiti@1.21.6))(typescript@5.5.4)

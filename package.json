@@ -57,7 +57,6 @@
   "dependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "^4.4.0",
     "@eslint/js": "^9.10.0",
-    "@types/eslint": "^9.6.1",
     "@unocss/eslint-plugin": "^0.62.3",
     "@vitest/eslint-plugin": "^1.1.0",
     "eslint-config-flat-gitignore": "^0.3.0",
