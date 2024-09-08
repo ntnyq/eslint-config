@@ -29,6 +29,12 @@ importers:
       eslint-flat-config-utils:
         specifier: ^0.4.0
         version: 0.4.0
+      eslint-merge-processors:
+        specifier: ^0.1.0
+        version: 0.1.0(eslint@9.10.0(jiti@1.21.6))
+      eslint-plugin-antfu:
+        specifier: ^2.5.0
+        version: 2.5.0(eslint@9.10.0(jiti@1.21.6))
       eslint-plugin-command:
         specifier: ^0.2.4
         version: 0.2.4(eslint@9.10.0(jiti@1.21.6))
@@ -966,6 +972,16 @@ packages:
 
   eslint-import-resolver-node@0.3.9:
     resolution: {integrity: sha512-WFj2isz22JahUv+B788TlO3N6zL3nNJGU8CcZbPZvVEkBPaJdCV4vy5wyghty5ROFbCRnm132v8BScu5/1BQ8g==}
+
+  eslint-merge-processors@0.1.0:
+    resolution: {integrity: sha512-IvRXXtEajLeyssvW4wJcZ2etxkR9mUf4zpNwgI+m/Uac9RfXHskuJefkHUcawVzePnd6xp24enp5jfgdHzjRdQ==}
+    peerDependencies:
+      eslint: '*'
+
+  eslint-plugin-antfu@2.5.0:
+    resolution: {integrity: sha512-YLIWE22/ERe6Jpqt6bJdvALw8SWvf4x2DQjvVpRvAv8LrdHbwWckkoueAf8oQFgSOLsL1R/axa+exjpubPp0fw==}
+    peerDependencies:
+      eslint: '*'
 
   eslint-plugin-command@0.2.4:
     resolution: {integrity: sha512-IbZnQY21pOanbcCh/bAWWl+1BynV2HuDE75URMmk/28Tdn+PM7CoKeibXtPGrL7KQdIEHMgUEnRwwI8qmggVMA==}
@@ -3049,6 +3065,15 @@ snapshots:
       resolve: 1.22.8
     transitivePeerDependencies:
       - supports-color
+
+  eslint-merge-processors@0.1.0(eslint@9.10.0(jiti@1.21.6)):
+    dependencies:
+      eslint: 9.10.0(jiti@1.21.6)
+
+  eslint-plugin-antfu@2.5.0(eslint@9.10.0(jiti@1.21.6)):
+    dependencies:
+      '@antfu/utils': 0.7.10
+      eslint: 9.10.0(jiti@1.21.6)
 
   eslint-plugin-command@0.2.4(eslint@9.10.0(jiti@1.21.6)):
     dependencies:

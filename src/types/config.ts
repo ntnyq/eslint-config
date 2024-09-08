@@ -38,6 +38,8 @@ export interface ConfigImportsOptions extends OptionsOverrides {}
 
 export interface ConfigNodeOptions extends OptionsOverrides {}
 
+export interface ConfigAntfuOptions extends OptionsOverrides {}
+
 export interface ConfigPrettierOptions extends OptionsOverrides {
   /**
    * Prettier level
@@ -132,6 +134,11 @@ export interface ConfigOptions {
    * @internal
    */
   unusedImports?: boolean | ConfigUnusedImportsOptions
+
+  /**
+   * @internal
+   */
+  antfu?: boolean | ConfigAntfuOptions
 
   comments?: boolean | ConfigCommentsOptions
 

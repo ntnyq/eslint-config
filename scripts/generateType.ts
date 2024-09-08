@@ -1,6 +1,7 @@
 import { writeFile } from 'node:fs/promises'
 import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
 import {
+  antfu,
   command,
   comments,
   gitignore,
@@ -27,6 +28,7 @@ import {
 } from '../src'
 
 const configs = [
+  ...antfu(),
   ...command(),
   ...comments(),
   ...ignores(),
