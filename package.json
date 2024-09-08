@@ -41,7 +41,7 @@
     "dev": "tsup --watch",
     "generate:site": "tsx scripts/generateSite.ts",
     "generate:type": "tsx scripts/generateType.ts",
-    "lint": "eslint .",
+    "lint": "eslint --flag unstable_ts_config .",
     "prepare": "husky",
     "release": "run-s release:check release:version",
     "release:check": "run-s clean build lint typecheck",
@@ -91,6 +91,7 @@
     "eslint": "^9.10.0",
     "eslint-typegen": "^0.3.2",
     "husky": "^9.1.5",
+    "jiti": "^1.21.6",
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^6.2.2",
     "rimraf": "^6.0.1",
@@ -104,6 +105,6 @@
   },
   "prettier": "@ntnyq/prettier-config",
   "nano-staged": {
-    "*.{js,ts,mjs,cjs,json,jsonc,md,yaml,yml}": "eslint --fix"
+    "*.{js,ts,mjs,cjs,json,jsonc,md,yaml,yml}": "eslint --flag unstable_ts_config --fix"
   }
 }

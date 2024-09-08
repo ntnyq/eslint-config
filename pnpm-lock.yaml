@@ -111,6 +111,9 @@ importers:
       husky:
         specifier: ^9.1.5
         version: 9.1.5
+      jiti:
+        specifier: ^1.21.6
+        version: 1.21.6
       nano-staged:
         specifier: ^0.8.0
         version: 0.8.0

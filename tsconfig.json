@@ -9,5 +9,5 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["./src/**/*.ts", "./tsup.config.ts"]
+  "include": ["./src/**/*.ts", "./scripts/**/*/ts", "./*.config.ts"]
 }

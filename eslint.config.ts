@@ -1,4 +1,4 @@
-import { ntnyq } from './dist/index.js'
+import { ntnyq } from './src'
 
 export default ntnyq({
   ignores: ['**/types/typegen.ts'],

@@ -19,6 +19,9 @@
     "javascriptreact",
     "typescriptreact"
   ],
+  "eslint.options": {
+    "flags": ["unstable_ts_config"]
+  },
   "cSpell.allowCompoundWords": true,
   "cSpell.words": [
     "antfu",
@@ -28,6 +31,7 @@
     "ependencies",
     "eqeqeq",
     "iife",
+    "jiti",
     "jsdelivr",
     "lockb",
     "nocheck",
