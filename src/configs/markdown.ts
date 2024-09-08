@@ -2,37 +2,47 @@ import { GLOB_MARKDOWN, GLOB_SRC, GLOB_VUE } from '../globs'
 import { pluginMarkdown } from '../plugins'
 import type { ConfigMarkdownOptions, TypedConfigItem } from '../types'
 
-export const markdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[] => [
-  ...pluginMarkdown.configs.recommended,
+export const markdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[] => {
+  if (!Array.isArray(pluginMarkdown.configs?.processor)) return []
 
-  {
-    name: 'ntnyq/markdown/extensions',
-    files: [`${GLOB_MARKDOWN}/${GLOB_SRC}`, `${GLOB_MARKDOWN}/${GLOB_VUE}`],
-    rules: {
-      'no-undef': 'off',
-      'no-alert': 'off',
-      'no-console': 'off',
-      'no-unused-vars': 'off',
-      'no-unused-expressions': 'off',
-      'no-restricted-imports': 'off',
+  return [
+    ...pluginMarkdown.configs.processor.map(config => ({
+      ...config,
+      name: `ntnyq/${config.name}`,
+    })),
 
-      'node/prefer-global/buffer': 'off',
-      'node/prefer-global/process': 'off',
+    {
+      name: 'ntnyq/markdown/disabled/code-blocks',
+      files: [`${GLOB_MARKDOWN}/${GLOB_SRC}`, `${GLOB_MARKDOWN}/${GLOB_VUE}`],
+      rules: {
+        'no-undef': 'off',
+        'no-alert': 'off',
+        'no-console': 'off',
+        'no-unused-vars': 'off',
+        'no-unused-expressions': 'off',
+        'no-restricted-imports': 'off',
 
-      'import/no-unresolved': 'off',
+        'node/prefer-global/buffer': 'off',
+        'node/prefer-global/process': 'off',
 
-      'unused-imports/no-unused-imports': 'off',
-      'unused-imports/no-unused-vars': 'off',
+        'import/no-unresolved': 'off',
 
-      '@typescript-eslint/comma-dangle': 'off',
-      '@typescript-eslint/no-redeclare': 'off',
-      '@typescript-eslint/no-namespace': 'off',
-      '@typescript-eslint/no-unused-vars': 'off',
-      '@typescript-eslint/no-extraneous-class': 'off',
-      '@typescript-eslint/no-use-before-define': 'off',
+        'unused-imports/no-unused-imports': 'off',
+        'unused-imports/no-unused-vars': 'off',
 
-      // Overrides built-in rules
-      ...options.overrides,
+        '@typescript-eslint/comma-dangle': 'off',
+        '@typescript-eslint/no-redeclare': 'off',
+        '@typescript-eslint/no-namespace': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/no-require-imports': 'off',
+        '@typescript-eslint/no-extraneous-class': 'off',
+        '@typescript-eslint/no-use-before-define': 'off',
+        '@typescript-eslint/no-unused-expressions': 'off',
+        '@typescript-eslint/consistent-type-imports': 'off',
+
+        // Overrides built-in rules
+        ...options.overrides,
+      },
     },
-  },
-]
+  ]
+}
