@@ -113,11 +113,11 @@ export interface ConfigOptions {
 
   imports?: ConfigImportsOptions
 
+  node?: ConfigNodeOptions
+
   javascript?: ConfigJavaScriptOptions
 
-  typescript?: ConfigTypeScriptOptions
-
-  node?: ConfigNodeOptions
+  typescript?: boolean | ConfigTypeScriptOptions
 
   unicorn?: boolean | ConfigUnicornOptions
 
