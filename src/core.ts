@@ -2,6 +2,7 @@
  * @file presets
  */
 
+import { FlatConfigComposer } from 'eslint-flat-config-utils'
 import {
   getOverrides,
   hasTypeScript,
@@ -36,12 +37,15 @@ import {
   vue,
   yml,
 } from './configs'
-import type { Arrayable, ConfigOptions, TypedConfigItem } from './types'
+import type { Arrayable, ConfigName, ConfigOptions, TypedConfigItem } from './types'
 
 /**
  * Config factory
  */
-export function ntnyq(options: ConfigOptions = {}, customConfig: Arrayable<TypedConfigItem> = []) {
+export function ntnyq(
+  options: ConfigOptions = {},
+  userConfigs: Arrayable<TypedConfigItem> = [],
+): FlatConfigComposer<TypedConfigItem, ConfigName> {
   const configs: TypedConfigItem[] = []
 
   if (options.gitignore ?? true) {
@@ -179,6 +183,7 @@ export function ntnyq(options: ConfigOptions = {}, customConfig: Arrayable<Typed
       }),
     )
   }
+
   if (options.command ?? true) {
     configs.push(
       ...command({
@@ -187,19 +192,25 @@ export function ntnyq(options: ConfigOptions = {}, customConfig: Arrayable<Typed
     )
   }
 
-  configs.push(...toArray(customConfig))
+  const configPrettier =
+    (options.prettier ?? true)
+      ? prettier({
+          ...resolveSubOptions(options, 'prettier'),
+          overrides: getOverrides(options, 'prettier'),
+        })
+      : []
 
-  /**
-   * Keep prettier at last
-   */
-  if (options.prettier ?? true) {
-    configs.push(
-      ...prettier({
-        ...resolveSubOptions(options, 'prettier'),
-        overrides: getOverrides(options, 'prettier'),
-      }),
-    )
-  }
+  const composer = new FlatConfigComposer<TypedConfigItem, ConfigName>()
 
-  return configs
+  composer.append(
+    ...configs,
+
+    // User custom configs
+    ...toArray(userConfigs),
+
+    // Keep prettier at last
+    ...configPrettier,
+  )
+
+  return composer
 }
