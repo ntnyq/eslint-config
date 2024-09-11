@@ -42,6 +42,14 @@ export const javascript = (options: ConfigJavaScriptOptions = {}): TypedConfigIt
       },
 
       rules: {
+        'require-await': 'off',
+        'no-return-assign': 'off',
+        'no-useless-escape': 'off',
+        'consistent-return': 'off',
+
+        // disabled in favor of `perfectionist/sort-named-imports`
+        'sort-imports': 'off',
+
         // standard v17.0.0
         'accessor-pairs': ['error', { setWithoutGet: true, enforceForClassMembers: true }],
         camelcase: [
@@ -191,16 +199,12 @@ export const javascript = (options: ConfigJavaScriptOptions = {}): TypedConfigIt
         eqeqeq: ['error', 'smart'],
         'array-callback-return': 'error',
         'block-scoped-var': 'error',
-        'consistent-return': 'off',
         'no-alert': 'error',
         'no-case-declarations': 'error',
         'no-multi-str': 'error',
         'no-with': 'error',
         'no-void': 'error',
-        'no-useless-escape': 'off',
         'vars-on-top': 'error',
-        'require-await': 'off',
-        'no-return-assign': 'off',
         'one-var': ['error', 'never'],
         'no-use-before-define': [
           'error',
@@ -208,16 +212,6 @@ export const javascript = (options: ConfigJavaScriptOptions = {}): TypedConfigIt
             functions: false,
             classes: false,
             variables: true,
-          },
-        ],
-        'sort-imports': [
-          'error',
-          {
-            ignoreCase: false,
-            ignoreDeclarationSort: true,
-            ignoreMemberSort: false,
-            memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-            allowSeparatedGroups: false,
           },
         ],
 

@@ -72,8 +72,25 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
           type: 'line-length',
         },
       ],
-      'perfectionist/sort-named-exports': ['warn', { groupKind: 'values-first' }],
-      'perfectionist/sort-named-imports': ['warn', { groupKind: 'values-first' }],
+      'perfectionist/sort-named-exports': [
+        'error',
+        {
+          type: 'alphabetical',
+          order: 'asc',
+          ignoreCase: true,
+          groupKind: 'values-first',
+        },
+      ],
+      'perfectionist/sort-named-imports': [
+        'error',
+        {
+          type: 'alphabetical',
+          order: 'asc',
+          ignoreCase: true,
+          ignoreAlias: false,
+          groupKind: 'values-first',
+        },
+      ],
 
       // Overrides built-in rules
       ...options.overrides,

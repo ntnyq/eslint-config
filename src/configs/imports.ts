@@ -16,8 +16,11 @@ export const imports = (options: ConfigImportsOptions = {}): TypedConfigItem[] =
       'import/no-unresolved': 'off',
       'import/no-absolute-path': 'off',
       'import/no-named-as-default-member': 'off',
+      'import/no-named-default': 'off',
 
-      // 'import/no-named-default': 'error',
+      // disabled in favor or `perfectionist/sort-imports`
+      'import/order': 'off',
+
       'import/first': 'error',
       'import/export': 'error',
       'import/no-self-import': 'error',
