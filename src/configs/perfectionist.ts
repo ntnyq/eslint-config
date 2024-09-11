@@ -12,23 +12,64 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
         'error',
         {
           groups: [
-            'builtin',
-            'external',
-            'internal',
-            'internal-type',
-            'parent',
-            'parent-type',
-            'sibling',
-            'sibling-type',
-            'index',
-            'index-type',
-            'object',
-            'type',
-            'side-effect',
+            // Side effect style imports (e.g. 'normalize.css')
             'side-effect-style',
+
+            // Styles (e.g. *.{css,scss,less})
+            'style',
+
+            // Node.js built-in modules. (e.g. fs, path)
+            'builtin',
+
+            // External modules installed in the project (e.g. vue, lodash)
+            'external',
+
+            // Internal modules (e.g. @/utils, @/components)
+            'internal',
+
+            // Modules from parent directory (e.g. ../utils)
+            'parent',
+
+            // Modules from the same directory (e.g. ./utils)
+            'sibling',
+
+            // Main file from the current directory (e.g. ./index)
+            'index',
+
+            // TypeScript object-imports (e.g. import log = console.log)
+            'object',
+
+            // Side effect imports (e.g. import 'babel-polyfill')
+            'side-effect',
+
+            /**
+             * Type import at the end
+             */
+            'builtin-type',
+            'external-type',
+            'internal-type',
+            'parent-type',
+            'sibling-type',
+            'index-type',
+            'type',
+
+            /**
+             * Imports that don’t fit into any other group
+             */
+            'unknown',
           ],
+          order: 'asc',
+          type: 'natural',
+          ignoreCase: true,
           internalPattern: ['~/**', '@/**', '#**'],
           newlinesBetween: 'ignore',
+        },
+      ],
+      'perfectionist/sort-exports': [
+        'error',
+        {
+          order: 'asc',
+          type: 'line-length',
         },
       ],
       'perfectionist/sort-named-exports': ['warn', { groupKind: 'values-first' }],

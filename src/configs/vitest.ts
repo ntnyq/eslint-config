@@ -1,5 +1,5 @@
-import { pluginVitest } from '../plugins'
 import { GLOB_TEST } from '../globs'
+import { pluginVitest } from '../plugins'
 import type { ConfigVitestOptions, TypedConfigItem } from '../types'
 
 export const vitest = (options: ConfigVitestOptions = {}): TypedConfigItem[] => [

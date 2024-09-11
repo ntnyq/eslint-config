@@ -125,9 +125,6 @@ export interface ConfigOptions {
 
   prettier?: boolean | ConfigPrettierOptions
 
-  /**
-   * @internal
-   */
   perfectionist?: boolean | ConfigPerfectionistOptions
 
   /**

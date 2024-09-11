@@ -2,32 +2,26 @@
  * @file export configs
  */
 
-export * from './ignores'
-
+export * from './vue'
+export * from './yml'
 export * from './node'
+export * from './sort'
+export * from './toml'
+export * from './antfu'
 export * from './jsdoc'
-export * from './imports'
-export * from './unicorn'
-export * from './prettier'
-export * from './comments'
-export * from './javascript'
-export * from './typescript'
-export * from './unusedImports'
-export * from './perfectionist'
-
+export * from './jsonc'
 export * from './regexp'
 export * from './unocss'
-
-export * from './antfu'
-export * from './command'
-export * from './gitignore'
-
 export * from './vitest'
-
-export * from './vue'
-
-export * from './yml'
-export * from './toml'
-export * from './sort'
-export * from './jsonc'
+export * from './command'
+export * from './ignores'
+export * from './imports'
+export * from './unicorn'
+export * from './comments'
 export * from './markdown'
+export * from './prettier'
+export * from './gitignore'
+export * from './javascript'
+export * from './typescript'
+export * from './perfectionist'
+export * from './unusedImports'

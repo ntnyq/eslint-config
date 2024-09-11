@@ -1,5 +1,5 @@
-import globals from 'globals'
 import jsConfig from '@eslint/js'
+import globals from 'globals'
 import type { ConfigJavaScriptOptions, TypedConfigItem } from '../types'
 
 export const javascript = (options: ConfigJavaScriptOptions = {}): TypedConfigItem[] => {

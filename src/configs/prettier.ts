@@ -1,5 +1,5 @@
-import { pluginPrettier } from '../plugins'
 import { GLOB_TOML } from '../globs'
+import { pluginPrettier } from '../plugins'
 import type { ConfigPrettierOptions, TypedConfigItem } from '../types'
 
 export const prettier = (options: ConfigPrettierOptions = {}): TypedConfigItem[] => [

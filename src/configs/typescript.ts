@@ -1,6 +1,6 @@
 import process from 'node:process'
-import { tseslint } from '../plugins'
 import { GLOB_DTS, GLOB_JS, GLOB_TS, GLOB_TSX } from '../globs'
+import { tseslint } from '../plugins'
 import type { ConfigTypeScriptOptions, TypedConfigItem } from '../types'
 
 export const typescriptCore = (options: ConfigTypeScriptOptions = {}) => {

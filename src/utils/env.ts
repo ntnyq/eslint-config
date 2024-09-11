@@ -1,5 +1,5 @@
-import process from 'node:process'
 import { resolve } from 'node:path'
+import process from 'node:process'
 import { isPackageExists } from 'local-pkg'
 
 export const hasTypeScript = isPackageExists('typescript')

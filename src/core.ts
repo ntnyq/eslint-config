@@ -4,15 +4,6 @@
 
 import { FlatConfigComposer } from 'eslint-flat-config-utils'
 import {
-  getOverrides,
-  hasTypeScript,
-  hasUnoCSS,
-  hasVitest,
-  hasVue,
-  resolveSubOptions,
-  toArray,
-} from './utils'
-import {
   command,
   comments,
   gitignore,
@@ -24,6 +15,7 @@ import {
   jsx,
   markdown,
   node,
+  perfectionist,
   prettier,
   regexp,
   sortI18nLocale,
@@ -37,6 +29,15 @@ import {
   vue,
   yml,
 } from './configs'
+import {
+  getOverrides,
+  hasTypeScript,
+  hasUnoCSS,
+  hasVitest,
+  hasVue,
+  resolveSubOptions,
+  toArray,
+} from './utils'
 import type { Arrayable, ConfigName, ConfigOptions, TypedConfigItem } from './types'
 
 /**
@@ -73,6 +74,14 @@ export function ntnyq(
       overrides: getOverrides(options, 'javascript'),
     }),
   )
+
+  if (options.perfectionist ?? true) {
+    configs.push(
+      ...perfectionist({
+        overrides: getOverrides(options, 'perfectionist'),
+      }),
+    )
+  }
 
   if (options.unicorn ?? true) {
     configs.push(

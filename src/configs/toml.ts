@@ -1,5 +1,5 @@
-import { parserToml, pluginToml } from '../plugins'
 import { GLOB_TOML } from '../globs'
+import { parserToml, pluginToml } from '../plugins'
 import type { ConfigTomlOptions, TypedConfigItem } from '../types'
 
 export const toml = (options: ConfigTomlOptions = {}): TypedConfigItem[] => [

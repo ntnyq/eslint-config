@@ -1,5 +1,5 @@
-import { parserYaml, pluginYaml } from '../plugins'
 import { GLOB_YAML } from '../globs'
+import { parserYaml, pluginYaml } from '../plugins'
 import type { ConfigYmlOptions, TypedConfigItem } from '../types'
 
 export const yml = (options: ConfigYmlOptions = {}): TypedConfigItem[] => [

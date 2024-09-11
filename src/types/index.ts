@@ -1,5 +1,5 @@
 export * from './utils'
-export * from './eslint'
 export * from './config'
+export * from './eslint'
 
-export type { RuleOptions, ConfigName } from './typegen'
+export type { ConfigName, RuleOptions } from './typegen'
