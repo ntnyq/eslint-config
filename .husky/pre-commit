@@ -1,2 +1,2 @@
-npx tsup
-npx nano-staged
+tsup
+nano-staged
