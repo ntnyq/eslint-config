@@ -38,7 +38,7 @@ import {
   resolveSubOptions,
   toArray,
 } from './utils'
-import type { Arrayable, ConfigName, ConfigOptions, TypedConfigItem } from './types'
+import type { Arrayable, ConfigNames, ConfigOptions, TypedConfigItem } from './types'
 
 /**
  * Config factory
@@ -46,7 +46,7 @@ import type { Arrayable, ConfigName, ConfigOptions, TypedConfigItem } from './ty
 export function ntnyq(
   options: ConfigOptions = {},
   userConfigs: Arrayable<TypedConfigItem> = [],
-): FlatConfigComposer<TypedConfigItem, ConfigName> {
+): FlatConfigComposer<TypedConfigItem, ConfigNames> {
   const configs: TypedConfigItem[] = []
 
   if (options.gitignore ?? true) {
@@ -210,7 +210,7 @@ export function ntnyq(
         })
       : []
 
-  const composer = new FlatConfigComposer<TypedConfigItem, ConfigName>()
+  const composer = new FlatConfigComposer<TypedConfigItem, ConfigNames>()
 
   composer.append(
     ...configs,

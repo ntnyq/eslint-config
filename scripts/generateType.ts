@@ -22,10 +22,11 @@ import {
   typescript,
   unicorn,
   unocss,
+  unusedImports,
   // vitest,
   vue,
   yml,
-} from '../src'
+} from '../src/configs'
 
 const configs = [
   ...antfu(),
@@ -46,6 +47,7 @@ const configs = [
   ...sortPackageJson(),
   ...sortTsConfig(),
   ...typescript(),
+  ...unusedImports(),
   ...unicorn(),
   ...unocss(),
   ...vue(),
@@ -62,7 +64,7 @@ let dts = await flatConfigsToRulesDTS(configs, {
 
 dts += `
 // Names of all the configs
-export type ConfigName = ${configNames.map(i => `'${i}'`).join(' | ')}
+export type ConfigNames = ${configNames.map(i => `'${i}'`).join(' | ')}
 `
 
 await writeFile(`src/types/typegen.ts`, dts)
