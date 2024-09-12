@@ -1,9 +1,9 @@
-import createGitIgnore from 'eslint-config-flat-gitignore'
+import createGitIgnoreConfig from 'eslint-config-flat-gitignore'
 import type { ConfigGitIgnoreOptions, TypedConfigItem } from '../types'
 
 export const gitignore = (options: ConfigGitIgnoreOptions = {}): TypedConfigItem[] => [
   {
-    ...createGitIgnore(options),
+    ...createGitIgnoreConfig(options),
     name: 'ntnyq/gitignore',
   },
 ]
