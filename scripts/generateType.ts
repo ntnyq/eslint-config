@@ -1,4 +1,5 @@
 import { writeFile } from 'node:fs/promises'
+import { builtinRules } from 'eslint/use-at-your-own-risk'
 import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
 import {
   antfu,
@@ -29,6 +30,13 @@ import {
 } from '../src/configs'
 
 const configs = [
+  {
+    plugins: {
+      '': {
+        rules: Object.fromEntries(builtinRules.entries()),
+      },
+    },
+  },
   ...antfu(),
   ...command(),
   ...comments(),
