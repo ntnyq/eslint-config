@@ -58,8 +58,8 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
              */
             'unknown',
           ],
-          order: 'asc',
-          type: 'natural',
+          order: options.imports?.order || 'asc',
+          type: options.imports?.type || 'natural',
           ignoreCase: true,
           internalPattern: ['~/**', '@/**', '#**'],
           newlinesBetween: 'ignore',
@@ -68,15 +68,15 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
       'perfectionist/sort-exports': [
         'error',
         {
-          order: 'asc',
-          type: 'line-length',
+          order: options.exports?.order || 'asc',
+          type: options.exports?.type || 'line-length',
         },
       ],
       'perfectionist/sort-named-exports': [
         'error',
         {
-          type: 'alphabetical',
-          order: 'asc',
+          type: options.namedExports?.type || 'alphabetical',
+          order: options.namedExports?.order || 'asc',
           ignoreCase: true,
           groupKind: 'values-first',
         },
@@ -84,8 +84,8 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
       'perfectionist/sort-named-imports': [
         'error',
         {
-          type: 'alphabetical',
-          order: 'asc',
+          type: options.namedImports?.type || 'alphabetical',
+          order: options.namedImports?.order || 'asc',
           ignoreCase: true,
           ignoreAlias: false,
           groupKind: 'values-first',

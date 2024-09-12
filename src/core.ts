@@ -78,6 +78,7 @@ export function ntnyq(
   if (options.perfectionist ?? true) {
     configs.push(
       ...perfectionist({
+        ...resolveSubOptions(options, 'perfectionist'),
         overrides: getOverrides(options, 'perfectionist'),
       }),
     )

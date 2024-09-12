@@ -49,7 +49,27 @@ export interface ConfigPrettierOptions extends OptionsOverrides {
   level?: 'warn' | 'error'
 }
 
-export interface ConfigPerfectionistOptions extends OptionsOverrides {}
+export type PerfectionistSortType = 'alphabetical' | 'line-length' | 'natural'
+export type PerfectionistSortOrder = 'asc' | 'desc'
+
+export interface ConfigPerfectionistOptions extends OptionsOverrides {
+  imports?: {
+    type?: PerfectionistSortType
+    order?: PerfectionistSortOrder
+  }
+  exports?: {
+    type?: PerfectionistSortType
+    order?: PerfectionistSortOrder
+  }
+  namedExports?: {
+    type?: PerfectionistSortType
+    order?: PerfectionistSortOrder
+  }
+  namedImports?: {
+    type?: PerfectionistSortType
+    order?: PerfectionistSortOrder
+  }
+}
 
 export interface ConfigCommentsOptions extends OptionsOverrides {}
 
