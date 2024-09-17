@@ -6,6 +6,10 @@
 [![NPM DOWNLOADS](https://img.shields.io/npm/dy/@ntnyq/eslint-config)](https://www.npmjs.com/package/@ntnyq/eslint-config)
 [![NPM VERSION](https://img.shields.io/npm/v/@ntnyq/eslint-config/latest.svg)](https://www.npmjs.com/package/@ntnyq/eslint-config/v/latest)
 
+## Features
+
+- 🚦 Designed to work alongside with Prettier
+
 ## Install
 
 ```bash
@@ -14,7 +18,7 @@ pnpm add eslint prettier typescript @ntnyq/eslint-config @ntnyq/prettier-config 
 
 ## Usage
 
-Highly recommended for using `eslint.config.mjs` as the config file :
+Highly recommended using **`eslint.config.mjs`** as the config file :
 
 ```js
 import { ntnyq } from '@ntnyq/eslint-config'
