@@ -1,5 +1,5 @@
 import process from 'node:process'
-import { GLOB_DTS, GLOB_JS, GLOB_TS, GLOB_TSX } from '../globs'
+import { GLOB_DTS, GLOB_TS, GLOB_TSX } from '../globs'
 import { tseslint } from '../plugins'
 import type { ConfigTypeScriptOptions, TypedConfigItem } from '../types'
 
@@ -120,11 +120,5 @@ export const typescript = (options: ConfigTypeScriptOptions = {}): TypedConfigIt
       'no-unused-expressions': 'off',
       'max-lines-per-function': 'off',
     },
-  },
-
-  {
-    name: 'ntnyq/ts/cjs',
-    files: [GLOB_JS],
-    rules: {},
   },
 ]

@@ -224,14 +224,6 @@ export const javascript = (options: ConfigJavaScriptOptions = {}): TypedConfigIt
     },
 
     {
-      name: 'ntnyq/js/scripts',
-      files: ['**/scripts/*', '**/cli.*'],
-      rules: {
-        'no-console': 'off',
-      },
-    },
-
-    {
       name: 'ntnyq/js/test',
       files: ['**/*.{test,spec}.js?(x)'],
       rules: {

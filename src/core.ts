@@ -6,6 +6,7 @@ import { FlatConfigComposer } from 'eslint-flat-config-utils'
 import {
   command,
   comments,
+  disables,
   gitignore,
   ignores,
   imports,
@@ -202,6 +203,8 @@ export function ntnyq(
     )
   }
 
+  const configDisables = disables()
+
   const configPrettier =
     (options.prettier ?? true)
       ? prettier({
@@ -218,7 +221,8 @@ export function ntnyq(
     // User custom configs
     ...toArray(userConfigs),
 
-    // Keep prettier at last
+    // Keep prettier and disables at last
+    ...configDisables,
     ...configPrettier,
   )
 
