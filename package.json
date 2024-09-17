@@ -59,7 +59,7 @@
     "@eslint/js": "^9.10.0",
     "@eslint/markdown": "^6.1.0",
     "@types/eslint__js": "^8.42.3",
-    "@unocss/eslint-plugin": "^0.62.3",
+    "@unocss/eslint-plugin": "^0.62.4",
     "@vitest/eslint-plugin": "^1.1.4",
     "eslint-config-flat-gitignore": "^0.3.0",
     "eslint-flat-config-utils": "^0.4.0",
@@ -83,12 +83,12 @@
     "local-pkg": "^0.5.0",
     "prettier": "^3.3.3",
     "toml-eslint-parser": "^0.10.0",
-    "typescript-eslint": "^8.5.0",
+    "typescript-eslint": "^8.6.0",
     "vue-eslint-parser": "^9.4.3",
     "yaml-eslint-parser": "^1.2.3"
   },
   "devDependencies": {
-    "@ntnyq/prettier-config": "^1.21.2",
+    "@ntnyq/prettier-config": "^1.21.3",
     "@types/node": "^22.5.5",
     "bumpp": "^9.5.2",
     "eslint": "^9.10.0",
@@ -98,7 +98,7 @@
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^6.2.3",
     "rimraf": "^6.0.1",
-    "tsup": "^8.2.4",
+    "tsup": "^8.3.0",
     "tsx": "^4.19.1",
     "typescript": "^5.6.2",
     "zx": "^8.1.6"
