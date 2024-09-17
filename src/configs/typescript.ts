@@ -38,7 +38,20 @@ export const typescriptCore = (options: ConfigTypeScriptOptions = {}) => {
           ignoreRestSiblings: true,
         },
       ],
-      '@typescript-eslint/no-redeclare': 'error',
+      '@typescript-eslint/no-redeclare': [
+        'error',
+        {
+          builtinGlobals: false,
+        },
+      ],
+      '@typescript-eslint/no-unused-expressions': [
+        'error',
+        {
+          allowShortCircuit: true,
+          allowTernary: true,
+          allowTaggedTemplates: true,
+        },
+      ],
       '@typescript-eslint/consistent-type-imports': [
         'error',
         {
