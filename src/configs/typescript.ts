@@ -25,6 +25,16 @@ export const typescriptCore = (options: ConfigTypeScriptOptions = {}) => {
       },
     },
     rules: {
+      // Disabled in favor of ts rules
+      'no-redeclare': 'off',
+
+      '@typescript-eslint/no-redeclare': [
+        'error',
+        {
+          builtinGlobals: false,
+          ignoreDeclarationMerge: true,
+        },
+      ],
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
@@ -36,12 +46,6 @@ export const typescriptCore = (options: ConfigTypeScriptOptions = {}) => {
           destructuredArrayIgnorePattern: '^_',
           varsIgnorePattern: '^_',
           ignoreRestSiblings: true,
-        },
-      ],
-      '@typescript-eslint/no-redeclare': [
-        'error',
-        {
-          builtinGlobals: false,
         },
       ],
       '@typescript-eslint/no-unused-expressions': [
@@ -91,10 +95,10 @@ export const typescriptCore = (options: ConfigTypeScriptOptions = {}) => {
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/consistent-indexed-object-style': 'off',
-    },
 
-    // Overrides built-in rules
-    ...options.overrides,
+      // Overrides built-in rules
+      ...options.overrides,
+    },
   })
   return configs as TypedConfigItem[]
 }
