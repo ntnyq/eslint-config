@@ -19,7 +19,7 @@ export const yml = (options: ConfigYmlOptions = {}): TypedConfigItem[] => [
       'yml/no-empty-mapping-value': 'off',
       'yml/quotes': ['error', { avoidEscape: false, prefer: 'single' }],
 
-      // Overrides built-in rules
+      // Overrides rules
       ...options.overrides,
     },
   },

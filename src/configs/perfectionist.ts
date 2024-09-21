@@ -92,7 +92,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
         },
       ],
 
-      // Overrides built-in rules
+      // Overrides rules
       ...options.overrides,
     },
   },

@@ -264,7 +264,7 @@ export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
           },
         ],
 
-        // Overrides built-in rules
+        // Overrides rules
         ...options.overrides,
       },
     },

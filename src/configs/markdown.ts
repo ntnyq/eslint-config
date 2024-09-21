@@ -40,7 +40,7 @@ export const markdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[]
         '@typescript-eslint/no-unused-expressions': 'off',
         '@typescript-eslint/consistent-type-imports': 'off',
 
-        // Overrides built-in rules
+        // Overrides rules
         ...options.overrides,
       },
     },

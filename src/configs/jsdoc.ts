@@ -26,7 +26,7 @@ export const jsdoc = (options: ConfigJsdocOptions = {}): TypedConfigItem[] => [
       'jsdoc/check-alignment': 'warn',
       'jsdoc/multiline-blocks': 'warn',
 
-      // Overrides built-in rules
+      // Overrides rules
       ...options.overrides,
     },
   },

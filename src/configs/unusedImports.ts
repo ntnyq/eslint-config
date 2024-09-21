@@ -24,7 +24,7 @@ export const unusedImports = (options: ConfigUnusedImportsOptions = {}): TypedCo
         },
       ],
 
-      // Overrides built-in rules
+      // Overrides rules
       ...options.overrides,
     },
   },

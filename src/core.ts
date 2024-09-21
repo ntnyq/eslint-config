@@ -22,6 +22,7 @@ import {
   sortI18nLocale,
   sortPackageJson,
   sortTsConfig,
+  test,
   toml,
   typescript,
   unicorn,
@@ -171,10 +172,13 @@ export function ntnyq(
     )
   }
 
-  if (options.vitest ?? hasVitest) {
+  if (options.test ?? hasVitest) {
     configs.push(
+      ...test({
+        overrides: getOverrides(options, 'test'),
+      }),
       ...vitest({
-        overrides: getOverrides(options, 'vitest'),
+        overrides: getOverrides(options, 'test'),
       }),
     )
   }

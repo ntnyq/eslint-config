@@ -113,7 +113,12 @@ export interface ConfigVueOptions extends OptionsOverrides {
   vueVersion?: 2 | 3
 }
 
-export interface ConfigVitestOptions extends OptionsOverrides {}
+export interface ConfigTestOptions extends OptionsOverrides {
+  /**
+   * Rules for vitest
+   */
+  overridesVitestRules?: TypedConfigItem['rules']
+}
 
 export interface ConfigUnusedImportsOptions extends OptionsOverrides {}
 
@@ -175,5 +180,5 @@ export interface ConfigOptions {
 
   vue?: boolean | ConfigVueOptions
 
-  vitest?: boolean | ConfigVitestOptions
+  test?: boolean | ConfigTestOptions
 }

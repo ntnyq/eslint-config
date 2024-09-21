@@ -212,23 +212,15 @@ export const javascript = (options: ConfigJavaScriptOptions = {}): TypedConfigIt
             functions: false,
             classes: false,
             variables: true,
+            allowNamedExports: false,
           },
         ],
 
         // Strict rules
         ...(options.strict ? strictRules : {}),
 
-        // Overrides built-in rules
+        // Overrides rules
         ...options.overrides,
-      },
-    },
-
-    {
-      name: 'ntnyq/js/test',
-      files: ['**/*.{test,spec}.js?(x)'],
-      rules: {
-        'no-unused-expressions': 'off',
-        'max-lines-per-function': 'off',
       },
     },
   ]

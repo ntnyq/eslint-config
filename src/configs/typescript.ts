@@ -27,12 +27,26 @@ export const typescriptCore = (options: ConfigTypeScriptOptions = {}) => {
     rules: {
       // Disabled in favor of ts rules
       'no-redeclare': 'off',
+      'no-use-before-define': 'off',
+      'no-unused-vars': 'off',
 
       '@typescript-eslint/no-redeclare': [
         'error',
         {
           builtinGlobals: false,
           ignoreDeclarationMerge: true,
+        },
+      ],
+      '@typescript-eslint/no-use-before-define': [
+        'error',
+        {
+          functions: false,
+          classes: false,
+          variables: true,
+          allowNamedExports: false,
+          enums: true,
+          typedefs: false,
+          ignoreTypeReferences: false,
         },
       ],
       '@typescript-eslint/no-unused-vars': [
@@ -96,7 +110,7 @@ export const typescriptCore = (options: ConfigTypeScriptOptions = {}) => {
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/consistent-indexed-object-style': 'off',
 
-      // Overrides built-in rules
+      // Overrides rules
       ...options.overrides,
     },
   })
@@ -107,22 +121,14 @@ export const typescript = (options: ConfigTypeScriptOptions = {}): TypedConfigIt
   ...typescriptCore(options),
 
   {
-    name: 'ntnyq/ts/dts',
+    name: 'ntnyq/ts/types',
     files: [GLOB_DTS, '**/types/**/*.ts'],
     rules: {
       'no-use-before-define': 'off',
       'no-restricted-syntax': 'off',
       'import/no-duplicates': 'off',
       'import/newline-after-import': 'off',
-    },
-  },
-
-  {
-    name: 'ntnyq/ts/test',
-    files: ['**/*.{spec,test}.ts?(x)'],
-    rules: {
-      'no-unused-expressions': 'off',
-      'max-lines-per-function': 'off',
+      '@typescript-eslint/no-use-before-define': 'off',
     },
   },
 ]

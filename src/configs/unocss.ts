@@ -12,7 +12,7 @@ export const unocss = (options: ConfigUnoCSSOptions = {}): TypedConfigItem[] => 
       // We don't use this
       'unocss/order-attributify': 'off',
 
-      // Overrides built-in rules
+      // Overrides rules
       ...options.overrides,
     },
   },

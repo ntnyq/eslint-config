@@ -34,7 +34,7 @@ export const toml = (options: ConfigTomlOptions = {}): TypedConfigItem[] => [
       'toml/spaced-comment': 'error',
       'toml/table-bracket-spacing': 'error',
 
-      // Overrides built-in rules
+      // Overrides rules
       ...options.overrides,
     },
   },

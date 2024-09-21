@@ -28,7 +28,7 @@ export const imports = (options: ConfigImportsOptions = {}): TypedConfigItem[] =
       'import/no-mutable-exports': 'error',
       'import/newline-after-import': 'error',
 
-      // Overrides built-in rules
+      // Overrides rules
       ...options.overrides,
     },
   },

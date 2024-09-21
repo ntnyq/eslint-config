@@ -78,7 +78,7 @@ export const unicorn = (options: ConfigUnicornOptions = {}): TypedConfigItem[] =
       'unicorn/prefer-array-flat-map': 'error',
       'unicorn/prefer-array-index-of': 'error',
 
-      // Overrides built-in rules
+      // Overrides rules
       ...options.overrides,
     },
   },

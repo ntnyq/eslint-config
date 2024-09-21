@@ -9,7 +9,7 @@ export const regexp = (options: ConfigRegexpOptions = {}): TypedConfigItem[] => 
     name: 'ntnyq/regexp',
     ...pluginRegexp.configs['flat/recommended'],
 
-    // Overrides built-in rules
+    // Overrides rules
     ...options.overrides,
   },
 ]

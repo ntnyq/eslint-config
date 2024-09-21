@@ -41,7 +41,7 @@ export const jsonc = (options: ConfigJsoncOptions = {}): TypedConfigItem[] => [
         },
       ],
 
-      // Overrides built-in rules
+      // Overrides rules
       ...options.overrides,
     },
   },

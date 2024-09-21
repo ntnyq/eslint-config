@@ -11,7 +11,7 @@ export const comments = (options: ConfigCommentsOptions = {}): TypedConfigItem[]
       ...pluginComments.configs.recommended.rules,
       '@eslint-community/eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
 
-      // Overrides built-in rules
+      // Overrides rules
       ...options.overrides,
     },
   },

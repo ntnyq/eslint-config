@@ -17,7 +17,7 @@ export const node = (options: ConfigNodeOptions = {}): TypedConfigItem[] => [
       'node/prefer-global/process': ['error', 'never'],
       'node/process-exit-as-throw': 'error',
 
-      // Overrides built-in rules
+      // Overrides rules
       ...options.overrides,
     },
   },
