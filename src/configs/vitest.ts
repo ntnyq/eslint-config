@@ -8,7 +8,7 @@ export const vitest = (options: ConfigVitestOptions = {}): TypedConfigItem[] => 
     plugins: {
       vitest: pluginVitest,
     },
-    files: [GLOB_TEST],
+    files: [...GLOB_TEST],
     rules: {
       ...pluginVitest.configs.recommended.rules,
 
