@@ -156,7 +156,7 @@ export interface ConfigOptions {
 
   vue?: boolean | ConfigVueOptions
 
-  vitest?: boolean | ConfigVitestOptions
+  test?: boolean | ConfigVitestOptions
 }
 ```
 
