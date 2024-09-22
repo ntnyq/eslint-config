@@ -53,6 +53,9 @@ importers:
       eslint-plugin-n:
         specifier: ^17.10.3
         version: 17.10.3(eslint@9.11.0(jiti@1.21.6))
+      eslint-plugin-ntnyq:
+        specifier: ^0.5.0
+        version: 0.5.0(eslint@9.11.0(jiti@1.21.6))(typescript@5.6.2)
       eslint-plugin-perfectionist:
         specifier: ^3.6.0
         version: 3.6.0(eslint@9.11.0(jiti@1.21.6))(typescript@5.6.2)(vue-eslint-parser@9.4.3(eslint@9.11.0(jiti@1.21.6)))
@@ -1039,6 +1042,12 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: '>=8.23.0'
+
+  eslint-plugin-ntnyq@0.5.0:
+    resolution: {integrity: sha512-C8qu53m+kqD6Bd5JfSNZgNPClSqLROgOQb3NUmwxJnTQvb4RW54pDbI3iHJ8+OXbBuQHy1qAlmX3AkQWe5q6jA==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      eslint: '9'
 
   eslint-plugin-perfectionist@3.6.0:
     resolution: {integrity: sha512-sA6ljy6dL/9cM5ruZ/pMqRVt0FQ4Z7mbQWlBYpyX9941LVfm65d2jl2k1ZbWD3ud9Wm+/NKgOvRnAatsKhMJbA==}
@@ -3198,6 +3207,14 @@ snapshots:
       ignore: 5.3.1
       minimatch: 9.0.5
       semver: 7.6.3
+
+  eslint-plugin-ntnyq@0.5.0(eslint@9.11.0(jiti@1.21.6))(typescript@5.6.2):
+    dependencies:
+      '@typescript-eslint/utils': 8.6.0(eslint@9.11.0(jiti@1.21.6))(typescript@5.6.2)
+      eslint: 9.11.0(jiti@1.21.6)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
 
   eslint-plugin-perfectionist@3.6.0(eslint@9.11.0(jiti@1.21.6))(typescript@5.6.2)(vue-eslint-parser@9.4.3(eslint@9.11.0(jiti@1.21.6))):
     dependencies:

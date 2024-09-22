@@ -14,6 +14,7 @@ export const antfu = (options: ConfigAntfuOptions = {}): TypedConfigItem[] => [
       'antfu/import-dedupe': 'error',
       'antfu/top-level-function': 'error',
 
+      // Overrides rules
       ...options.overrides,
     },
   },
