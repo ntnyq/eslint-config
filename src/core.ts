@@ -1,5 +1,5 @@
 /**
- * @file presets
+ * @file factory function to create ESLint config
  */
 
 import { FlatConfigComposer } from 'eslint-flat-config-utils'
@@ -45,7 +45,7 @@ import type { Arrayable, ConfigNames, ConfigOptions, TypedConfigItem } from './t
 /**
  * Config factory
  */
-export function ntnyq(
+export function defineESLintConfig(
   options: ConfigOptions = {},
   userConfigs: Arrayable<TypedConfigItem> = [],
 ): FlatConfigComposer<TypedConfigItem, ConfigNames> {
@@ -232,3 +232,8 @@ export function ntnyq(
 
   return composer
 }
+
+/**
+ * @deprecated use `defineESLintConfig` instead
+ */
+export const ntnyq = defineESLintConfig

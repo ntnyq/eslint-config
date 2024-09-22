@@ -1,6 +1,6 @@
-import { ntnyq } from './src'
+import { defineESLintConfig } from './src'
 
-export default ntnyq({
+export default defineESLintConfig({
   vue: true,
   typescript: true,
   unocss: true,

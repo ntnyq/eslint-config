@@ -21,9 +21,9 @@ pnpm add eslint prettier typescript @ntnyq/eslint-config @ntnyq/prettier-config 
 Highly recommended using **`eslint.config.mjs`** as the config file :
 
 ```js
-import { ntnyq } from '@ntnyq/eslint-config'
+import { defineESLintConfig } from '@ntnyq/eslint-config'
 
-export default ntnyq()
+export default defineESLintConfig()
 ```
 
 Add scripts `lint` in `package.json`:
@@ -156,7 +156,7 @@ export interface ConfigOptions {
 
   vue?: boolean | ConfigVueOptions
 
-  test?: boolean | ConfigVitestOptions
+  test?: boolean | ConfigTestOptions
 }
 ```
 
