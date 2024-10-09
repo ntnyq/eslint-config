@@ -13,6 +13,10 @@ export const unicorn = (options: ConfigUnicornOptions = {}): TypedConfigItem[] =
       'unicorn/prefer-top-level-await': 'off',
       'unicorn/explicit-length-check': 'off',
       'unicorn/no-array-callback-reference': 'off',
+      /**
+       * @see https://caniuse.com/?search=globalThis
+       */
+      'unicorn/prefer-global-this': 'off',
 
       'unicorn/error-message': 'error',
       'unicorn/escape-case': 'error',
@@ -43,6 +47,8 @@ export const unicorn = (options: ConfigUnicornOptions = {}): TypedConfigItem[] =
       'unicorn/prefer-optional-catch-binding': 'error',
       'unicorn/prefer-prototype-methods': 'error',
       'unicorn/prefer-reflect-apply': 'error',
+      'unicorn/prefer-math-min-max': 'error',
+      'unicorn/consistent-existence-index-check': 'error',
       'unicorn/catch-error-name': [
         'error',
         {
