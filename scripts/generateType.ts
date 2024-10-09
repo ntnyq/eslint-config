@@ -20,6 +20,7 @@ import {
   regexp,
   sortPackageJson,
   sortTsConfig,
+  specials,
   toml,
   typescript,
   unicorn,
@@ -64,6 +65,7 @@ const configs = [
   // ...vitest(),
   ...yml(),
   ...toml(),
+  ...specials(),
 ]
 
 const configNames = configs.map(i => i.name).filter(Boolean)
