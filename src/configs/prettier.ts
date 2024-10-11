@@ -1,4 +1,4 @@
-import { GLOB_TOML } from '../globs'
+import { GLOB_ASTRO, GLOB_SVELTE, GLOB_TOML } from '../globs'
 import { pluginPrettier } from '../plugins'
 import type { ConfigPrettierOptions, TypedConfigItem } from '../types'
 
@@ -61,7 +61,7 @@ export const prettier = (options: ConfigPrettierOptions = {}): TypedConfigItem[]
    */
   {
     name: 'ntnyq/prettier/disabled',
-    files: [GLOB_TOML],
+    files: [GLOB_TOML, GLOB_ASTRO, GLOB_SVELTE],
     plugins: {
       prettier: pluginPrettier,
     },
