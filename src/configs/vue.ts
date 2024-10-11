@@ -131,6 +131,7 @@ export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
         'vue/no-irregular-whitespace': 'error',
         'vue/no-use-v-else-with-v-for': 'error',
         'vue/require-typed-object-prop': 'error',
+        'vue/no-deprecated-delete-set': 'error',
         'vue/no-extra-parens': ['error', 'functions'],
         'vue/no-restricted-syntax': [
           'error',
