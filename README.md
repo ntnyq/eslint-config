@@ -100,15 +100,11 @@ Check for detail in:
 
 ### Config interface
 
-```typescript
+```ts
 export interface ConfigOptions {
-  sortTsConfig?: boolean
-
-  sortI18nLocale?: boolean
-
-  sortPackageJson?: boolean
-
   ignores?: ConfigIgnoresOptions
+
+  sort?: boolean | ConfigSortOptions
 
   command?: boolean | ConfigCommandOptions
 
@@ -137,6 +133,11 @@ export interface ConfigOptions {
    * @internal
    */
   antfu?: boolean | ConfigAntfuOptions
+
+  /**
+   * @internal
+   */
+  ntnyq?: boolean | ConfigNtnyqOptions
 
   comments?: boolean | ConfigCommentsOptions
 

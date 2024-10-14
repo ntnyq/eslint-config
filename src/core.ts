@@ -18,9 +18,7 @@ import {
   perfectionist,
   prettier,
   regexp,
-  sortI18nLocale,
-  sortPackageJson,
-  sortTsConfig,
+  sort,
   specials,
   test,
   toml,
@@ -127,18 +125,6 @@ export function defineESLintConfig(
     )
   }
 
-  if (options.sortI18nLocale ?? true) {
-    configs.push(...sortI18nLocale())
-  }
-
-  if (options.sortTsConfig ?? true) {
-    configs.push(...sortTsConfig())
-  }
-
-  if (options.sortPackageJson ?? true) {
-    configs.push(...sortPackageJson())
-  }
-
   if (options.yml ?? true) {
     configs.push(
       ...yml({
@@ -159,6 +145,14 @@ export function defineESLintConfig(
     configs.push(
       ...jsonc({
         overrides: getOverrides(options, 'jsonc'),
+      }),
+    )
+  }
+
+  if (options.sort ?? true) {
+    configs.push(
+      ...sort({
+        ...resolveSubOptions(options, 'sort'),
       }),
     )
   }

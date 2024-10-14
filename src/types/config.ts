@@ -98,6 +98,23 @@ export interface ConfigTypeScriptOptions extends OptionsOverrides {
   parserOptions?: Partial<ParserOptions>
 }
 
+export interface ConfigSortOptions {
+  /**
+   * @default true
+   */
+  tsconfig?: boolean
+
+  /**
+   * @default true
+   */
+  packageJson?: boolean
+
+  /**
+   * @default true
+   */
+  i18nLocale?: boolean
+}
+
 export interface ConfigJsoncOptions extends OptionsOverrides {}
 
 export interface ConfigYmlOptions extends OptionsOverrides {}
@@ -128,13 +145,9 @@ export interface ConfigUnusedImportsOptions extends OptionsOverrides {}
  * Config factory options
  */
 export interface ConfigOptions {
-  sortTsConfig?: boolean
-
-  sortI18nLocale?: boolean
-
-  sortPackageJson?: boolean
-
   ignores?: ConfigIgnoresOptions
+
+  sort?: boolean | ConfigSortOptions
 
   command?: boolean | ConfigCommandOptions
 
