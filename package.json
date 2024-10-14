@@ -67,7 +67,7 @@
     "eslint-plugin-antfu": "^2.7.0",
     "eslint-plugin-command": "^0.2.6",
     "eslint-plugin-import-x": "^4.3.1",
-    "eslint-plugin-jsdoc": "^50.3.1",
+    "eslint-plugin-jsdoc": "^50.3.2",
     "eslint-plugin-jsonc": "^2.16.0",
     "eslint-plugin-n": "^17.11.1",
     "eslint-plugin-ntnyq": "^0.5.0",
