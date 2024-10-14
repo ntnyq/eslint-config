@@ -1,8 +1,7 @@
 import { pluginNtnyq } from '../plugins'
 import type { ConfigNtnyqOptions, TypedConfigItem } from '../types'
 
-// TODO: rename to `ntnyq`
-export const createConfigNtnyq = (options: ConfigNtnyqOptions = {}): TypedConfigItem[] => [
+export const ntnyq = (options: ConfigNtnyqOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/ntnyq',
     plugins: {
