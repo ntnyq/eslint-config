@@ -226,8 +226,3 @@ export function defineESLintConfig(
 
   return composer
 }
-
-/**
- * @deprecated use `defineESLintConfig` instead
- */
-export const ntnyq = defineESLintConfig
