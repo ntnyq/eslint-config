@@ -1,4 +1,3 @@
-import { pluginJsonc, pluginYaml } from '../plugins'
 import type { ConfigSortOptions, TypedConfigItem } from '../types'
 
 export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
@@ -223,30 +222,34 @@ export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
   }
 
   if (options.i18nLocale ?? true) {
-    configs.push({
-      name: 'ntnyq/sort/i18n-locale',
-      files: ['**/{locales,i18n}/*.json', '**/{locales,i18n}/*.y?(a)ml'],
-      plugins: {
-        jsonc: pluginJsonc,
-        yml: pluginYaml,
+    configs.push(
+      {
+        name: 'ntnyq/sort/i18n-locale/json',
+        files: ['**/{locales,i18n}/*.json'],
+        rules: {
+          'jsonc/sort-keys': [
+            'error',
+            {
+              pathPattern: '.*',
+              order: { type: 'asc' },
+            },
+          ],
+        },
       },
-      rules: {
-        'jsonc/sort-keys': [
-          'error',
-          {
-            pathPattern: '.*',
-            order: { type: 'asc' },
-          },
-        ],
-        'yml/sort-keys': [
-          'error',
-          {
-            pathPattern: '.*',
-            order: { type: 'asc' },
-          },
-        ],
+      {
+        name: 'ntnyq/sort/i18n-locale/yaml',
+        files: ['**/{locales,i18n}/*.y?(a)ml'],
+        rules: {
+          'yml/sort-keys': [
+            'error',
+            {
+              pathPattern: '.*',
+              order: { type: 'asc' },
+            },
+          ],
+        },
       },
-    })
+    )
   }
   return configs
 }
