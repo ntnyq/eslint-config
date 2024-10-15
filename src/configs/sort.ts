@@ -1,3 +1,4 @@
+import { pluginJsonc, pluginYaml } from '../plugins'
 import type { ConfigSortOptions, TypedConfigItem } from '../types'
 
 export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
@@ -225,6 +226,10 @@ export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
     configs.push({
       name: 'ntnyq/sort/i18n-locale',
       files: ['**/{locales,i18n}/*.json', '**/{locales,i18n}/*.y?(a)ml'],
+      plugins: {
+        jsonc: pluginJsonc,
+        yml: pluginYaml,
+      },
       rules: {
         'jsonc/sort-keys': [
           'error',
