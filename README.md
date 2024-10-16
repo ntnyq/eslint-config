@@ -5,10 +5,14 @@
 [![CI](https://github.com/ntnyq/eslint-config/workflows/CI/badge.svg)](https://github.com/ntnyq/eslint-config/actions)
 [![NPM DOWNLOADS](https://img.shields.io/npm/dy/@ntnyq/eslint-config)](https://www.npmjs.com/package/@ntnyq/eslint-config)
 [![NPM VERSION](https://img.shields.io/npm/v/@ntnyq/eslint-config/latest.svg)](https://www.npmjs.com/package/@ntnyq/eslint-config/v/latest)
+[![LICENSE](https://img.shields.io/github/license/ntnyq/eslint-config.svg)](https://github.com/ntnyq/eslint-config/blob/main/LICENSE)
 
 ## Features
 
-- 🚦 Designed to work alongside with Prettier
+- Opinionable: single quotes, no semi
+- Designed to work alongside with [Prettier](https://prettier.io)
+- Out-of-box support for TypeScript, Vue, JSON, Markdown, YAML, etc.
+- [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files) for ESLint v9.5.0+
 
 ## Install
 
@@ -47,6 +51,7 @@ Add scripts `lint` in `package.json`:
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "eslint.validate": [
     "vue",
     "html",
