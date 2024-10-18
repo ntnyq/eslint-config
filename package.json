@@ -1,7 +1,7 @@
 {
   "name": "@ntnyq/eslint-config",
   "type": "module",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "packageManager": "pnpm@9.12.2",
   "description": "An opinionated ESLint config preset of ntnyq",
   "keywords": [
