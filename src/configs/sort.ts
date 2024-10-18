@@ -251,5 +251,22 @@ export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
       },
     )
   }
+
+  if (options.pnpmWorkspace ?? true) {
+    configs.push({
+      name: 'ntnyq/sort/pnpm-workspace',
+      files: ['**/pnpm-workspace.yaml'],
+      rules: {
+        'yml/sort-keys': [
+          'error',
+          {
+            pathPattern: '.*',
+            order: { type: 'asc' },
+          },
+        ],
+      },
+    })
+  }
+
   return configs
 }

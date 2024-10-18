@@ -131,6 +131,11 @@ export interface ConfigSortOptions {
    * @default true
    */
   i18nLocale?: boolean
+
+  /**
+   * @default true
+   */
+  pnpmWorkspace?: boolean
 }
 
 export interface ConfigJsoncOptions extends OptionsOverrides {}
