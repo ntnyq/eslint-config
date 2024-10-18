@@ -95,6 +95,7 @@ export function defineESLintConfig(
   if (options.regexp ?? true) {
     configs.push(
       ...regexp({
+        ...resolveSubOptions(options, 'regexp'),
         overrides: getOverrides(options, 'regexp'),
       }),
     )
