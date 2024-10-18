@@ -49,6 +49,17 @@ export interface ConfigPrettierOptions extends OptionsOverrides {
    * @default 'warn'
    */
   level?: 'warn' | 'error'
+
+  /**
+   * Glob of built-in disabled files
+   */
+  disabledFiles?: string[]
+
+  /**
+   * Glob of user custom disabled files
+   * @default []
+   */
+  userDisabledFiles?: string[]
 }
 
 export type PerfectionistSortType = 'alphabetical' | 'line-length' | 'natural'
@@ -75,7 +86,14 @@ export interface ConfigPerfectionistOptions extends OptionsOverrides {
 
 export interface ConfigCommentsOptions extends OptionsOverrides {}
 
-export interface ConfigRegexpOptions extends OptionsOverrides {}
+export interface ConfigRegexpOptions extends OptionsOverrides {
+  /**
+   * Prettier level
+   *
+   * @default 'error'
+   */
+  level?: 'warn' | 'error'
+}
 
 export interface ConfigJavaScriptOptions extends OptionsOverrides {
   /**
