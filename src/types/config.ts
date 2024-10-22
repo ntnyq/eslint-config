@@ -24,7 +24,14 @@ export interface OptionsOverrides<
 
 export type ConfigIgnoresOptions = string[]
 
-export type ConfigGitIgnoreOptions = FlatGitignoreOptions
+export type ConfigGitIgnoreOptions = Omit<FlatGitignoreOptions, 'strict'> & {
+  /**
+   * Throw an error if gitignore file not found.
+   *
+   * @default false
+   */
+  strict?: boolean
+}
 
 export type ConfigCommandOptions = ESLintPluginCommandOptions
 

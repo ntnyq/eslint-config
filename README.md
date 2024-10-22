@@ -11,6 +11,7 @@
 
 - Opinionable: single quotes, no semi
 - Designed to work alongside with [Prettier](https://prettier.io)
+- Respect `.gitignore` via [eslint-config-flat-gitignore](https://github.com/antfu/eslint-config-flat-gitignore)
 - Out-of-box support for TypeScript, Vue, JSON, Markdown, YAML, etc.
 - [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files) for ESLint v9.5.0+
 
