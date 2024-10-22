@@ -31,14 +31,15 @@ import { defineESLintConfig } from '@ntnyq/eslint-config'
 export default defineESLintConfig()
 ```
 
-Add scripts `lint` in `package.json`:
+Add scripts `lint` in `package.json` and config prettier:
 
 ```json
 {
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
-  }
+  },
+  "prettier": "@ntnyq/prettier-config"
 }
 ```
 
@@ -86,12 +87,12 @@ pnpm add husky nano-staged -D
     "prepare": "husky"
   },
   "nano-staged": {
-    "*.{js,ts,cjs,mjs,vue,md,yml,yaml,json,html}": "eslint --fix"
+    "*.{js,ts,cjs,mjs,jsx,tsx,vue,md,yml,yaml,json,html}": "eslint --fix"
   }
 }
 ```
 
-### 3. Add a hook
+### 3. Add a git hook
 
 ```bash
 echo "nano-staged" > .husky/pre-commit
