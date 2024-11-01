@@ -138,21 +138,28 @@ export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
               'displayName',
               'preview',
               'type',
+              'config',
               'version',
               'private',
               'packageManager',
+              'workspaces',
               'description',
               'keywords',
               'license',
+              'licenses',
               'author',
+              'contributors',
+              'maintainers',
               'homepage',
               'repository',
+              'bugs',
               'funding',
 
               /**
                * Publish
                */
               'exports',
+              'imports',
               'main',
               'module',
               'unpkg',
@@ -163,6 +170,7 @@ export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
               'bin',
               'icon',
               'files',
+              'directories',
               'publishConfig',
 
               /**
@@ -176,6 +184,8 @@ export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
                */
               'peerDependencies',
               'peerDependenciesMeta',
+              'bundledDependencies',
+              'bundleDependencies',
               'dependencies',
               'optionalDependencies',
               'devDependencies',
