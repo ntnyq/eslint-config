@@ -35,6 +35,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "pnpm run generate:type && tsup",
     "clean": "rimraf dist",
@@ -47,9 +50,6 @@
     "release:check": "run-s clean build lint typecheck",
     "release:version": "bumpp && npm publish",
     "typecheck": "tsc --noEmit"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "peerDependencies": {
     "eslint": "^9.0.0"

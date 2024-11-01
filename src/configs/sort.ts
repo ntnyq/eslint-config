@@ -130,6 +130,9 @@ export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
           {
             pathPattern: '^$',
             order: [
+              /**
+               * Meta
+               */
               'publisher',
               'name',
               'displayName',
@@ -145,6 +148,10 @@ export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
               'homepage',
               'repository',
               'funding',
+
+              /**
+               * Publish
+               */
               'exports',
               'main',
               'module',
@@ -156,20 +163,41 @@ export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
               'bin',
               'icon',
               'files',
+              'publishConfig',
+
+              /**
+               * Misc
+               */
               'sideEffects',
               'scripts',
+
+              /**
+               * Dependencies
+               */
               'peerDependencies',
               'peerDependenciesMeta',
               'dependencies',
               'optionalDependencies',
               'devDependencies',
+
+              /**
+               * VSCode extension
+               */
               'activationEvents',
               'contributes',
               'categories',
+
+              /**
+               * Package manager
+               */
               'engines',
               'pnpm',
               'overrides',
               'resolutions',
+
+              /**
+               * Third party
+               */
               'husky',
               'prettier',
               'nano-staged',
