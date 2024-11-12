@@ -83,27 +83,74 @@ const extensionRules: TypedConfigItem['rules'] = {
 }
 
 const unCategorizedRules: TypedConfigItem['rules'] = {
+  'vue/no-v-text': 'error',
   'vue/no-useless-v-bind': 'error',
   'vue/valid-define-options': 'error',
   'vue/prefer-define-options': 'error',
+  'vue/prefer-use-template-ref': 'error',
   'vue/no-irregular-whitespace': 'error',
   'vue/no-use-v-else-with-v-for': 'error',
   'vue/no-deprecated-delete-set': 'error',
+  'vue/no-empty-component-block': 'error',
   'vue/require-typed-object-prop': 'error',
   'vue/no-unused-emit-declarations': 'error',
   'vue/padding-line-between-blocks': 'error',
-  'vue/no-ref-object-reactivity-loss': 'error',
+  'vue/no-multiple-objects-in-class': 'error',
   'vue/prefer-separate-static-class': 'error',
+  'vue/no-ref-object-reactivity-loss': 'error',
+  'vue/no-duplicate-attr-inheritance': 'error',
+  'vue/prefer-prop-type-boolean-first': 'error',
+  'vue/html-comment-indent': ['error', 2],
   'vue/next-tick-style': ['error', 'promise'],
+  'vue/v-for-delimiter-style': ['error', 'in'],
   'vue/no-restricted-v-bind': ['error', '/^v-/'],
   'vue/custom-event-name-casing': ['error', 'camelCase'],
+  'vue/define-props-declaration': ['error', 'type-based'],
   'vue/define-emits-declaration': ['error', 'type-literal'],
   'vue/prefer-true-attribute-shorthand': ['error', 'always'],
   'vue/component-options-name-casing': ['error', 'PascalCase'],
+  'vue/component-api-style': ['error', ['script-setup', 'composition']],
+  'vue/html-button-has-type': [
+    'error',
+    {
+      button: true,
+      submit: true,
+      reset: true,
+    },
+  ],
   'vue/block-order': [
     'error',
     {
       order: ['script', 'template', 'style'],
+    },
+  ],
+  'vue/enforce-style-attribute': [
+    'error',
+    {
+      allow: ['scoped', 'plain'],
+    },
+  ],
+  'vue/block-tag-newline': [
+    'error',
+    {
+      singleline: 'always',
+      multiline: 'always',
+    },
+  ],
+  'vue/no-required-prop-with-default': [
+    'error',
+    {
+      autofix: true,
+    },
+  ],
+  'vue/html-comment-content-newline': [
+    'error',
+    {
+      singleline: 'ignore',
+      multiline: 'always',
+    },
+    {
+      exceptions: ['*'],
     },
   ],
   'vue/no-static-inline-styles': [
@@ -139,6 +186,16 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
     'always',
     {
       exceptions: ['-'],
+    },
+  ],
+  'vue/require-macro-variable-name': [
+    'error',
+    {
+      defineProps: 'props',
+      defineEmits: 'emits',
+      defineSlots: 'slots',
+      useSlots: 'slots',
+      useAttrs: 'attrs',
     },
   ],
 }
@@ -184,13 +241,6 @@ export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
             },
             svg: 'always',
             math: 'always',
-          },
-        ],
-        'vue/block-tag-newline': [
-          'error',
-          {
-            singleline: 'always',
-            multiline: 'always',
           },
         ],
         'vue/this-in-template': ['error', 'never'],
