@@ -17,6 +17,132 @@ const vue3Rules: TypedConfigItem['rules'] = {
   ...pluginVue.configs['vue3-recommended'].rules,
 }
 
+const disabledRules: TypedConfigItem['rules'] = {
+  'vue/no-v-html': 'off',
+  'vue/require-prop-types': 'off',
+  'vue/require-default-prop': 'off',
+  'vue/multi-word-component-names': 'off',
+  'vue/no-v-text-v-html-on-component': 'off',
+  'vue/no-setup-props-reactivity-loss': 'off',
+}
+
+const extensionRules: TypedConfigItem['rules'] = {
+  'vue/prefer-template': 'error',
+  'vue/no-sparse-arrays': 'error',
+  'vue/no-empty-pattern': 'error',
+  'vue/space-infix-ops': 'error',
+  'vue/no-loss-of-precision': 'error',
+  'vue/no-constant-condition': 'error',
+  'vue/template-curly-spacing': 'error',
+  'vue/eqeqeq': ['error', 'smart'],
+  'vue/comma-style': ['error', 'last'],
+  'vue/block-spacing': ['error', 'always'],
+  'vue/dot-location': ['error', 'property'],
+  'vue/space-in-parens': ['error', 'never'],
+  'vue/operator-linebreak': ['error', 'before'],
+  'vue/no-extra-parens': ['error', 'functions'],
+  'vue/array-bracket-spacing': ['error', 'never'],
+  'vue/object-curly-spacing': ['error', 'always'],
+  'vue/comma-dangle': ['error', 'always-multiline'],
+  'vue/quote-props': ['error', 'consistent-as-needed'],
+  'vue/arrow-spacing': ['error', { before: true, after: true }],
+  'vue/brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
+  'vue/comma-spacing': ['error', { before: false, after: true }],
+  'vue/dot-notation': ['error', { allowKeywords: true }],
+  'vue/key-spacing': ['error', { beforeColon: false, afterColon: true }],
+  'vue/keyword-spacing': ['error', { before: true, after: true }],
+  'vue/no-restricted-syntax': ['error', 'DebuggerStatement', 'LabeledStatement', 'WithStatement'],
+  'vue/space-unary-ops': [
+    'error',
+    {
+      words: true,
+      nonwords: false,
+    },
+  ],
+  'vue/object-curly-newline': [
+    'error',
+    {
+      multiline: true,
+      consistent: true,
+    },
+  ],
+  'vue/object-property-newline': [
+    'error',
+    {
+      allowMultiplePropertiesPerLine: true,
+    },
+  ],
+  'vue/object-shorthand': [
+    'error',
+    'always',
+    {
+      ignoreConstructors: false,
+      avoidQuotes: true,
+    },
+  ],
+}
+
+const unCategorizedRules: TypedConfigItem['rules'] = {
+  'vue/no-useless-v-bind': 'error',
+  'vue/valid-define-options': 'error',
+  'vue/prefer-define-options': 'error',
+  'vue/no-irregular-whitespace': 'error',
+  'vue/no-use-v-else-with-v-for': 'error',
+  'vue/no-deprecated-delete-set': 'error',
+  'vue/require-typed-object-prop': 'error',
+  'vue/no-unused-emit-declarations': 'error',
+  'vue/padding-line-between-blocks': 'error',
+  'vue/no-ref-object-reactivity-loss': 'error',
+  'vue/prefer-separate-static-class': 'error',
+  'vue/next-tick-style': ['error', 'promise'],
+  'vue/no-restricted-v-bind': ['error', '/^v-/'],
+  'vue/custom-event-name-casing': ['error', 'camelCase'],
+  'vue/define-emits-declaration': ['error', 'type-literal'],
+  'vue/prefer-true-attribute-shorthand': ['error', 'always'],
+  'vue/component-options-name-casing': ['error', 'PascalCase'],
+  'vue/block-order': [
+    'error',
+    {
+      order: ['script', 'template', 'style'],
+    },
+  ],
+  'vue/no-static-inline-styles': [
+    'error',
+    {
+      allowBinding: true,
+    },
+  ],
+  'vue/no-deprecated-model-definition': [
+    'error',
+    {
+      allowVue3Compat: true,
+    },
+  ],
+  'vue/component-name-in-template-casing': [
+    'error',
+    'PascalCase',
+    {
+      // Force auto-import components to be PascalCase
+      registeredComponentsOnly: false,
+      ignores: ['slot', 'component'],
+    },
+  ],
+  'vue/define-macros-order': [
+    'error',
+    {
+      order: ['defineProps', 'defineEmits', 'defineOptions', 'defineSlots', 'defineModel'],
+      defineExposeLast: true,
+    },
+  ],
+  'vue/html-comment-content-spacing': [
+    'error',
+    'always',
+    {
+      exceptions: ['-'],
+    },
+  ],
+}
+
 export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
   const isVue3 = options.vueVersion !== 2
   return [
@@ -48,14 +174,6 @@ export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
       rules: {
         ...(isVue3 ? vue3Rules : vue2Rules),
 
-        // OFF
-        'vue/no-v-html': 'off',
-        'vue/require-prop-types': 'off',
-        'vue/require-default-prop': 'off',
-        'vue/multi-word-component-names': 'off',
-        'vue/no-v-text-v-html-on-component': 'off',
-        'vue/no-setup-props-reactivity-loss': 'off',
-
         'vue/html-self-closing': [
           'error',
           {
@@ -75,125 +193,8 @@ export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
             multiline: 'always',
           },
         ],
-        'vue/component-name-in-template-casing': [
-          'error',
-          'PascalCase',
-          {
-            // Force auto-import components to be PascalCase
-            registeredComponentsOnly: false,
-            ignores: ['slot', 'component'],
-          },
-        ],
-        'vue/component-options-name-casing': ['error', 'PascalCase'],
-        'vue/custom-event-name-casing': ['error', 'camelCase'],
-        'vue/define-macros-order': [
-          'error',
-          {
-            order: ['defineProps', 'defineEmits', 'defineOptions', 'defineSlots'],
-          },
-        ],
-        'vue/html-comment-content-spacing': [
-          'error',
-          'always',
-          {
-            exceptions: ['-'],
-          },
-        ],
-        'vue/no-restricted-v-bind': ['error', '/^v-/'],
-        'vue/no-useless-v-bind': 'error',
-        'vue/padding-line-between-blocks': 'error',
-        'vue/next-tick-style': ['error', 'promise'],
-        'vue/array-bracket-spacing': ['error', 'never'],
-        'vue/prefer-separate-static-class': 'error',
-        'vue/no-constant-condition': 'error',
-        'vue/prefer-true-attribute-shorthand': ['error', 'always'],
-        'vue/prefer-define-options': 'error',
-        'vue/valid-define-options': 'error',
-
-        // TypeScript enhancements
-        'vue/define-emits-declaration': ['error', 'type-literal'],
-
-        'vue/no-unused-emit-declarations': 'error',
         'vue/this-in-template': ['error', 'never'],
-        'vue/arrow-spacing': ['error', { before: true, after: true }],
-        'vue/block-spacing': ['error', 'always'],
-        'vue/brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
-        'vue/comma-dangle': ['error', 'always-multiline'],
-        'vue/comma-spacing': ['error', { before: false, after: true }],
-        'vue/comma-style': ['error', 'last'],
-        'vue/dot-location': ['error', 'property'],
-        'vue/dot-notation': ['error', { allowKeywords: true }],
-        'vue/eqeqeq': ['error', 'smart'],
-        'vue/key-spacing': ['error', { beforeColon: false, afterColon: true }],
-        'vue/keyword-spacing': ['error', { before: true, after: true }],
-        'vue/no-empty-pattern': 'error',
-        'vue/no-loss-of-precision': 'error',
-        'vue/no-irregular-whitespace': 'error',
-        'vue/no-use-v-else-with-v-for': 'error',
-        'vue/require-typed-object-prop': 'error',
-        'vue/no-deprecated-delete-set': 'error',
-        'vue/no-extra-parens': ['error', 'functions'],
-        'vue/no-restricted-syntax': [
-          'error',
-          'DebuggerStatement',
-          'LabeledStatement',
-          'WithStatement',
-        ],
-        'vue/no-sparse-arrays': 'error',
-        'vue/no-deprecated-model-definition': [
-          'error',
-          {
-            allowVue3Compat: true,
-          },
-        ],
-        'vue/object-curly-newline': [
-          'error',
-          {
-            multiline: true,
-            consistent: true,
-          },
-        ],
-        'vue/no-static-inline-styles': [
-          'error',
-          {
-            allowBinding: true,
-          },
-        ],
-        'vue/object-curly-spacing': ['error', 'always'],
-        'vue/object-property-newline': [
-          'error',
-          {
-            allowMultiplePropertiesPerLine: true,
-          },
-        ],
-        'vue/object-shorthand': [
-          'error',
-          'always',
-          {
-            ignoreConstructors: false,
-            avoidQuotes: true,
-          },
-        ],
-        'vue/operator-linebreak': ['error', 'before'],
-        'vue/prefer-template': 'error',
         'vue/prop-name-casing': ['error', 'camelCase'],
-        'vue/quote-props': ['error', 'consistent-as-needed'],
-        'vue/space-in-parens': ['error', 'never'],
-        'vue/space-infix-ops': 'error',
-        'vue/space-unary-ops': [
-          'error',
-          {
-            words: true,
-            nonwords: false,
-          },
-        ],
-        'vue/template-curly-spacing': 'error',
-        'vue/block-order': [
-          'error',
-          {
-            order: ['script', 'template', 'style'],
-          },
-        ],
         'vue/attributes-order': [
           'error',
           {
@@ -264,6 +265,12 @@ export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
             multiline: 1,
           },
         ],
+
+        ...disabledRules,
+
+        ...extensionRules,
+
+        ...unCategorizedRules,
 
         // Overrides rules
         ...options.overrides,

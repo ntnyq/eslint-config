@@ -87,12 +87,12 @@ pnpm add husky nano-staged -D
     "prepare": "husky"
   },
   "nano-staged": {
-    "*.{js,ts,cjs,mjs,jsx,tsx,vue,md,yml,yaml,json,html}": "eslint --fix"
+    "*.{js,ts,cjs,mjs,jsx,tsx,vue,md,html,json,toml,yml,yaml}": "eslint --fix"
   }
 }
 ```
 
-### 3. Add a git hook
+### 3. Add a Git hook
 
 ```bash
 echo "nano-staged" > .husky/pre-commit
