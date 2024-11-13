@@ -168,6 +168,23 @@ export interface ConfigOptions {
 }
 ```
 
+## Versioning policy
+
+This project follows [Semantic Versioning](https://semver.org/) for releases.
+
+### Changes considered as Breaking Changes
+
+- Node.js version requirement changes
+- Huge refactors that might break the config
+- Plugins made major changes that might break the config
+- Changes that might affect most of the codebases
+
+### Changes considered as Non-Breaking Changes
+
+- Enable/disable rules and plugins (that might become stricter)
+- Rules options changes
+- Version bumps of dependencies
+
 ## Credits
 
 - [@sxzz/eslint-config](https://github.com/sxzz/eslint-config)
