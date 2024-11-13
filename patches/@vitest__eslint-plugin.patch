@@ -1,0 +1,31 @@
+diff --git a/dist/index.mjs b/dist/index.mjs
+index 1e282508c188670d53cac5a2788d8bfe58068c62..41289c27accb334947f34a9b5049073f9cfe5d8c 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -2168,10 +2168,22 @@ const validTitle = createEslintRule({
+           disallowedWords: {
+             type: "array",
+             items: { type: "string" }
+-          }
+-        },
+-        patternProperties: {
+-          [/^must(?:Not)?Match$/u.source]: {
++          },
++          mustMatch: {
++            oneOf: [
++              { type: "string" },
++              MatcherAndMessageSchema,
++              {
++                type: "object",
++                //@ts-ignore
++                propertyNames: { type: "string", enum: ["describe", "test", "it"] },
++                additionalProperties: {
++                  oneOf: [{ type: "string" }, MatcherAndMessageSchema]
++                }
++              }
++            ]
++          },
++          mustNotMatch: {
+             oneOf: [
+               { type: "string" },
+               MatcherAndMessageSchema,

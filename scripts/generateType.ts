@@ -25,7 +25,7 @@ import {
   unicorn,
   unocss,
   unusedImports,
-  // vitest,
+  vitest,
   vue,
   yml,
 } from '../src/configs'
@@ -60,7 +60,7 @@ const configs = [
   ...unocss(),
   ...sort(),
   ...vue(),
-  // ...vitest(),
+  ...vitest(),
   ...yml(),
   ...toml(),
   ...specials(),

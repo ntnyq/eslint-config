@@ -1,6 +1,17 @@
 import { pluginUnicorn } from '../plugins'
 import type { ConfigUnicornOptions, TypedConfigItem } from '../types'
 
+const disabledRules: TypedConfigItem['rules'] = {
+  'unicorn/better-regex': 'off',
+  'unicorn/prefer-top-level-await': 'off',
+  'unicorn/explicit-length-check': 'off',
+  'unicorn/no-array-callback-reference': 'off',
+  /**
+   * @see https://caniuse.com/?search=globalThis
+   */
+  'unicorn/prefer-global-this': 'off',
+}
+
 export const unicorn = (options: ConfigUnicornOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/unicorn',
@@ -8,16 +19,6 @@ export const unicorn = (options: ConfigUnicornOptions = {}): TypedConfigItem[] =
       unicorn: pluginUnicorn,
     },
     rules: {
-      // Disabled for now
-      'unicorn/better-regex': 'off',
-      'unicorn/prefer-top-level-await': 'off',
-      'unicorn/explicit-length-check': 'off',
-      'unicorn/no-array-callback-reference': 'off',
-      /**
-       * @see https://caniuse.com/?search=globalThis
-       */
-      'unicorn/prefer-global-this': 'off',
-
       'unicorn/error-message': 'error',
       'unicorn/escape-case': 'error',
       'unicorn/no-new-buffer': 'error',
@@ -83,6 +84,8 @@ export const unicorn = (options: ConfigUnicornOptions = {}): TypedConfigItem[] =
       'unicorn/prefer-array-some': 'error',
       'unicorn/prefer-array-flat-map': 'error',
       'unicorn/prefer-array-index-of': 'error',
+
+      ...disabledRules,
 
       // Overrides rules
       ...options.overrides,
