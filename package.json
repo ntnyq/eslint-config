@@ -59,7 +59,7 @@
     "@eslint/js": "^9.14.0",
     "@eslint/markdown": "^6.2.1",
     "@unocss/eslint-plugin": "^0.64.0",
-    "@vitest/eslint-plugin": "^1.1.8",
+    "@vitest/eslint-plugin": "^1.1.10",
     "eslint-config-flat-gitignore": "^0.3.0",
     "eslint-flat-config-utils": "^0.4.0",
     "eslint-merge-processors": "^0.1.0",
@@ -101,7 +101,7 @@
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.6.3",
-    "zx": "^8.2.1"
+    "zx": "^8.2.2"
   },
   "engines": {
     "node": ">=18.18.0"
