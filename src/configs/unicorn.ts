@@ -29,7 +29,6 @@ export const unicorn = (options: ConfigUnicornOptions = {}): TypedConfigItem[] =
       'unicorn/no-unnecessary-await': 'error',
       'unicorn/switch-case-braces': ['error', 'avoid'],
       'unicorn/no-typeof-undefined': 'error',
-      'unicorn/prefer-set-size': 'error',
       'unicorn/prefer-regexp-test': 'error',
       'unicorn/no-static-only-class': 'error',
       'unicorn/no-zero-fractions': 'error',
@@ -49,6 +48,7 @@ export const unicorn = (options: ConfigUnicornOptions = {}): TypedConfigItem[] =
       'unicorn/prefer-prototype-methods': 'error',
       'unicorn/prefer-reflect-apply': 'error',
       'unicorn/prefer-math-min-max': 'error',
+      'unicorn/prefer-structured-clone': 'error',
       'unicorn/consistent-existence-index-check': 'error',
       'unicorn/catch-error-name': [
         'error',
@@ -61,6 +61,7 @@ export const unicorn = (options: ConfigUnicornOptions = {}): TypedConfigItem[] =
       'unicorn/prefer-date-now': 'error',
 
       // String
+      'unicorn/prefer-code-point': 'error',
       'unicorn/prefer-string-slice': 'error',
       'unicorn/prefer-string-trim-start-end': 'error',
       'unicorn/prefer-string-starts-ends-with': 'error',
@@ -84,6 +85,11 @@ export const unicorn = (options: ConfigUnicornOptions = {}): TypedConfigItem[] =
       'unicorn/prefer-array-some': 'error',
       'unicorn/prefer-array-flat-map': 'error',
       'unicorn/prefer-array-index-of': 'error',
+      'unicorn/require-array-join-separator': 'error',
+
+      // Set
+      'unicorn/prefer-set-has': 'error',
+      'unicorn/prefer-set-size': 'error',
 
       ...disabledRules,
 
