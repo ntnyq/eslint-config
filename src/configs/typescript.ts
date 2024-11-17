@@ -1,17 +1,17 @@
 import process from 'node:process'
+import { createTypeScriptConfig, parserTypeScript, typescriptConfigs } from '../eslint'
 import { GLOB_DTS, GLOB_TS, GLOB_TSX } from '../globs'
-import { tseslint } from '../plugins'
 import type { ConfigTypeScriptOptions, TypedConfigItem } from '../types'
 
 export const typescriptCore = (options: ConfigTypeScriptOptions = {}) => {
   const isTypeAware = !!options.tsconfigPath
 
-  const configs = tseslint.config({
+  const configs = createTypeScriptConfig({
     name: 'ntnyq/ts/core',
-    extends: [...tseslint.configs.recommended],
+    extends: [...typescriptConfigs.recommended],
     files: [GLOB_TS, GLOB_TSX],
     languageOptions: {
-      parser: tseslint.parser,
+      parser: parserTypeScript,
       parserOptions: {
         sourceType: 'module',
         ...(isTypeAware

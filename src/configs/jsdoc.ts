@@ -1,4 +1,4 @@
-import { pluginJsdoc } from '../plugins'
+import { pluginJsdoc } from '../eslint'
 import type { ConfigJsdocOptions, TypedConfigItem } from '../types'
 
 export const jsdoc = (options: ConfigJsdocOptions = {}): TypedConfigItem[] => [

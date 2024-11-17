@@ -1,4 +1,4 @@
-import { pluginComments } from '../plugins'
+import { pluginComments } from '../eslint'
 import type { ConfigCommentsOptions, TypedConfigItem } from '../types'
 
 export const comments = (options: ConfigCommentsOptions = {}): TypedConfigItem[] => [

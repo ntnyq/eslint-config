@@ -1,4 +1,4 @@
-import { pluginNtnyq } from '../plugins'
+import { pluginNtnyq } from '../eslint'
 import type { ConfigNtnyqOptions, TypedConfigItem } from '../types'
 
 export const ntnyq = (options: ConfigNtnyqOptions = {}): TypedConfigItem[] => [

@@ -1,5 +1,5 @@
+import { parserJsonc, pluginJsonc } from '../eslint'
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs'
-import { parserJsonc, pluginJsonc } from '../plugins'
 import type { ConfigJsoncOptions, TypedConfigItem } from '../types'
 
 export const jsonc = (options: ConfigJsoncOptions = {}): TypedConfigItem[] => [

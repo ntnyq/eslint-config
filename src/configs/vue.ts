@@ -1,5 +1,12 @@
+import { mergeProcessors } from 'eslint-merge-processors'
+import {
+  createTypeScriptConfig,
+  parserVue,
+  pluginTypeScript,
+  pluginVue,
+  processorVueBlocks,
+} from '../eslint'
 import { GLOB_VUE } from '../globs'
-import { parserVue, pluginVue, tseslint } from '../plugins'
 import { typescriptCore } from './typescript'
 import type { ConfigVueOptions, TypedConfigItem } from '../types'
 
@@ -203,31 +210,45 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
 export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
   const isVue3 = options.vueVersion !== 2
   return [
-    ...(tseslint.config({
+    ...(createTypeScriptConfig({
       name: 'ntnyq/vue/ts',
       files: [GLOB_VUE],
       extends: typescriptCore(),
     }) as TypedConfigItem[]),
 
     {
-      name: 'ntnyq/vue/core',
-      files: [GLOB_VUE],
+      name: 'ntnyq/vue/setup',
       plugins: {
         vue: pluginVue,
-        '@typescript-eslint': tseslint.plugin,
+        '@typescript-eslint': pluginTypeScript,
       },
       languageOptions: {
-        parser: parserVue,
         parserOptions: {
-          parser: '@typescript-eslint/parser',
           sourceType: 'module',
+          ecmaVersion: 'latest',
           extraFileExtensions: ['.vue'],
+          parser: '@typescript-eslint/parser',
           ecmaFeatures: {
             jsx: true,
           },
         },
       },
-      processor: pluginVue.processors['.vue'],
+    },
+
+    {
+      name: 'ntnyq/vue/rules',
+      files: [GLOB_VUE],
+      languageOptions: {
+        parser: parserVue,
+      },
+      processor: mergeProcessors([
+        pluginVue.processors['.vue'],
+        processorVueBlocks({
+          blocks: {
+            styles: true,
+          },
+        }),
+      ]),
       rules: {
         ...(isVue3 ? vue3Rules : vue2Rules),
 

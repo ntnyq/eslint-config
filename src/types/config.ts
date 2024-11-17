@@ -169,6 +169,31 @@ export interface ConfigTestOptions extends OptionsOverrides {
   overridesVitestRules?: TypedConfigItem['rules']
 }
 
+export interface ConfigFormatOptions {
+  /**
+   * Enable formatter support for css, less, scss, sass and etc.
+   *
+   * @default 'prettier'
+   */
+  css?: 'prettier' | boolean
+
+  /**
+   * Enable formatter support for html
+   *
+   * @default 'prettier'
+   */
+  html?: 'prettier' | boolean
+
+  /**
+   * Enable formatter support for markdown
+   *
+   * @default 'prettier'
+   */
+  markdown?: 'prettier' | 'dprint' | boolean
+
+  dprintOptions?: boolean
+}
+
 export interface ConfigUnusedImportsOptions extends OptionsOverrides {}
 
 /**
@@ -186,6 +211,8 @@ export interface ConfigOptions {
   imports?: ConfigImportsOptions
 
   node?: ConfigNodeOptions
+
+  format?: boolean | ConfigFormatOptions
 
   javascript?: ConfigJavaScriptOptions
 

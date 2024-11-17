@@ -1,4 +1,4 @@
-import { pluginPerfectionist } from '../plugins'
+import { pluginPerfectionist } from '../eslint'
 import type { ConfigPerfectionistOptions, TypedConfigItem } from '../types'
 
 export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedConfigItem[] => [

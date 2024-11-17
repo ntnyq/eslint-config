@@ -23,6 +23,7 @@ export const GLOB_STYLE = '**/*.{c,le,sc}ss'
 export const GLOB_CSS = '**/*.css'
 export const GLOB_LESS = '**/*.less'
 export const GLOB_SCSS = '**/*.scss'
+export const GLOB_POSTCSS = '**/*.{p,post}css'
 
 export const GLOB_JSON = '**/*.json'
 export const GLOB_JSON5 = '**/*.json5'

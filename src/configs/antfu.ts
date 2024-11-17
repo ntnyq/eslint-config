@@ -1,4 +1,4 @@
-import { pluginAntfu } from '../plugins'
+import { pluginAntfu } from '../eslint'
 import type { ConfigAntfuOptions, TypedConfigItem } from '../types'
 
 export const antfu = (options: ConfigAntfuOptions = {}): TypedConfigItem[] => [

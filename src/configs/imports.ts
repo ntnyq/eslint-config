@@ -1,4 +1,4 @@
-import { pluginImport } from '../plugins'
+import { pluginImport } from '../eslint'
 import type { ConfigImportsOptions, TypedConfigItem } from '../types'
 
 export const imports = (options: ConfigImportsOptions = {}): TypedConfigItem[] => [

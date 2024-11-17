@@ -1,5 +1,5 @@
+import { pluginVitest } from '../eslint'
 import { GLOB_TEST } from '../globs'
-import { pluginVitest } from '../plugins'
 import type { ConfigTestOptions, TypedConfigItem } from '../types'
 
 export const test = (options: ConfigTestOptions = {}): TypedConfigItem[] => [

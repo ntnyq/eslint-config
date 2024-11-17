@@ -3,7 +3,7 @@
  * @see {@link https://github.com/ota-meshi/eslint-plugin-regexp}
  */
 
-import { pluginRegexp } from '../plugins'
+import { pluginRegexp } from '../eslint'
 import type { ConfigRegexpOptions, TypedConfigItem } from '../types'
 
 export const regexp = (options: ConfigRegexpOptions = {}): TypedConfigItem[] => {

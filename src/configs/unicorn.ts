@@ -1,4 +1,4 @@
-import { pluginUnicorn } from '../plugins'
+import { pluginUnicorn } from '../eslint'
 import type { ConfigUnicornOptions, TypedConfigItem } from '../types'
 
 const disabledRules: TypedConfigItem['rules'] = {

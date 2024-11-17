@@ -1,5 +1,5 @@
+import { pluginMarkdown } from '../eslint'
 import { GLOB_MARKDOWN, GLOB_SRC, GLOB_VUE } from '../globs'
-import { pluginMarkdown } from '../plugins'
 import type { ConfigMarkdownOptions, TypedConfigItem } from '../types'
 
 export const markdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[] => {

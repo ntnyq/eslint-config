@@ -1,15 +1,6 @@
 /**
- * @file plugins & parsers
+ * @file ESLint plugins
  */
-
-import tseslint from 'typescript-eslint'
-
-export { tseslint }
-
-export * as parserVue from 'vue-eslint-parser'
-export * as parserToml from 'toml-eslint-parser'
-export * as parserYaml from 'yaml-eslint-parser'
-export * as parserJsonc from 'jsonc-eslint-parser'
 
 export * as pluginRegexp from 'eslint-plugin-regexp'
 export { default as pluginNode } from 'eslint-plugin-n'
@@ -21,6 +12,8 @@ export { default as pluginMarkdown } from '@eslint/markdown'
 export { default as pluginAntfu } from 'eslint-plugin-antfu'
 export { default as pluginJsdoc } from 'eslint-plugin-jsdoc'
 export { default as pluginJsonc } from 'eslint-plugin-jsonc'
+export { plugin as pluginTypeScript } from 'typescript-eslint'
+export { default as pluginFormat } from 'eslint-plugin-format'
 export { default as pluginUnoCSS } from '@unocss/eslint-plugin'
 export { default as pluginVitest } from '@vitest/eslint-plugin'
 export { default as pluginImport } from 'eslint-plugin-import-x'
