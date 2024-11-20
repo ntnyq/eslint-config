@@ -2,32 +2,7 @@
  * @file Merge prettier options
  */
 
-import type { BuiltInParserName, RequiredOptions } from 'prettier'
-
-type PrettierOptions = Partial<
-  Pick<
-    RequiredOptions,
-    | 'semi'
-    | 'singleQuote'
-    | 'trailingComma'
-    | 'bracketSpacing'
-    | 'bracketSameLine'
-    | 'proseWrap'
-    | 'arrowParens'
-    | 'htmlWhitespaceSensitivity'
-    | 'printWidth'
-    | 'tabWidth'
-    | 'useTabs'
-    | 'endOfLine'
-    | 'embeddedLanguageFormatting'
-    | 'jsxSingleQuote'
-    | 'singleAttributePerLine'
-    | 'experimentalTernaries'
-    | 'plugins'
-  >
-> & {
-  parser?: BuiltInParserName
-}
+import type { PrettierOptions } from '../types'
 
 export function mergePrettierOptions(
   options: PrettierOptions = {},
