@@ -61,7 +61,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
           order: options.imports?.order || 'asc',
           type: options.imports?.type || 'natural',
           ignoreCase: true,
-          internalPattern: ['~/**', '@/**', '#**'],
+          internalPattern: ['^~/.+', '^@/.+', '^#.+'],
           newlinesBetween: 'ignore',
         },
       ],

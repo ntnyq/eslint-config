@@ -121,6 +121,11 @@ export interface ConfigOptions {
 
   node?: ConfigNodeOptions
 
+  /**
+   * @internal
+   */
+  format?: boolean | ConfigFormatOptions
+
   javascript?: ConfigJavaScriptOptions
 
   typescript?: boolean | ConfigTypeScriptOptions
