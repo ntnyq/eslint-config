@@ -46,6 +46,9 @@ importers:
       eslint-plugin-format:
         specifier: ^0.1.2
         version: 0.1.2(eslint@9.15.0(jiti@2.4.0))
+      eslint-plugin-github-action:
+        specifier: ^0.0.0
+        version: 0.0.0(eslint@9.15.0(jiti@2.4.0))(typescript@5.6.3)
       eslint-plugin-import-x:
         specifier: ^4.4.2
         version: 4.4.2(eslint@9.15.0(jiti@2.4.0))(typescript@5.6.3)
@@ -1206,6 +1209,12 @@ packages:
     resolution: {integrity: sha512-ZrcO3aiumgJ6ENAv65IWkPjtW77ML/5mp0YrRK0jdvvaZJb+4kKWbaQTMr/XbJo6CtELRmCApAziEKh7L2NbdQ==}
     peerDependencies:
       eslint: ^8.40.0 || ^9.0.0
+
+  eslint-plugin-github-action@0.0.0:
+    resolution: {integrity: sha512-cOShEGeFGYBFFS4VcWlV7G7cyhn8iCrR2xDvTx16WXcxuJ84zQFLTJtADRUt7HAiG/MsqLrzEM5ZSFfhhA3Tiw==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      eslint: ^9.5.0
 
   eslint-plugin-import-x@4.4.2:
     resolution: {integrity: sha512-mDRXPSLQ0UQZQw91QdG4/qZT6hgeW2MJTczAbgPseUZuPEtIjjdPOolXroRkulnOn3fzj6gNgvk+wchMJiHElg==}
@@ -3413,6 +3422,15 @@ snapshots:
       eslint-parser-plain: 0.1.0
       prettier: 3.3.3
       synckit: 0.9.2
+
+  eslint-plugin-github-action@0.0.0(eslint@9.15.0(jiti@2.4.0))(typescript@5.6.3):
+    dependencies:
+      '@typescript-eslint/utils': 8.15.0(eslint@9.15.0(jiti@2.4.0))(typescript@5.6.3)
+      eslint: 9.15.0(jiti@2.4.0)
+      yaml-eslint-parser: 1.2.3
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
 
   eslint-plugin-import-x@4.4.2(eslint@9.15.0(jiti@2.4.0))(typescript@5.6.3):
     dependencies:

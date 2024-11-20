@@ -49,6 +49,8 @@ export interface ConfigAntfuOptions extends OptionsOverrides {}
 
 export interface ConfigNtnyqOptions extends OptionsOverrides {}
 
+export interface ConfigGitHubActionOptions extends OptionsOverrides {}
+
 export interface ConfigPrettierOptions extends OptionsOverrides {
   /**
    * Prettier level
@@ -196,10 +198,37 @@ export interface ConfigFormatOptions {
 
 export interface ConfigUnusedImportsOptions extends OptionsOverrides {}
 
+interface ConfigOptionsInternal {
+  /**
+   * @internal
+   */
+  format?: boolean | ConfigFormatOptions
+
+  /**
+   * @internal
+   */
+  antfu?: boolean | ConfigAntfuOptions
+
+  /**
+   * @internal
+   */
+  ntnyq?: boolean | ConfigNtnyqOptions
+
+  /**
+   * @internal
+   */
+  unusedImports?: boolean | ConfigUnusedImportsOptions
+
+  /**
+   * @internal
+   */
+  githubAction?: boolean | ConfigGitHubActionOptions
+}
+
 /**
  * Config factory options
  */
-export interface ConfigOptions {
+export interface ConfigOptions extends ConfigOptionsInternal {
   ignores?: ConfigIgnoresOptions
 
   sort?: boolean | ConfigSortOptions
@@ -212,11 +241,6 @@ export interface ConfigOptions {
 
   node?: ConfigNodeOptions
 
-  /**
-   * @internal
-   */
-  format?: boolean | ConfigFormatOptions
-
   javascript?: ConfigJavaScriptOptions
 
   typescript?: boolean | ConfigTypeScriptOptions
@@ -226,21 +250,6 @@ export interface ConfigOptions {
   prettier?: boolean | ConfigPrettierOptions
 
   perfectionist?: boolean | ConfigPerfectionistOptions
-
-  /**
-   * @internal
-   */
-  unusedImports?: boolean | ConfigUnusedImportsOptions
-
-  /**
-   * @internal
-   */
-  antfu?: boolean | ConfigAntfuOptions
-
-  /**
-   * @internal
-   */
-  ntnyq?: boolean | ConfigNtnyqOptions
 
   comments?: boolean | ConfigCommentsOptions
 

@@ -20,7 +20,7 @@ export * as parserJsonc from 'jsonc-eslint-parser'
  */
 export const parserPlain: ESLintParser = {
   meta: {
-    name: 'parser-plain',
+    name: 'plain-eslint-parser',
   },
   parseForESLint: (code: string) => ({
     ast: {

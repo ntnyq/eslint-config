@@ -6,6 +6,7 @@ import {
   command,
   comments,
   format,
+  githubAction,
   gitignore,
   ignores,
   imports,
@@ -31,6 +32,9 @@ import {
   yml,
 } from '../src/configs'
 
+/**
+ * Sorted alphabetically
+ */
 const configs = [
   {
     plugins: {
@@ -43,6 +47,7 @@ const configs = [
   ...command(),
   ...comments(),
   ...format(),
+  ...githubAction(),
   ...gitignore(),
   ...ignores(),
   ...imports(),
@@ -54,18 +59,18 @@ const configs = [
   ...node(),
   ...ntnyq(),
   ...prettier(),
-  ...regexp(),
   ...perfectionist(),
+  ...regexp(),
+  ...sort(),
+  ...specials(),
+  ...toml(),
   ...typescript(),
   ...unusedImports(),
   ...unicorn(),
   ...unocss(),
-  ...sort(),
-  ...vue(),
   ...vitest(),
+  ...vue(),
   ...yml(),
-  ...toml(),
-  ...specials(),
 ]
 
 const configNames = configs.map(i => i.name).filter(Boolean)

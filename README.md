@@ -108,7 +108,7 @@ Check for detail in:
 ### Config interface
 
 ```ts
-export interface ConfigOptions {
+export interface ConfigOptions extends ConfigOptionsInternal {
   ignores?: ConfigIgnoresOptions
 
   sort?: boolean | ConfigSortOptions
@@ -121,11 +121,6 @@ export interface ConfigOptions {
 
   node?: ConfigNodeOptions
 
-  /**
-   * @internal
-   */
-  format?: boolean | ConfigFormatOptions
-
   javascript?: ConfigJavaScriptOptions
 
   typescript?: boolean | ConfigTypeScriptOptions
@@ -135,21 +130,6 @@ export interface ConfigOptions {
   prettier?: boolean | ConfigPrettierOptions
 
   perfectionist?: boolean | ConfigPerfectionistOptions
-
-  /**
-   * @internal
-   */
-  unusedImports?: boolean | ConfigUnusedImportsOptions
-
-  /**
-   * @internal
-   */
-  antfu?: boolean | ConfigAntfuOptions
-
-  /**
-   * @internal
-   */
-  ntnyq?: boolean | ConfigNtnyqOptions
 
   comments?: boolean | ConfigCommentsOptions
 
