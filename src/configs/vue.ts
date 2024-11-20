@@ -209,6 +209,7 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
 
 export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
   const isVue3 = options.vueVersion !== 2
+  const sfcBlocks = options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {})
   return [
     ...(createTypeScriptConfig({
       name: 'ntnyq/vue/ts',
@@ -241,14 +242,19 @@ export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
       languageOptions: {
         parser: parserVue,
       },
-      processor: mergeProcessors([
-        pluginVue.processors['.vue'],
-        processorVueBlocks({
-          blocks: {
-            styles: true,
-          },
-        }),
-      ]),
+      processor:
+        sfcBlocks === false
+          ? pluginVue.processors['.vue']
+          : mergeProcessors([
+              pluginVue.processors['.vue'],
+              processorVueBlocks({
+                ...sfcBlocks,
+                blocks: {
+                  styles: true,
+                  ...sfcBlocks.blocks,
+                },
+              }),
+            ]),
       rules: {
         ...(isVue3 ? vue3Rules : vue2Rules),
 

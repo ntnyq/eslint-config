@@ -4,6 +4,8 @@
 
 import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
 import type { ESLintPluginCommandOptions } from 'eslint-plugin-command/types'
+import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
+import type { PrettierOptions } from '../types'
 import type { ParserOptions, TypedConfigItem } from './eslint'
 
 /**
@@ -157,6 +159,14 @@ export interface ConfigTomlOptions extends OptionsOverrides {}
 
 export interface ConfigVueOptions extends OptionsOverrides {
   /**
+   * Create virtual files for Vue SFC blocks to enable linting.
+   *
+   * @see https://github.com/antfu/eslint-processor-vue-blocks
+   * @default true
+   */
+  sfcBlocks?: boolean | VueBlocksOptions
+
+  /**
    * Vue version
    *
    * @default 3
@@ -193,6 +203,14 @@ export interface ConfigFormatOptions {
    */
   markdown?: 'prettier' | 'dprint' | boolean
 
+  /**
+   * Options for prettier
+   */
+  prettierOptions?: PrettierOptions
+
+  /**
+   * Options for dprint
+   */
   dprintOptions?: boolean
 }
 
