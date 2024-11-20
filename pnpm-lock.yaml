@@ -117,8 +117,8 @@ importers:
         specifier: ^1.21.3
         version: 1.21.3
       '@types/node':
-        specifier: ^22.9.0
-        version: 22.9.0
+        specifier: ^22.9.1
+        version: 22.9.1
       bumpp:
         specifier: ^9.8.1
         version: 9.8.1
@@ -731,8 +731,8 @@ packages:
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
-  '@types/node@22.9.0':
-    resolution: {integrity: sha512-vuyHg81vvWA1Z1ELfvLko2c8f34gyA0zaic0+Rllc5lbCnbSyuvb2Oxpm6TAUAC/2xZN3QGqxBNggD1nNR2AfQ==}
+  '@types/node@22.9.1':
+    resolution: {integrity: sha512-p8Yy/8sw1caA8CdRIQBG5tiLHmxtQKObCijiAa9Ez+d4+PRffM4054xbju0msf+cvhJpnFEeNjxmVT/0ipktrg==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -2862,14 +2862,14 @@ snapshots:
   '@types/fs-extra@11.0.4':
     dependencies:
       '@types/jsonfile': 6.1.4
-      '@types/node': 22.9.0
+      '@types/node': 22.9.1
     optional: true
 
   '@types/json-schema@7.0.15': {}
 
   '@types/jsonfile@6.1.4':
     dependencies:
-      '@types/node': 22.9.0
+      '@types/node': 22.9.1
     optional: true
 
   '@types/mdast@4.0.4':
@@ -2878,7 +2878,7 @@ snapshots:
 
   '@types/ms@0.7.34': {}
 
-  '@types/node@22.9.0':
+  '@types/node@22.9.1':
     dependencies:
       undici-types: 6.19.8
 
@@ -4924,4 +4924,4 @@ snapshots:
   zx@8.2.2:
     optionalDependencies:
       '@types/fs-extra': 11.0.4
-      '@types/node': 22.9.0
+      '@types/node': 22.9.1
