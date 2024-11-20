@@ -53,6 +53,8 @@ export const GLOB_ALL_SRC = [
   GLOB_MARKDOWN,
 ]
 
+export const GLOB_GITHUB_ACTION = '**/.github/workflows/*.y?(a)ml'
+
 export const GLOB_NODE_MODULES = '**/node_modules/**'
 export const GLOB_DIST = '**/dist/**'
 export const GLOB_LOCKFILE = [

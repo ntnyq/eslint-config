@@ -12,7 +12,9 @@ export const antfu = (options: ConfigAntfuOptions = {}): TypedConfigItem[] => [
       // 'antfu/consistent-list-newline': 'error',
 
       'antfu/import-dedupe': 'error',
-      'antfu/top-level-function': 'error',
+      'antfu/no-import-dist': 'error',
+      'antfu/indent-unindent': 'error',
+      'antfu/no-import-node-modules-by-path': 'error',
 
       // Overrides rules
       ...options.overrides,

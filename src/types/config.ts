@@ -207,22 +207,12 @@ interface ConfigOptionsInternal {
   /**
    * @internal
    */
-  antfu?: boolean | ConfigAntfuOptions
-
-  /**
-   * @internal
-   */
   ntnyq?: boolean | ConfigNtnyqOptions
 
   /**
    * @internal
    */
   unusedImports?: boolean | ConfigUnusedImportsOptions
-
-  /**
-   * @internal
-   */
-  githubAction?: boolean | ConfigGitHubActionOptions
 }
 
 /**
@@ -270,4 +260,8 @@ export interface ConfigOptions extends ConfigOptionsInternal {
   vue?: boolean | ConfigVueOptions
 
   test?: boolean | ConfigTestOptions
+
+  antfu?: boolean | ConfigAntfuOptions
+
+  githubAction?: boolean | ConfigGitHubActionOptions
 }

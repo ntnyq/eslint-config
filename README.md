@@ -150,6 +150,10 @@ export interface ConfigOptions extends ConfigOptionsInternal {
   vue?: boolean | ConfigVueOptions
 
   test?: boolean | ConfigTestOptions
+
+  antfu?: boolean | ConfigAntfuOptions
+
+  githubAction?: boolean | ConfigGitHubActionOptions
 }
 ```
 

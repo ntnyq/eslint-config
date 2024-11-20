@@ -4,8 +4,10 @@
 
 import { FlatConfigComposer } from 'eslint-flat-config-utils'
 import {
+  antfu,
   command,
   comments,
+  githubAction,
   gitignore,
   ignores,
   imports,
@@ -198,6 +200,22 @@ export function defineESLintConfig(
     configs.push(
       ...command({
         ...resolveSubOptions(options, 'command'),
+      }),
+    )
+  }
+
+  if (options.antfu ?? true) {
+    configs.push(
+      ...antfu({
+        overrides: getOverrides(options, 'antfu'),
+      }),
+    )
+  }
+
+  if (options.githubAction ?? true) {
+    configs.push(
+      ...githubAction({
+        overrides: getOverrides(options, 'githubAction'),
       }),
     )
   }
