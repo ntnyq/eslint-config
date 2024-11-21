@@ -1,3 +1,4 @@
+import { DEFAULT_PRETTIER_OPTIONS } from '../constants'
 import { parserPlain, pluginFormat } from '../eslint'
 import { GLOB_CSS, GLOB_HTML, GLOB_LESS, GLOB_POSTCSS, GLOB_SCSS } from '../globs'
 import { mergePrettierOptions } from '../utils'
@@ -12,6 +13,7 @@ export const format = (options: ConfigFormatOptions = {}): TypedConfigItem[] => 
   } = options
 
   const sharedPrettierOptions: PrettierOptions = {
+    ...DEFAULT_PRETTIER_OPTIONS,
     ...prettierOptions,
   }
 
