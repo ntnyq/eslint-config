@@ -47,8 +47,8 @@ importers:
         specifier: ^0.1.2
         version: 0.1.2(eslint@9.15.0(jiti@2.4.0))
       eslint-plugin-github-action:
-        specifier: ^0.0.1
-        version: 0.0.1(eslint@9.15.0(jiti@2.4.0))(typescript@5.6.3)
+        specifier: ^0.0.2
+        version: 0.0.2(eslint@9.15.0(jiti@2.4.0))(typescript@5.6.3)
       eslint-plugin-import-x:
         specifier: ^4.4.3
         version: 4.4.3(eslint@9.15.0(jiti@2.4.0))(typescript@5.6.3)
@@ -59,8 +59,8 @@ importers:
         specifier: ^2.18.2
         version: 2.18.2(eslint@9.15.0(jiti@2.4.0))
       eslint-plugin-n:
-        specifier: ^17.13.2
-        version: 17.13.2(eslint@9.15.0(jiti@2.4.0))
+        specifier: ^17.14.0
+        version: 17.14.0(eslint@9.15.0(jiti@2.4.0))
       eslint-plugin-ntnyq:
         specifier: ^0.6.0
         version: 0.6.0(eslint@9.15.0(jiti@2.4.0))(typescript@5.6.3)
@@ -117,8 +117,8 @@ importers:
         version: 1.2.3
     devDependencies:
       '@ntnyq/prettier-config':
-        specifier: ^1.21.3
-        version: 1.21.3
+        specifier: ^1.22.0
+        version: 1.22.0
       '@types/node':
         specifier: ^22.9.1
         version: 22.9.1
@@ -608,8 +608,8 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@ntnyq/prettier-config@1.21.3':
-    resolution: {integrity: sha512-gqnraIdHvjZnyd2JqBPiys+XNoHV4J/L9mzOLrVEyyxPCOBP8NSc9lNbqo2gvf7sDgVtffR+eLYov/c321W9cw==}
+  '@ntnyq/prettier-config@1.22.0':
+    resolution: {integrity: sha512-hBx19aKacLHa16DGKFeqX6lwEcVX4FXScBCA/9F13RPDabYqvPCIWakNnreEjuV0ORTBn5E6IA1Ub/Qm3fXNng==}
 
   '@ntnyq/utils@0.3.1':
     resolution: {integrity: sha512-6uuCBn2eHpboYHvenDSoARhVZYqPbtbIeY7r7PIykuyRkJJoYdz+Y1hzXhTbI/YRZjmxgAi4osnCHg7UNKHdEQ==}
@@ -1183,8 +1183,8 @@ packages:
     peerDependencies:
       eslint: ^8.40.0 || ^9.0.0
 
-  eslint-plugin-github-action@0.0.1:
-    resolution: {integrity: sha512-XndKNW4OGD1NnNK5ycSFKtdfSGYrNjBm0W0aRgwRmfVFO6ZcuD3e9D5ghsDd8tFc8l0mqx493w+38Eaz6kMueg==}
+  eslint-plugin-github-action@0.0.2:
+    resolution: {integrity: sha512-tOfg7PA4SYxNJJLHLjcmD4bBNcyRsrPH6oP2e0fmu9x7ezWd8oHNGLCyOR0y25TaHoHybTBzZSW2s1qjWZuTXg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^9.5.0
@@ -1207,8 +1207,8 @@ packages:
     peerDependencies:
       eslint: '>=6.0.0'
 
-  eslint-plugin-n@17.13.2:
-    resolution: {integrity: sha512-MhBAKkT01h8cOXcTBTlpuR7bxH5OBUNpUXefsvwSVEy46cY4m/Kzr2osUCQvA3zJFD6KuCeNNDv0+HDuWk/OcA==}
+  eslint-plugin-n@17.14.0:
+    resolution: {integrity: sha512-maxPLMEA0rPmRpoOlxEclKng4UpDe+N5BJS4t24I3UKnN109Qcivnfs37KMy84G0af3bxjog5lKctP5ObsvcTA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: '>=8.23.0'
@@ -2761,7 +2761,7 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  '@ntnyq/prettier-config@1.21.3': {}
+  '@ntnyq/prettier-config@1.22.0': {}
 
   '@ntnyq/utils@0.3.1':
     dependencies:
@@ -3361,7 +3361,7 @@ snapshots:
       prettier: 3.3.3
       synckit: 0.9.2
 
-  eslint-plugin-github-action@0.0.1(eslint@9.15.0(jiti@2.4.0))(typescript@5.6.3):
+  eslint-plugin-github-action@0.0.2(eslint@9.15.0(jiti@2.4.0))(typescript@5.6.3):
     dependencies:
       '@ntnyq/utils': 0.3.1
       '@typescript-eslint/utils': 8.15.0(eslint@9.15.0(jiti@2.4.0))(typescript@5.6.3)
@@ -3419,7 +3419,7 @@ snapshots:
     transitivePeerDependencies:
       - '@eslint/json'
 
-  eslint-plugin-n@17.13.2(eslint@9.15.0(jiti@2.4.0)):
+  eslint-plugin-n@17.14.0(eslint@9.15.0(jiti@2.4.0)):
     dependencies:
       '@eslint-community/eslint-utils': 4.4.1(eslint@9.15.0(jiti@2.4.0))
       enhanced-resolve: 5.17.1
