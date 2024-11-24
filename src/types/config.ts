@@ -51,6 +51,8 @@ export interface ConfigAntfuOptions extends OptionsOverrides {}
 
 export interface ConfigNtnyqOptions extends OptionsOverrides {}
 
+export interface ConfigStylisticOptions extends OptionsOverrides {}
+
 export interface ConfigGitHubActionOptions extends OptionsOverrides {}
 
 export interface ConfigPrettierOptions extends OptionsOverrides {
@@ -250,6 +252,8 @@ export interface ConfigOptions extends ConfigOptionsInternal {
   node?: ConfigNodeOptions
 
   javascript?: ConfigJavaScriptOptions
+
+  stylistic?: boolean | ConfigStylisticOptions
 
   typescript?: boolean | ConfigTypeScriptOptions
 
