@@ -22,6 +22,7 @@ import {
   regexp,
   sort,
   specials,
+  stylistic,
   test,
   toml,
   typescript,
@@ -208,6 +209,14 @@ export function defineESLintConfig(
     configs.push(
       ...antfu({
         overrides: getOverrides(options, 'antfu'),
+      }),
+    )
+  }
+
+  if (options.stylistic ?? true) {
+    configs.push(
+      ...stylistic({
+        overrides: getOverrides(options, 'stylistic'),
       }),
     )
   }

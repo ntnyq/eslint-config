@@ -123,6 +123,8 @@ export interface ConfigOptions extends ConfigOptionsInternal {
 
   javascript?: ConfigJavaScriptOptions
 
+  stylistic?: boolean | ConfigStylisticOptions
+
   typescript?: boolean | ConfigTypeScriptOptions
 
   unicorn?: boolean | ConfigUnicornOptions
