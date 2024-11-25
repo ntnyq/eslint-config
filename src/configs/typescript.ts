@@ -3,17 +3,25 @@ import { parserTypeScript, pluginAntfu, pluginTypeScript, typescriptConfigs } fr
 import { GLOB_ASTRO, GLOB_DTS, GLOB_MARKDOWN, GLOB_TS, GLOB_TSX } from '../globs'
 import type { ConfigTypeScriptOptions, ESLintParser, TypedConfigItem } from '../types'
 
+/**
+ * @see {@link https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/recommended-type-checked.ts}
+ */
 const typeAwareRules: TypedConfigItem['rules'] = {
   'dot-notation': 'off',
+  'require-await': 'off',
   'no-implied-eval': 'off',
+  'no-throw-literal': 'off',
+
   // too strict
   '@typescript-eslint/strict-boolean-expressions': 'off',
 
+  '@typescript-eslint/require-await': 'error',
   '@typescript-eslint/unbound-method': 'error',
   '@typescript-eslint/no-unsafe-call': 'error',
   '@typescript-eslint/await-thenable': 'error',
   '@typescript-eslint/no-for-in-array': 'error',
   '@typescript-eslint/no-implied-eval': 'error',
+  '@typescript-eslint/only-throw-error': 'error',
   '@typescript-eslint/no-unsafe-return': 'error',
   '@typescript-eslint/no-unsafe-argument': 'error',
   '@typescript-eslint/no-misused-promises': 'error',
@@ -21,10 +29,13 @@ const typeAwareRules: TypedConfigItem['rules'] = {
   '@typescript-eslint/no-floating-promises': 'error',
   '@typescript-eslint/promise-function-async': 'error',
   '@typescript-eslint/restrict-plus-operands': 'error',
+  '@typescript-eslint/triple-slash-reference': 'error',
   '@typescript-eslint/no-unsafe-member-access': 'error',
   '@typescript-eslint/switch-exhaustiveness-check': 'error',
   '@typescript-eslint/no-unnecessary-type-assertion': 'error',
   '@typescript-eslint/restrict-template-expressions': 'error',
+  '@typescript-eslint/no-redundant-type-constituents': 'error',
+  '@typescript-eslint/no-duplicate-type-constituents': 'error',
   '@typescript-eslint/return-await': ['error', 'in-try-catch'],
   '@typescript-eslint/dot-notation': ['error', { allowKeywords: true }],
 }
