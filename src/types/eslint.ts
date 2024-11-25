@@ -12,6 +12,11 @@ export type TypedConfigItem = Omit<Linter.Config<Linter.RulesRecord & RuleOption
 }
 
 /**
+ * ESLint config
+ */
+export type ESLintConfig = Linter.Config
+
+/**
  * ESLint parser
  */
 export type ESLintParser = Linter.Parser

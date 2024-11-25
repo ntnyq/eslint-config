@@ -39,18 +39,16 @@ import {
   hasVitest,
   hasVue,
   resolveSubOptions,
-  toArray,
 } from './utils'
-import type { Arrayable, ConfigNames, ConfigOptions, TypedConfigItem } from './types'
+import type { Awaitable, ConfigNames, ConfigOptions, ESLintConfig, TypedConfigItem } from './types'
 
 /**
  * Config factory
  */
-// eslint-disable-next-line @typescript-eslint/promise-function-async
-export function defineESLintConfig(
+export async function defineESLintConfig(
   options: ConfigOptions = {},
-  userConfigs: Arrayable<TypedConfigItem> = [],
-): FlatConfigComposer<TypedConfigItem, ConfigNames> {
+  ...userConfigs: Awaitable<TypedConfigItem | TypedConfigItem[] | ESLintConfig[]>[]
+): Promise<FlatConfigComposer<TypedConfigItem, ConfigNames>> {
   const configs: TypedConfigItem[] = []
 
   if (options.gitignore ?? true) {
@@ -242,12 +240,11 @@ export function defineESLintConfig(
 
   const composer = new FlatConfigComposer<TypedConfigItem, ConfigNames>()
 
-  // eslint-disable-next-line @typescript-eslint/no-floating-promises
-  composer.append(
+  await composer.append(
     ...configs,
 
     // User custom configs
-    ...toArray(userConfigs),
+    ...userConfigs,
 
     // Keep prettier and specials at last
     ...configSpecials,
