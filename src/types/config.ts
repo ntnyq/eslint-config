@@ -6,7 +6,7 @@ import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
 import type { ESLintPluginCommandOptions } from 'eslint-plugin-command/types'
 import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
 import type { PrettierOptions } from '../types'
-import type { ParserOptions, TypedConfigItem } from './eslint'
+import type { ESLintParserOptions, TypedConfigItem } from './eslint'
 
 /**
  * Options for overrides `files`
@@ -126,7 +126,24 @@ export interface ConfigTypeScriptOptions extends OptionsOverrides {
   /**
    * Additional parser options
    */
-  parserOptions?: Partial<ParserOptions>
+  parserOptions?: Partial<ESLintParserOptions>
+
+  /**
+   * Glob patterns for files that should be type aware.
+   * @default ['**\/*.{ts,tsx}']
+   */
+  filesTypeAware?: string[]
+
+  /**
+   * Glob patterns for files that should not be type aware.
+   * @default ['**\/*.md\/**', '**\/*.astro/*.ts']
+   */
+  ignoresTypeAware?: string[]
+
+  /**
+   * Overrides built-in type aware rules
+   */
+  overridesTypeAwareRules?: TypedConfigItem['rules']
 }
 
 export interface ConfigSortOptions {
@@ -178,7 +195,7 @@ export interface ConfigVueOptions extends OptionsOverrides {
 
 export interface ConfigTestOptions extends OptionsOverrides {
   /**
-   * Rules for vitest
+   * Overrides built-in vitest rules
    */
   overridesVitestRules?: TypedConfigItem['rules']
 }
