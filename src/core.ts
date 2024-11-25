@@ -46,6 +46,7 @@ import type { Arrayable, ConfigNames, ConfigOptions, TypedConfigItem } from './t
 /**
  * Config factory
  */
+// eslint-disable-next-line @typescript-eslint/promise-function-async
 export function defineESLintConfig(
   options: ConfigOptions = {},
   userConfigs: Arrayable<TypedConfigItem> = [],
@@ -241,6 +242,7 @@ export function defineESLintConfig(
 
   const composer = new FlatConfigComposer<TypedConfigItem, ConfigNames>()
 
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
   composer.append(
     ...configs,
 

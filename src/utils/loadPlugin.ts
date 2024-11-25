@@ -6,7 +6,7 @@ import { interopDefault } from './interopDefault'
  * @returns The plugin module
  */
 export async function loadPlugin<T = unknown>(name: string): Promise<T> {
-  const mod = await import(name).catch(err => {
+  const mod: unknown = await import(name).catch(err => {
     console.error(err)
     throw new Error(`Failed to load ESLint plugin '${name}'. Please install it!.`)
   })
