@@ -1,7 +1,12 @@
 import process from 'node:process'
 import { parserTypeScript, pluginAntfu, pluginTypeScript, typescriptConfigs } from '../eslint'
 import { GLOB_ASTRO, GLOB_DTS, GLOB_MARKDOWN, GLOB_TS, GLOB_TSX } from '../globs'
-import type { ConfigTypeScriptOptions, ESLintParser, TypedConfigItem } from '../types'
+import type {
+  ConfigTypeScriptOptions,
+  ESLintParser,
+  TSESLintParserOptions,
+  TypedConfigItem,
+} from '../types'
 
 /**
  * @see {@link https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/recommended-type-checked.ts}
@@ -66,26 +71,27 @@ export const typescript = (options: ConfigTypeScriptOptions = {}): TypedConfigIt
     files: string[] = [],
     ignores: string[] = [],
   ) {
+    const typescriptParserOptions: TSESLintParserOptions = {
+      // extraFileExtensions: [''],
+      sourceType: 'module',
+      ...(enableTypeAware
+        ? {
+            projectService: {
+              allowDefaultProject: ['./*.js'],
+              defaultProject: options.tsconfigPath,
+            },
+            tsconfigRootDir: process.cwd(),
+          }
+        : {}),
+      ...parserOptions,
+    }
     const parserConfig: TypedConfigItem = {
       name: `ntnyq/ts/${enableTypeAware ? 'parser-type-aware' : 'parser'}`,
       files,
       ignores: [...ignores],
       languageOptions: {
         parser: parserTypeScript as ESLintParser,
-        parserOptions: {
-          // extraFileExtensions: [''],
-          sourceType: 'module',
-          ...(enableTypeAware
-            ? {
-                projectService: {
-                  allowDefaultProject: ['./*.js'],
-                  defaultProject: options.tsconfigPath,
-                },
-                tsconfigRootDir: process.cwd(),
-              }
-            : {}),
-          ...parserOptions,
-        },
+        parserOptions: typescriptParserOptions,
       },
     }
     return parserConfig

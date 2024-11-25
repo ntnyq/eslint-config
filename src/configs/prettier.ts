@@ -54,7 +54,7 @@ export const prettier = (options: ConfigPrettierOptions = {}): TypedConfigItem[]
         'vue/space-unary-ops': 'off',
         'vue/template-curly-spacing': 'off',
 
-        ...(pluginPrettier.configs!.recommended as Record<string, TypedConfigItem['rules']>).rules,
+        ...(pluginPrettier.configs!.recommended as TypedConfigItem).rules,
 
         'prettier/prettier': options.level || 'warn',
 

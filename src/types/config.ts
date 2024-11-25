@@ -6,7 +6,7 @@ import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
 import type { ESLintPluginCommandOptions } from 'eslint-plugin-command/types'
 import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
 import type { PrettierOptions } from '../types'
-import type { ESLintParserOptions, TypedConfigItem } from './eslint'
+import type { TSESLintParserOptions, TypedConfigItem } from './eslint'
 
 /**
  * Options for overrides `files`
@@ -39,7 +39,14 @@ export type ConfigCommandOptions = ESLintPluginCommandOptions
 
 export interface ConfigJsdocOptions extends OptionsOverrides {}
 
-export interface ConfigUnoCSSOptions extends OptionsOverrides {}
+export interface ConfigUnoCSSOptions extends OptionsOverrides {
+  /**
+   * Enable attributify sort order
+   *
+   * @default false
+   */
+  attributify?: boolean
+}
 
 export interface ConfigUnicornOptions extends OptionsOverrides {}
 
@@ -126,7 +133,7 @@ export interface ConfigTypeScriptOptions extends OptionsOverrides {
   /**
    * Additional parser options
    */
-  parserOptions?: Partial<ESLintParserOptions>
+  parserOptions?: TSESLintParserOptions
 
   /**
    * Glob patterns for files that should be type aware.

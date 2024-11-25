@@ -1,5 +1,7 @@
 import type { Linter } from 'eslint'
+import type { ConfigWithExtends } from 'typescript-eslint'
 import type { RuleOptions } from './typegen'
+import type { Pretty } from './utils'
 
 /**
  * Typed flat config item
@@ -27,6 +29,13 @@ export type ESLintParser = Linter.Parser
 export type ESLintProcessor = Linter.Processor
 
 /**
- * Parser options
+ * ESLint parserOptions
  */
 export type ESLintParserOptions = Linter.ParserOptions
+
+/**
+ * TypeScript ESLint parserOptions
+ */
+export type TSESLintParserOptions = Pretty<
+  Required<Required<ConfigWithExtends>['languageOptions']>['parserOptions']
+>

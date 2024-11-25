@@ -9,8 +9,8 @@ export const unocss = (options: ConfigUnoCSSOptions = {}): TypedConfigItem[] => 
     },
     rules: {
       'unocss/order': 'error',
-      // We don't use this
-      'unocss/order-attributify': 'off',
+
+      'unocss/order-attributify': options.attributify ? 'error' : 'off',
 
       // Overrides rules
       ...options.overrides,

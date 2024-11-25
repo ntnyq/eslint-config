@@ -13,7 +13,8 @@ export const jsonc = (options: ConfigJsoncOptions = {}): TypedConfigItem[] => [
       parser: parserJsonc,
     },
     rules: {
-      ...(pluginJsonc.configs['recommended-with-jsonc'].rules as TypedConfigItem['rules']),
+      ...(pluginJsonc.configs['recommended-with-jsonc'] as TypedConfigItem).rules,
+
       'jsonc/array-bracket-spacing': ['error', 'never'],
       'jsonc/comma-dangle': ['error', 'never'],
       'jsonc/comma-style': ['error', 'last'],

@@ -2,9 +2,22 @@
  * @file Type Utils
  */
 
+/**
+ * Array or not
+ */
 export type Arrayable<T> = T | T[]
 
+/**
+ * Promise or not
+ */
 export type Awaitable<T> = T | Promise<T>
+
+/**
+ * Make types human readable
+ */
+export type Pretty<T> = {
+  [P in keyof T]: T[P]
+} & {}
 
 /**
  * A literal type that supports custom further strings but preserves autocompletion in IDEs.
