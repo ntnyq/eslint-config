@@ -196,6 +196,16 @@ export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
               'activationEvents',
               'contributes',
               'categories',
+              'galleryBanner',
+              'badges',
+              'markdown',
+              'qna',
+              'sponsor',
+              'extensionPack',
+              'extensionDependencies',
+              'extensionKind',
+              'pricing',
+              'capabilities',
 
               /**
                * Package manager
@@ -227,6 +237,20 @@ export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
             pathPattern: '^exports.*$',
             order: ['types', 'import', 'require', 'default'],
           },
+          // VSCode extension
+          {
+            order: { type: 'asc' },
+            pathPattern: '^contributes.*$',
+          },
+          /**
+           * pnpm publish config
+           * @see {@link https://pnpm.io/package_json#publishconfig}
+           */
+          {
+            order: { type: 'asc' },
+            pathPattern: '^publishConfig.*$',
+          },
+          // npm scripts
           {
             pathPattern: '^scripts$',
             order: { type: 'asc' },
@@ -252,6 +276,18 @@ export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
           'error',
           {
             pathPattern: '^files$',
+            order: { type: 'asc' },
+          },
+          {
+            pathPattern: '^keywords$',
+            order: { type: 'asc' },
+          },
+          {
+            pathPattern: '^activationEvents$',
+            order: { type: 'asc' },
+          },
+          {
+            pathPattern: '^contributes.*$',
             order: { type: 'asc' },
           },
         ],
