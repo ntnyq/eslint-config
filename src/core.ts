@@ -50,8 +50,20 @@ export async function defineESLintConfig(
   ...userConfigs: Awaitable<TypedConfigItem | TypedConfigItem[] | ESLintConfig[]>[]
 ): Promise<FlatConfigComposer<TypedConfigItem, ConfigNames>> {
   const configs: TypedConfigItem[] = []
+  const {
+    markdown: enableMarkdown = true,
+    gitignore: enableGitIgnore = true,
+    vue: enableVue = hasVue,
+    unocss: enableUnoCSS = hasUnoCSS,
+    typescript: enableTypeScript = hasTypeScript,
+    extensions: supportedExtensions = [],
+  } = options
 
-  if (options.gitignore ?? true) {
+  if (enableVue) {
+    supportedExtensions.push('vue')
+  }
+
+  if (enableGitIgnore) {
     configs.push(
       ...gitignore({
         ...resolveSubOptions(options, 'gitignore'),
@@ -109,11 +121,22 @@ export async function defineESLintConfig(
     )
   }
 
-  if (options.typescript ?? hasTypeScript) {
+  if (enableTypeScript) {
     configs.push(
       ...typescript({
         ...resolveSubOptions(options, 'typescript'),
+        extensions: supportedExtensions,
         overrides: getOverrides(options, 'typescript'),
+      }),
+    )
+  }
+
+  if (enableVue) {
+    configs.push(
+      ...vue({
+        ...resolveSubOptions(options, 'vue'),
+        typescript: !!enableTypeScript,
+        overrides: getOverrides(options, 'vue'),
       }),
     )
   }
@@ -150,15 +173,6 @@ export async function defineESLintConfig(
     )
   }
 
-  if (options.vue ?? hasVue) {
-    configs.push(
-      ...vue({
-        ...resolveSubOptions(options, 'vue'),
-        overrides: getOverrides(options, 'vue'),
-      }),
-    )
-  }
-
   if (options.test ?? hasVitest) {
     configs.push(
       ...test({
@@ -170,7 +184,7 @@ export async function defineESLintConfig(
     )
   }
 
-  if (options.unocss ?? hasUnoCSS) {
+  if (enableUnoCSS) {
     configs.push(
       ...unocss({
         overrides: getOverrides(options, 'unocss'),
@@ -178,9 +192,10 @@ export async function defineESLintConfig(
     )
   }
 
-  if (options.markdown ?? true) {
+  if (enableMarkdown) {
     configs.push(
       ...markdown({
+        extensions: supportedExtensions,
         overrides: getOverrides(options, 'markdown'),
       }),
     )

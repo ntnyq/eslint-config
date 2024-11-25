@@ -60,11 +60,19 @@ export const typescript = (options: ConfigTypeScriptOptions = {}): TypedConfigIt
    */
   const enableTypeAwareLint = !!options?.tsconfigPath
   const {
+    extensions = [],
     filesTypeAware = [GLOB_TS, GLOB_TSX],
     ignoresTypeAware = [GLOB_ASTRO, `${GLOB_MARKDOWN}/**`],
     overridesTypeAwareRules = {},
     parserOptions = {},
   } = options
+
+  const files = options.files ?? [
+    GLOB_TS,
+    GLOB_TSX,
+    // Enable typescript in these exts
+    ...extensions.map(ext => `**/*.${ext}`),
+  ]
 
   function createParserConfig(
     enableTypeAware = false,
@@ -72,7 +80,7 @@ export const typescript = (options: ConfigTypeScriptOptions = {}): TypedConfigIt
     ignores: string[] = [],
   ) {
     const typescriptParserOptions: TSESLintParserOptions = {
-      // extraFileExtensions: [''],
+      extraFileExtensions: extensions.map(ext => `.${ext}`),
       sourceType: 'module',
       ...(enableTypeAware
         ? {
@@ -108,14 +116,14 @@ export const typescript = (options: ConfigTypeScriptOptions = {}): TypedConfigIt
 
     ...(enableTypeAwareLint
       ? [
-          createParserConfig(false, [GLOB_TS, GLOB_TSX]),
+          createParserConfig(false, files),
           createParserConfig(true, filesTypeAware, ignoresTypeAware),
         ]
-      : [createParserConfig(false, [GLOB_TS, GLOB_TSX])]),
+      : [createParserConfig(false, files)]),
 
     {
       name: 'ntnyq/ts/rules',
-      files: [GLOB_TS, GLOB_TSX],
+      files,
       rules: {
         ...recommendedRules,
 

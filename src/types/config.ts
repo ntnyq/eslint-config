@@ -16,6 +16,23 @@ export interface OptionsFiles {
 }
 
 /**
+ * Options for add `extensions` support
+ */
+export interface OptionsExtensions {
+  extensions?: string[]
+}
+
+/**
+ * Options for add `features` support
+ */
+export type OptionsFeatures = {
+  /**
+   * Support typescript
+   */
+  typescript?: boolean
+}
+
+/**
  * Options for overrides `rules`
  */
 export interface OptionsOverrides<
@@ -124,7 +141,7 @@ export interface ConfigJavaScriptOptions extends OptionsOverrides {
   strict?: boolean
 }
 
-export interface ConfigTypeScriptOptions extends OptionsOverrides {
+export interface ConfigTypeScriptOptions extends OptionsOverrides, OptionsFiles, OptionsExtensions {
   /**
    * Enable type aware check for TypeScript files
    */
@@ -179,11 +196,11 @@ export interface ConfigJsoncOptions extends OptionsOverrides {}
 
 export interface ConfigYmlOptions extends OptionsOverrides {}
 
-export interface ConfigMarkdownOptions extends OptionsOverrides {}
+export interface ConfigMarkdownOptions extends OptionsOverrides, OptionsFiles, OptionsExtensions {}
 
 export interface ConfigTomlOptions extends OptionsOverrides {}
 
-export interface ConfigVueOptions extends OptionsOverrides {
+export interface ConfigVueOptions extends OptionsOverrides, OptionsFiles, OptionsFeatures {
   /**
    * Create virtual files for Vue SFC blocks to enable linting.
    *
@@ -262,7 +279,7 @@ interface ConfigOptionsInternal {
 /**
  * Config factory options
  */
-export interface ConfigOptions extends ConfigOptionsInternal {
+export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions {
   node?: ConfigNodeOptions
 
   jsdoc?: ConfigJsdocOptions

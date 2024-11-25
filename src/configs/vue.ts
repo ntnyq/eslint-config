@@ -209,6 +209,24 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
 export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
   const isVue3 = options.vueVersion !== 2
   const sfcBlocks = options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {})
+  const { files: FILES_VUE = [GLOB_VUE] } = options
+
+  function getVueProcessor(): ESLintProcessor {
+    const processorVueSFC = pluginVue.processors['.vue'] as ESLintProcessor
+
+    if (!sfcBlocks) return processorVueSFC
+
+    return mergeProcessors([
+      processorVueSFC,
+      processorVueBlocks({
+        ...sfcBlocks,
+        blocks: {
+          styles: true,
+          ...sfcBlocks.blocks,
+        },
+      }),
+    ])
+  }
 
   return [
     {
@@ -217,7 +235,16 @@ export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
         vue: pluginVue,
         '@typescript-eslint': pluginTypeScript,
       },
+    },
+
+    {
+      name: 'ntnyq/vue/rules',
+      files: [
+        // File apply vue rules
+        ...FILES_VUE,
+      ],
       languageOptions: {
+        parser: parserVue,
         parserOptions: {
           sourceType: 'module',
           ecmaVersion: 'latest',
@@ -228,27 +255,7 @@ export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
           },
         },
       },
-    },
-
-    {
-      name: 'ntnyq/vue/rules',
-      files: [GLOB_VUE],
-      languageOptions: {
-        parser: parserVue,
-      },
-      processor:
-        sfcBlocks === false
-          ? (pluginVue.processors['.vue'] as ESLintProcessor)
-          : mergeProcessors([
-              pluginVue.processors['.vue'] as ESLintProcessor,
-              processorVueBlocks({
-                ...sfcBlocks,
-                blocks: {
-                  styles: true,
-                  ...sfcBlocks.blocks,
-                },
-              }),
-            ]),
+      processor: getVueProcessor(),
       rules: {
         ...(isVue3 ? vue3Rules : vue2Rules),
 

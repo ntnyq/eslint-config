@@ -1,19 +1,49 @@
-import { pluginMarkdown } from '../eslint'
-import { GLOB_MARKDOWN, GLOB_SRC, GLOB_VUE } from '../globs'
+import { mergeProcessors, parserPlain, pluginMarkdown, processorPassThrough } from '../eslint'
+import { GLOB_MARKDOWN, GLOB_MARKDOWN_NESTED, GLOB_SRC } from '../globs'
 import type { ConfigMarkdownOptions, TypedConfigItem } from '../types'
 
 export const markdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[] => {
   if (!Array.isArray(pluginMarkdown.configs?.processor)) return []
+  const { files = [`${GLOB_MARKDOWN}/${GLOB_SRC}`], extensions = [] } = options
 
   return [
     ...pluginMarkdown.configs.processor.map(config => ({
       ...config,
       name: `ntnyq/${config.name}`,
     })),
+    {
+      name: 'ntnyq/markdown/processor',
+      files,
+      ignores: [GLOB_MARKDOWN_NESTED],
+      processor: mergeProcessors([
+        pluginMarkdown.processors!.markdown,
+        // Just pass through processor
+        processorPassThrough,
+      ]),
+    },
+
+    {
+      name: 'ntnyq/markdown/parser',
+      files,
+      languageOptions: {
+        parser: parserPlain,
+      },
+    },
 
     {
       name: 'ntnyq/markdown/disabled/code-blocks',
-      files: [`${GLOB_MARKDOWN}/${GLOB_SRC}`, `${GLOB_MARKDOWN}/${GLOB_VUE}`],
+      files: [
+        ...files,
+        // Extension block support
+        ...extensions.map(ext => `${GLOB_MARKDOWN}/**/*.${ext}`),
+      ],
+      languageOptions: {
+        parserOptions: {
+          ecmaFeatures: {
+            impliedStrict: true,
+          },
+        },
+      },
       rules: {
         'no-undef': 'off',
         'no-alert': 'off',
