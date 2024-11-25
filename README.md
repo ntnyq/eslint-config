@@ -109,19 +109,23 @@ Check for detail in:
 
 ```ts
 export interface ConfigOptions extends ConfigOptionsInternal {
+  node?: ConfigNodeOptions
+
+  jsdoc?: ConfigJsdocOptions
+
   ignores?: ConfigIgnoresOptions
-
-  sort?: boolean | ConfigSortOptions
-
-  command?: boolean | ConfigCommandOptions
-
-  gitignore?: boolean | ConfigGitIgnoreOptions
 
   imports?: ConfigImportsOptions
 
-  node?: ConfigNodeOptions
+  command?: ConfigCommandOptions
+
+  comments?: ConfigCommentsOptions
 
   javascript?: ConfigJavaScriptOptions
+
+  sort?: boolean | ConfigSortOptions
+
+  gitignore?: boolean | ConfigGitIgnoreOptions
 
   stylistic?: boolean | ConfigStylisticOptions
 
@@ -132,10 +136,6 @@ export interface ConfigOptions extends ConfigOptionsInternal {
   prettier?: boolean | ConfigPrettierOptions
 
   perfectionist?: boolean | ConfigPerfectionistOptions
-
-  comments?: boolean | ConfigCommentsOptions
-
-  jsdoc?: boolean | ConfigJsdocOptions
 
   unocss?: boolean | ConfigUnoCSSOptions
 

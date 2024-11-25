@@ -60,16 +60,22 @@ export async function defineESLintConfig(
   }
 
   configs.push(
-    /**
-     * Basic
-     */
     ...ignores(options.ignores),
     ...jsx(),
     ...node({
       overrides: getOverrides(options, 'node'),
     }),
+    ...command({
+      ...resolveSubOptions(options, 'command'),
+    }),
     ...imports({
       overrides: getOverrides(options, 'imports'),
+    }),
+    ...jsdoc({
+      overrides: getOverrides(options, 'jsdoc'),
+    }),
+    ...comments({
+      overrides: getOverrides(options, 'comments'),
     }),
     ...javascript({
       ...resolveSubOptions(options, 'javascript'),
@@ -99,22 +105,6 @@ export async function defineESLintConfig(
       ...regexp({
         ...resolveSubOptions(options, 'regexp'),
         overrides: getOverrides(options, 'regexp'),
-      }),
-    )
-  }
-
-  if (options.jsdoc ?? true) {
-    configs.push(
-      ...jsdoc({
-        overrides: getOverrides(options, 'jsdoc'),
-      }),
-    )
-  }
-
-  if (options.comments ?? true) {
-    configs.push(
-      ...comments({
-        overrides: getOverrides(options, 'comments'),
       }),
     )
   }
@@ -196,14 +186,6 @@ export async function defineESLintConfig(
     )
   }
 
-  if (options.command ?? true) {
-    configs.push(
-      ...command({
-        ...resolveSubOptions(options, 'command'),
-      }),
-    )
-  }
-
   if (options.antfu ?? true) {
     configs.push(
       ...antfu({
@@ -248,6 +230,7 @@ export async function defineESLintConfig(
 
     // Keep prettier and specials at last
     ...configSpecials,
+
     ...configPrettier,
   )
 
