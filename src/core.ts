@@ -249,7 +249,9 @@ export function defineESLintConfig(
     )
   }
 
-  const configSpecials = specials()
+  const configSpecials = specials({
+    ...resolveSubOptions(options, 'specials'),
+  })
 
   const configPrettier = enablePrettier
     ? prettier({

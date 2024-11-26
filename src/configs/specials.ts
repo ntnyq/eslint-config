@@ -1,14 +1,17 @@
 import globals from 'globals'
 import { GLOB_SRC, GLOB_SRC_EXT } from '../globs'
-import type { TypedConfigItem } from '../types'
+import type { ConfigSpecialsOptions, TypedConfigItem } from '../types'
 
-export const specials = (): TypedConfigItem[] => [
+export const specials = (options: ConfigSpecialsOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/specials/scripts',
     files: [`**/scripts/${GLOB_SRC}`],
     rules: {
       'no-console': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
+
+      // Overrides rules
+      ...options.overridesScriptsRules,
     },
   },
   {
@@ -17,6 +20,9 @@ export const specials = (): TypedConfigItem[] => [
     rules: {
       'no-console': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
+
+      // Overrides rules
+      ...options.overridesCliRules,
     },
   },
   {
@@ -34,6 +40,13 @@ export const specials = (): TypedConfigItem[] => [
           allow: ['^GM_.+'],
         },
       ],
+
+      // Overrides rules
+      ...options.overridesUserScriptsRules,
     },
   },
+
+  // More special case configs
+  // So don't need to append configs to composer
+  ...(options.specialCaseConfigs ? options.specialCaseConfigs : []),
 ]

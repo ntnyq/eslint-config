@@ -224,6 +224,28 @@ export interface ConfigTestOptions extends OptionsOverrides {
   overridesVitestRules?: TypedConfigItem['rules']
 }
 
+export interface ConfigSpecialsOptions {
+  /**
+   * Overrides scripts rules
+   */
+  overridesScriptsRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides cli rules
+   */
+  overridesCliRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides user scripts rules
+   */
+  overridesUserScriptsRules?: TypedConfigItem['rules']
+
+  /**
+   * More special case configs
+   */
+  specialCaseConfigs?: TypedConfigItem[]
+}
+
 export interface ConfigFormatOptions {
   /**
    * Enable formatter support for css, less, scss, sass and etc.
@@ -293,6 +315,8 @@ export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions 
   comments?: ConfigCommentsOptions
 
   javascript?: ConfigJavaScriptOptions
+
+  specials?: ConfigSpecialsOptions
 
   sort?: boolean | ConfigSortOptions
 
