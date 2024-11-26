@@ -27,7 +27,7 @@ export interface OptionsExtensions {
  */
 export type OptionsFeatures = {
   /**
-   * Support typescript
+   * Enable typescript support
    */
   typescript?: boolean
 }
@@ -54,7 +54,7 @@ export type ConfigGitIgnoreOptions = Omit<FlatGitignoreOptions, 'strict'> & {
 
 export type ConfigCommandOptions = ESLintPluginCommandOptions
 
-export interface ConfigJsdocOptions extends OptionsOverrides {}
+export interface ConfigJsdocOptions extends OptionsOverrides, OptionsFeatures {}
 
 export interface ConfigUnoCSSOptions extends OptionsOverrides {
   /**
