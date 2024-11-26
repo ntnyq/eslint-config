@@ -45,19 +45,43 @@ import type { Awaitable, ConfigNames, ConfigOptions, ESLintConfig, TypedConfigIt
 /**
  * Config factory
  */
-export async function defineESLintConfig(
+// eslint-disable-next-line @typescript-eslint/promise-function-async
+export function defineESLintConfig(
   options: ConfigOptions = {},
   ...userConfigs: Awaitable<TypedConfigItem | TypedConfigItem[] | ESLintConfig[]>[]
-): Promise<FlatConfigComposer<TypedConfigItem, ConfigNames>> {
-  const configs: TypedConfigItem[] = []
+): FlatConfigComposer<TypedConfigItem, ConfigNames> {
   const {
-    markdown: enableMarkdown = true,
-    gitignore: enableGitIgnore = true,
+    /**
+     * Shared options
+     */
+    extensions: supportedExtensions = [],
+
+    /**
+     * Conditional by deps
+     */
     vue: enableVue = hasVue,
+    test: enableTest = hasVitest,
     unocss: enableUnoCSS = hasUnoCSS,
     typescript: enableTypeScript = hasTypeScript,
-    extensions: supportedExtensions = [],
+
+    /**
+     * Enabled by default
+     */
+    yml: enableYML = true,
+    sort: enableSort = true,
+    toml: enableTOML = true,
+    jsonc: enableJSONC = true,
+    antfu: enableAntfu = true,
+    regexp: enableRegexp = true,
+    unicorn: enableUnicorn = true,
+    prettier: enablePrettier = true,
+    markdown: enableMarkdown = true,
+    stylistic: enableStylistic = true,
+    gitignore: enableGitIgnore = true,
+    githubAction: enableGitHubAction = true,
+    perfectionist: enablePerfectionist = true,
   } = options
+  const configs: TypedConfigItem[] = []
 
   if (enableVue) {
     supportedExtensions.push('vue')
@@ -95,7 +119,7 @@ export async function defineESLintConfig(
     }),
   )
 
-  if (options.perfectionist ?? true) {
+  if (enablePerfectionist) {
     configs.push(
       ...perfectionist({
         ...resolveSubOptions(options, 'perfectionist'),
@@ -104,7 +128,7 @@ export async function defineESLintConfig(
     )
   }
 
-  if (options.unicorn ?? true) {
+  if (enableUnicorn) {
     configs.push(
       ...unicorn({
         overrides: getOverrides(options, 'unicorn'),
@@ -112,7 +136,7 @@ export async function defineESLintConfig(
     )
   }
 
-  if (options.regexp ?? true) {
+  if (enableRegexp) {
     configs.push(
       ...regexp({
         ...resolveSubOptions(options, 'regexp'),
@@ -141,7 +165,7 @@ export async function defineESLintConfig(
     )
   }
 
-  if (options.yml ?? true) {
+  if (enableYML) {
     configs.push(
       ...yml({
         overrides: getOverrides(options, 'yml'),
@@ -149,7 +173,7 @@ export async function defineESLintConfig(
     )
   }
 
-  if (options.toml ?? true) {
+  if (enableTOML) {
     configs.push(
       ...toml({
         overrides: getOverrides(options, 'toml'),
@@ -157,7 +181,7 @@ export async function defineESLintConfig(
     )
   }
 
-  if (options.jsonc ?? true) {
+  if (enableJSONC) {
     configs.push(
       ...jsonc({
         overrides: getOverrides(options, 'jsonc'),
@@ -165,7 +189,7 @@ export async function defineESLintConfig(
     )
   }
 
-  if (options.sort ?? true) {
+  if (enableSort) {
     configs.push(
       ...sort({
         ...resolveSubOptions(options, 'sort'),
@@ -173,7 +197,7 @@ export async function defineESLintConfig(
     )
   }
 
-  if (options.test ?? hasVitest) {
+  if (enableTest) {
     configs.push(
       ...test({
         overrides: getOverrides(options, 'test'),
@@ -201,7 +225,7 @@ export async function defineESLintConfig(
     )
   }
 
-  if (options.antfu ?? true) {
+  if (enableAntfu) {
     configs.push(
       ...antfu({
         overrides: getOverrides(options, 'antfu'),
@@ -209,7 +233,7 @@ export async function defineESLintConfig(
     )
   }
 
-  if (options.stylistic ?? true) {
+  if (enableStylistic) {
     configs.push(
       ...stylistic({
         overrides: getOverrides(options, 'stylistic'),
@@ -217,7 +241,7 @@ export async function defineESLintConfig(
     )
   }
 
-  if (options.githubAction ?? true) {
+  if (enableGitHubAction) {
     configs.push(
       ...githubAction({
         overrides: getOverrides(options, 'githubAction'),
@@ -227,17 +251,14 @@ export async function defineESLintConfig(
 
   const configSpecials = specials()
 
-  const configPrettier =
-    (options.prettier ?? true)
-      ? prettier({
-          ...resolveSubOptions(options, 'prettier'),
-          overrides: getOverrides(options, 'prettier'),
-        })
-      : []
+  const configPrettier = enablePrettier
+    ? prettier({
+        ...resolveSubOptions(options, 'prettier'),
+        overrides: getOverrides(options, 'prettier'),
+      })
+    : []
 
-  const composer = new FlatConfigComposer<TypedConfigItem, ConfigNames>()
-
-  await composer.append(
+  const composer = new FlatConfigComposer<TypedConfigItem, ConfigNames>(
     ...configs,
 
     // User custom configs

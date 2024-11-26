@@ -41,7 +41,7 @@
   "scripts": {
     "build": "pnpm run generate:type && tsup",
     "clean": "rimraf dist",
-    "dev": "tsup --watch",
+    "dev": "tsup --watch src",
     "generate:site": "tsx scripts/generateSite.ts",
     "generate:type": "tsx scripts/generateType.ts",
     "lint": "eslint --flag unstable_ts_config .",
@@ -49,6 +49,7 @@
     "release": "run-s release:check release:version",
     "release:check": "run-s clean build lint typecheck",
     "release:version": "bumpp && npm publish",
+    "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
@@ -105,6 +106,7 @@
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
+    "vitest": "^2.1.6",
     "zx": "^8.2.2"
   },
   "engines": {

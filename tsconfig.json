@@ -9,5 +9,11 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["typings/**/*.ts", "./src/**/*.ts", "./scripts/**/*.ts", "./*.config.ts"]
+  "include": [
+    "./src/**/*.ts",
+    "./tests/**/*.ts",
+    "./scripts/**/*.ts",
+    "./typings/**/*.ts",
+    "./*.config.ts"
+  ]
 }
