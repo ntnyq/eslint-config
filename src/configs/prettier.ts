@@ -5,7 +5,7 @@ import type { ConfigPrettierOptions, TypedConfigItem } from '../types'
 export const prettier = (options: ConfigPrettierOptions = {}): TypedConfigItem[] => {
   const {
     disabledFiles = [GLOB_TOML, GLOB_ASTRO, GLOB_SVELTE],
-
+    // User defined disabled files
     userDisabledFiles = [],
   } = options
 

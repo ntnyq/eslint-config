@@ -7,26 +7,26 @@ import { pluginRegexp } from '../eslint'
 import type { ConfigRegexpOptions, TypedConfigItem } from '../types'
 
 export const regexp = (options: ConfigRegexpOptions = {}): TypedConfigItem[] => {
-  const config = pluginRegexp.configs['flat/recommended'] as TypedConfigItem
+  const recommendedConfig = pluginRegexp.configs['flat/recommended'] as TypedConfigItem
 
-  const rules = {
-    ...config.rules,
+  const recommendedRules = {
+    ...recommendedConfig.rules,
   }
 
   if (options.level === 'warn') {
-    for (const key in rules) {
-      if (rules[key] === 'error') {
-        rules[key] = 'warn'
+    for (const key in recommendedRules) {
+      if (recommendedRules[key] === 'error') {
+        recommendedRules[key] = 'warn'
       }
     }
   }
 
   return [
     {
-      ...config,
+      ...recommendedConfig,
       name: 'ntnyq/regexp',
       rules: {
-        ...rules,
+        ...recommendedRules,
 
         // Overrides rules
         ...options.overrides,

@@ -15,10 +15,12 @@ export const jsonc = (options: ConfigJsoncOptions = {}): TypedConfigItem[] => [
     rules: {
       ...(pluginJsonc.configs['recommended-with-jsonc'] as TypedConfigItem).rules,
 
-      'jsonc/array-bracket-spacing': ['error', 'never'],
-      'jsonc/comma-dangle': ['error', 'never'],
-      'jsonc/comma-style': ['error', 'last'],
+      'jsonc/no-octal-escape': 'error',
       'jsonc/indent': ['error', 2],
+      'jsonc/comma-style': ['error', 'last'],
+      'jsonc/comma-dangle': ['error', 'never'],
+      'jsonc/object-curly-spacing': ['error', 'always'],
+      'jsonc/array-bracket-spacing': ['error', 'never'],
       'jsonc/key-spacing': [
         'error',
         {
@@ -26,7 +28,6 @@ export const jsonc = (options: ConfigJsoncOptions = {}): TypedConfigItem[] => [
           afterColon: true,
         },
       ],
-      'jsonc/no-octal-escape': 'error',
       'jsonc/object-curly-newline': [
         'error',
         {
@@ -34,7 +35,6 @@ export const jsonc = (options: ConfigJsoncOptions = {}): TypedConfigItem[] => [
           consistent: true,
         },
       ],
-      'jsonc/object-curly-spacing': ['error', 'always'],
       'jsonc/object-property-newline': [
         'error',
         {
