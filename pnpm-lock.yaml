@@ -50,8 +50,8 @@ importers:
         specifier: ^0.1.2
         version: 0.1.2(eslint@9.15.0(jiti@2.4.0))
       eslint-plugin-github-action:
-        specifier: ^0.0.4
-        version: 0.0.4(eslint@9.15.0(jiti@2.4.0))(typescript@5.7.2)
+        specifier: ^0.0.6
+        version: 0.0.6(eslint@9.15.0(jiti@2.4.0))(typescript@5.7.2)
       eslint-plugin-import-x:
         specifier: ^4.4.3
         version: 4.4.3(eslint@9.15.0(jiti@2.4.0))(typescript@5.7.2)
@@ -65,8 +65,8 @@ importers:
         specifier: ^17.14.0
         version: 17.14.0(eslint@9.15.0(jiti@2.4.0))
       eslint-plugin-ntnyq:
-        specifier: ^0.7.0
-        version: 0.7.0(eslint@9.15.0(jiti@2.4.0))(typescript@5.7.2)
+        specifier: ^0.7.1
+        version: 0.7.1(eslint@9.15.0(jiti@2.4.0))(typescript@5.7.2)
       eslint-plugin-perfectionist:
         specifier: ^4.1.2
         version: 4.1.2(eslint@9.15.0(jiti@2.4.0))(typescript@5.7.2)
@@ -162,8 +162,8 @@ importers:
         specifier: ^2.1.6
         version: 2.1.6(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1)
       zx:
-        specifier: ^8.2.3
-        version: 8.2.3
+        specifier: ^8.2.4
+        version: 8.2.4
 
 packages:
 
@@ -663,55 +663,46 @@ packages:
     resolution: {integrity: sha512-9OwUnK/xKw6DyRlgx8UizeqRFOfi9mf5TYCw1uolDaJSbUmBxP85DE6T4ouCMoN6pXw8ZoTeZCSEfSaYo+/s1w==}
     cpu: [arm]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-arm-musleabihf@4.27.4':
     resolution: {integrity: sha512-Vgdo4fpuphS9V24WOV+KwkCVJ72u7idTgQaBoLRD0UxBAWTF9GWurJO9YD9yh00BzbkhpeXtm6na+MvJU7Z73A==}
     cpu: [arm]
     os: [linux]
-    libc: [musl]
 
   '@rollup/rollup-linux-arm64-gnu@4.27.4':
     resolution: {integrity: sha512-pleyNgyd1kkBkw2kOqlBx+0atfIIkkExOTiifoODo6qKDSpnc6WzUY5RhHdmTdIJXBdSnh6JknnYTtmQyobrVg==}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-arm64-musl@4.27.4':
     resolution: {integrity: sha512-caluiUXvUuVyCHr5DxL8ohaaFFzPGmgmMvwmqAITMpV/Q+tPoaHZ/PWa3t8B2WyoRcIIuu1hkaW5KkeTDNSnMA==}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
 
   '@rollup/rollup-linux-powerpc64le-gnu@4.27.4':
     resolution: {integrity: sha512-FScrpHrO60hARyHh7s1zHE97u0KlT/RECzCKAdmI+LEoC1eDh/RDji9JgFqyO+wPDb86Oa/sXkily1+oi4FzJQ==}
     cpu: [ppc64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-riscv64-gnu@4.27.4':
     resolution: {integrity: sha512-qyyprhyGb7+RBfMPeww9FlHwKkCXdKHeGgSqmIXw9VSUtvyFZ6WZRtnxgbuz76FK7LyoN8t/eINRbPUcvXB5fw==}
     cpu: [riscv64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-s390x-gnu@4.27.4':
     resolution: {integrity: sha512-PFz+y2kb6tbh7m3A7nA9++eInGcDVZUACulf/KzDtovvdTizHpZaJty7Gp0lFwSQcrnebHOqxF1MaKZd7psVRg==}
     cpu: [s390x]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-x64-gnu@4.27.4':
     resolution: {integrity: sha512-Ni8mMtfo+o/G7DVtweXXV/Ol2TFf63KYjTtoZ5f078AUgJTmaIJnj4JFU7TK/9SVWTaSJGxPi5zMDgK4w+Ez7Q==}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-x64-musl@4.27.4':
     resolution: {integrity: sha512-5AeeAF1PB9TUzD+3cROzFTnAJAcVUGLuR8ng0E0WXGkYhp6RD6L+6szYVX+64Rs0r72019KHZS1ka1q+zU/wUw==}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
 
   '@rollup/rollup-win32-arm64-msvc@4.27.4':
     resolution: {integrity: sha512-yOpVsA4K5qVwu2CaS3hHxluWIK5HQTjNV4tWjQXluMiiiu4pJj4BN98CvxohNCpcjMeTXk/ZMJBRbgRg8HBB6A==}
@@ -1249,8 +1240,8 @@ packages:
     peerDependencies:
       eslint: ^8.40.0 || ^9.0.0
 
-  eslint-plugin-github-action@0.0.4:
-    resolution: {integrity: sha512-h+U/yXfJGmdEwpo17bdzcRObdHx3pDGjp3MnyWsX6ChnrQRVYdpypGEDvd4tOA2nYOva88rX7DkbeVE0BWZNmg==}
+  eslint-plugin-github-action@0.0.6:
+    resolution: {integrity: sha512-9fFYz5D3gnw9lIbcBVuCwOolMq+IgtyzTYDV/fkZIkhNgW7z23Opzmh3LgvzMiiX6IH4DbeYcgbVYXvNwY8feg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^9.5.0
@@ -1279,8 +1270,8 @@ packages:
     peerDependencies:
       eslint: '>=8.23.0'
 
-  eslint-plugin-ntnyq@0.7.0:
-    resolution: {integrity: sha512-lZT0oGrWc3g1trhqGg9dbkaF09NQAY1Pbv3j88/l8TI3/oHlOX0Kbg7z+xsoNc0SIW/WexzQ/Su7Gk3k/ybThQ==}
+  eslint-plugin-ntnyq@0.7.1:
+    resolution: {integrity: sha512-OQ11JMT500+yfaWsAgEseIoFsiTqQhm30JKGDe5dBqj4bTuUtmEU33gLkABwmkFuB60Tj9se0ChoL4zCRPVaGQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^9.5.0
@@ -2626,8 +2617,8 @@ packages:
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
-  zx@8.2.3:
-    resolution: {integrity: sha512-tWPNitCrKVUmFkUN+yh72+ODi6hG9GkMfo8ixV/SkRbqQPGJ/aGLtaupOoSd/nCiM/oGQxDJCl+3FjQHwLG6zQ==}
+  zx@8.2.4:
+    resolution: {integrity: sha512-g9wVU+5+M+zVen/3IyAZfsZFmeqb6vDfjqFggakviz5uLK7OAejOirX+jeTOkyvAh/OYRlCgw+SdqzN7F61QVQ==}
     engines: {node: '>= 12.17.0'}
     hasBin: true
 
@@ -3607,7 +3598,7 @@ snapshots:
       prettier: 3.4.1
       synckit: 0.9.2
 
-  eslint-plugin-github-action@0.0.4(eslint@9.15.0(jiti@2.4.0))(typescript@5.7.2):
+  eslint-plugin-github-action@0.0.6(eslint@9.15.0(jiti@2.4.0))(typescript@5.7.2):
     dependencies:
       '@ntnyq/utils': 0.3.1
       '@typescript-eslint/utils': 8.16.0(eslint@9.15.0(jiti@2.4.0))(typescript@5.7.2)
@@ -3677,7 +3668,7 @@ snapshots:
       minimatch: 9.0.5
       semver: 7.6.3
 
-  eslint-plugin-ntnyq@0.7.0(eslint@9.15.0(jiti@2.4.0))(typescript@5.7.2):
+  eslint-plugin-ntnyq@0.7.1(eslint@9.15.0(jiti@2.4.0))(typescript@5.7.2):
     dependencies:
       '@typescript-eslint/utils': 8.16.0(eslint@9.15.0(jiti@2.4.0))(typescript@5.7.2)
       eslint: 9.15.0(jiti@2.4.0)
@@ -5211,7 +5202,7 @@ snapshots:
 
   zwitch@2.0.4: {}
 
-  zx@8.2.3:
+  zx@8.2.4:
     optionalDependencies:
       '@types/fs-extra': 11.0.4
       '@types/node': 22.10.1
