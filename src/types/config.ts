@@ -13,48 +13,50 @@ export type ConfigIgnoresOptions = string[]
 /**
  * Options for overrides `files`
  */
-export interface OptionsFiles {
-  files?: string[]
-}
-
 export type ConfigCommandOptions = ESLintPluginCommandOptions
 
 export interface ConfigYmlOptions extends OptionsOverrides {}
 
+export interface OptionsFiles {
+  files?: string[]
+}
+
 /**
  * Options for add `extensions` support
  */
+export interface ConfigAntfuOptions extends OptionsOverrides {}
+
+export interface ConfigCommentsOptions extends OptionsOverrides {}
+
+export interface ConfigGitHubActionOptions extends OptionsOverrides {}
+
+export interface ConfigImportsOptions extends OptionsOverrides {}
+
+export interface ConfigJsdocOptions extends OptionsFeatures, OptionsOverrides {}
+
+export interface ConfigJsoncOptions extends OptionsOverrides {}
+
+export interface ConfigNodeOptions extends OptionsOverrides {}
+
+export interface ConfigNtnyqOptions extends OptionsOverrides {}
+
+export interface ConfigStylisticOptions extends OptionsOverrides {}
+
+export interface ConfigTomlOptions extends OptionsOverrides {}
+
+export interface ConfigUnicornOptions extends OptionsOverrides {}
+
+export interface ConfigUnusedImportsOptions extends OptionsOverrides {}
+
 export interface OptionsExtensions {
   extensions?: string[]
 }
 
-export interface ConfigNodeOptions extends OptionsOverrides {}
-
-export interface ConfigTomlOptions extends OptionsOverrides {}
-
-export interface ConfigAntfuOptions extends OptionsOverrides {}
-
-export interface ConfigNtnyqOptions extends OptionsOverrides {}
-
-export interface ConfigJsoncOptions extends OptionsOverrides {}
-
-export interface ConfigUnicornOptions extends OptionsOverrides {}
-
-export interface ConfigImportsOptions extends OptionsOverrides {}
-
-export interface ConfigCommentsOptions extends OptionsOverrides {}
-
-export interface ConfigStylisticOptions extends OptionsOverrides {}
-
-export interface ConfigGitHubActionOptions extends OptionsOverrides {}
-
-export interface ConfigUnusedImportsOptions extends OptionsOverrides {}
-
-export interface ConfigJsdocOptions extends OptionsFeatures, OptionsOverrides {}
-
 /**
  * Options for add `features` support
  */
+export interface ConfigMarkdownOptions extends OptionsExtensions, OptionsFiles, OptionsOverrides {}
+
 export type OptionsFeatures = {
   /**
    * Enable typescript support
@@ -62,49 +64,40 @@ export type OptionsFeatures = {
   typescript?: boolean
 }
 
-export interface ConfigMarkdownOptions extends OptionsExtensions, OptionsFiles, OptionsOverrides {}
-
 /**
  * Options for overrides `rules`
  */
-export interface OptionsOverrides<
-  Rules extends TypedConfigItem['rules'] = TypedConfigItem['rules'],
-> {
-  overrides?: Rules
-}
-
-export interface ConfigRegexpOptions extends OptionsOverrides {
+export interface ConfigFormatOptions {
   /**
-   * Prettier level
+   * Enable formatter support for css, less, scss, sass and etc.
    *
-   * @default 'error'
+   * @default 'prettier'
    */
-  level?: 'warn' | 'error'
-}
+  css?: 'prettier' | boolean
 
-export interface ConfigUnoCSSOptions extends OptionsOverrides {
   /**
-   * Enable attributify sort order
+   * Enable formatter support for html
    *
-   * @default false
+   * @default 'prettier'
    */
-  attributify?: boolean
-}
+  html?: 'prettier' | boolean
 
-export interface ConfigTestOptions extends OptionsOverrides {
   /**
-   * Overrides built-in vitest rules
-   */
-  overridesVitestRules?: TypedConfigItem['rules']
-}
-
-export interface ConfigJavaScriptOptions extends OptionsOverrides {
-  /**
-   * Enable strict checking for JavaScript files
+   * Enable formatter support for markdown
    *
-   * @default false
+   * @default 'prettier'
    */
-  strict?: boolean
+  markdown?: 'dprint' | 'prettier' | boolean
+
+  /**
+   * Options for prettier
+   */
+  prettierOptions?: PrettierOptions
+
+  /**
+   * Options for dprint
+   */
+  dprintOptions?: boolean
 }
 
 export type ConfigGitIgnoreOptions = Omit<FlatGitignoreOptions, 'strict'> & {
@@ -116,123 +109,13 @@ export type ConfigGitIgnoreOptions = Omit<FlatGitignoreOptions, 'strict'> & {
   strict?: boolean
 }
 
-export interface ConfigSortOptions {
+export interface ConfigJavaScriptOptions extends OptionsOverrides {
   /**
-   * @default true
-   */
-  tsconfig?: boolean
-
-  /**
-   * @default true
-   */
-  packageJson?: boolean
-
-  /**
-   * @default true
-   */
-  i18nLocale?: boolean
-
-  /**
-   * @default true
-   */
-  pnpmWorkspace?: boolean
-}
-
-export interface ConfigPrettierOptions extends OptionsOverrides {
-  /**
-   * Prettier level
+   * Enable strict checking for JavaScript files
    *
-   * @default 'warn'
+   * @default false
    */
-  level?: 'warn' | 'error'
-
-  /**
-   * Glob of built-in disabled files
-   */
-  disabledFiles?: string[]
-
-  /**
-   * Glob of user custom disabled files
-   * @default []
-   */
-  userDisabledFiles?: string[]
-}
-
-export interface ConfigVueOptions extends OptionsFeatures, OptionsFiles, OptionsOverrides {
-  /**
-   * Create virtual files for Vue SFC blocks to enable linting.
-   *
-   * @see https://github.com/antfu/eslint-processor-vue-blocks
-   * @default true
-   */
-  sfcBlocks?: boolean | VueBlocksOptions
-
-  /**
-   * Vue version
-   *
-   * @default 3
-   */
-  vueVersion?: 2 | 3
-}
-
-export interface ConfigSpecialsOptions {
-  /**
-   * Overrides scripts rules
-   */
-  overridesScriptsRules?: TypedConfigItem['rules']
-
-  /**
-   * Overrides cli rules
-   */
-  overridesCliRules?: TypedConfigItem['rules']
-
-  /**
-   * Overrides user scripts rules
-   */
-  overridesUserScriptsRules?: TypedConfigItem['rules']
-
-  /**
-   * Overrides config files rules
-   */
-  overridesConfigFileRules?: TypedConfigItem['rules']
-
-  /**
-   * More special case configs
-   */
-  specialCaseConfigs?: TypedConfigItem[]
-}
-
-export interface ConfigFormatOptions {
-  /**
-   * Enable formatter support for css, less, scss, sass and etc.
-   *
-   * @default 'prettier'
-   */
-  css?: boolean | 'prettier'
-
-  /**
-   * Enable formatter support for html
-   *
-   * @default 'prettier'
-   */
-  html?: boolean | 'prettier'
-
-  /**
-   * Enable formatter support for markdown
-   *
-   * @default 'prettier'
-   */
-  markdown?: boolean | 'dprint' | 'prettier'
-
-  /**
-   * Options for prettier
-   */
-  prettierOptions?: PrettierOptions
-
-  /**
-   * Options for dprint
-   */
-  dprintOptions?: boolean
+  strict?: boolean
 }
 
 export interface ConfigPerfectionistOptions extends OptionsOverrides {
@@ -273,6 +156,91 @@ export interface ConfigPerfectionistOptions extends OptionsOverrides {
   overridesTypesRules?: TypedConfigItem['rules']
 }
 
+export interface ConfigPrettierOptions extends OptionsOverrides {
+  /**
+   * Prettier level
+   *
+   * @default 'warn'
+   */
+  level?: 'error' | 'warn'
+
+  /**
+   * Glob of built-in disabled files
+   */
+  disabledFiles?: string[]
+
+  /**
+   * Glob of user custom disabled files
+   * @default []
+   */
+  userDisabledFiles?: string[]
+}
+
+export interface ConfigRegexpOptions extends OptionsOverrides {
+  /**
+   * Prettier level
+   *
+   * @default 'error'
+   */
+  level?: 'error' | 'warn'
+}
+
+export interface ConfigSortOptions {
+  /**
+   * @default true
+   */
+  tsconfig?: boolean
+
+  /**
+   * @default true
+   */
+  packageJson?: boolean
+
+  /**
+   * @default true
+   */
+  i18nLocale?: boolean
+
+  /**
+   * @default true
+   */
+  pnpmWorkspace?: boolean
+}
+
+export interface ConfigSpecialsOptions {
+  /**
+   * Overrides scripts rules
+   */
+  overridesScriptsRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides cli rules
+   */
+  overridesCliRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides user scripts rules
+   */
+  overridesUserScriptsRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides config files rules
+   */
+  overridesConfigFileRules?: TypedConfigItem['rules']
+
+  /**
+   * More special case configs
+   */
+  specialCaseConfigs?: TypedConfigItem[]
+}
+
+export interface ConfigTestOptions extends OptionsOverrides {
+  /**
+   * Overrides built-in vitest rules
+   */
+  overridesVitestRules?: TypedConfigItem['rules']
+}
+
 export interface ConfigTypeScriptOptions extends OptionsExtensions, OptionsFiles, OptionsOverrides {
   /**
    * Enable type aware check for TypeScript files
@@ -300,6 +268,38 @@ export interface ConfigTypeScriptOptions extends OptionsExtensions, OptionsFiles
    * Overrides built-in type aware rules
    */
   overridesTypeAwareRules?: TypedConfigItem['rules']
+}
+
+export interface ConfigUnoCSSOptions extends OptionsOverrides {
+  /**
+   * Enable attributify sort order
+   *
+   * @default false
+   */
+  attributify?: boolean
+}
+
+export interface ConfigVueOptions extends OptionsFeatures, OptionsFiles, OptionsOverrides {
+  /**
+   * Create virtual files for Vue SFC blocks to enable linting.
+   *
+   * @see https://github.com/antfu/eslint-processor-vue-blocks
+   * @default true
+   */
+  sfcBlocks?: boolean | VueBlocksOptions
+
+  /**
+   * Vue version
+   *
+   * @default 3
+   */
+  vueVersion?: 2 | 3
+}
+
+export interface OptionsOverrides<
+  Rules extends TypedConfigItem['rules'] = TypedConfigItem['rules'],
+> {
+  overrides?: Rules
 }
 
 /**

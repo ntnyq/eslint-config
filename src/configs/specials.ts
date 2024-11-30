@@ -61,7 +61,7 @@ export const specials = (options: ConfigSpecialsOptions = {}): TypedConfigItem[]
       'perfectionist/sort-objects': [
         'error',
         {
-          type: 'line-length',
+          type: 'alphabetical',
           order: 'asc',
         },
       ],

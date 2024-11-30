@@ -2,6 +2,9 @@ import { pluginPerfectionist } from '../eslint'
 import { GLOB_SRC, GLOB_SRC_EXT, GLOB_TYPES } from '../globs'
 import type { ConfigPerfectionistOptions, TypedConfigItem } from '../types'
 
+/**
+ * Prefer `alphabetical` sort type
+ */
 export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedConfigItem[] => {
   const {
     sortEnums: enableSortEnums = true,
@@ -116,15 +119,16 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
         'perfectionist/sort-enums': [
           'error',
           {
-            type: 'line-length',
+            type: 'alphabetical',
             order: 'asc',
           },
         ],
         'perfectionist/sort-modules': [
           'error',
           {
-            type: 'line-length',
+            type: 'alphabetical',
             order: 'asc',
+            partitionByComment: true,
           },
         ],
 
@@ -180,8 +184,9 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
         'perfectionist/sort-modules': [
           'error',
           {
-            type: 'line-length',
+            type: 'alphabetical',
             order: 'asc',
+            partitionByComment: true,
           },
         ],
         'perfectionist/sort-object-types': [
@@ -194,7 +199,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
         'perfectionist/sort-union-types': [
           'error',
           {
-            type: 'line-length',
+            type: 'alphabetical',
             order: 'asc',
           },
         ],
@@ -223,15 +228,23 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
         'perfectionist/sort-objects': [
           'error',
           {
-            type: 'line-length',
+            type: 'alphabetical',
             order: 'asc',
           },
         ],
         'perfectionist/sort-sets': [
           'error',
           {
-            type: 'line-length',
+            type: 'alphabetical',
             order: 'asc',
+          },
+        ],
+        'perfectionist/sort-modules': [
+          'error',
+          {
+            type: 'alphabetical',
+            order: 'asc',
+            partitionByComment: true,
           },
         ],
 
