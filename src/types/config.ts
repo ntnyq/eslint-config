@@ -10,8 +10,6 @@ import type { TSESLintParserOptions, TypedConfigItem } from './eslint'
 
 export type ConfigIgnoresOptions = string[]
 
-export type PerfectionistSortOrder = 'asc' | 'desc'
-
 /**
  * Options for overrides `files`
  */
@@ -51,8 +49,6 @@ export interface ConfigStylisticOptions extends OptionsOverrides {}
 export interface ConfigGitHubActionOptions extends OptionsOverrides {}
 
 export interface ConfigUnusedImportsOptions extends OptionsOverrides {}
-
-export type PerfectionistSortType = 'natural' | 'line-length' | 'alphabetical'
 
 export interface ConfigJsdocOptions extends OptionsFeatures, OptionsOverrides {}
 
@@ -239,6 +235,44 @@ export interface ConfigFormatOptions {
   dprintOptions?: boolean
 }
 
+export interface ConfigPerfectionistOptions extends OptionsOverrides {
+  /**
+   * Enable sort `constants`
+   *
+   * @default true
+   */
+  sortConstants?: boolean
+
+  /**
+   * Enable sort `enums`
+   *
+   * @default true
+   */
+  sortEnums?: boolean
+
+  /**
+   * Enable sort `types`
+   *
+   * @default true
+   */
+  sortTypes?: boolean
+
+  /**
+   * Overrides rules for `constants`
+   */
+  overridesConstantsRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides rules for `enums`
+   */
+  overridesEnumsRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides rules for `types`
+   */
+  overridesTypesRules?: TypedConfigItem['rules']
+}
+
 export interface ConfigTypeScriptOptions extends OptionsExtensions, OptionsFiles, OptionsOverrides {
   /**
    * Enable type aware check for TypeScript files
@@ -266,40 +300,6 @@ export interface ConfigTypeScriptOptions extends OptionsExtensions, OptionsFiles
    * Overrides built-in type aware rules
    */
   overridesTypeAwareRules?: TypedConfigItem['rules']
-}
-
-export interface ConfigPerfectionistOptions extends OptionsOverrides {
-  imports?: {
-    order?: PerfectionistSortOrder
-    type?: PerfectionistSortType
-  }
-  exports?: {
-    order?: PerfectionistSortOrder
-    type?: PerfectionistSortType
-  }
-  namedExports?: {
-    order?: PerfectionistSortOrder
-    type?: PerfectionistSortType
-  }
-  namedImports?: {
-    order?: PerfectionistSortOrder
-    type?: PerfectionistSortType
-  }
-
-  /**
-   * Overrides rules for `constants`
-   */
-  overridesConstantsRules?: TypedConfigItem['rules']
-
-  /**
-   * Overrides rules for `enums`
-   */
-  overridesEnumsRules?: TypedConfigItem['rules']
-
-  /**
-   * Overrides rules for `types`
-   */
-  overridesTypesRules?: TypedConfigItem['rules']
 }
 
 /**

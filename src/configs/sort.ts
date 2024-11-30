@@ -2,8 +2,14 @@ import type { ConfigSortOptions, TypedConfigItem } from '../types'
 
 export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
   const configs: TypedConfigItem[] = []
+  const {
+    tsconfig: enableSortTsconfig = true,
+    packageJson: enableSortPackageJson = true,
+    i18nLocale: enableSortI18nLocale = true,
+    pnpmWorkspace: enableSortPnpmWorkspace = true,
+  } = options
 
-  if (options.tsconfig ?? true) {
+  if (enableSortTsconfig) {
     configs.push({
       name: 'ntnyq/sort/tsconfig',
       files: ['**/tsconfig.json', '**/tsconfig.*.json'],
@@ -120,7 +126,7 @@ export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
     })
   }
 
-  if (options.packageJson ?? true) {
+  if (enableSortPackageJson) {
     configs.push({
       name: 'ntnyq/sort/package-json',
       files: ['**/package.json'],
@@ -295,7 +301,7 @@ export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
     })
   }
 
-  if (options.i18nLocale ?? true) {
+  if (enableSortI18nLocale) {
     configs.push(
       {
         name: 'ntnyq/sort/i18n-locale/json',
@@ -326,7 +332,7 @@ export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
     )
   }
 
-  if (options.pnpmWorkspace ?? true) {
+  if (enableSortPnpmWorkspace) {
     configs.push({
       name: 'ntnyq/sort/pnpm-workspace',
       files: ['**/pnpm-workspace.yaml'],
