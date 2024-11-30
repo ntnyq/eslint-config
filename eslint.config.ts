@@ -2,8 +2,8 @@ import { defineESLintConfig } from './src'
 
 export default defineESLintConfig({
   vue: true,
-  unocss: true,
   test: true,
+  unocss: true,
   typescript: {
     tsconfigPath: './tsconfig.json',
   },
