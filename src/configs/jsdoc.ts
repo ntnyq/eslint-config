@@ -36,7 +36,6 @@ export const jsdoc = (options: ConfigJsdocOptions = {}): TypedConfigItem[] => [
       'jsdoc/check-line-alignment': 'error',
       'jsdoc/check-param-names': 'error',
       'jsdoc/check-property-names': 'error',
-      'jsdoc/check-tag-names': 'error',
       'jsdoc/check-types': 'error',
       'jsdoc/empty-tags': 'error',
       'jsdoc/multiline-blocks': 'error',
@@ -47,6 +46,16 @@ export const jsdoc = (options: ConfigJsdocOptions = {}): TypedConfigItem[] => [
       'jsdoc/no-multi-asterisks': 'error',
       'jsdoc/require-asterisk-prefix': 'error',
       'jsdoc/require-hyphen-before-param-description': 'error',
+      'jsdoc/check-tag-names': [
+        'error',
+        {
+          definedTags: [
+            // magic-comments
+            'vite-ignore',
+            'unocss-include',
+          ],
+        },
+      ],
       // TODO: this after investigate
       // 'jsdoc/sort-tags': [
       //   'error',
