@@ -124,6 +124,8 @@ export interface ConfigOptions extends ConfigOptionsInternal {
 
   javascript?: ConfigJavaScriptOptions
 
+  specials?: ConfigSpecialsOptions
+
   sort?: boolean | ConfigSortOptions
 
   gitignore?: boolean | ConfigGitIgnoreOptions

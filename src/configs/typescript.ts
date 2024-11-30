@@ -231,7 +231,7 @@ export const typescript = (options: ConfigTypeScriptOptions = {}): TypedConfigIt
 
     {
       name: 'ntnyq/ts/types',
-      files: [GLOB_DTS, '**/types/**/*.ts'],
+      files: [GLOB_DTS, '**/types/**/*.ts', '**/types.ts'],
       rules: {
         'no-use-before-define': 'off',
         'no-restricted-syntax': 'off',

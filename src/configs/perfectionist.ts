@@ -1,9 +1,10 @@
 import { pluginPerfectionist } from '../eslint'
+import { GLOB_SRC, GLOB_SRC_EXT } from '../globs'
 import type { ConfigPerfectionistOptions, TypedConfigItem } from '../types'
 
 export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedConfigItem[] => [
   {
-    name: 'ntnyq/perfectionist',
+    name: 'ntnyq/perfectionist/basic',
     plugins: {
       perfectionist: pluginPerfectionist,
     },
@@ -94,6 +95,61 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
 
       // Overrides rules
       ...options.overrides,
+    },
+  },
+
+  {
+    name: 'ntnyq/perfectionist/constants',
+    files: [`**/constants/${GLOB_SRC}`, `**/constants.${GLOB_SRC_EXT}`],
+    plugins: {
+      perfectionist: pluginPerfectionist,
+    },
+    rules: {
+      'perfectionist/sort-maps': [
+        'error',
+        {
+          type: 'alphabetical',
+          order: 'asc',
+        },
+      ],
+      'perfectionist/sort-objects': [
+        'error',
+        {
+          type: 'line-length',
+          order: 'asc',
+        },
+      ],
+      'perfectionist/sort-sets': [
+        'error',
+        {
+          type: 'line-length',
+          order: 'asc',
+        },
+      ],
+    },
+  },
+
+  {
+    name: 'ntnyq/perfectionist/enums',
+    files: [`**/enums/${GLOB_SRC}`, `**/enums.${GLOB_SRC_EXT}`],
+    plugins: {
+      perfectionist: pluginPerfectionist,
+    },
+    rules: {
+      'perfectionist/sort-enums': [
+        'error',
+        {
+          type: 'line-length',
+          order: 'asc',
+        },
+      ],
+      'perfectionist/sort-modules': [
+        'error',
+        {
+          type: 'line-length',
+          order: 'asc',
+        },
+      ],
     },
   },
 ]
