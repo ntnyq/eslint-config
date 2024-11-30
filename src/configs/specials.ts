@@ -1,4 +1,5 @@
 import globals from 'globals'
+import { pluginImport } from '../eslint'
 import { GLOB_SRC, GLOB_SRC_EXT } from '../globs'
 import type { ConfigSpecialsOptions, TypedConfigItem } from '../types'
 
@@ -43,6 +44,22 @@ export const specials = (options: ConfigSpecialsOptions = {}): TypedConfigItem[]
 
       // Overrides rules
       ...options.overridesUserScriptsRules,
+    },
+  },
+  {
+    name: 'ntnyq/specials/config-file',
+    files: [`**/*.config*.${GLOB_SRC_EXT}`],
+    plugins: {
+      import: pluginImport,
+    },
+    rules: {
+      'no-console': 'off',
+      'import/no-default-export': 'off',
+      '@typescript-eslint/explicit-function-return-type': 'off',
+
+      // Some rules later
+
+      ...options.overridesConfigFileRules,
     },
   },
 

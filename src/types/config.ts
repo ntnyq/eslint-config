@@ -241,6 +241,11 @@ export interface ConfigSpecialsOptions {
   overridesUserScriptsRules?: TypedConfigItem['rules']
 
   /**
+   * Overrides config files rules
+   */
+  overridesConfigFileRules?: TypedConfigItem['rules']
+
+  /**
    * More special case configs
    */
   specialCaseConfigs?: TypedConfigItem[]
