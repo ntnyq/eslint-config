@@ -104,12 +104,12 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
   'vue/no-multiple-objects-in-class': 'error',
   'vue/prefer-separate-static-class': 'error',
   'vue/no-ref-object-reactivity-loss': 'error',
-  'vue/no-duplicate-attr-inheritance': 'error',
   'vue/prefer-prop-type-boolean-first': 'error',
   'vue/html-comment-indent': ['error', 2],
   'vue/next-tick-style': ['error', 'promise'],
   'vue/v-for-delimiter-style': ['error', 'in'],
   'vue/no-restricted-v-bind': ['error', '/^v-/'],
+  'vue/slot-name-casing': ['error', 'camelCase'],
   'vue/custom-event-name-casing': ['error', 'camelCase'],
   'vue/define-props-declaration': ['error', 'type-based'],
   'vue/define-emits-declaration': ['error', 'type-literal'],
@@ -122,6 +122,12 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
       button: true,
       submit: true,
       reset: true,
+    },
+  ],
+  'vue/no-duplicate-attr-inheritance': [
+    'error',
+    {
+      checkMultiRootNodes: true,
     },
   ],
   'vue/block-order': [
