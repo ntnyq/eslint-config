@@ -8,6 +8,10 @@ import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
 import type { PrettierOptions } from '../types'
 import type { TSESLintParserOptions, TypedConfigItem } from './eslint'
 
+export type ConfigIgnoresOptions = string[]
+
+export type PerfectionistSortOrder = 'asc' | 'desc'
+
 /**
  * Options for overrides `files`
  */
@@ -15,12 +19,42 @@ export interface OptionsFiles {
   files?: string[]
 }
 
+export type ConfigCommandOptions = ESLintPluginCommandOptions
+
+export interface ConfigYmlOptions extends OptionsOverrides {}
+
 /**
  * Options for add `extensions` support
  */
 export interface OptionsExtensions {
   extensions?: string[]
 }
+
+export interface ConfigNodeOptions extends OptionsOverrides {}
+
+export interface ConfigTomlOptions extends OptionsOverrides {}
+
+export interface ConfigAntfuOptions extends OptionsOverrides {}
+
+export interface ConfigNtnyqOptions extends OptionsOverrides {}
+
+export interface ConfigJsoncOptions extends OptionsOverrides {}
+
+export interface ConfigUnicornOptions extends OptionsOverrides {}
+
+export interface ConfigImportsOptions extends OptionsOverrides {}
+
+export interface ConfigCommentsOptions extends OptionsOverrides {}
+
+export interface ConfigStylisticOptions extends OptionsOverrides {}
+
+export interface ConfigGitHubActionOptions extends OptionsOverrides {}
+
+export interface ConfigUnusedImportsOptions extends OptionsOverrides {}
+
+export type PerfectionistSortType = 'natural' | 'line-length' | 'alphabetical'
+
+export interface ConfigJsdocOptions extends OptionsFeatures, OptionsOverrides {}
 
 /**
  * Options for add `features` support
@@ -32,6 +66,8 @@ export type OptionsFeatures = {
   typescript?: boolean
 }
 
+export interface ConfigMarkdownOptions extends OptionsExtensions, OptionsFiles, OptionsOverrides {}
+
 /**
  * Options for overrides `rules`
  */
@@ -41,20 +77,14 @@ export interface OptionsOverrides<
   overrides?: Rules
 }
 
-export type ConfigIgnoresOptions = string[]
-
-export type ConfigGitIgnoreOptions = Omit<FlatGitignoreOptions, 'strict'> & {
+export interface ConfigRegexpOptions extends OptionsOverrides {
   /**
-   * Throw an error if gitignore file not found.
+   * Prettier level
    *
-   * @default false
+   * @default 'error'
    */
-  strict?: boolean
+  level?: 'warn' | 'error'
 }
-
-export type ConfigCommandOptions = ESLintPluginCommandOptions
-
-export interface ConfigJsdocOptions extends OptionsOverrides, OptionsFeatures {}
 
 export interface ConfigUnoCSSOptions extends OptionsOverrides {
   /**
@@ -65,71 +95,11 @@ export interface ConfigUnoCSSOptions extends OptionsOverrides {
   attributify?: boolean
 }
 
-export interface ConfigUnicornOptions extends OptionsOverrides {}
-
-export interface ConfigImportsOptions extends OptionsOverrides {}
-
-export interface ConfigNodeOptions extends OptionsOverrides {}
-
-export interface ConfigAntfuOptions extends OptionsOverrides {}
-
-export interface ConfigNtnyqOptions extends OptionsOverrides {}
-
-export interface ConfigStylisticOptions extends OptionsOverrides {}
-
-export interface ConfigGitHubActionOptions extends OptionsOverrides {}
-
-export interface ConfigPrettierOptions extends OptionsOverrides {
+export interface ConfigTestOptions extends OptionsOverrides {
   /**
-   * Prettier level
-   *
-   * @default 'warn'
+   * Overrides built-in vitest rules
    */
-  level?: 'warn' | 'error'
-
-  /**
-   * Glob of built-in disabled files
-   */
-  disabledFiles?: string[]
-
-  /**
-   * Glob of user custom disabled files
-   * @default []
-   */
-  userDisabledFiles?: string[]
-}
-
-export type PerfectionistSortType = 'alphabetical' | 'line-length' | 'natural'
-export type PerfectionistSortOrder = 'asc' | 'desc'
-
-export interface ConfigPerfectionistOptions extends OptionsOverrides {
-  imports?: {
-    type?: PerfectionistSortType
-    order?: PerfectionistSortOrder
-  }
-  exports?: {
-    type?: PerfectionistSortType
-    order?: PerfectionistSortOrder
-  }
-  namedExports?: {
-    type?: PerfectionistSortType
-    order?: PerfectionistSortOrder
-  }
-  namedImports?: {
-    type?: PerfectionistSortType
-    order?: PerfectionistSortOrder
-  }
-}
-
-export interface ConfigCommentsOptions extends OptionsOverrides {}
-
-export interface ConfigRegexpOptions extends OptionsOverrides {
-  /**
-   * Prettier level
-   *
-   * @default 'error'
-   */
-  level?: 'warn' | 'error'
+  overridesVitestRules?: TypedConfigItem['rules']
 }
 
 export interface ConfigJavaScriptOptions extends OptionsOverrides {
@@ -141,33 +111,13 @@ export interface ConfigJavaScriptOptions extends OptionsOverrides {
   strict?: boolean
 }
 
-export interface ConfigTypeScriptOptions extends OptionsOverrides, OptionsFiles, OptionsExtensions {
+export type ConfigGitIgnoreOptions = Omit<FlatGitignoreOptions, 'strict'> & {
   /**
-   * Enable type aware check for TypeScript files
+   * Throw an error if gitignore file not found.
+   *
+   * @default false
    */
-  tsconfigPath?: string
-
-  /**
-   * Additional parser options
-   */
-  parserOptions?: TSESLintParserOptions
-
-  /**
-   * Glob patterns for files that should be type aware.
-   * @default ['**\/*.{ts,tsx}']
-   */
-  filesTypeAware?: string[]
-
-  /**
-   * Glob patterns for files that should not be type aware.
-   * @default ['**\/*.md\/**', '**\/*.astro/*.ts']
-   */
-  ignoresTypeAware?: string[]
-
-  /**
-   * Overrides built-in type aware rules
-   */
-  overridesTypeAwareRules?: TypedConfigItem['rules']
+  strict?: boolean
 }
 
 export interface ConfigSortOptions {
@@ -192,15 +142,27 @@ export interface ConfigSortOptions {
   pnpmWorkspace?: boolean
 }
 
-export interface ConfigJsoncOptions extends OptionsOverrides {}
+export interface ConfigPrettierOptions extends OptionsOverrides {
+  /**
+   * Prettier level
+   *
+   * @default 'warn'
+   */
+  level?: 'warn' | 'error'
 
-export interface ConfigYmlOptions extends OptionsOverrides {}
+  /**
+   * Glob of built-in disabled files
+   */
+  disabledFiles?: string[]
 
-export interface ConfigMarkdownOptions extends OptionsOverrides, OptionsFiles, OptionsExtensions {}
+  /**
+   * Glob of user custom disabled files
+   * @default []
+   */
+  userDisabledFiles?: string[]
+}
 
-export interface ConfigTomlOptions extends OptionsOverrides {}
-
-export interface ConfigVueOptions extends OptionsOverrides, OptionsFiles, OptionsFeatures {
+export interface ConfigVueOptions extends OptionsFeatures, OptionsFiles, OptionsOverrides {
   /**
    * Create virtual files for Vue SFC blocks to enable linting.
    *
@@ -215,13 +177,6 @@ export interface ConfigVueOptions extends OptionsOverrides, OptionsFiles, Option
    * @default 3
    */
   vueVersion?: 2 | 3
-}
-
-export interface ConfigTestOptions extends OptionsOverrides {
-  /**
-   * Overrides built-in vitest rules
-   */
-  overridesVitestRules?: TypedConfigItem['rules']
 }
 
 export interface ConfigSpecialsOptions {
@@ -257,21 +212,21 @@ export interface ConfigFormatOptions {
    *
    * @default 'prettier'
    */
-  css?: 'prettier' | boolean
+  css?: boolean | 'prettier'
 
   /**
    * Enable formatter support for html
    *
    * @default 'prettier'
    */
-  html?: 'prettier' | boolean
+  html?: boolean | 'prettier'
 
   /**
    * Enable formatter support for markdown
    *
    * @default 'prettier'
    */
-  markdown?: 'prettier' | 'dprint' | boolean
+  markdown?: boolean | 'dprint' | 'prettier'
 
   /**
    * Options for prettier
@@ -284,23 +239,67 @@ export interface ConfigFormatOptions {
   dprintOptions?: boolean
 }
 
-export interface ConfigUnusedImportsOptions extends OptionsOverrides {}
-
-interface ConfigOptionsInternal {
+export interface ConfigTypeScriptOptions extends OptionsExtensions, OptionsFiles, OptionsOverrides {
   /**
-   * @internal
+   * Enable type aware check for TypeScript files
    */
-  format?: boolean | ConfigFormatOptions
+  tsconfigPath?: string
 
   /**
-   * @internal
+   * Additional parser options
    */
-  ntnyq?: boolean | ConfigNtnyqOptions
+  parserOptions?: TSESLintParserOptions
 
   /**
-   * @internal
+   * Glob patterns for files that should be type aware.
+   * @default ['**\/*.{ts,tsx}']
    */
-  unusedImports?: boolean | ConfigUnusedImportsOptions
+  filesTypeAware?: string[]
+
+  /**
+   * Glob patterns for files that should not be type aware.
+   * @default ['**\/*.md\/**', '**\/*.astro/*.ts']
+   */
+  ignoresTypeAware?: string[]
+
+  /**
+   * Overrides built-in type aware rules
+   */
+  overridesTypeAwareRules?: TypedConfigItem['rules']
+}
+
+export interface ConfigPerfectionistOptions extends OptionsOverrides {
+  imports?: {
+    order?: PerfectionistSortOrder
+    type?: PerfectionistSortType
+  }
+  exports?: {
+    order?: PerfectionistSortOrder
+    type?: PerfectionistSortType
+  }
+  namedExports?: {
+    order?: PerfectionistSortOrder
+    type?: PerfectionistSortType
+  }
+  namedImports?: {
+    order?: PerfectionistSortOrder
+    type?: PerfectionistSortType
+  }
+
+  /**
+   * Overrides rules for `constants`
+   */
+  overridesConstantsRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides rules for `enums`
+   */
+  overridesEnumsRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides rules for `types`
+   */
+  overridesTypesRules?: TypedConfigItem['rules']
 }
 
 /**
@@ -356,4 +355,21 @@ export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions 
   antfu?: boolean | ConfigAntfuOptions
 
   githubAction?: boolean | ConfigGitHubActionOptions
+}
+
+interface ConfigOptionsInternal {
+  /**
+   * @internal
+   */
+  format?: boolean | ConfigFormatOptions
+
+  /**
+   * @internal
+   */
+  ntnyq?: boolean | ConfigNtnyqOptions
+
+  /**
+   * @internal
+   */
+  unusedImports?: boolean | ConfigUnusedImportsOptions
 }

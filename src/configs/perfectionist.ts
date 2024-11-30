@@ -1,10 +1,10 @@
 import { pluginPerfectionist } from '../eslint'
-import { GLOB_SRC, GLOB_SRC_EXT } from '../globs'
+import { GLOB_SRC, GLOB_SRC_EXT, GLOB_TYPES } from '../globs'
 import type { ConfigPerfectionistOptions, TypedConfigItem } from '../types'
 
 export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedConfigItem[] => [
   {
-    name: 'ntnyq/perfectionist/basic',
+    name: 'ntnyq/perfectionist/common',
     plugins: {
       perfectionist: pluginPerfectionist,
     },
@@ -126,6 +126,9 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
           order: 'asc',
         },
       ],
+
+      // Overrides rules
+      ...options.overridesConstantsRules,
     },
   },
 
@@ -150,6 +153,78 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
           order: 'asc',
         },
       ],
+
+      // Overrides rules
+      ...options.overridesEnumsRules,
+    },
+  },
+
+  {
+    name: 'ntnyq/perfectionist/types',
+    files: [...GLOB_TYPES],
+    plugins: {
+      perfectionist: pluginPerfectionist,
+    },
+    rules: {
+      'perfectionist/sort-heritage-clauses': [
+        'error',
+        {
+          type: 'alphabetical',
+          order: 'asc',
+        },
+      ],
+      // 'perfectionist/sort-interfaces': [
+      //   'error',
+      //   {
+      //     type: 'alphabetical',
+      //     order: 'asc',
+      //   },
+      // ],
+      'perfectionist/sort-intersection-types': [
+        'error',
+        {
+          type: 'alphabetical',
+          order: 'asc',
+          groups: [
+            'intersection',
+            'named',
+            'conditional',
+            'function',
+            'import',
+            'keyword',
+            'literal',
+            'object',
+            'operator',
+            'tuple',
+            'union',
+            'nullish',
+          ],
+        },
+      ],
+      'perfectionist/sort-modules': [
+        'error',
+        {
+          type: 'line-length',
+          order: 'asc',
+        },
+      ],
+      'perfectionist/sort-object-types': [
+        'error',
+        {
+          type: 'alphabetical',
+          order: 'asc',
+        },
+      ],
+      'perfectionist/sort-union-types': [
+        'error',
+        {
+          type: 'line-length',
+          order: 'asc',
+        },
+      ],
+
+      // Overrides rules
+      ...options.overridesTypesRules,
     },
   },
 ]

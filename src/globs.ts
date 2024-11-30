@@ -12,6 +12,8 @@ export const GLOB_TS = '**/*.?([cm])ts'
 export const GLOB_TSX = `${GLOB_TS}x`
 export const GLOB_DTS = '**/*.d.?([cm])ts'
 
+export const GLOB_TYPES = [GLOB_DTS, `**/types/${GLOB_TS}`, `**/types.ts`]
+
 export const GLOB_TEST = [
   `**/*.test.${GLOB_SRC_EXT}`,
   `**/*.spec.${GLOB_SRC_EXT}`,

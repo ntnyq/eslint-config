@@ -8,6 +8,7 @@ export type PrettierOptions = Partial<
     RequiredOptions,
     | 'semi'
     | 'useTabs'
+    | 'plugins'
     | 'tabWidth'
     | 'rangeEnd'
     | 'proseWrap'
@@ -23,12 +24,11 @@ export type PrettierOptions = Partial<
     | 'bracketSpacing'
     | 'jsxSingleQuote'
     | 'bracketSameLine'
-    | 'singleAttributePerLine'
     | 'experimentalTernaries'
+    | 'singleAttributePerLine'
     | 'vueIndentScriptAndStyle'
-    | 'embeddedLanguageFormatting'
     | 'htmlWhitespaceSensitivity'
-    | 'plugins'
+    | 'embeddedLanguageFormatting'
   >
 > & {
   parser?: BuiltInParserName

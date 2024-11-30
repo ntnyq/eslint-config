@@ -1,6 +1,6 @@
 import process from 'node:process'
 import { parserTypeScript, pluginAntfu, pluginTypeScript, typescriptConfigs } from '../eslint'
-import { GLOB_ASTRO, GLOB_DTS, GLOB_MARKDOWN, GLOB_TS, GLOB_TSX } from '../globs'
+import { GLOB_ASTRO, GLOB_MARKDOWN, GLOB_TS, GLOB_TSX, GLOB_TYPES } from '../globs'
 import type {
   ConfigTypeScriptOptions,
   ESLintParser,
@@ -231,7 +231,7 @@ export const typescript = (options: ConfigTypeScriptOptions = {}): TypedConfigIt
 
     {
       name: 'ntnyq/ts/types',
-      files: [GLOB_DTS, '**/types/**/*.ts', '**/types.ts'],
+      files: [...GLOB_TYPES],
       rules: {
         'no-use-before-define': 'off',
         'no-restricted-syntax': 'off',

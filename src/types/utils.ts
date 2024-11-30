@@ -19,6 +19,10 @@ export type Pretty<T> = {
   [P in keyof T]: T[P]
 } & {}
 
+export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>
+
+export type InteropModuleDefault<T> = T extends { default: infer U } ? U : T
+
 /**
  * A literal type that supports custom further strings but preserves autocompletion in IDEs.
  *
@@ -27,7 +31,3 @@ export type Pretty<T> = {
 export type LiteralUnion<Union extends Base, Base = string> =
   | Union
   | (Base & { zz_IGNORE_ME?: never })
-
-export type InteropModuleDefault<T> = T extends { default: infer U } ? U : T
-
-export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>
