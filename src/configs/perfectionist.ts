@@ -121,6 +121,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
           {
             type: 'alphabetical',
             order: 'asc',
+            partitionByComment: true,
           },
         ],
         'perfectionist/sort-modules': [
@@ -158,6 +159,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
         //   {
         //     type: 'alphabetical',
         //     order: 'asc',
+        //     partitionByComment: true,
         //   },
         // ],
         'perfectionist/sort-intersection-types': [
@@ -179,6 +181,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
               'union',
               'nullish',
             ],
+            partitionByComment: true,
           },
         ],
         'perfectionist/sort-modules': [
@@ -194,6 +197,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
           {
             type: 'alphabetical',
             order: 'asc',
+            partitionByComment: true,
           },
         ],
         'perfectionist/sort-union-types': [
@@ -201,6 +205,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
           {
             type: 'alphabetical',
             order: 'asc',
+            partitionByComment: true,
           },
         ],
 
@@ -223,6 +228,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
           {
             type: 'alphabetical',
             order: 'asc',
+            partitionByComment: true,
           },
         ],
         'perfectionist/sort-objects': [
@@ -230,6 +236,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
           {
             type: 'alphabetical',
             order: 'asc',
+            partitionByComment: true,
           },
         ],
         'perfectionist/sort-sets': [
@@ -237,6 +244,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
           {
             type: 'alphabetical',
             order: 'asc',
+            partitionByComment: true,
           },
         ],
         'perfectionist/sort-modules': [
