@@ -50,8 +50,8 @@ importers:
         specifier: ^0.1.3
         version: 0.1.3(eslint@9.16.0(jiti@2.4.1))
       eslint-plugin-github-action:
-        specifier: ^0.0.6
-        version: 0.0.6(eslint@9.16.0(jiti@2.4.1))(typescript@5.7.2)
+        specifier: ^0.0.8
+        version: 0.0.8(eslint@9.16.0(jiti@2.4.1))
       eslint-plugin-import-x:
         specifier: ^4.4.3
         version: 4.4.3(eslint@9.16.0(jiti@2.4.1))(typescript@5.7.2)
@@ -95,8 +95,8 @@ importers:
         specifier: ^0.1.2
         version: 0.1.2(@vue/compiler-sfc@3.5.13)(eslint@9.16.0(jiti@2.4.1))
       globals:
-        specifier: ^15.12.0
-        version: 15.12.0
+        specifier: ^15.13.0
+        version: 15.13.0
       jsonc-eslint-parser:
         specifier: ^2.4.0
         version: 2.4.0
@@ -1240,8 +1240,8 @@ packages:
     peerDependencies:
       eslint: ^8.40.0 || ^9.0.0
 
-  eslint-plugin-github-action@0.0.6:
-    resolution: {integrity: sha512-9fFYz5D3gnw9lIbcBVuCwOolMq+IgtyzTYDV/fkZIkhNgW7z23Opzmh3LgvzMiiX6IH4DbeYcgbVYXvNwY8feg==}
+  eslint-plugin-github-action@0.0.8:
+    resolution: {integrity: sha512-OZAI07m8SKWNKm9CjDW9uiy9N/kL1Msk2PXO/5uJo+lSwQ14z0mPwfoSeimJPCUdURN2VpIctPrk4pvau/OlCQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^9.5.0
@@ -1516,8 +1516,8 @@ packages:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
 
-  globals@15.12.0:
-    resolution: {integrity: sha512-1+gLErljJFhbOVyaetcwJiJ4+eLe45S2E7P5UiZ9xGfeq3ATQf5DOv9G7MH3gGbKQLkzmNh2DxfZwLdw+j6oTQ==}
+  globals@15.13.0:
+    resolution: {integrity: sha512-49TewVEz0UxZjr1WYYsWpPrhyC/B/pA8Bq0fUmet2n+eR7yn0IvNzNaoBwnK6mdkzcN+se7Ez9zUgULTz2QH4g==}
     engines: {node: '>=18'}
 
   graceful-fs@4.2.11:
@@ -3598,15 +3598,12 @@ snapshots:
       prettier: 3.4.1
       synckit: 0.9.2
 
-  eslint-plugin-github-action@0.0.6(eslint@9.16.0(jiti@2.4.1))(typescript@5.7.2):
+  eslint-plugin-github-action@0.0.8(eslint@9.16.0(jiti@2.4.1)):
     dependencies:
       '@ntnyq/utils': 0.3.1
-      '@typescript-eslint/utils': 8.16.0(eslint@9.16.0(jiti@2.4.1))(typescript@5.7.2)
+      '@types/json-schema': 7.0.15
       eslint: 9.16.0(jiti@2.4.1)
       yaml-eslint-parser: 1.2.3
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
 
   eslint-plugin-import-x@4.4.3(eslint@9.16.0(jiti@2.4.1))(typescript@5.7.2):
     dependencies:
@@ -3663,7 +3660,7 @@ snapshots:
       eslint: 9.16.0(jiti@2.4.1)
       eslint-plugin-es-x: 7.8.0(eslint@9.16.0(jiti@2.4.1))
       get-tsconfig: 4.8.1
-      globals: 15.12.0
+      globals: 15.13.0
       ignore: 5.3.2
       minimatch: 9.0.5
       semver: 7.6.3
@@ -3723,7 +3720,7 @@ snapshots:
       core-js-compat: 3.39.0
       eslint: 9.16.0(jiti@2.4.1)
       esquery: 1.6.0
-      globals: 15.12.0
+      globals: 15.13.0
       indent-string: 4.0.0
       is-builtin-module: 3.2.1
       jsesc: 3.0.2
@@ -3989,7 +3986,7 @@ snapshots:
 
   globals@14.0.0: {}
 
-  globals@15.12.0: {}
+  globals@15.13.0: {}
 
   graceful-fs@4.2.11: {}
 
