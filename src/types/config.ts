@@ -4,6 +4,7 @@
 
 import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
 import type { ESLintPluginCommandOptions } from 'eslint-plugin-command/types'
+import type { RecommendedOptions as GitHubActionRecommendedOptions } from 'eslint-plugin-github-action'
 import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
 import type { PrettierOptions } from '../types'
 import type { TSESLintParserOptions, TypedConfigItem } from './eslint'
@@ -28,7 +29,9 @@ export interface ConfigAntfuOptions extends OptionsOverrides {}
 
 export interface ConfigCommentsOptions extends OptionsOverrides {}
 
-export interface ConfigGitHubActionOptions extends OptionsOverrides {}
+export interface ConfigGitHubActionOptions
+  extends GitHubActionRecommendedOptions,
+    OptionsOverrides {}
 
 export interface ConfigImportsOptions extends OptionsOverrides {}
 
