@@ -53,10 +53,10 @@ declare module 'eslint-plugin-es-x' {
     | 'restrict-to-es5'
 
   declare const plugin: {
+    rules: NonNullable<ESLint.Plugin['rules']>
     configs: {
       [Name in EsXConfigNames]: Linter.Config
     }
-    rules: NonNullable<ESLint.Plugin['rules']>
   }
   export = plugin
 }

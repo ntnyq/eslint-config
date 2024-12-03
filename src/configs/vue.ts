@@ -109,7 +109,7 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
   'vue/next-tick-style': ['error', 'promise'],
   'vue/v-for-delimiter-style': ['error', 'in'],
   'vue/no-restricted-v-bind': ['error', '/^v-/'],
-  'vue/slot-name-casing': ['error', 'camelCase'],
+  'vue/slot-name-casing': ['error', 'kebab-case'],
   'vue/custom-event-name-casing': ['error', 'camelCase'],
   'vue/define-props-declaration': ['error', 'type-based'],
   'vue/define-emits-declaration': ['error', 'type-literal'],

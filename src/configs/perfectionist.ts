@@ -2,7 +2,7 @@ import { pluginPerfectionist } from '../eslint'
 import { GLOB_SRC, GLOB_SRC_EXT, GLOB_TYPES } from '../globs'
 import type { ConfigPerfectionistOptions, TypedConfigItem } from '../types'
 
-const sharedGroups = [
+const sharedGroupsForInterfaceOrObjectTypes = [
   'required-property',
   'optional-property',
   'required-method',
@@ -15,13 +15,10 @@ const sharedGroups = [
   'index-signature',
   'multiline-index-signature',
 ]
-export const defaultSortInterfacesGroups = [...sharedGroups]
-export const defaultSortObjectTypesGroups = [...sharedGroups]
-
 /**
  * Philosophy: keep simple thing first but null & undefined
  */
-export const defaultSortIntersectionTypesGroups = [
+const sharedGroupsForIntersectionOrUnion = [
   /**
    * eg. 'foobar', 24, false
    */
@@ -82,6 +79,10 @@ export const defaultSortIntersectionTypesGroups = [
    */
   'nullish',
 ]
+const defaultSortInterfacesGroups = [...sharedGroupsForInterfaceOrObjectTypes]
+const defaultSortObjectTypesGroups = [...sharedGroupsForInterfaceOrObjectTypes]
+const defaultSortIntersectionTypesGroups = [...sharedGroupsForIntersectionOrUnion]
+const defaultSortUnionTypesGroups = [...sharedGroupsForIntersectionOrUnion]
 
 /**
  * Prefer `alphabetical` sort type
@@ -250,7 +251,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
             type: 'alphabetical',
             order: 'asc',
             partitionByComment: true,
-            groups: [...defaultSortIntersectionTypesGroups],
+            groups: defaultSortIntersectionTypesGroups,
           },
         ],
         'perfectionist/sort-modules': [
@@ -267,7 +268,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
             type: 'alphabetical',
             order: 'asc',
             partitionByComment: true,
-            groups: [],
+            groups: defaultSortObjectTypesGroups,
           },
         ],
         'perfectionist/sort-union-types': [
@@ -276,6 +277,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
             type: 'alphabetical',
             order: 'asc',
             partitionByComment: true,
+            groups: defaultSortUnionTypesGroups,
           },
         ],
 
