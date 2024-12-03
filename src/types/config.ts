@@ -29,6 +29,8 @@ export interface ConfigAntfuOptions extends OptionsOverrides {}
 
 export interface ConfigCommentsOptions extends OptionsOverrides {}
 
+export interface ConfigEsXOptions extends OptionsOverrides {}
+
 export interface ConfigGitHubActionOptions
   extends GitHubActionRecommendedOptions,
     OptionsOverrides {}
@@ -305,20 +307,13 @@ export interface OptionsOverrides<
   overrides?: Rules
 }
 
+/**
+ * Internal configs, not enabled
+ */
 interface ConfigOptionsInternal {
-  /**
-   * @internal
-   */
+  esX?: boolean | ConfigEsXOptions
   format?: boolean | ConfigFormatOptions
-
-  /**
-   * @internal
-   */
   ntnyq?: boolean | ConfigNtnyqOptions
-
-  /**
-   * @internal
-   */
   unusedImports?: boolean | ConfigUnusedImportsOptions
 }
 

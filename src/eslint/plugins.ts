@@ -5,6 +5,7 @@
 export * as pluginRegexp from 'eslint-plugin-regexp'
 export { default as pluginNode } from 'eslint-plugin-n'
 export { default as pluginVue } from 'eslint-plugin-vue'
+export { default as pluginEsX } from 'eslint-plugin-es-x'
 export { default as pluginYaml } from 'eslint-plugin-yml'
 export { default as pluginToml } from 'eslint-plugin-toml'
 export { default as pluginNtnyq } from 'eslint-plugin-ntnyq'
