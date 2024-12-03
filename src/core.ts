@@ -10,7 +10,7 @@ import {
   githubAction,
   gitignore,
   ignores,
-  imports,
+  importX,
   javascript,
   jsdoc,
   jsonc,
@@ -104,8 +104,8 @@ export function defineESLintConfig(
     ...command({
       ...resolveSubOptions(options, 'command'),
     }),
-    ...imports({
-      overrides: getOverrides(options, 'imports'),
+    ...importX({
+      overrides: getOverrides(options, 'importX'),
     }),
     ...jsdoc({
       typescript: !!enableTypeScript,

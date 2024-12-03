@@ -1,5 +1,5 @@
 import globals from 'globals'
-import { pluginImport, pluginPerfectionist } from '../eslint'
+import { pluginImportX, pluginPerfectionist } from '../eslint'
 import { GLOB_SRC, GLOB_SRC_EXT } from '../globs'
 import type { ConfigSpecialsOptions, TypedConfigItem } from '../types'
 
@@ -50,12 +50,12 @@ export const specials = (options: ConfigSpecialsOptions = {}): TypedConfigItem[]
     name: 'ntnyq/specials/config-file',
     files: [`**/*.config*.${GLOB_SRC_EXT}`],
     plugins: {
-      import: pluginImport,
+      'import-x': pluginImportX,
       perfectionist: pluginPerfectionist,
     },
     rules: {
       'no-console': 'off',
-      'import/no-default-export': 'off',
+      'import-x/no-default-export': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
 
       'perfectionist/sort-objects': [

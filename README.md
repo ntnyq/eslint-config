@@ -116,7 +116,7 @@ export interface ConfigOptions extends ConfigOptionsInternal {
 
   ignores?: ConfigIgnoresOptions
 
-  imports?: ConfigImportsOptions
+  importX?: ConfigImportsOptions
 
   command?: ConfigCommandOptions
 

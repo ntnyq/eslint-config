@@ -235,8 +235,8 @@ export const typescript = (options: ConfigTypeScriptOptions = {}): TypedConfigIt
       rules: {
         'no-use-before-define': 'off',
         'no-restricted-syntax': 'off',
-        'import/no-duplicates': 'off',
-        'import/newline-after-import': 'off',
+        'import-x/no-duplicates': 'off',
+        'import-x/newline-after-import': 'off',
         '@typescript-eslint/no-use-before-define': 'off',
       },
     },

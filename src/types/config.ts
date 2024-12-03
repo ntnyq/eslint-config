@@ -33,7 +33,7 @@ export interface ConfigGitHubActionOptions
   extends GitHubActionRecommendedOptions,
     OptionsOverrides {}
 
-export interface ConfigImportsOptions extends OptionsOverrides {}
+export interface ConfigImportXOptions extends OptionsOverrides {}
 
 export interface ConfigJsdocOptions extends OptionsFeatures, OptionsOverrides {}
 
@@ -315,7 +315,7 @@ export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions 
 
   ignores?: ConfigIgnoresOptions
 
-  imports?: ConfigImportsOptions
+  importX?: ConfigImportXOptions
 
   command?: ConfigCommandOptions
 

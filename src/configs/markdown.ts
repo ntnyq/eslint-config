@@ -55,7 +55,7 @@ export const markdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[]
         'node/prefer-global/buffer': 'off',
         'node/prefer-global/process': 'off',
 
-        'import/no-unresolved': 'off',
+        'import-x/no-unresolved': 'off',
 
         'unused-imports/no-unused-imports': 'off',
         'unused-imports/no-unused-vars': 'off',
