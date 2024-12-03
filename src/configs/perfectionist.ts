@@ -2,6 +2,87 @@ import { pluginPerfectionist } from '../eslint'
 import { GLOB_SRC, GLOB_SRC_EXT, GLOB_TYPES } from '../globs'
 import type { ConfigPerfectionistOptions, TypedConfigItem } from '../types'
 
+const sharedGroups = [
+  'required-property',
+  'optional-property',
+  'required-method',
+  'optional-method',
+  'required-multiline-property',
+  'optional-multiline-property',
+  'required-multiline-method',
+  'optional-multiline-method',
+  'unknown',
+  'index-signature',
+  'multiline-index-signature',
+]
+export const defaultSortInterfacesGroups = [...sharedGroups]
+export const defaultSortObjectTypesGroups = [...sharedGroups]
+
+/**
+ * Philosophy: keep simple thing first but null & undefined
+ */
+export const defaultSortIntersectionTypesGroups = [
+  /**
+   * eg. 'foobar', 24, false
+   */
+  'literal',
+
+  /**
+   * eg. number, string
+   */
+  'keyword',
+
+  /**
+   * eg. FooBar
+   */
+  'named',
+
+  /**
+   * eg. Foo & Bar
+   */
+  'intersection',
+
+  /**
+   * eg. Foobar extends string ? Foo : Bar
+   */
+  'conditional',
+
+  /**
+   * eg. (...args: any[]) => void
+   */
+  'function',
+
+  /**
+   * eg. import('eslint').Linter
+   */
+  'import',
+
+  /**
+   * eg. { foo: string; bar: number; }
+   */
+  'object',
+
+  /**
+   * eg. keyof T
+   */
+  'operator',
+
+  /**
+   * eg. [string, number]
+   */
+  'tuple',
+
+  /**
+   * eg. Foo | Bar
+   */
+  'union',
+
+  /**
+   * eg. null | undefined
+   */
+  'nullish',
+]
+
 /**
  * Prefer `alphabetical` sort type
  */
@@ -154,34 +235,22 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
             order: 'asc',
           },
         ],
-        // 'perfectionist/sort-interfaces': [
-        //   'error',
-        //   {
-        //     type: 'alphabetical',
-        //     order: 'asc',
-        //     partitionByComment: true,
-        //   },
-        // ],
+        'perfectionist/sort-interfaces': [
+          'error',
+          {
+            type: 'alphabetical',
+            order: 'asc',
+            partitionByComment: true,
+            groups: defaultSortInterfacesGroups,
+          },
+        ],
         'perfectionist/sort-intersection-types': [
           'error',
           {
             type: 'alphabetical',
             order: 'asc',
-            groups: [
-              'intersection',
-              'named',
-              'conditional',
-              'function',
-              'import',
-              'keyword',
-              'literal',
-              'object',
-              'operator',
-              'tuple',
-              'union',
-              'nullish',
-            ],
             partitionByComment: true,
+            groups: [...defaultSortIntersectionTypesGroups],
           },
         ],
         'perfectionist/sort-modules': [
@@ -198,6 +267,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
             type: 'alphabetical',
             order: 'asc',
             partitionByComment: true,
+            groups: [],
           },
         ],
         'perfectionist/sort-union-types': [

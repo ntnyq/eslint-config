@@ -305,61 +305,6 @@ export interface OptionsOverrides<
   overrides?: Rules
 }
 
-/**
- * Config factory options
- */
-export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions {
-  node?: ConfigNodeOptions
-
-  jsdoc?: ConfigJsdocOptions
-
-  ignores?: ConfigIgnoresOptions
-
-  importX?: ConfigImportXOptions
-
-  command?: ConfigCommandOptions
-
-  comments?: ConfigCommentsOptions
-
-  javascript?: ConfigJavaScriptOptions
-
-  specials?: ConfigSpecialsOptions
-
-  sort?: boolean | ConfigSortOptions
-
-  gitignore?: boolean | ConfigGitIgnoreOptions
-
-  stylistic?: boolean | ConfigStylisticOptions
-
-  typescript?: boolean | ConfigTypeScriptOptions
-
-  unicorn?: boolean | ConfigUnicornOptions
-
-  prettier?: boolean | ConfigPrettierOptions
-
-  perfectionist?: boolean | ConfigPerfectionistOptions
-
-  unocss?: boolean | ConfigUnoCSSOptions
-
-  regexp?: boolean | ConfigRegexpOptions
-
-  jsonc?: boolean | ConfigJsoncOptions
-
-  yml?: boolean | ConfigYmlOptions
-
-  markdown?: boolean | ConfigMarkdownOptions
-
-  toml?: boolean | ConfigTomlOptions
-
-  vue?: boolean | ConfigVueOptions
-
-  test?: boolean | ConfigTestOptions
-
-  antfu?: boolean | ConfigAntfuOptions
-
-  githubAction?: boolean | ConfigGitHubActionOptions
-}
-
 interface ConfigOptionsInternal {
   /**
    * @internal
@@ -375,4 +320,39 @@ interface ConfigOptionsInternal {
    * @internal
    */
   unusedImports?: boolean | ConfigUnusedImportsOptions
+}
+
+/**
+ * Config factory options
+ */
+export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions {
+  command?: ConfigCommandOptions
+  comments?: ConfigCommentsOptions
+  ignores?: ConfigIgnoresOptions
+  importX?: ConfigImportXOptions
+  javascript?: ConfigJavaScriptOptions
+  jsdoc?: ConfigJsdocOptions
+  node?: ConfigNodeOptions
+  specials?: ConfigSpecialsOptions
+
+  /**
+   * bellow can be disabled
+   */
+  antfu?: boolean | ConfigAntfuOptions
+  githubAction?: boolean | ConfigGitHubActionOptions
+  gitignore?: boolean | ConfigGitIgnoreOptions
+  jsonc?: boolean | ConfigJsoncOptions
+  markdown?: boolean | ConfigMarkdownOptions
+  perfectionist?: boolean | ConfigPerfectionistOptions
+  prettier?: boolean | ConfigPrettierOptions
+  regexp?: boolean | ConfigRegexpOptions
+  sort?: boolean | ConfigSortOptions
+  stylistic?: boolean | ConfigStylisticOptions
+  test?: boolean | ConfigTestOptions
+  toml?: boolean | ConfigTomlOptions
+  typescript?: boolean | ConfigTypeScriptOptions
+  unicorn?: boolean | ConfigUnicornOptions
+  unocss?: boolean | ConfigUnoCSSOptions
+  vue?: boolean | ConfigVueOptions
+  yml?: boolean | ConfigYmlOptions
 }
