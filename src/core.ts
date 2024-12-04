@@ -18,6 +18,7 @@ import {
   markdown,
   node,
   perfectionist,
+  pinia,
   prettier,
   regexp,
   sort,
@@ -34,6 +35,7 @@ import {
 } from './configs'
 import {
   getOverrides,
+  hasPinia,
   hasTypeScript,
   hasUnoCSS,
   hasVitest,
@@ -60,6 +62,7 @@ export function defineESLintConfig(
      * Conditional by deps
      */
     vue: enableVue = hasVue,
+    pinia: enablePinia = hasPinia,
     test: enableTest = hasVitest,
     unocss: enableUnoCSS = hasUnoCSS,
     typescript: enableTypeScript = hasTypeScript,
@@ -133,6 +136,15 @@ export function defineESLintConfig(
     configs.push(
       ...unicorn({
         overrides: getOverrides(options, 'unicorn'),
+      }),
+    )
+  }
+
+  if (enablePinia) {
+    configs.push(
+      ...pinia({
+        ...resolveSubOptions(options, 'pinia'),
+        overrides: getOverrides(options, 'pinia'),
       }),
     )
   }
@@ -269,7 +281,6 @@ export function defineESLintConfig(
 
     // Keep prettier and specials at last
     ...configSpecials,
-
     ...configPrettier,
   )
 

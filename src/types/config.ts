@@ -45,6 +45,8 @@ export interface ConfigNodeOptions extends OptionsOverrides {}
 
 export interface ConfigNtnyqOptions extends OptionsOverrides {}
 
+export interface ConfigPiniaOptions extends OptionsFiles, OptionsOverrides {}
+
 export interface ConfigStylisticOptions extends OptionsOverrides {}
 
 export interface ConfigTomlOptions extends OptionsOverrides {}
@@ -339,6 +341,7 @@ export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions 
   jsonc?: boolean | ConfigJsoncOptions
   markdown?: boolean | ConfigMarkdownOptions
   perfectionist?: boolean | ConfigPerfectionistOptions
+  pinia?: boolean | ConfigPiniaOptions
   prettier?: boolean | ConfigPrettierOptions
   regexp?: boolean | ConfigRegexpOptions
   sort?: boolean | ConfigSortOptions

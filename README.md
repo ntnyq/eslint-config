@@ -110,55 +110,36 @@ Check for detail in:
 
 ```ts
 export interface ConfigOptions extends ConfigOptionsInternal {
-  node?: ConfigNodeOptions
-
-  jsdoc?: ConfigJsdocOptions
-
-  ignores?: ConfigIgnoresOptions
-
-  importX?: ConfigImportsOptions
-
   command?: ConfigCommandOptions
-
   comments?: ConfigCommentsOptions
-
+  ignores?: ConfigIgnoresOptions
+  importX?: ConfigImportXOptions
   javascript?: ConfigJavaScriptOptions
-
+  jsdoc?: ConfigJsdocOptions
+  node?: ConfigNodeOptions
   specials?: ConfigSpecialsOptions
 
-  sort?: boolean | ConfigSortOptions
-
-  gitignore?: boolean | ConfigGitIgnoreOptions
-
-  stylistic?: boolean | ConfigStylisticOptions
-
-  typescript?: boolean | ConfigTypeScriptOptions
-
-  unicorn?: boolean | ConfigUnicornOptions
-
-  prettier?: boolean | ConfigPrettierOptions
-
-  perfectionist?: boolean | ConfigPerfectionistOptions
-
-  unocss?: boolean | ConfigUnoCSSOptions
-
-  regexp?: boolean | ConfigRegexpOptions
-
-  jsonc?: boolean | ConfigJsoncOptions
-
-  yml?: boolean | ConfigYmlOptions
-
-  markdown?: boolean | ConfigMarkdownOptions
-
-  toml?: boolean | ConfigTomlOptions
-
-  vue?: boolean | ConfigVueOptions
-
-  test?: boolean | ConfigTestOptions
-
+  /**
+   * bellow can be disabled
+   */
   antfu?: boolean | ConfigAntfuOptions
-
   githubAction?: boolean | ConfigGitHubActionOptions
+  gitignore?: boolean | ConfigGitIgnoreOptions
+  jsonc?: boolean | ConfigJsoncOptions
+  markdown?: boolean | ConfigMarkdownOptions
+  perfectionist?: boolean | ConfigPerfectionistOptions
+  pinia?: boolean | ConfigPiniaOptions
+  prettier?: boolean | ConfigPrettierOptions
+  regexp?: boolean | ConfigRegexpOptions
+  sort?: boolean | ConfigSortOptions
+  stylistic?: boolean | ConfigStylisticOptions
+  test?: boolean | ConfigTestOptions
+  toml?: boolean | ConfigTomlOptions
+  typescript?: boolean | ConfigTypeScriptOptions
+  unicorn?: boolean | ConfigUnicornOptions
+  unocss?: boolean | ConfigUnoCSSOptions
+  vue?: boolean | ConfigVueOptions
+  yml?: boolean | ConfigYmlOptions
 }
 ```
 

@@ -15,6 +15,8 @@ export const hasVue =
     paths: [resolve(process.cwd(), 'playground')],
   })
 
+export const hasPinia = isPackageExists('pinia')
+
 export const hasUnoCSS =
   isPackageExists('unocss') ||
   isPackageExists('@unocss/postcss') ||
