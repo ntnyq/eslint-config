@@ -46,6 +46,9 @@ importers:
       eslint-plugin-command:
         specifier: ^0.2.6
         version: 0.2.6(eslint@9.16.0(jiti@2.4.1))
+      eslint-plugin-es-x:
+        specifier: ^8.4.1
+        version: 8.4.1(eslint@9.16.0(jiti@2.4.1))
       eslint-plugin-format:
         specifier: ^0.1.3
         version: 0.1.3(eslint@9.16.0(jiti@2.4.1))
@@ -134,9 +137,6 @@ importers:
       eslint:
         specifier: ^9.16.0
         version: 9.16.0(jiti@2.4.1)
-      eslint-plugin-es-x:
-        specifier: ^8.4.1
-        version: 8.4.1(eslint@9.16.0(jiti@2.4.1))
       eslint-typegen:
         specifier: ^0.3.2
         version: 0.3.2(eslint@9.16.0(jiti@2.4.1))
