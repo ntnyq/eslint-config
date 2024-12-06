@@ -7,7 +7,7 @@ import type { ESLintPluginCommandOptions } from 'eslint-plugin-command/types'
 import type { RecommendedOptions as GitHubActionRecommendedOptions } from 'eslint-plugin-github-action'
 import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
 import type { PrettierOptions } from '../types'
-import type { TSESLintParserOptions, TypedConfigItem } from './eslint'
+import type { ESLintRuleSeverity, TSESLintParserOptions, TypedConfigItem } from './eslint'
 
 export type ConfigIgnoresOptions = string[]
 
@@ -165,11 +165,18 @@ export interface ConfigPerfectionistOptions extends OptionsOverrides {
 
 export interface ConfigPrettierOptions extends OptionsOverrides {
   /**
-   * Prettier level
+   * TODO: remove in next major version
    *
-   * @default 'warn'
+   * @deprecated use `severity` instead
    */
-  level?: 'error' | 'warn'
+  level?: ESLintRuleSeverity
+
+  /**
+   * rule severity
+   *
+   * @default `warn`
+   */
+  severity?: ESLintRuleSeverity
 
   /**
    * Glob of built-in disabled files
@@ -178,6 +185,7 @@ export interface ConfigPrettierOptions extends OptionsOverrides {
 
   /**
    * Glob of user custom disabled files
+   *
    * @default []
    */
   userDisabledFiles?: string[]
@@ -185,11 +193,18 @@ export interface ConfigPrettierOptions extends OptionsOverrides {
 
 export interface ConfigRegexpOptions extends OptionsOverrides {
   /**
-   * Prettier level
+   * TODO: remove in next major version
+   *
+   * @deprecated use `severity` instead
+   */
+  level?: ESLintRuleSeverity
+
+  /**
+   * rule severity
    *
    * @default 'error'
    */
-  level?: 'error' | 'warn'
+  severity?: ESLintRuleSeverity
 }
 
 export interface ConfigSortOptions {
@@ -291,6 +306,7 @@ export interface ConfigVueOptions extends OptionsFeatures, OptionsFiles, Options
    * Create virtual files for Vue SFC blocks to enable linting.
    *
    * @see https://github.com/antfu/eslint-processor-vue-blocks
+   *
    * @default true
    */
   sfcBlocks?: boolean | VueBlocksOptions

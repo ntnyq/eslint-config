@@ -24,6 +24,13 @@ export type ESLintProcessor = Linter.Processor
 export type ESLintParserOptions = Linter.ParserOptions
 
 /**
+ * ESLint rule severity
+ *
+ * for config options use, don't need `off`
+ */
+export type ESLintRuleSeverity = 'error' | 'warn'
+
+/**
  * TypeScript ESLint parserOptions
  */
 export type TSESLintParserOptions = Pretty<
@@ -33,6 +40,7 @@ export type TSESLintParserOptions = Pretty<
 /**
  * Typed flat config item
  */
+
 export type TypedConfigItem = Omit<Linter.Config<Linter.RulesRecord & RuleOptions>, 'plugins'> & {
   /**
    * Most plugin are not properly typed
