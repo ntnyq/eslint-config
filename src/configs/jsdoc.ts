@@ -53,6 +53,12 @@ export const jsdoc = (options: ConfigJsdocOptions = {}): TypedConfigItem[] => [
             // magic-comments
             'vite-ignore',
             'unocss-include',
+
+            // non-standard, but common used
+            'compatibility',
+            'category',
+            'experimental',
+            'internal',
           ],
         },
       ],
