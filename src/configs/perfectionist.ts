@@ -309,6 +309,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
             type: 'alphabetical',
             order: 'asc',
             partitionByComment: true,
+            groups: ['unknown', 'method', 'multiline'],
           },
         ],
         'perfectionist/sort-sets': [
