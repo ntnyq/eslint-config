@@ -1,16 +1,12 @@
 diff --git a/dist/index.mjs b/dist/index.mjs
-index 1e282508c188670d53cac5a2788d8bfe58068c62..41289c27accb334947f34a9b5049073f9cfe5d8c 100644
+index 85b4c0a516291a217183391316901c6c48dcd09a..52972c88958f5018fdfcac5d0e64c725a0b9fbdc 100644
 --- a/dist/index.mjs
 +++ b/dist/index.mjs
-@@ -2168,10 +2168,22 @@ const validTitle = createEslintRule({
-           disallowedWords: {
-             type: "array",
-             items: { type: "string" }
--          }
--        },
--        patternProperties: {
+@@ -2196,7 +2196,21 @@ const validTitle = createEslintRule({
+           }
+         },
+         patternProperties: {
 -          [/^must(?:Not)?Match$/u.source]: {
-+          },
 +          mustMatch: {
 +            oneOf: [
 +              { type: "string" },
