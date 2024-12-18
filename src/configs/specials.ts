@@ -63,6 +63,8 @@ export const specials = (options: ConfigSpecialsOptions = {}): TypedConfigItem[]
         {
           type: 'alphabetical',
           order: 'asc',
+          partitionByComment: true,
+          groups: ['unknown', 'method', 'multiline'],
         },
       ],
 
