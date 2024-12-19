@@ -1,6 +1,8 @@
 import { pluginImportX } from '../eslint'
 import type { ConfigImportXOptions, TypedConfigItem } from '../types'
 
+const { createNodeResolver } = pluginImportX
+
 export const importX = (options: ConfigImportXOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/import-x',
@@ -8,9 +10,11 @@ export const importX = (options: ConfigImportXOptions = {}): TypedConfigItem[] =
       'import-x': pluginImportX,
     },
     settings: {
-      'import-x/resolver': {
-        node: { extensions: ['.js', '.mjs', '.ts', '.mts', '.d.ts'] },
-      },
+      'import-x/resolver-next': [
+        createNodeResolver({
+          extensions: ['.js', '.mjs', '.ts', '.mts', '.d.ts', '.json'],
+        }),
+      ],
     },
     rules: {
       'import-x/no-unresolved': 'off',
