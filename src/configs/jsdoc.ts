@@ -54,6 +54,9 @@ export const jsdoc = (options: ConfigJsdocOptions = {}): TypedConfigItem[] => [
             'vite-ignore',
             'unocss-include',
 
+            // eslint-plugin-command (block comment only)
+            'regex101',
+
             // non-standard, but common used
             'compatibility',
             'category',
