@@ -3,6 +3,7 @@
  */
 
 export * as pluginRegexp from 'eslint-plugin-regexp'
+export * as pluginDepend from 'eslint-plugin-depend'
 export { default as pluginNode } from 'eslint-plugin-n'
 export { default as pluginVue } from 'eslint-plugin-vue'
 export { default as pluginEsX } from 'eslint-plugin-es-x'

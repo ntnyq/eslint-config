@@ -109,7 +109,7 @@ Check for detail in:
 ### Config interface
 
 ```ts
-export interface ConfigOptions extends ConfigOptionsInternal {
+export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions {
   command?: ConfigCommandOptions
   comments?: ConfigCommentsOptions
   ignores?: ConfigIgnoresOptions
@@ -123,6 +123,7 @@ export interface ConfigOptions extends ConfigOptionsInternal {
    * bellow can be disabled
    */
   antfu?: boolean | ConfigAntfuOptions
+  depend?: boolean | ConfigDependOptions
   githubAction?: boolean | ConfigGitHubActionOptions
   gitignore?: boolean | ConfigGitIgnoreOptions
   jsonc?: boolean | ConfigJsoncOptions

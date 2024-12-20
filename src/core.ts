@@ -7,6 +7,7 @@ import {
   antfu,
   command,
   comments,
+  depend,
   githubAction,
   gitignore,
   ignores,
@@ -75,6 +76,7 @@ export function defineESLintConfig(
     toml: enableTOML = true,
     jsonc: enableJSONC = true,
     antfu: enableAntfu = true,
+    depend: enableDepend = true,
     regexp: enableRegexp = true,
     unicorn: enableUnicorn = true,
     prettier: enablePrettier = true,
@@ -250,6 +252,15 @@ export function defineESLintConfig(
     configs.push(
       ...stylistic({
         overrides: getOverrides(options, 'stylistic'),
+      }),
+    )
+  }
+
+  if (enableDepend) {
+    configs.push(
+      ...depend({
+        ...resolveSubOptions(options, 'depend'),
+        overrides: getOverrides(options, 'depend'),
       }),
     )
   }
