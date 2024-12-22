@@ -5,9 +5,15 @@
 import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
 import type { ESLintPluginCommandOptions } from 'eslint-plugin-command/types'
 import type { RecommendedOptions as GitHubActionRecommendedOptions } from 'eslint-plugin-github-action'
+import type { Rules as SVGORules } from 'eslint-plugin-svgo/rule-options'
 import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
 import type { PrettierOptions } from '../types'
-import type { ESLintRuleSeverity, TSESLintParserOptions, TypedConfigItem } from './eslint'
+import type {
+  ESLintConfig,
+  ESLintRuleSeverity,
+  TSESLintParserOptions,
+  TypedConfigItem,
+} from './eslint'
 
 export interface ConfigAntfuOptions extends OptionsOverrides {}
 
@@ -230,6 +236,8 @@ export interface ConfigSpecialsOptions {
 
 export interface ConfigStylisticOptions extends OptionsOverrides {}
 
+export type ConfigSVGOOptions = ESLintConfig<SVGORules>
+
 export interface ConfigTestOptions extends OptionsOverrides {
   /**
    * Overrides built-in vitest rules
@@ -372,6 +380,7 @@ export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions 
   regexp?: boolean | ConfigRegexpOptions
   sort?: boolean | ConfigSortOptions
   stylistic?: boolean | ConfigStylisticOptions
+  svgo?: boolean | ConfigSVGOOptions
   test?: boolean | ConfigTestOptions
   toml?: boolean | ConfigTomlOptions
   typescript?: boolean | ConfigTypeScriptOptions

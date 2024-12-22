@@ -141,6 +141,11 @@ export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions 
   unocss?: boolean | ConfigUnoCSSOptions
   vue?: boolean | ConfigVueOptions
   yml?: boolean | ConfigYmlOptions
+
+  /**
+   * bellow need enable explicitly
+   */
+  svgo?: boolean | ConfigSVGOOptions
 }
 ```
 

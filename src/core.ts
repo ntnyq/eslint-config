@@ -25,6 +25,7 @@ import {
   sort,
   specials,
   stylistic,
+  svgo,
   test,
   toml,
   typescript,
@@ -85,6 +86,9 @@ export function defineESLintConfig(
     gitignore: enableGitIgnore = true,
     githubAction: enableGitHubAction = true,
     perfectionist: enablePerfectionist = true,
+
+    // disabled by default
+    svgo: enableSVGO = false,
   } = options
   const configs: TypedConfigItem[] = []
 
@@ -269,6 +273,14 @@ export function defineESLintConfig(
     configs.push(
       ...githubAction({
         overrides: getOverrides(options, 'githubAction'),
+      }),
+    )
+  }
+
+  if (enableSVGO) {
+    configs.push(
+      ...svgo({
+        ...resolveSubOptions(options, 'svgo'),
       }),
     )
   }

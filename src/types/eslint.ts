@@ -4,9 +4,14 @@ import type { RuleOptions } from './typegen'
 import type { Pretty } from './utils'
 
 /**
+ * ESLint rules
+ */
+export type ESLintRulesRecord = Linter.RulesRecord
+
+/**
  * ESLint config
  */
-export type ESLintConfig = Linter.Config
+export type ESLintConfig<Rules extends ESLintRulesRecord = ESLintRulesRecord> = Linter.Config<Rules>
 
 /**
  * ESLint parser
@@ -41,7 +46,7 @@ export type TSESLintParserOptions = Pretty<
  * Typed flat config item
  */
 
-export type TypedConfigItem = Omit<Linter.Config<Linter.RulesRecord & RuleOptions>, 'plugins'> & {
+export type TypedConfigItem = Omit<Linter.Config<ESLintRulesRecord & RuleOptions>, 'plugins'> & {
   /**
    * Most plugin are not properly typed
    */
