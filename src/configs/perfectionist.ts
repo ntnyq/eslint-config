@@ -155,6 +155,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
             ignoreCase: true,
             internalPattern: ['^~/.+', '^@/.+', '^#.+'],
             newlinesBetween: 'ignore',
+            partitionByComment: true,
           },
         ],
         'perfectionist/sort-exports': [
@@ -162,6 +163,8 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
           {
             order: 'asc',
             type: 'line-length',
+            groupKind: 'values-first',
+            partitionByComment: true,
           },
         ],
         'perfectionist/sort-named-exports': [
@@ -171,6 +174,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
             order: 'asc',
             ignoreCase: true,
             groupKind: 'values-first',
+            partitionByComment: true,
           },
         ],
         'perfectionist/sort-named-imports': [
@@ -181,6 +185,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
             ignoreCase: true,
             ignoreAlias: false,
             groupKind: 'values-first',
+            partitionByComment: true,
           },
         ],
 
