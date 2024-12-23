@@ -80,7 +80,14 @@ export type ConfigGitIgnoreOptions = Omit<FlatGitignoreOptions, 'strict'> & {
 
 export type ConfigIgnoresOptions = string[]
 
-export interface ConfigImportXOptions extends OptionsOverrides {}
+export interface ConfigImportXOptions extends OptionsFeatures, OptionsOverrides {
+  /**
+   * Use typescriptResolver if `typescript` is installed
+   *
+   * @default true
+   */
+  preferTypeScriptResolver?: boolean
+}
 
 export interface ConfigJavaScriptOptions extends OptionsOverrides {
   /**

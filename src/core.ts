@@ -114,6 +114,8 @@ export function defineESLintConfig(
       ...resolveSubOptions(options, 'command'),
     }),
     ...importX({
+      ...resolveSubOptions(options, 'importX'),
+      typescript: !!enableTypeScript,
       overrides: getOverrides(options, 'importX'),
     }),
     ...jsdoc({
