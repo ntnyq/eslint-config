@@ -9,6 +9,7 @@
   },
   "eslint.validate": [
     "vue",
+    "xml",
     "html",
     "yaml",
     "toml",
