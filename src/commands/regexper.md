@@ -1,6 +1,6 @@
 # `regexper`
 
-Generate up-to-date [regexper](https://regexper.com/) links for your RegExp patterns in jsdoc comments. Helps you test and inspect the RegExp easily.
+Generate up-to-date [regexper](https://regexper.com/) links for your RegExp patterns in jsdoc comments. Helps you inspect the RegExp in graphic.
 
 ## Triggers
 
@@ -24,7 +24,7 @@ Will be updated to:
 /**
  * RegExp to match foo or bar, optionally wrapped in quotes.
  *
- * @regexper https://regexper.com/#(%5B'%22%5D)%3F(foo%7Cbar)%5C%5C1%3F
+ * @regexper https://regexper.com/#%2F%28%5B'%22%5D%29%3F%28foo%7Cbar%29%5C%5C1%3F%2Fgi
  */
 const foo = /(['"])?(foo|bar)\\1?/gi
 ```
