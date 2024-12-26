@@ -9,11 +9,12 @@
 
 ## Features
 
-- Opinionable: single quotes, no semi, trailing comma, etc.
+- Opinionable: single quotes, no semi, trailing comma, etc
 - Designed to work alongside with [Prettier](https://prettier.io)
 - Respect `.gitignore` via [eslint-config-flat-gitignore](https://github.com/antfu/eslint-config-flat-gitignore)
-- Out-of-box support for TypeScript, Vue, JSON, Markdown, YAML, TOML etc.
+- Out-of-box support for TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG and etc
 - Strict but provides useful rules to guard your codebase
+- Custom ESLint commands for [eslint-plugin-command](https://github.com/antfu/eslint-plugin-command)
 - [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files) for ESLint v9.5.0+
 
 ## Install
@@ -27,21 +28,55 @@ pnpm add eslint prettier typescript @ntnyq/eslint-config @ntnyq/prettier-config 
 Highly recommended using **`eslint.config.mjs`** as the config file :
 
 ```js
+// @ts-check
+
 import { defineESLintConfig } from '@ntnyq/eslint-config'
 
 export default defineESLintConfig()
 ```
 
-Add scripts `lint` in `package.json` and config prettier:
+Add scripts `lint` in `package.json`:
 
 ```json
 {
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
-  },
-  "prettier": "@ntnyq/prettier-config"
+  }
 }
+```
+
+<details>
+<summary>💼 Intergrated with Prettier, VSCode, husky and nano-staged</summary>
+
+<br>
+
+## Prettier config
+
+```js
+// @ts-check
+
+import { config, defineConfig } from '@ntnyq/prettier-config'
+
+export default defineConfig({
+  ...config,
+
+  // overrides if needed
+  overrides: [
+    {
+      files: ['**/*.html'],
+      options: {
+        singleAttributePerLine: false,
+      },
+    },
+    {
+      files: ['**/*.{css,scss,less}'],
+      options: {
+        singleQuote: false,
+      },
+    },
+  ],
+})
 ```
 
 ## VSCode Config
@@ -98,6 +133,8 @@ pnpm add husky nano-staged -D
 ```bash
 echo "nano-staged" > .husky/pre-commit
 ```
+
+</details>
 
 ## Advanced config
 
