@@ -4,13 +4,29 @@ import type { ConfigMarkdownOptions, TypedConfigItem } from '../types'
 
 export const markdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[] => {
   if (!Array.isArray(pluginMarkdown.configs?.processor)) return []
-  const { files = [`${GLOB_MARKDOWN}/${GLOB_SRC}`], extensions = [] } = options
+  const {
+    /**
+     * code block files
+     */
+    files = [`${GLOB_MARKDOWN}/${GLOB_SRC}`],
+    /**
+     * other extensions
+     */
+    extensions = [],
+  } = options
 
   return [
+    /**
+     * extracting code blocks to be linted individually
+     */
     ...pluginMarkdown.configs.processor.map(config => ({
       ...config,
       name: `ntnyq/${config.name}`,
     })),
+
+    /**
+     * enhance `markdown/recommended/processor`
+     */
     {
       name: 'ntnyq/markdown/processor',
       files,

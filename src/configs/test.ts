@@ -1,6 +1,6 @@
 import { pluginVitest } from '../eslint'
 import { GLOB_TEST } from '../globs'
-import type { ConfigTestOptions, TypedConfigItem } from '../types'
+import type { ConfigTestOptions, ESLintConfig, TypedConfigItem } from '../types'
 
 export const test = (options: ConfigTestOptions = {}): TypedConfigItem[] => [
   {
@@ -16,18 +16,24 @@ export const test = (options: ConfigTestOptions = {}): TypedConfigItem[] => [
   },
 ]
 
-export const vitest = (options: ConfigTestOptions = {}): TypedConfigItem[] => [
-  {
-    name: 'ntnyq/vitest',
-    plugins: {
-      vitest: pluginVitest,
-    },
-    files: [...GLOB_TEST],
-    rules: {
-      ...pluginVitest.configs.recommended.rules,
+export const vitest = (options: ConfigTestOptions = {}): TypedConfigItem[] => {
+  if (!pluginVitest.configs?.recommended) return []
 
-      // Overrides rules
-      ...options.overridesVitestRules,
+  const vitestConfigs = pluginVitest.configs as { recommended: ESLintConfig }
+
+  return [
+    {
+      name: 'ntnyq/vitest',
+      plugins: {
+        vitest: pluginVitest,
+      },
+      files: [...GLOB_TEST],
+      rules: {
+        ...vitestConfigs.recommended.rules,
+
+        // Overrides rules
+        ...options.overridesVitestRules,
+      },
     },
-  },
-]
+  ]
+}
