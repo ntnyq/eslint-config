@@ -129,9 +129,11 @@ export const typescript = (options: ConfigTypeScriptOptions = {}): TypedConfigIt
 
         // Disabled in favor of ts rules
         'no-redeclare': 'off',
-        'no-use-before-define': 'off',
         'no-unused-vars': 'off',
+        'no-use-before-define': 'off',
+        'no-useless-constructor': 'off',
 
+        '@typescript-eslint/no-useless-constructor': 'error',
         '@typescript-eslint/no-redeclare': [
           'error',
           {
