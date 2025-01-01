@@ -127,12 +127,27 @@ export const typescript = (options: ConfigTypeScriptOptions = {}): TypedConfigIt
       rules: {
         ...recommendedRules,
 
-        // Disabled in favor of ts rules
+        '@typescript-eslint/no-namespace': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/naming-convention': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/triple-slash-reference': 'off',
+        '@typescript-eslint/explicit-member-accessibility': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/consistent-indexed-object-style': 'off',
+
+        '@typescript-eslint/prefer-as-const': 'warn',
+
+        // Disabled in favor of enhanced ts rules
         'no-redeclare': 'off',
         'no-unused-vars': 'off',
+        'default-param-last': 'off',
         'no-use-before-define': 'off',
         'no-useless-constructor': 'off',
 
+        '@typescript-eslint/default-param-last': 'error',
         '@typescript-eslint/no-useless-constructor': 'error',
         '@typescript-eslint/no-redeclare': [
           'error',
@@ -166,6 +181,20 @@ export const typescript = (options: ConfigTypeScriptOptions = {}): TypedConfigIt
             ignoreRestSiblings: true,
           },
         ],
+
+        // Extra rules
+        '@typescript-eslint/ban-tslint-comment': 'error',
+        '@typescript-eslint/consistent-generic-constructors': ['error', 'constructor'],
+        '@typescript-eslint/ban-ts-comment': [
+          'error',
+          {
+            minimumDescriptionLength: 1,
+            'ts-check': false,
+            'ts-expect-error': 'allow-with-description',
+            'ts-ignore': 'allow-with-description',
+            'ts-nocheck': 'allow-with-description',
+          },
+        ],
         '@typescript-eslint/no-unused-expressions': [
           'error',
           {
@@ -196,19 +225,6 @@ export const typescript = (options: ConfigTypeScriptOptions = {}): TypedConfigIt
             objectLiteralTypeAssertions: 'allow-as-parameter',
           },
         ],
-        '@typescript-eslint/prefer-as-const': 'warn',
-
-        '@typescript-eslint/no-namespace': 'off',
-        '@typescript-eslint/ban-ts-comment': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
-        '@typescript-eslint/no-empty-function': 'off',
-        '@typescript-eslint/naming-convention': 'off',
-        '@typescript-eslint/no-non-null-assertion': 'off',
-        '@typescript-eslint/triple-slash-reference': 'off',
-        '@typescript-eslint/explicit-member-accessibility': 'off',
-        '@typescript-eslint/explicit-function-return-type': 'off',
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
-        '@typescript-eslint/consistent-indexed-object-style': 'off',
 
         // Overrides rules
         ...options.overrides,
