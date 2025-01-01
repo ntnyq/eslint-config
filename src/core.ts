@@ -83,13 +83,13 @@ export function defineESLintConfig(
     unicorn: enableUnicorn = true,
     prettier: enablePrettier = true,
     markdown: enableMarkdown = true,
-    stylistic: enableStylistic = true,
     gitignore: enableGitIgnore = true,
     githubAction: enableGitHubAction = true,
     perfectionist: enablePerfectionist = true,
 
     // disabled by default
     svgo: enableSVGO = false,
+    stylistic: enableStylistic = false,
     eslintPlugin: enableESLintPlugin = false,
   } = options
   const configs: Awaitable<TypedConfigItem | TypedConfigItem[]>[] = []
@@ -256,14 +256,6 @@ export function defineESLintConfig(
     )
   }
 
-  if (enableStylistic) {
-    configs.push(
-      ...stylistic({
-        overrides: getOverrides(options, 'stylistic'),
-      }),
-    )
-  }
-
   if (enableDepend) {
     configs.push(
       ...depend({
@@ -285,6 +277,13 @@ export function defineESLintConfig(
     configs.push(
       eslintPlugin({
         overrides: getOverrides(options, 'eslintPlugin'),
+      }),
+    )
+  }
+  if (enableStylistic) {
+    configs.push(
+      stylistic({
+        overrides: getOverrides(options, 'stylistic'),
       }),
     )
   }

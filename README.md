@@ -190,6 +190,20 @@ export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions 
    * require `eslint-plugin-eslint-plugin` installed mannally
    */
   eslintPlugin?: boolean | ConfigESLintPluginOptions
+
+  /**
+   * disabled by default
+   *
+   * require `eslint-plugin-es-x` installed mannally
+   */
+  esX?: boolean | ConfigEsXOptions
+
+  /**
+   * disabled by default
+   *
+   * require `@stylistic/eslint-plugin` installed mannally
+   */
+  esX?: boolean | ConfigStylisticOptions
 }
 ```
 
