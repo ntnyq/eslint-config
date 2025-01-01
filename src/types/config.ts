@@ -239,6 +239,16 @@ export interface ConfigSpecialsOptions {
    * More special case configs
    */
   specialCaseConfigs?: TypedConfigItem[]
+
+  /**
+   * ShadcnVue config
+   */
+  shadcnVue?:
+    | boolean
+    | {
+        files?: TypedConfigItem['files']
+        overridesRules?: TypedConfigItem['rules']
+      }
 }
 
 export interface ConfigStylisticOptions extends OptionsOverrides {}

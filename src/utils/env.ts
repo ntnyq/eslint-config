@@ -6,6 +6,8 @@ export const hasTypeScript = isPackageExists('typescript')
 
 export const hasVitest = isPackageExists('vitest')
 
+export const hasShadcnVue = isPackageExists('radix-vue') && isPackageExists('clsx')
+
 export const hasVue =
   isPackageExists('vue') ||
   isPackageExists('nuxt') ||

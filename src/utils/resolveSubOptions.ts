@@ -1,10 +1,8 @@
-import type { ConfigOptions, ResolvedOptions } from '../types'
+import type { ResolvedOptions } from '../types'
 
-export function resolveSubOptions<K extends keyof ConfigOptions>(
-  options: ConfigOptions,
+export function resolveSubOptions<T extends Record<string, any>, K extends keyof T>(
+  options: T,
   key: K,
-): ResolvedOptions<ConfigOptions[K]> {
-  // TODO: fix unsafe-any
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-  return typeof options[key] === 'boolean' ? ({} as any) : options[key] || {}
+): Partial<ResolvedOptions<T[K]>> {
+  return typeof options[key] === 'boolean' ? {} : options[key] || {}
 }
