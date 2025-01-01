@@ -30,6 +30,8 @@ export interface ConfigDependOptions extends OptionsFiles, OptionsOverrides {
   packageJson?: boolean
 }
 
+export interface ConfigESLintPluginOptions extends OptionsOverrides {}
+
 export interface ConfigEsXOptions extends OptionsOverrides {}
 
 export interface ConfigFormatOptions {
@@ -387,6 +389,7 @@ export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions 
    */
   antfu?: boolean | ConfigAntfuOptions
   depend?: boolean | ConfigDependOptions
+  eslintPlugin?: boolean | ConfigESLintPluginOptions
   githubAction?: boolean | ConfigGitHubActionOptions
   gitignore?: boolean | ConfigGitIgnoreOptions
   jsonc?: boolean | ConfigJsoncOptions

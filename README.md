@@ -180,9 +180,16 @@ export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions 
   yml?: boolean | ConfigYmlOptions
 
   /**
-   * bellow need enable explicitly
+   * disabled by default
    */
   svgo?: boolean | ConfigSVGOOptions
+
+  /**
+   * disabled by default
+   *
+   * require `eslint-plugin-eslint-plugin` installed mannally
+   */
+  eslintPlugin?: boolean | ConfigESLintPluginOptions
 }
 ```
 

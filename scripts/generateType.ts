@@ -6,6 +6,7 @@ import {
   command,
   comments,
   depend,
+  eslintPlugin,
   esX,
   format,
   githubAction,
@@ -36,11 +37,12 @@ import {
   vue,
   yml,
 } from '../src/configs'
+import { combineConfigs } from '../src/utils'
 
 /**
  * Sorted alphabetically
  */
-const configs = [
+const configs = await combineConfigs(
   {
     plugins: {
       '': {
@@ -48,42 +50,43 @@ const configs = [
       },
     },
   },
-  ...antfu(),
-  ...command(),
-  ...comments(),
-  ...depend(),
-  ...esX(),
-  ...format(),
-  ...githubAction(),
-  ...gitignore(),
-  ...ignores(),
-  ...importX(),
-  ...javascript(),
-  ...jsdoc(),
-  ...jsonc(),
-  ...jsx(),
-  ...markdown(),
-  ...node(),
-  ...ntnyq(),
-  ...pinia(),
-  ...prettier(),
-  ...perfectionist(),
-  ...regexp(),
-  ...sort(),
-  ...specials(),
-  ...stylistic(),
-  ...svgo(),
-  ...toml(),
-  ...typescript(),
-  ...unusedImports(),
-  ...unicorn(),
-  ...unocss(),
-  ...vitest(),
-  ...vue(),
-  ...yml(),
-]
+  antfu(),
+  command(),
+  comments(),
+  depend(),
+  eslintPlugin(),
+  esX(),
+  format(),
+  githubAction(),
+  gitignore(),
+  ignores(),
+  importX(),
+  javascript(),
+  jsdoc(),
+  jsonc(),
+  jsx(),
+  markdown(),
+  node(),
+  ntnyq(),
+  pinia(),
+  prettier(),
+  perfectionist(),
+  regexp(),
+  sort(),
+  specials(),
+  stylistic(),
+  svgo(),
+  toml(),
+  typescript(),
+  unusedImports(),
+  unicorn(),
+  unocss(),
+  vitest(),
+  vue(),
+  yml(),
+)
 
-const configNames = configs.map(i => i.name).filter(Boolean)
+const configNames = configs.map(i => i.name).filter(Boolean) as string[]
 
 let dts = await flatConfigsToRulesDTS(configs, {
   includeAugmentation: false,

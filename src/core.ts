@@ -8,6 +8,7 @@ import {
   command,
   comments,
   depend,
+  eslintPlugin,
   githubAction,
   gitignore,
   ignores,
@@ -89,8 +90,9 @@ export function defineESLintConfig(
 
     // disabled by default
     svgo: enableSVGO = false,
+    eslintPlugin: enableESLintPlugin = false,
   } = options
-  const configs: TypedConfigItem[] = []
+  const configs: Awaitable<TypedConfigItem | TypedConfigItem[]>[] = []
 
   if (enableVue) {
     supportedExtensions.push('vue')
@@ -275,6 +277,14 @@ export function defineESLintConfig(
     configs.push(
       ...githubAction({
         overrides: getOverrides(options, 'githubAction'),
+      }),
+    )
+  }
+
+  if (enableESLintPlugin) {
+    configs.push(
+      eslintPlugin({
+        overrides: getOverrides(options, 'eslintPlugin'),
       }),
     )
   }
