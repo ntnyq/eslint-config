@@ -5,27 +5,20 @@ Generate up-to-date [regexper](https://regexper.com/) links for your RegExp patt
 ## Triggers
 
 - `// @regexper`
-- `/* @regexper */`
 
 ## Examples
 
+<!-- eslint-skip -->
+
 ```js
-/**
- * RegExp to match foo or bar, optionally wrapped in quotes.
- *
- * @regexper
- */
+// @regexper
 const foo = /(['"])?(foo|bar)\\1?/gi
 ```
 
 Will be updated to:
 
 ```js
-/**
- * RegExp to match foo or bar, optionally wrapped in quotes.
- *
- * @regexper https://regexper.com/#%2F%28%5B'%22%5D%29%3F%28foo%7Cbar%29%5C%5C1%3F%2Fgi
- */
+// @regexper https://regexper.com/#%2F(%5B'%22%5D)%3F(foo%7Cbar)%5C%5C1%3F%2Fgi
 const foo = /(['"])?(foo|bar)\\1?/gi
 ```
 

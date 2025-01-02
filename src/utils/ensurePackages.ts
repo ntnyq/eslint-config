@@ -5,7 +5,7 @@
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import { isPackageExists } from 'local-pkg'
-import { isInGitHooksOrRunByNanoStaged } from './isInGitHooksOrRunByNanoStaged'
+import { isInGitHooksOrRunByNanoStagedOrRunByTSX } from './isInGitHooksOrRunByNanoStagedOrRunByTSX'
 
 const scopeUrl = fileURLToPath(new URL('.', import.meta.url))
 const isCwdInScope = isPackageExists('@ntnyq/eslint-config')
@@ -17,7 +17,12 @@ function isPackageInScope(name: string): boolean {
 }
 
 export async function ensurePackages(packages: (string | undefined)[]) {
-  if (process.env.CI || !process.stdout.isTTY || isInGitHooksOrRunByNanoStaged() || !isCwdInScope) {
+  if (
+    process.env.CI ||
+    !process.stdout.isTTY ||
+    isInGitHooksOrRunByNanoStagedOrRunByTSX() ||
+    !isCwdInScope
+  ) {
     return
   }
 

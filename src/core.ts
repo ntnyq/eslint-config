@@ -19,6 +19,7 @@ import {
   jsx,
   markdown,
   node,
+  ntnyq,
   perfectionist,
   pinia,
   prettier,
@@ -78,6 +79,7 @@ export function defineESLintConfig(
     toml: enableTOML = true,
     jsonc: enableJSONC = true,
     antfu: enableAntfu = true,
+    ntnyq: enableNtnyq = true,
     depend: enableDepend = true,
     regexp: enableRegexp = true,
     unicorn: enableUnicorn = true,
@@ -265,9 +267,17 @@ export function defineESLintConfig(
     )
   }
 
+  if (enableNtnyq) {
+    configs.push(
+      ntnyq({
+        overrides: getOverrides(options, 'ntnyq'),
+      }),
+    )
+  }
+
   if (enableGitHubAction) {
     configs.push(
-      ...githubAction({
+      githubAction({
         overrides: getOverrides(options, 'githubAction'),
       }),
     )

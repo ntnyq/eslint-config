@@ -367,7 +367,6 @@ export interface OptionsOverrides<
 interface ConfigOptionsInternal {
   esX?: boolean | ConfigEsXOptions
   format?: boolean | ConfigFormatOptions
-  ntnyq?: boolean | ConfigNtnyqOptions
   unusedImports?: boolean | ConfigUnusedImportsOptions
 }
 
@@ -394,6 +393,7 @@ export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions 
   gitignore?: boolean | ConfigGitIgnoreOptions
   jsonc?: boolean | ConfigJsoncOptions
   markdown?: boolean | ConfigMarkdownOptions
+  ntnyq?: boolean | ConfigNtnyqOptions
   perfectionist?: boolean | ConfigPerfectionistOptions
   pinia?: boolean | ConfigPiniaOptions
   prettier?: boolean | ConfigPrettierOptions

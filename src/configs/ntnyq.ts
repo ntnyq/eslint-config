@@ -1,17 +1,16 @@
-import { pluginNtnyq } from '../eslint'
+import { createConfig as createNtnyqConfig } from 'eslint-plugin-ntnyq'
 import type { ConfigNtnyqOptions, TypedConfigItem } from '../types'
 
 export const ntnyq = (options: ConfigNtnyqOptions = {}): TypedConfigItem[] => [
   {
-    name: 'ntnyq/ntnyq',
-    plugins: {
-      ntnyq: pluginNtnyq,
-    },
-    rules: {
-      'ntnyq/no-member-accessibility': 'error',
+    ...createNtnyqConfig({
+      rules: {
+        'ntnyq/prefer-newline-after-file-header': 'error',
 
-      // Overrides rules
-      ...options.overrides,
-    },
+        // Overrides rules
+        ...options.overrides,
+      },
+    }),
+    name: 'ntnyq/ntnyq',
   },
 ]
