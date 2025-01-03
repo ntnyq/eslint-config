@@ -32,20 +32,34 @@ export const jsdoc = (options: ConfigJsdocOptions = {}): TypedConfigItem[] => [
       'jsdoc/text-escaping': 'off', // No need
 
       // Fixable rules
-      'jsdoc/check-alignment': 'error',
-      'jsdoc/check-line-alignment': 'error',
-      'jsdoc/check-param-names': 'error',
-      'jsdoc/check-property-names': 'error',
-      'jsdoc/check-types': 'error',
       'jsdoc/empty-tags': 'error',
-      'jsdoc/multiline-blocks': 'error',
-      'jsdoc/no-bad-blocks': 'error',
-      'jsdoc/no-blank-block-descriptions': 'error',
-      'jsdoc/no-blank-blocks': 'error',
       'jsdoc/no-defaults': 'error',
+      'jsdoc/check-types': 'error',
+      'jsdoc/no-blank-blocks': 'error',
+      'jsdoc/check-alignment': 'error',
+      'jsdoc/multiline-blocks': 'error',
+      'jsdoc/check-param-names': 'error',
       'jsdoc/no-multi-asterisks': 'error',
+      'jsdoc/check-line-alignment': 'error',
+      'jsdoc/check-property-names': 'error',
       'jsdoc/require-asterisk-prefix': 'error',
+      'jsdoc/no-blank-block-descriptions': 'error',
       'jsdoc/require-hyphen-before-param-description': 'error',
+      'jsdoc/no-bad-blocks': [
+        'error',
+        {
+          ignore: [
+            // built-in default
+            'ts-check',
+            'ts-expect-error',
+            'ts-ignore',
+            'ts-nocheck',
+
+            // useful
+            'vite-ignore',
+          ],
+        },
+      ],
       'jsdoc/check-tag-names': [
         'error',
         {
