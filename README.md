@@ -171,7 +171,6 @@ export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions 
   prettier?: boolean | ConfigPrettierOptions
   regexp?: boolean | ConfigRegexpOptions
   sort?: boolean | ConfigSortOptions
-  stylistic?: boolean | ConfigStylisticOptions
   test?: boolean | ConfigTestOptions
   toml?: boolean | ConfigTomlOptions
   typescript?: boolean | ConfigTypeScriptOptions
@@ -195,16 +194,9 @@ export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions 
   /**
    * disabled by default
    *
-   * require `eslint-plugin-es-x` installed mannally
-   */
-  esX?: boolean | ConfigEsXOptions
-
-  /**
-   * disabled by default
-   *
    * require `@stylistic/eslint-plugin` installed mannally
    */
-  esX?: boolean | ConfigStylisticOptions
+  stylistic?: boolean | ConfigStylisticOptions
 }
 ```
 
