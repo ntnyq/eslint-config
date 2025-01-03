@@ -123,4 +123,5 @@ export const GLOB_EXCLUDE = [
   '**/.changeset',
   '**/.npmrc',
   '**/.yarnrc',
+  '**/.husky',
 ]

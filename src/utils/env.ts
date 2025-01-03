@@ -18,7 +18,8 @@ export const hasVue =
   isPackageExists('vue') ||
   isPackageExists('nuxt') ||
   isPackageExists('vitepress') ||
+  isPackageExists('vuepress') ||
   isPackageExists('@slidev/cli') ||
   isPackageExists('vue', {
-    paths: [resolve(process.cwd(), 'playground')],
+    paths: [resolve(process.cwd(), 'playground'), resolve(process.cwd(), 'docs')],
   })
