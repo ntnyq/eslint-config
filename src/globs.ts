@@ -124,4 +124,8 @@ export const GLOB_EXCLUDE = [
   '**/.npmrc',
   '**/.yarnrc',
   '**/.husky',
+
+  // tauri
+  '**/src-tauri/gen',
+  '**/src-tauri/target',
 ]

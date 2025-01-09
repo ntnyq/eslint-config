@@ -2,6 +2,7 @@
   "eslint.enable": true,
   "prettier.enable": true,
   "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never",
@@ -53,6 +54,7 @@
     "slidev",
     "stroustrup",
     "sxzz",
+    "tauri",
     "tseslint",
     "tsup",
     "unplugin",
