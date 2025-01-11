@@ -119,6 +119,7 @@ export function defineESLintConfig(
     jsdoc({
       typescript: !!enableTypeScript,
       overrides: getOverrides(options, 'jsdoc'),
+      ...resolveSubOptions(options, 'jsdoc'),
     }),
     comments({
       overrides: getOverrides(options, 'comments'),

@@ -2,7 +2,18 @@ import { pluginJsdoc } from '../eslint'
 import type { ConfigJsdocOptions, TypedConfigItem } from '../types'
 
 /**
- * Prefer typescript rules
+ * JavaScript specific rules
+ */
+const javscriptRules: TypedConfigItem['rules'] = {
+  'jsdoc/no-types': 'off',
+  'jsdoc/no-undefined-types': 'error',
+  'jsdoc/require-param-type': 'error',
+  'jsdoc/require-property-type': 'error',
+  'jsdoc/require-returns-type': 'error',
+}
+
+/**
+ * TypeScript specific rules
  */
 const typescriptRules: TypedConfigItem['rules'] = {
   'jsdoc/no-undefined-types': 'off',
@@ -11,14 +22,6 @@ const typescriptRules: TypedConfigItem['rules'] = {
   'jsdoc/require-returns-type': 'off',
   'jsdoc/no-types': 'error',
 }
-
-// const nextReleaseRules: TypedConfigItem['rules'] = {
-//   'jsdoc/match-name': 'off',
-//   'jsdoc/require-jsdoc': 'off',
-//   'jsdoc/require-param': 'off',
-//   'jsdoc/require-returns': 'off',
-//   'jsdoc/require-description-complete-sentence': 'off',
-// }
 
 export const jsdoc = (options: ConfigJsdocOptions = {}): TypedConfigItem[] => [
   {
@@ -257,7 +260,7 @@ export const jsdoc = (options: ConfigJsdocOptions = {}): TypedConfigItem[] => [
       'jsdoc/require-yields-check': 'warn',
 
       // TypeScript rules overrides
-      ...(options.typescript ? typescriptRules : {}),
+      ...(options.typescript ? typescriptRules : javscriptRules),
 
       // Overrides rules
       ...options.overrides,
