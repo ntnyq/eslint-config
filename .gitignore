@@ -9,5 +9,12 @@ node_modules
 
 dist
 
+# eslint-typegen
 src/types/typegen.ts
+
+# @eslint/config-inspector
 .eslint-config-inspector
+
+# vitepress docs
+**/.vitepress/dist
+**/.vitepress/cache

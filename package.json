@@ -41,6 +41,8 @@
   "scripts": {
     "build": "pnpm run generate:type && tsup",
     "dev": "tsup --watch src",
+    "docs:build": "pnpm -C docs run build",
+    "docs:dev": "pnpm -C docs run dev",
     "generate:site": "tsx scripts/generateSite.ts",
     "generate:type": "tsx scripts/generateType.ts",
     "lint": "eslint .",
@@ -135,6 +137,6 @@
     }
   },
   "nano-staged": {
-    "*.{js,ts,mjs,cjs,json,jsonc,md,yaml,yml}": "eslint --fix"
+    "*.{js,ts,mjs,cjs,vue,svg,json,jsonc,md,yaml,yml}": "eslint --fix"
   }
 }

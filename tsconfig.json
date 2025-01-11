@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": ["ES2022"],
+    "lib": ["ES2022", "DOM"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "types": ["node"],
@@ -12,9 +12,13 @@
   },
   "include": [
     "./src/**/*.ts",
+    "./docs/**/*.ts",
+    "./docs/**/*.vue",
     "./tests/**/*.ts",
     "./scripts/**/*.ts",
     "./typings/**/*.ts",
+    "./docs/.vitepress/**/*.ts",
+    "./docs/.vitepress/**/*.vue",
     "./*.config.*"
   ]
 }

@@ -48,6 +48,7 @@
     "pinia",
     "pnpm",
     "shadcn",
+    "shikijs",
     "slidev",
     "stroustrup",
     "sxzz",
@@ -56,6 +57,7 @@
     "tsup",
     "unplugin",
     "vitepress",
-    "vuepress"
+    "vuepress",
+    "vueuse"
   ]
 }
