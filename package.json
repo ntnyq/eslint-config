@@ -43,7 +43,7 @@
     "dev": "tsup --watch src",
     "generate:site": "tsx scripts/generateSite.ts",
     "generate:type": "tsx scripts/generateType.ts",
-    "lint": "eslint --flag unstable_ts_config .",
+    "lint": "eslint .",
     "prepare": "husky",
     "release": "run-s release:check release:version",
     "release:check": "run-s build lint typecheck",
@@ -72,7 +72,7 @@
     "@antfu/install-pkg": "^1.0.0",
     "@clack/prompts": "^0.9.1",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.4.1",
-    "@eslint/js": "^9.17.0",
+    "@eslint/js": "^9.18.0",
     "@eslint/markdown": "^6.2.1",
     "@unocss/eslint-plugin": "^65.4.0",
     "@vitest/eslint-plugin": "^1.1.24",
@@ -94,7 +94,7 @@
     "eslint-plugin-pinia": "^0.4.1",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-regexp": "^2.7.0",
-    "eslint-plugin-svgo": "^0.3.1",
+    "eslint-plugin-svgo": "^0.4.0",
     "eslint-plugin-toml": "^0.12.0",
     "eslint-plugin-unicorn": "^56.0.1",
     "eslint-plugin-unused-imports": "^4.1.4",
@@ -114,7 +114,7 @@
     "@ntnyq/prettier-config": "^1.22.1",
     "@types/node": "^22.10.5",
     "bumpp": "^9.10.0",
-    "eslint": "^9.17.0",
+    "eslint": "^9.18.0",
     "eslint-typegen": "^1.0.0",
     "husky": "^9.1.7",
     "jiti": "^2.4.2",
@@ -135,6 +135,6 @@
     }
   },
   "nano-staged": {
-    "*.{js,ts,mjs,cjs,json,jsonc,md,yaml,yml}": "eslint --flag unstable_ts_config --fix"
+    "*.{js,ts,mjs,cjs,json,jsonc,md,yaml,yml}": "eslint --fix"
   }
 }

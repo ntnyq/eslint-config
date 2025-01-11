@@ -23,9 +23,6 @@
     "javascriptreact",
     "typescriptreact"
   ],
-  "eslint.options": {
-    "flags": ["unstable_ts_config"]
-  },
   "cSpell.useGitignore": true,
   "cSpell.allowCompoundWords": true,
   "cSpell.words": [
