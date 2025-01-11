@@ -101,35 +101,29 @@ export function defineESLintConfig(
   }
 
   if (enableGitIgnore) {
-    configs.push(
-      ...gitignore({
-        ...resolveSubOptions(options, 'gitignore'),
-      }),
-    )
+    configs.push(gitignore(resolveSubOptions(options, 'gitignore')))
   }
 
   configs.push(
-    ...ignores(options.ignores),
-    ...jsx(),
-    ...node({
+    ignores(options.ignores),
+    jsx(),
+    node({
       overrides: getOverrides(options, 'node'),
     }),
-    ...command({
-      ...resolveSubOptions(options, 'command'),
-    }),
-    ...importX({
+    command(resolveSubOptions(options, 'command')),
+    importX({
       ...resolveSubOptions(options, 'importX'),
       typescript: !!enableTypeScript,
       overrides: getOverrides(options, 'importX'),
     }),
-    ...jsdoc({
+    jsdoc({
       typescript: !!enableTypeScript,
       overrides: getOverrides(options, 'jsdoc'),
     }),
-    ...comments({
+    comments({
       overrides: getOverrides(options, 'comments'),
     }),
-    ...javascript({
+    javascript({
       ...resolveSubOptions(options, 'javascript'),
       overrides: getOverrides(options, 'javascript'),
     }),
@@ -137,7 +131,7 @@ export function defineESLintConfig(
 
   if (enablePerfectionist) {
     configs.push(
-      ...perfectionist({
+      perfectionist({
         ...resolveSubOptions(options, 'perfectionist'),
         overrides: getOverrides(options, 'perfectionist'),
       }),
@@ -146,7 +140,7 @@ export function defineESLintConfig(
 
   if (enableUnicorn) {
     configs.push(
-      ...unicorn({
+      unicorn({
         overrides: getOverrides(options, 'unicorn'),
       }),
     )
@@ -154,7 +148,7 @@ export function defineESLintConfig(
 
   if (enablePinia) {
     configs.push(
-      ...pinia({
+      pinia({
         ...resolveSubOptions(options, 'pinia'),
         overrides: getOverrides(options, 'pinia'),
       }),
@@ -163,7 +157,7 @@ export function defineESLintConfig(
 
   if (enableRegexp) {
     configs.push(
-      ...regexp({
+      regexp({
         ...resolveSubOptions(options, 'regexp'),
         overrides: getOverrides(options, 'regexp'),
       }),
@@ -172,7 +166,7 @@ export function defineESLintConfig(
 
   if (enableTypeScript) {
     configs.push(
-      ...typescript({
+      typescript({
         ...resolveSubOptions(options, 'typescript'),
         extensions: supportedExtensions,
         overrides: getOverrides(options, 'typescript'),
@@ -182,7 +176,7 @@ export function defineESLintConfig(
 
   if (enableVue) {
     configs.push(
-      ...vue({
+      vue({
         ...resolveSubOptions(options, 'vue'),
         typescript: !!enableTypeScript,
         overrides: getOverrides(options, 'vue'),
@@ -192,7 +186,7 @@ export function defineESLintConfig(
 
   if (enableYML) {
     configs.push(
-      ...yml({
+      yml({
         overrides: getOverrides(options, 'yml'),
       }),
     )
@@ -200,7 +194,7 @@ export function defineESLintConfig(
 
   if (enableTOML) {
     configs.push(
-      ...toml({
+      toml({
         overrides: getOverrides(options, 'toml'),
       }),
     )
@@ -208,26 +202,22 @@ export function defineESLintConfig(
 
   if (enableJSONC) {
     configs.push(
-      ...jsonc({
+      jsonc({
         overrides: getOverrides(options, 'jsonc'),
       }),
     )
   }
 
   if (enableSort) {
-    configs.push(
-      ...sort({
-        ...resolveSubOptions(options, 'sort'),
-      }),
-    )
+    configs.push(sort(resolveSubOptions(options, 'sort')))
   }
 
   if (enableTest) {
     configs.push(
-      ...test({
+      test({
         overrides: getOverrides(options, 'test'),
       }),
-      ...vitest({
+      vitest({
         overrides: getOverrides(options, 'test'),
       }),
     )
@@ -235,7 +225,7 @@ export function defineESLintConfig(
 
   if (enableUnoCSS) {
     configs.push(
-      ...unocss({
+      unocss({
         overrides: getOverrides(options, 'unocss'),
       }),
     )
@@ -243,7 +233,7 @@ export function defineESLintConfig(
 
   if (enableMarkdown) {
     configs.push(
-      ...markdown({
+      markdown({
         extensions: supportedExtensions,
         overrides: getOverrides(options, 'markdown'),
       }),
@@ -252,7 +242,7 @@ export function defineESLintConfig(
 
   if (enableAntfu) {
     configs.push(
-      ...antfu({
+      antfu({
         overrides: getOverrides(options, 'antfu'),
       }),
     )
@@ -260,7 +250,7 @@ export function defineESLintConfig(
 
   if (enableDepend) {
     configs.push(
-      ...depend({
+      depend({
         ...resolveSubOptions(options, 'depend'),
         overrides: getOverrides(options, 'depend'),
       }),
@@ -299,16 +289,10 @@ export function defineESLintConfig(
   }
 
   if (enableSVGO) {
-    configs.push(
-      ...svgo({
-        ...resolveSubOptions(options, 'svgo'),
-      }),
-    )
+    configs.push(svgo(resolveSubOptions(options, 'svgo')))
   }
 
-  const configSpecials = specials({
-    ...resolveSubOptions(options, 'specials'),
-  })
+  const configSpecials = specials(resolveSubOptions(options, 'specials'))
 
   const configPrettier = enablePrettier
     ? prettier({
