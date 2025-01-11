@@ -26,7 +26,7 @@ export async function ensurePackages(packages: (string | undefined)[]) {
     return
   }
 
-  const nonExistingPackages = packages.filter(pkg => !!pkg && isPackageInScope(pkg)) as string[]
+  const nonExistingPackages = packages.filter(pkg => !!pkg && !isPackageInScope(pkg)) as string[]
 
   if (nonExistingPackages.length === 0) {
     return
