@@ -1,4 +1,4 @@
-import { createRecommendedConfig } from 'eslint-plugin-github-action'
+import { createConfig } from 'eslint-plugin-github-action'
 import { GLOB_GITHUB_ACTION } from '../globs'
 import type { ConfigGitHubActionOptions, TypedConfigItem } from '../types'
 
@@ -7,24 +7,22 @@ export const githubAction = (options: ConfigGitHubActionOptions = {}): TypedConf
     // Support common overrides rules
     overrides: overridesRules = {},
 
-    // Flat config options
+    // Config options
     ...restOptions
   } = options
 
-  const recommendedConfig = createRecommendedConfig({
-    name: 'ntnyq/github-action',
-    files: [GLOB_GITHUB_ACTION],
-    ...restOptions,
-  })
   return [
-    {
-      ...recommendedConfig,
+    createConfig({
+      name: 'ntnyq/github-action',
+      files: [GLOB_GITHUB_ACTION],
       rules: {
-        ...recommendedConfig.rules,
+        'github-action/no-invalid-key': 'error',
+        'github-action/prefer-file-extension': 'error',
+        'github-action/require-action-name': 'error',
 
-        // Overrides rules
         ...overridesRules,
       },
-    },
+      ...restOptions,
+    }),
   ]
 }
