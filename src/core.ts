@@ -235,6 +235,7 @@ export function defineESLintConfig(
   if (enableMarkdown) {
     configs.push(
       markdown({
+        ...resolveSubOptions(options, 'markdown'),
         extensions: supportedExtensions,
         overrides: getOverrides(options, 'markdown'),
       }),
