@@ -28,6 +28,7 @@ const typeAwareRules: TypedConfigItem['rules'] = {
   '@typescript-eslint/no-implied-eval': 'error',
   '@typescript-eslint/only-throw-error': 'error',
   '@typescript-eslint/no-unsafe-return': 'error',
+  '@typescript-eslint/no-misused-spread': 'error',
   '@typescript-eslint/no-unsafe-argument': 'error',
   '@typescript-eslint/no-misused-promises': 'error',
   '@typescript-eslint/no-unsafe-assignment': 'error',
