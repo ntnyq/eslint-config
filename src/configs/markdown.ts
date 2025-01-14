@@ -1,5 +1,11 @@
-import { mergeProcessors, parserPlain, pluginMarkdown, processorPassThrough } from '../eslint'
-import { GLOB_MARKDOWN, GLOB_MARKDOWN_NESTED, GLOB_SRC } from '../globs'
+import {
+  mergeProcessors,
+  parserPlain,
+  pluginMarkdown,
+  processorPassThrough,
+  typescriptConfigs,
+} from '../eslint'
+import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MARKDOWN_NESTED, GLOB_SRC } from '../globs'
 import type { ConfigMarkdownOptions, TypedConfigItem } from '../types'
 
 export const markdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[] => {
@@ -13,9 +19,14 @@ export const markdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[]
      * other extensions
      */
     extensions = [],
+
+    /**
+     * disbale type aware linting
+     */
+    disableTypeAwareLinting = false,
   } = options
 
-  return [
+  const configs: TypedConfigItem[] = [
     /**
      * extracting code blocks to be linted individually
      */
@@ -91,4 +102,14 @@ export const markdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[]
       },
     },
   ]
+
+  if (disableTypeAwareLinting) {
+    configs.push({
+      ...(typescriptConfigs.disableTypeChecked as TypedConfigItem),
+      name: 'ntnyq/markdown/disable/type-aware',
+      files: [GLOB_MARKDOWN_CODE],
+    })
+  }
+
+  return configs
 }

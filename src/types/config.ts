@@ -102,7 +102,14 @@ export interface ConfigJsdocOptions extends OptionsFeatures, OptionsOverrides {}
 
 export interface ConfigJsoncOptions extends OptionsOverrides {}
 
-export interface ConfigMarkdownOptions extends OptionsExtensions, OptionsFiles, OptionsOverrides {}
+export interface ConfigMarkdownOptions extends OptionsExtensions, OptionsFiles, OptionsOverrides {
+  /**
+   * Explicitly disable type aware linting for markdown files
+   *
+   * @default false
+   */
+  disableTypeAwareLinting?: boolean
+}
 
 export interface ConfigNodeOptions extends OptionsOverrides {}
 
