@@ -2,7 +2,7 @@
   "name": "@ntnyq/eslint-config",
   "type": "module",
   "version": "3.12.1",
-  "packageManager": "pnpm@9.15.3",
+  "packageManager": "pnpm@9.15.4",
   "description": "An opinionated ESLint config preset of ntnyq",
   "keywords": [
     "eslint",
@@ -108,13 +108,13 @@
     "local-pkg": "^1.0.0",
     "prettier": "^3.4.2",
     "toml-eslint-parser": "^0.10.0",
-    "typescript-eslint": "^8.19.1",
+    "typescript-eslint": "^8.20.0",
     "vue-eslint-parser": "^9.4.3",
     "yaml-eslint-parser": "^1.2.3"
   },
   "devDependencies": {
     "@ntnyq/prettier-config": "^1.22.1",
-    "@types/node": "^22.10.5",
+    "@types/node": "^22.10.6",
     "bumpp": "^9.10.0",
     "eslint": "^9.18.0",
     "eslint-typegen": "^1.0.0",
