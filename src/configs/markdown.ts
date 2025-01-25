@@ -9,7 +9,6 @@ import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MARKDOWN_NESTED, GLOB_SRC } fro
 import type { ConfigMarkdownOptions, TypedConfigItem } from '../types'
 
 export const markdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[] => {
-  if (!Array.isArray(pluginMarkdown.configs?.processor)) return []
   const {
     /**
      * code block files
@@ -43,7 +42,7 @@ export const markdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[]
       files,
       ignores: [GLOB_MARKDOWN_NESTED],
       processor: mergeProcessors([
-        pluginMarkdown.processors!.markdown,
+        pluginMarkdown.processors.markdown,
         // Just pass through processor
         processorPassThrough,
       ]),
