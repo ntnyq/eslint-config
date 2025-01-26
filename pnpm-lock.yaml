@@ -50,8 +50,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0(eslint@9.19.0(jiti@2.4.2))
       eslint-plugin-antfu:
-        specifier: ^2.7.0
-        version: 2.7.0(eslint@9.19.0(jiti@2.4.2))
+        specifier: ^3.0.0
+        version: 3.0.0(eslint@9.19.0(jiti@2.4.2))
       eslint-plugin-command:
         specifier: ^2.1.0
         version: 2.1.0(eslint@9.19.0(jiti@2.4.2))
@@ -2016,8 +2016,8 @@ packages:
   eslint-parser-plain@0.1.1:
     resolution: {integrity: sha512-KRgd6wuxH4U8kczqPp+Oyk4irThIhHWxgFgLDtpgjUGVIS3wGrJntvZW/p6hHq1T4FOwnOtCNkvAI4Kr+mQ/Hw==}
 
-  eslint-plugin-antfu@2.7.0:
-    resolution: {integrity: sha512-gZM3jq3ouqaoHmUNszb1Zo2Ux7RckSvkGksjLWz9ipBYGSv1EwwBETN6AdiUXn+RpVHXTbEMPAPlXJazcA6+iA==}
+  eslint-plugin-antfu@3.0.0:
+    resolution: {integrity: sha512-USaQMR17+l7a0XWS9Pk0T+t9PszkdeIncyAOp1vsjHQnDKIlusSg+9bwTYWIzlJXkHDarAI06cdt+d5mbAGEKA==}
     peerDependencies:
       eslint: '*'
 
@@ -5516,9 +5516,8 @@ snapshots:
 
   eslint-parser-plain@0.1.1: {}
 
-  eslint-plugin-antfu@2.7.0(eslint@9.19.0(jiti@2.4.2)):
+  eslint-plugin-antfu@3.0.0(eslint@9.19.0(jiti@2.4.2)):
     dependencies:
-      '@antfu/utils': 0.7.10
       eslint: 9.19.0(jiti@2.4.2)
 
   eslint-plugin-command@2.1.0(eslint@9.19.0(jiti@2.4.2)):
