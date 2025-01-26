@@ -82,7 +82,7 @@
     "eslint-flat-config-utils": "^2.0.0",
     "eslint-import-resolver-typescript": "^3.7.0",
     "eslint-merge-processors": "^1.0.0",
-    "eslint-plugin-antfu": "^2.7.0",
+    "eslint-plugin-antfu": "^3.0.0",
     "eslint-plugin-command": "^2.1.0",
     "eslint-plugin-depend": "^0.12.0",
     "eslint-plugin-format": "^1.0.1",
