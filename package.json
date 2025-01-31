@@ -78,7 +78,7 @@
     "@eslint/markdown": "^6.2.2",
     "@unocss/eslint-plugin": "^65.4.3",
     "@vitest/eslint-plugin": "^1.1.25",
-    "eslint-config-flat-gitignore": "^1.0.0",
+    "eslint-config-flat-gitignore": "^2.0.0",
     "eslint-flat-config-utils": "^2.0.0",
     "eslint-import-resolver-typescript": "^3.7.0",
     "eslint-merge-processors": "^1.0.0",
