@@ -19,14 +19,8 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     }
   },
   "main": "./dist/index.js",
@@ -49,7 +43,7 @@
     "prepare": "husky",
     "release": "run-s release:check release:version",
     "release:check": "run-s build lint typecheck",
-    "release:version": "bumpp && npm publish",
+    "release:version": "bumpp && npm publish --tag next",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
