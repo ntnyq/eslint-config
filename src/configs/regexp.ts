@@ -13,7 +13,7 @@ export const regexp = (options: ConfigRegexpOptions = {}): TypedConfigItem[] => 
     ...recommendedConfig.rules,
   }
 
-  if (options.severity || options.level === 'warn') {
+  if (options.severity === 'warn') {
     for (const key in recommendedRules) {
       if (recommendedRules[key] === 'error') {
         recommendedRules[key] = 'warn'

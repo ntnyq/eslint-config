@@ -157,13 +157,6 @@ export interface ConfigPiniaOptions extends OptionsFiles, OptionsOverrides {}
 
 export interface ConfigPrettierOptions extends OptionsOverrides {
   /**
-   * TODO: remove in next major version
-   *
-   * @deprecated use `severity` instead
-   */
-  level?: ESLintRuleSeverity
-
-  /**
    * rule severity
    *
    * @default `warn`
@@ -184,13 +177,6 @@ export interface ConfigPrettierOptions extends OptionsOverrides {
 }
 
 export interface ConfigRegexpOptions extends OptionsOverrides {
-  /**
-   * TODO: remove in next major version
-   *
-   * @deprecated use `severity` instead
-   */
-  level?: ESLintRuleSeverity
-
   /**
    * rule severity
    *
