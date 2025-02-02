@@ -56,7 +56,7 @@ export const prettier = (options: ConfigPrettierOptions = {}): TypedConfigItem[]
 
         ...(pluginPrettier.configs!.recommended as TypedConfigItem).rules,
 
-        'prettier/prettier': options.severity || options.level || 'warn',
+        'prettier/prettier': options.severity || 'warn',
 
         // Overrides rules
         ...options.overrides,
