@@ -9,14 +9,7 @@ import {
 import { GLOB_VUE } from '../globs'
 import type { ConfigVueOptions, ESLintProcessor, TypedConfigItem } from '../types'
 
-const vue2Rules: TypedConfigItem['rules'] = {
-  ...pluginVue.configs.base.rules,
-  ...pluginVue.configs.essential.rules,
-  ...pluginVue.configs['strongly-recommended'].rules,
-  ...pluginVue.configs.recommended.rules,
-}
-
-const vue3Rules: TypedConfigItem['rules'] = {
+const sharedRules: TypedConfigItem['rules'] = {
   ...pluginVue.configs.base.rules,
   ...pluginVue.configs['vue3-essential'].rules,
   ...pluginVue.configs['vue3-strongly-recommended'].rules,
@@ -213,9 +206,8 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
 }
 
 export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
-  const isVue3 = options.vueVersion !== 2
+  const { files = [GLOB_VUE] } = options
   const sfcBlocks = options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {})
-  const { files: FILES_VUE = [GLOB_VUE] } = options
 
   function getVueProcessor(): ESLintProcessor {
     const processorVueSFC = pluginVue.processors['.vue'] as ESLintProcessor
@@ -245,10 +237,7 @@ export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
 
     {
       name: 'ntnyq/vue/rules',
-      files: [
-        // File apply vue rules
-        ...FILES_VUE,
-      ],
+      files,
       languageOptions: {
         parser: parserVue,
         parserOptions: {
@@ -263,7 +252,7 @@ export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
       },
       processor: getVueProcessor(),
       rules: {
-        ...(isVue3 ? vue3Rules : vue2Rules),
+        ...sharedRules,
 
         'vue/html-self-closing': [
           'error',

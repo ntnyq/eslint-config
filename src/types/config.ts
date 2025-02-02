@@ -308,13 +308,6 @@ export interface ConfigVueOptions extends OptionsFeatures, OptionsFiles, Options
    * @default true
    */
   sfcBlocks?: boolean | VueBlocksOptions
-
-  /**
-   * Vue version
-   *
-   * @default 3
-   */
-  vueVersion?: 2 | 3
 }
 
 export interface ConfigYmlOptions extends OptionsOverrides {}
