@@ -244,8 +244,6 @@ export interface ConfigSpecialsOptions {
       }
 }
 
-export interface ConfigStylisticOptions extends OptionsOverrides {}
-
 export type ConfigSVGOOptions = ESLintConfig<RuleOptions>
 
 export interface ConfigTestOptions extends OptionsOverrides {
@@ -383,7 +381,6 @@ export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions 
   prettier?: boolean | ConfigPrettierOptions
   regexp?: boolean | ConfigRegexpOptions
   sort?: boolean | ConfigSortOptions
-  stylistic?: boolean | ConfigStylisticOptions
   svgo?: boolean | ConfigSVGOOptions
   test?: boolean | ConfigTestOptions
   toml?: boolean | ConfigTomlOptions

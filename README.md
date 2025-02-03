@@ -1,6 +1,6 @@
 # eslint-config
 
-> Flat ESLint config for JavaScript, TypeScript, Vue 2, Vue 3, Prettier.
+> Flat ESLint config for JavaScript, TypeScript, Vue, Prettier.
 
 [![CI](https://github.com/ntnyq/eslint-config/workflows/CI/badge.svg)](https://github.com/ntnyq/eslint-config/actions)
 [![NPM VERSION](https://img.shields.io/npm/v/@ntnyq/eslint-config/latest.svg)](https://www.npmjs.com/package/@ntnyq/eslint-config/v/latest)
@@ -191,13 +191,6 @@ export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions 
    * require `eslint-plugin-eslint-plugin` installed mannally
    */
   eslintPlugin?: boolean | ConfigESLintPluginOptions
-
-  /**
-   * disabled by default
-   *
-   * require `@stylistic/eslint-plugin` installed mannally
-   */
-  stylistic?: boolean | ConfigStylisticOptions
 }
 ```
 

@@ -26,7 +26,6 @@ import {
   regexp,
   sort,
   specials,
-  stylistic,
   svgo,
   test,
   toml,
@@ -91,7 +90,6 @@ export function defineESLintConfig(
 
     // disabled by default
     svgo: enableSVGO = false,
-    stylistic: enableStylistic = false,
     eslintPlugin: enableESLintPlugin = false,
   } = options
   const configs: Awaitable<TypedConfigItem | TypedConfigItem[]>[] = []
@@ -279,13 +277,6 @@ export function defineESLintConfig(
     configs.push(
       eslintPlugin({
         overrides: getOverrides(options, 'eslintPlugin'),
-      }),
-    )
-  }
-  if (enableStylistic) {
-    configs.push(
-      stylistic({
-        overrides: getOverrides(options, 'stylistic'),
       }),
     )
   }
