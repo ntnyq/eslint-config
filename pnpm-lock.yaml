@@ -28,9 +28,6 @@ importers:
       '@eslint/markdown':
         specifier: ^6.2.2
         version: 6.2.2
-      '@stylistic/eslint-plugin':
-        specifier: ^2.12.1
-        version: 2.12.1(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3)
       '@unocss/eslint-plugin':
         specifier: ^65.4.3
         version: 65.4.3(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3)
@@ -1116,12 +1113,6 @@ packages:
 
   '@shikijs/vscode-textmate@10.0.1':
     resolution: {integrity: sha512-fTIQwLF+Qhuws31iw7Ncl1R3HUDtGwIipiJ9iU+UsDUwMhegFcQKQHd51nZjb7CArq0MvON8rbgCGQYWHUKAdg==}
-
-  '@stylistic/eslint-plugin@2.12.1':
-    resolution: {integrity: sha512-fubZKIHSPuo07FgRTn6S4Nl0uXPRPYVNpyZzIDGfp7Fny6JjNus6kReLD7NI380JXi4HtUTSOZ34LBuNPO1XLQ==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-    peerDependencies:
-      eslint: '>=8.40.0'
 
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
@@ -4395,18 +4386,6 @@ snapshots:
       - typescript
 
   '@shikijs/vscode-textmate@10.0.1': {}
-
-  '@stylistic/eslint-plugin@2.12.1(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3)':
-    dependencies:
-      '@typescript-eslint/utils': 8.19.0(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3)
-      eslint: 9.19.0(jiti@2.4.2)
-      eslint-visitor-keys: 4.2.0
-      espree: 10.3.0
-      estraverse: 5.3.0
-      picomatch: 4.0.2
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
 
   '@types/debug@4.1.12':
     dependencies:
