@@ -1,9 +1,9 @@
 import {
+  configsTypescript,
   mergeProcessors,
   parserPlain,
   pluginMarkdown,
   processorPassThrough,
-  typescriptConfigs,
 } from '../eslint'
 import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MARKDOWN_NESTED, GLOB_SRC } from '../globs'
 import type { ConfigMarkdownOptions, TypedConfigItem } from '../types'
@@ -104,7 +104,7 @@ export const markdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[]
 
   if (disableTypeAwareLinting) {
     configs.push({
-      ...(typescriptConfigs.disableTypeChecked as TypedConfigItem),
+      ...(configsTypescript.disableTypeChecked as TypedConfigItem),
       name: 'ntnyq/markdown/disable/type-aware',
       files: [GLOB_MARKDOWN_CODE],
     })
