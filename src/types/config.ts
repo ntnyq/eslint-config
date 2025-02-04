@@ -32,8 +32,6 @@ export interface ConfigDependOptions extends OptionsFiles, OptionsOverrides {
 
 export interface ConfigESLintPluginOptions extends OptionsOverrides {}
 
-export interface ConfigEsXOptions extends OptionsOverrides {}
-
 export interface ConfigFormatOptions {
   /**
    * Enable formatter support for css, less, scss, sass and etc.
@@ -347,7 +345,6 @@ export interface OptionsOverrides<
  * Internal configs, not enabled
  */
 interface ConfigOptionsInternal {
-  esX?: boolean | ConfigEsXOptions
   format?: boolean | ConfigFormatOptions
   unusedImports?: boolean | ConfigUnusedImportsOptions
 }
