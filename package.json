@@ -15,7 +15,11 @@
     "name": "ntnyq",
     "email": "ntnyq13@gmail.com"
   },
+  "homepage": "https://eslint-config.ntnyq.com",
   "repository": "ntnyq/eslint-config",
+  "bugs": {
+    "url": "https://github.com/ntnyq/eslint-config/issues"
+  },
   "exports": {
     "./package.json": "./package.json",
     ".": {
