@@ -1,5 +1,5 @@
 import process from 'node:process'
-import { parserTypeScript, pluginAntfu, pluginTypeScript, typescriptConfigs } from '../eslint'
+import { configsTypescript, parserTypeScript, pluginAntfu, pluginTypeScript } from '../eslint'
 import { GLOB_ASTRO, GLOB_MARKDOWN, GLOB_TS, GLOB_TSX, GLOB_TYPES } from '../globs'
 import type {
   ConfigTypeScriptOptions,
@@ -49,7 +49,7 @@ const typeAwareRules: TypedConfigItem['rules'] = {
 /**
  * typescript-eslint recommended rules
  */
-const recommendedRules: TypedConfigItem['rules'] = typescriptConfigs.recommended.reduce<
+const recommendedRules: TypedConfigItem['rules'] = configsTypescript.recommended.reduce<
   TypedConfigItem['rules']
 >((rules, config) => {
   return { ...rules, ...(config.rules || {}) }
