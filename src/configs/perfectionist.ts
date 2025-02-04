@@ -307,7 +307,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
           'error',
           {
             ...getCommonRuleOptions(),
-            groups: ['unknown', 'method', 'multiline'],
+            groups: ['property', 'multiline-property', 'method', 'multiline-method', 'unknown'],
           },
         ],
         'perfectionist/sort-sets': [
