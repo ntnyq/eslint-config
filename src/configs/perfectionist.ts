@@ -2,7 +2,27 @@ import { pluginPerfectionist } from '../eslint'
 import { GLOB_SRC, GLOB_SRC_EXT, GLOB_TYPES } from '../globs'
 import type { ConfigPerfectionistOptions, TypedConfigItem } from '../types'
 
-const sharedGroupsForInterfaceOrObjectTypes = [
+interface CommonRuleOptions {
+  disableNewlinesBetween?: boolean
+  disablePartitionByComment?: boolean
+}
+
+/**
+ * Prefer `alphabetical` sort type
+ */
+function getCommonRuleOptions(options: CommonRuleOptions = {}) {
+  const ruleOptions = {
+    type: 'alphabetical',
+    order: 'asc',
+    ignoreCase: true,
+    ...(options.disableNewlinesBetween ? {} : ({ newlinesBetween: 'ignore' } as const)),
+    ...(options.disableNewlinesBetween ? {} : ({ partitionByComment: true } as const)),
+  } as const
+
+  return ruleOptions
+}
+
+const INTERFACE_OR_OBJECT_TYPES_GROUPS = [
   'required-property',
   'optional-property',
   'required-method',
@@ -15,10 +35,11 @@ const sharedGroupsForInterfaceOrObjectTypes = [
   'index-signature',
   'multiline-index-signature',
 ]
+
 /**
- * Philosophy: keep simple thing first but null & undefined
+ * Philosophy: keep simple thing first except null & undefined
  */
-const sharedGroupsForIntersectionOrUnion = [
+const INTERSECTION_OR_UNION_TYPES_GROUPS = [
   /**
    * eg. 'foobar', 24, false
    */
@@ -79,14 +100,7 @@ const sharedGroupsForIntersectionOrUnion = [
    */
   'nullish',
 ]
-const defaultSortInterfacesGroups = [...sharedGroupsForInterfaceOrObjectTypes]
-const defaultSortObjectTypesGroups = [...sharedGroupsForInterfaceOrObjectTypes]
-const defaultSortIntersectionTypesGroups = [...sharedGroupsForIntersectionOrUnion]
-const defaultSortUnionTypesGroups = [...sharedGroupsForIntersectionOrUnion]
 
-/**
- * Prefer `alphabetical` sort type
- */
 export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedConfigItem[] => {
   const {
     sortEnums: enableSortEnums = true,
@@ -103,6 +117,7 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
         'perfectionist/sort-imports': [
           'error',
           {
+            ...getCommonRuleOptions(),
             groups: [
               // Side effect style imports (e.g. 'normalize.css')
               'side-effect-style',
@@ -150,42 +165,36 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
                */
               'unknown',
             ],
-            order: 'asc',
-            type: 'natural',
-            ignoreCase: true,
             internalPattern: ['^~/.+', '^@/.+', '^#.+'],
-            newlinesBetween: 'ignore',
-            partitionByComment: true,
           },
         ],
         'perfectionist/sort-exports': [
           'error',
           {
-            order: 'asc',
+            ...getCommonRuleOptions({
+              disableNewlinesBetween: true,
+            }),
             type: 'line-length',
             groupKind: 'values-first',
-            partitionByComment: true,
           },
         ],
         'perfectionist/sort-named-exports': [
           'error',
           {
-            type: 'alphabetical',
-            order: 'asc',
-            ignoreCase: true,
+            ...getCommonRuleOptions({
+              disableNewlinesBetween: true,
+            }),
             groupKind: 'values-first',
-            partitionByComment: true,
           },
         ],
         'perfectionist/sort-named-imports': [
           'error',
           {
-            type: 'alphabetical',
-            order: 'asc',
-            ignoreCase: true,
+            ...getCommonRuleOptions({
+              disableNewlinesBetween: true,
+            }),
             ignoreAlias: false,
             groupKind: 'values-first',
-            partitionByComment: true,
           },
         ],
 
@@ -206,17 +215,13 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
         'perfectionist/sort-enums': [
           'error',
           {
-            type: 'alphabetical',
-            order: 'asc',
-            partitionByComment: true,
+            ...getCommonRuleOptions(),
           },
         ],
         'perfectionist/sort-modules': [
           'error',
           {
-            type: 'alphabetical',
-            order: 'asc',
-            partitionByComment: true,
+            ...getCommonRuleOptions(),
           },
         ],
 
@@ -237,52 +242,44 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
         'perfectionist/sort-heritage-clauses': [
           'error',
           {
-            type: 'alphabetical',
-            order: 'asc',
+            ...getCommonRuleOptions({
+              disableNewlinesBetween: true,
+              disablePartitionByComment: true,
+            }),
           },
         ],
         'perfectionist/sort-interfaces': [
           'error',
           {
-            type: 'alphabetical',
-            order: 'asc',
-            partitionByComment: true,
-            groups: defaultSortInterfacesGroups,
+            ...getCommonRuleOptions(),
+            groups: INTERFACE_OR_OBJECT_TYPES_GROUPS,
           },
         ],
         'perfectionist/sort-intersection-types': [
           'error',
           {
-            type: 'alphabetical',
-            order: 'asc',
-            partitionByComment: true,
-            groups: defaultSortIntersectionTypesGroups,
+            ...getCommonRuleOptions(),
+            groups: INTERSECTION_OR_UNION_TYPES_GROUPS,
           },
         ],
         'perfectionist/sort-modules': [
           'error',
           {
-            type: 'alphabetical',
-            order: 'asc',
-            partitionByComment: true,
+            ...getCommonRuleOptions(),
           },
         ],
         'perfectionist/sort-object-types': [
           'error',
           {
-            type: 'alphabetical',
-            order: 'asc',
-            partitionByComment: true,
-            groups: defaultSortObjectTypesGroups,
+            ...getCommonRuleOptions(),
+            groups: INTERFACE_OR_OBJECT_TYPES_GROUPS,
           },
         ],
         'perfectionist/sort-union-types': [
           'error',
           {
-            type: 'alphabetical',
-            order: 'asc',
-            partitionByComment: true,
-            groups: defaultSortUnionTypesGroups,
+            ...getCommonRuleOptions(),
+            groups: INTERSECTION_OR_UNION_TYPES_GROUPS,
           },
         ],
 
@@ -303,34 +300,26 @@ export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedCo
         'perfectionist/sort-maps': [
           'error',
           {
-            type: 'alphabetical',
-            order: 'asc',
-            partitionByComment: true,
+            ...getCommonRuleOptions(),
           },
         ],
         'perfectionist/sort-objects': [
           'error',
           {
-            type: 'alphabetical',
-            order: 'asc',
-            partitionByComment: true,
+            ...getCommonRuleOptions(),
             groups: ['unknown', 'method', 'multiline'],
           },
         ],
         'perfectionist/sort-sets': [
           'error',
           {
-            type: 'alphabetical',
-            order: 'asc',
-            partitionByComment: true,
+            ...getCommonRuleOptions(),
           },
         ],
         'perfectionist/sort-modules': [
           'error',
           {
-            type: 'alphabetical',
-            order: 'asc',
-            partitionByComment: true,
+            ...getCommonRuleOptions(),
           },
         ],
 
