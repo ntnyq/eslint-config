@@ -2,7 +2,7 @@ import { createConfig } from 'eslint-plugin-github-action'
 import { GLOB_GITHUB_ACTION } from '../globs'
 import type { ConfigGitHubActionOptions, TypedConfigItem } from '../types'
 
-export const githubAction = (options: ConfigGitHubActionOptions = {}): TypedConfigItem[] => {
+export const configGitHubAction = (options: ConfigGitHubActionOptions = {}): TypedConfigItem[] => {
   const {
     // Support common overrides rules
     overrides: overridesRules = {},

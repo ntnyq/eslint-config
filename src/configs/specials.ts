@@ -4,7 +4,7 @@ import { GLOB_SRC, GLOB_SRC_EXT } from '../globs'
 import { hasShadcnVue, resolveSubOptions } from '../utils'
 import type { ConfigSpecialsOptions, TypedConfigItem } from '../types'
 
-export const specials = (options: ConfigSpecialsOptions = {}): TypedConfigItem[] => {
+export const configSpecials = (options: ConfigSpecialsOptions = {}): TypedConfigItem[] => {
   const {
     // Enable shadcn-vue support
     shadcnVue: enableShadcnVue = hasShadcnVue,

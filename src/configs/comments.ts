@@ -1,7 +1,7 @@
 import { pluginComments } from '../eslint'
 import type { ConfigCommentsOptions, TypedConfigItem } from '../types'
 
-export const comments = (options: ConfigCommentsOptions = {}): TypedConfigItem[] => [
+export const configComments = (options: ConfigCommentsOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/eslint-comments',
     plugins: {

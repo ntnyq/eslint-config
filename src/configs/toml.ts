@@ -2,7 +2,7 @@ import { parserToml, pluginToml } from '../eslint'
 import { GLOB_TOML } from '../globs'
 import type { ConfigTomlOptions, TypedConfigItem } from '../types'
 
-export const toml = (options: ConfigTomlOptions = {}): TypedConfigItem[] => [
+export const configToml = (options: ConfigTomlOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/toml',
     files: [GLOB_TOML],

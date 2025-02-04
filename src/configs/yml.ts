@@ -2,7 +2,7 @@ import { parserYaml, pluginYml } from '../eslint'
 import { GLOB_YAML } from '../globs'
 import type { ConfigYmlOptions, TypedConfigItem } from '../types'
 
-export const yml = (options: ConfigYmlOptions = {}): TypedConfigItem[] => [
+export const configYml = (options: ConfigYmlOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/yml',
     files: [GLOB_YAML],

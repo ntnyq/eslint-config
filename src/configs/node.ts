@@ -1,7 +1,7 @@
 import { pluginNode } from '../eslint'
 import type { ConfigNodeOptions, TypedConfigItem } from '../types'
 
-export const node = (options: ConfigNodeOptions = {}): TypedConfigItem[] => [
+export const configNode = (options: ConfigNodeOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/node',
     plugins: {

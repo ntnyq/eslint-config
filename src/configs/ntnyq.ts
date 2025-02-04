@@ -1,7 +1,7 @@
 import { createConfig as createNtnyqConfig } from 'eslint-plugin-ntnyq'
 import type { ConfigNtnyqOptions, TypedConfigItem } from '../types'
 
-export const ntnyq = (options: ConfigNtnyqOptions = {}): TypedConfigItem[] => [
+export const configNtnyq = (options: ConfigNtnyqOptions = {}): TypedConfigItem[] => [
   {
     ...createNtnyqConfig({
       rules: {

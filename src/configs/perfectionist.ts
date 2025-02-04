@@ -101,7 +101,9 @@ const INTERSECTION_OR_UNION_TYPES_GROUPS = [
   'nullish',
 ]
 
-export const perfectionist = (options: ConfigPerfectionistOptions = {}): TypedConfigItem[] => {
+export const configPerfectionist = (
+  options: ConfigPerfectionistOptions = {},
+): TypedConfigItem[] => {
   const {
     sortEnums: enableSortEnums = true,
     sortTypes: enableSortTypes = true,

@@ -4,7 +4,7 @@ import type { ConfigIgnoresOptions, TypedConfigItem } from '../types'
 /**
  * @see https://eslint.org/docs/latest/use/configure/configuration-files-new#globally-ignoring-files-with-ignores
  */
-export const ignores = (customIgnores: ConfigIgnoresOptions = []): TypedConfigItem[] => [
+export const configIgnores = (customIgnores: ConfigIgnoresOptions = []): TypedConfigItem[] => [
   {
     name: 'ntnyq/ignores',
     ignores: [

@@ -2,7 +2,7 @@ import { pluginVitest } from '../eslint'
 import { GLOB_TEST } from '../globs'
 import type { ConfigTestOptions, ESLintConfig, TypedConfigItem } from '../types'
 
-export const test = (options: ConfigTestOptions = {}): TypedConfigItem[] => [
+export const configTest = (options: ConfigTestOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/test',
     files: [...GLOB_TEST],
@@ -16,7 +16,7 @@ export const test = (options: ConfigTestOptions = {}): TypedConfigItem[] => [
   },
 ]
 
-export const vitest = (options: ConfigTestOptions = {}): TypedConfigItem[] => {
+export const configVitest = (options: ConfigTestOptions = {}): TypedConfigItem[] => {
   if (!pluginVitest.configs?.recommended) return []
 
   const vitestConfigs = pluginVitest.configs as { recommended: ESLintConfig }

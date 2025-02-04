@@ -1,7 +1,7 @@
 import { ensurePackages, interopDefault } from '../utils'
 import type { ConfigESLintPluginOptions, TypedConfigItem } from '../types'
 
-export const eslintPlugin = async (
+export const configESLintPlugin = async (
   options: ConfigESLintPluginOptions = {},
 ): Promise<TypedConfigItem[]> => {
   await ensurePackages(['eslint-plugin-eslint-plugin'])

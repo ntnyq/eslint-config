@@ -1,7 +1,7 @@
 import { pluginAntfu } from '../eslint'
 import type { ConfigAntfuOptions, TypedConfigItem } from '../types'
 
-export const antfu = (options: ConfigAntfuOptions = {}): TypedConfigItem[] => [
+export const configAntfu = (options: ConfigAntfuOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/antfu',
     plugins: {

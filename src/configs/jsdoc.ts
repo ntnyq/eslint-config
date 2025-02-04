@@ -23,7 +23,7 @@ const typescriptRules: TypedConfigItem['rules'] = {
   'jsdoc/no-types': 'error',
 }
 
-export const jsdoc = (options: ConfigJsdocOptions = {}): TypedConfigItem[] => [
+export const configJsdoc = (options: ConfigJsdocOptions = {}): TypedConfigItem[] => [
   {
     name: 'ntnyq/jsdoc',
     plugins: {

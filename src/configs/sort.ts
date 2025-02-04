@@ -1,6 +1,6 @@
 import type { ConfigSortOptions, TypedConfigItem } from '../types'
 
-export const sort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
+export const configSort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
   const configs: TypedConfigItem[] = []
   const {
     tsconfig: enableSortTsconfig = true,

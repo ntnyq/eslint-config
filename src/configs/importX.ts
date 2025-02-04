@@ -1,7 +1,7 @@
 import { createNodeResolver, createTypeScriptImportResolver, pluginImportX } from '../eslint'
 import type { ConfigImportXOptions, TypedConfigItem } from '../types'
 
-export const importX = (options: ConfigImportXOptions = {}): TypedConfigItem[] => {
+export const configImportX = (options: ConfigImportXOptions = {}): TypedConfigItem[] => {
   const {
     typescript: enableTypeScript,
     // use typescript resolve if possible

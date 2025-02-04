@@ -8,7 +8,7 @@ import {
 import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MARKDOWN_NESTED, GLOB_SRC } from '../globs'
 import type { ConfigMarkdownOptions, TypedConfigItem } from '../types'
 
-export const markdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[] => {
+export const configMarkdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[] => {
   const {
     /**
      * code block files
