@@ -40,6 +40,7 @@ export const configImportX = (options: ConfigImportXOptions = {}): TypedConfigIt
         'import-x/no-duplicates': 'error',
         'import-x/no-mutable-exports': 'error',
         'import-x/newline-after-import': 'error',
+        'import-x/consistent-type-specifier-style': ['error', 'prefer-top-level'],
 
         // Overrides rules
         ...options.overrides,
