@@ -7,21 +7,6 @@ interface CommonRuleOptions {
   disablePartitionByComment?: boolean
 }
 
-/**
- * Prefer `alphabetical` sort type
- */
-function getCommonRuleOptions(options: CommonRuleOptions = {}) {
-  const ruleOptions = {
-    type: 'alphabetical',
-    order: 'asc',
-    ignoreCase: true,
-    ...(options.disableNewlinesBetween ? {} : ({ newlinesBetween: 'ignore' } as const)),
-    ...(options.disableNewlinesBetween ? {} : ({ partitionByComment: true } as const)),
-  } as const
-
-  return ruleOptions
-}
-
 const INTERFACE_OR_OBJECT_TYPES_GROUPS = [
   'required-property',
   'optional-property',
@@ -108,7 +93,24 @@ export const configPerfectionist = (
     sortEnums: enableSortEnums = true,
     sortTypes: enableSortTypes = true,
     sortConstants: enableSortConstants = true,
+    partitionByComment = ['@pg', '@perfectionist-group'],
   } = options
+
+  /**
+   * Prefer `alphabetical` sort type
+   */
+  function getCommonRuleOptions(options: CommonRuleOptions = {}) {
+    const ruleOptions = {
+      type: 'alphabetical',
+      order: 'asc',
+      ignoreCase: true,
+      ...(options.disableNewlinesBetween ? {} : ({ newlinesBetween: 'ignore' } as const)),
+      ...(options.disableNewlinesBetween ? {} : ({ partitionByComment } as const)),
+    } as const
+
+    return ruleOptions
+  }
+
   const configs: TypedConfigItem[] = [
     {
       name: 'ntnyq/perfectionist/common',
@@ -186,6 +188,7 @@ export const configPerfectionist = (
             ...getCommonRuleOptions({
               disableNewlinesBetween: true,
             }),
+            ignoreAlias: false,
             groupKind: 'values-first',
           },
         ],

@@ -5,15 +5,16 @@
 import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
 import type { ESLintPluginCommandOptions } from 'eslint-plugin-command/types'
 import type { CreateConfigOptions as GitHubActionOptions } from 'eslint-plugin-github-action'
-import type { RuleOptions } from 'eslint-plugin-svgo/rule-options'
+import type { RuleOptions as SVGORuleOptions } from 'eslint-plugin-svgo/rule-options'
 import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
-import type { PrettierOptions } from '../types'
+import type { PerfectionistPartitionByComment, PrettierOptions } from '../types'
 import type {
   ESLintConfig,
   ESLintRuleSeverity,
   TSESLintParserOptions,
   TypedConfigItem,
 } from './eslint'
+import type { OptionsExtensions, OptionsFeatures, OptionsFiles, OptionsOverrides } from './options'
 
 export interface ConfigAntfuOptions extends OptionsOverrides {}
 
@@ -41,6 +42,11 @@ export interface ConfigFormatOptions {
   css?: 'prettier' | boolean
 
   /**
+   * Options for dprint
+   */
+  dprintOptions?: boolean
+
+  /**
    * Enable formatter support for html
    *
    * @default 'prettier'
@@ -58,11 +64,6 @@ export interface ConfigFormatOptions {
    * Options for prettier
    */
   prettierOptions?: PrettierOptions
-
-  /**
-   * Options for dprint
-   */
-  dprintOptions?: boolean
 }
 
 export interface ConfigGitHubActionOptions extends GitHubActionOptions, OptionsOverrides {}
@@ -115,6 +116,28 @@ export interface ConfigNtnyqOptions extends OptionsOverrides {}
 
 export interface ConfigPerfectionistOptions extends OptionsOverrides {
   /**
+   * Overrides rules for `constants`
+   */
+  overridesConstantsRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides rules for `enums`
+   */
+  overridesEnumsRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides rules for `types`
+   */
+  overridesTypesRules?: TypedConfigItem['rules']
+
+  /**
+   * Shared `partitionByComment` option
+   *
+   * @default ['@pg', '@perfectionist-group']
+   */
+  partitionByComment?: PerfectionistPartitionByComment
+
+  /**
    * Enable sort `constants`
    *
    * @default true
@@ -134,37 +157,22 @@ export interface ConfigPerfectionistOptions extends OptionsOverrides {
    * @default true
    */
   sortTypes?: boolean
-
-  /**
-   * Overrides rules for `constants`
-   */
-  overridesConstantsRules?: TypedConfigItem['rules']
-
-  /**
-   * Overrides rules for `enums`
-   */
-  overridesEnumsRules?: TypedConfigItem['rules']
-
-  /**
-   * Overrides rules for `types`
-   */
-  overridesTypesRules?: TypedConfigItem['rules']
 }
 
 export interface ConfigPiniaOptions extends OptionsFiles, OptionsOverrides {}
 
 export interface ConfigPrettierOptions extends OptionsOverrides {
   /**
+   * Glob of built-in disabled files
+   */
+  disabledFiles?: string[]
+
+  /**
    * rule severity
    *
    * @default `warn`
    */
   severity?: ESLintRuleSeverity
-
-  /**
-   * Glob of built-in disabled files
-   */
-  disabledFiles?: string[]
 
   /**
    * Glob of user custom disabled files
@@ -187,7 +195,7 @@ export interface ConfigSortOptions {
   /**
    * @default true
    */
-  tsconfig?: boolean
+  i18nLocale?: boolean
 
   /**
    * @default true
@@ -197,34 +205,34 @@ export interface ConfigSortOptions {
   /**
    * @default true
    */
-  i18nLocale?: boolean
+  pnpmWorkspace?: boolean
 
   /**
    * @default true
    */
-  pnpmWorkspace?: boolean
+  tsconfig?: boolean
 }
 
 export interface ConfigSpecialsOptions {
-  /**
-   * Overrides scripts rules
-   */
-  overridesScriptsRules?: TypedConfigItem['rules']
-
   /**
    * Overrides cli rules
    */
   overridesCliRules?: TypedConfigItem['rules']
 
   /**
-   * Overrides user scripts rules
-   */
-  overridesUserScriptsRules?: TypedConfigItem['rules']
-
-  /**
    * Overrides config files rules
    */
   overridesConfigFileRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides scripts rules
+   */
+  overridesScriptsRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides user scripts rules
+   */
+  overridesUserScriptsRules?: TypedConfigItem['rules']
 
   /**
    * More special case configs
@@ -242,7 +250,7 @@ export interface ConfigSpecialsOptions {
       }
 }
 
-export type ConfigSVGOOptions = ESLintConfig<RuleOptions>
+export type ConfigSVGOOptions = ESLintConfig<SVGORuleOptions>
 
 export interface ConfigTestOptions extends OptionsOverrides {
   /**
@@ -254,16 +262,6 @@ export interface ConfigTestOptions extends OptionsOverrides {
 export interface ConfigTomlOptions extends OptionsOverrides {}
 
 export interface ConfigTypeScriptOptions extends OptionsExtensions, OptionsFiles, OptionsOverrides {
-  /**
-   * Enable type aware check for TypeScript files
-   */
-  tsconfigPath?: string
-
-  /**
-   * Additional parser options
-   */
-  parserOptions?: TSESLintParserOptions
-
   /**
    * Glob patterns for files that should be type aware.
    * @default ['**\/*.{ts,tsx}']
@@ -280,6 +278,16 @@ export interface ConfigTypeScriptOptions extends OptionsExtensions, OptionsFiles
    * Overrides built-in type aware rules
    */
   overridesTypeAwareRules?: TypedConfigItem['rules']
+
+  /**
+   * Additional parser options
+   */
+  parserOptions?: TSESLintParserOptions
+
+  /**
+   * Enable type aware check for TypeScript files
+   */
+  tsconfigPath?: string
 }
 
 export interface ConfigUnicornOptions extends OptionsOverrides {}
@@ -309,39 +317,6 @@ export interface ConfigVueOptions extends OptionsFeatures, OptionsFiles, Options
 export interface ConfigYmlOptions extends OptionsOverrides {}
 
 /**
- * Options for overrides `files`
- */
-export interface OptionsFiles {
-  files?: string[]
-}
-
-/**
- * Options for add `extensions` support
- */
-export interface OptionsExtensions {
-  extensions?: string[]
-}
-
-/**
- * Options for add `features` support
- */
-export type OptionsFeatures = {
-  /**
-   * Enable typescript support
-   */
-  typescript?: boolean
-}
-
-/**
- * Options for overrides `rules`
- */
-export interface OptionsOverrides<
-  Rules extends TypedConfigItem['rules'] = TypedConfigItem['rules'],
-> {
-  overrides?: Rules
-}
-
-/**
  * Internal configs, not enabled
  */
 interface ConfigOptionsInternal {
@@ -351,6 +326,7 @@ interface ConfigOptionsInternal {
 
 /**
  * Config factory options
+ * @pg
  */
 export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions {
   command?: ConfigCommandOptions
@@ -363,7 +339,8 @@ export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions 
   specials?: ConfigSpecialsOptions
 
   /**
-   * bellow can be disabled
+   * Configs bellow can be disabled
+   * @pg
    */
   antfu?: boolean | ConfigAntfuOptions
   depend?: boolean | ConfigDependOptions

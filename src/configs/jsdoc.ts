@@ -71,6 +71,10 @@ export const configJsdoc = (options: ConfigJsdocOptions = {}): TypedConfigItem[]
             'vite-ignore',
             'unocss-include',
 
+            // defined perfectionist group
+            'pg',
+            'perfectionist-group',
+
             // eslint-plugin-command (block comment only)
             'regex101',
 
