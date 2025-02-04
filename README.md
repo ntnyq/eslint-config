@@ -124,7 +124,8 @@ pnpm add husky nano-staged -D
     "prepare": "husky"
   },
   "nano-staged": {
-    "*.{js,ts,cjs,mjs,jsx,tsx,vue,md,html,json,toml,yml,yaml}": "eslint --fix"
+    "*.{js,ts,cjs,mjs,jsx,tsx,vue,md,svg,json,toml,yml,yaml}": "eslint --fix",
+    "*.{css,scss,html}": "prettier -uw"
   }
 }
 ```
