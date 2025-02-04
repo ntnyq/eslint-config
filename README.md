@@ -1,6 +1,6 @@
 # eslint-config
 
-> Flat ESLint config for JavaScript, TypeScript, Vue, Prettier.
+> ESLint config for JavaScript, TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG and etc.
 
 [![CI](https://github.com/ntnyq/eslint-config/workflows/CI/badge.svg)](https://github.com/ntnyq/eslint-config/actions)
 [![NPM VERSION](https://img.shields.io/npm/v/@ntnyq/eslint-config/latest.svg)](https://www.npmjs.com/package/@ntnyq/eslint-config/v/latest)
@@ -9,8 +9,8 @@
 
 ## Features
 
-- Opinionable: single quotes, no semi, trailing comma, etc
 - Designed to work alongside with [Prettier](https://prettier.io)
+- Opinionable: single quote, no semi, trailing comma, etc
 - Respect `.gitignore` via [eslint-config-flat-gitignore](https://github.com/antfu/eslint-config-flat-gitignore)
 - Out-of-box support for TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG and etc
 - Strict but provides useful rules to guard your codebase
@@ -19,7 +19,7 @@
 
 ## Install
 
-```bash
+```shell
 pnpm add eslint prettier typescript @ntnyq/eslint-config @ntnyq/prettier-config -D
 ```
 
@@ -88,7 +88,8 @@ export default defineConfig({
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
-    "source.organizeImports": "never"
+    "source.organizeImports": "never",
+    "source.sortImports": "never"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "eslint.validate": [

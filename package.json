@@ -37,11 +37,13 @@
     "access": "public"
   },
   "scripts": {
-    "build": "pnpm run generate:type && tsup",
+    "build": "run-s generate:type build:lib",
+    "build:inspector": "pnpm dlx @eslint/config-inspector build",
+    "build:lib": "tsup",
     "dev": "tsup --watch src",
     "docs:build": "pnpm -C docs run build",
     "docs:dev": "pnpm -C docs run dev",
-    "generate:site": "tsx scripts/generateSite.ts",
+    "generate:site": "run-s generate:type build:lib build:inspector",
     "generate:type": "tsx scripts/generateType.ts",
     "lint": "eslint .",
     "prepare": "husky",
@@ -115,8 +117,7 @@
     "tsup": "^8.3.6",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
-    "vitest": "^3.0.5",
-    "zx": "^8.3.2"
+    "vitest": "^3.0.5"
   },
   "engines": {
     "node": ">=18.18.0"
