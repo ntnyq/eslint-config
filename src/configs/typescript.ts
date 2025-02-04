@@ -55,7 +55,7 @@ const recommendedRules: TypedConfigItem['rules'] = configsTypescript.recommended
   return { ...rules, ...(config.rules || {}) }
 }, {})
 
-export const typescript = (options: ConfigTypeScriptOptions = {}): TypedConfigItem[] => {
+export const configTypeScript = (options: ConfigTypeScriptOptions = {}): TypedConfigItem[] => {
   /**
    * @see {@link https://typescript-eslint.io/troubleshooting/typed-linting}
    */

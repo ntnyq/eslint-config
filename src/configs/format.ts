@@ -4,7 +4,7 @@ import { GLOB_CSS, GLOB_HTML, GLOB_LESS, GLOB_POSTCSS, GLOB_SCSS } from '../glob
 import { mergePrettierOptions } from '../utils'
 import type { ConfigFormatOptions, PrettierOptions, TypedConfigItem } from '../types'
 
-export const format = (options: ConfigFormatOptions = {}): TypedConfigItem[] => {
+export const configFormat = (options: ConfigFormatOptions = {}): TypedConfigItem[] => {
   const {
     css: enableCSS = true,
     html: enableHTML = true,

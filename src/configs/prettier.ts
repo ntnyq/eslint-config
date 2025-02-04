@@ -2,7 +2,7 @@ import { pluginPrettier } from '../eslint'
 import { GLOB_ASTRO, GLOB_SVELTE, GLOB_SVG, GLOB_TOML } from '../globs'
 import type { ConfigPrettierOptions, TypedConfigItem } from '../types'
 
-export const prettier = (options: ConfigPrettierOptions = {}): TypedConfigItem[] => {
+export const configPrettier = (options: ConfigPrettierOptions = {}): TypedConfigItem[] => {
   const {
     disabledFiles = [GLOB_SVG, GLOB_TOML, GLOB_ASTRO, GLOB_SVELTE],
     // User defined disabled files

@@ -1,7 +1,9 @@
 import { pluginUnusedImports } from '../eslint'
 import type { ConfigUnusedImportsOptions, TypedConfigItem } from '../types'
 
-export const unusedImports = (options: ConfigUnusedImportsOptions = {}): TypedConfigItem[] => [
+export const configUnusedImports = (
+  options: ConfigUnusedImportsOptions = {},
+): TypedConfigItem[] => [
   {
     name: 'ntnyq/unused-imports',
     plugins: {

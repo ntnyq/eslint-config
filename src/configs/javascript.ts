@@ -25,7 +25,7 @@ const strictRules: TypedConfigItem['rules'] = {
   ],
 }
 
-export const javascript = (options: ConfigJavaScriptOptions = {}): TypedConfigItem[] => [
+export const configJavaScript = (options: ConfigJavaScriptOptions = {}): TypedConfigItem[] => [
   {
     ...jsConfig.configs.recommended,
     name: 'ntnyq/js/recommended',
@@ -225,7 +225,7 @@ export const javascript = (options: ConfigJavaScriptOptions = {}): TypedConfigIt
   },
 ]
 
-export const jsx = (): TypedConfigItem[] => [
+export const configJSX = (): TypedConfigItem[] => [
   {
     name: 'ntnyq/jsx',
     files: ['**/*.jsx'],

@@ -205,7 +205,7 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
   ],
 }
 
-export const vue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
+export const configVue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
   const { files = [GLOB_VUE] } = options
   const sfcBlocks = options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {})
 

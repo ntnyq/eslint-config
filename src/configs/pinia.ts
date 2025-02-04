@@ -2,7 +2,7 @@ import { pluginPinia } from '../eslint'
 import { GLOB_PINIA_STORE } from '../globs'
 import type { ConfigPiniaOptions, TypedConfigItem } from '../types'
 
-export const pinia = (options: ConfigPiniaOptions = {}): TypedConfigItem[] => {
+export const configPinia = (options: ConfigPiniaOptions = {}): TypedConfigItem[] => {
   const { files = [GLOB_PINIA_STORE] } = options
 
   return [
