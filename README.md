@@ -93,7 +93,6 @@ export default defineConfig({
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "eslint.validate": [
     "vue",
-    "html",
     "yaml",
     "toml",
     "json",
