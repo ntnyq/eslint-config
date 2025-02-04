@@ -4,7 +4,6 @@
 
 export * from './vue'
 export * from './yml'
-export * from './esX'
 export * from './node'
 export * from './sort'
 export * from './toml'
