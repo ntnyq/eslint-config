@@ -87,6 +87,8 @@ export const configSpecials = (options: ConfigSpecialsOptions = {}): TypedConfig
       name: 'ntnyq/specials/shadcn-vue',
       files: shadcnOptions.files || ['**/components/ui/**/*.ts', '**/components/ui/**/*.vue'],
       rules: {
+        'vue/define-emits-declaration': 'off',
+        'import-x/consistent-type-specifier-style': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
         '@typescript-eslint/consistent-type-imports': 'off',
 
