@@ -4,8 +4,8 @@ import { builtinRules } from 'eslint/use-at-your-own-risk'
 import {
   configAntfu,
   configCommand,
-  configComments,
   configDepend,
+  configESLintComments,
   configESLintPlugin,
   configFormat,
   configGitHubAction,
@@ -50,7 +50,7 @@ const configs = await combineConfigs(
   },
   configAntfu(),
   configCommand(),
-  configComments(),
+  configESLintComments(),
   configDepend(),
   configESLintPlugin(),
   configFormat(),

@@ -20,8 +20,6 @@ export interface ConfigAntfuOptions extends OptionsOverrides {}
 
 export type ConfigCommandOptions = ESLintPluginCommandOptions
 
-export interface ConfigCommentsOptions extends OptionsOverrides {}
-
 export interface ConfigDependOptions extends OptionsFiles, OptionsOverrides {
   /**
    * Check deps in package.json
@@ -31,34 +29,24 @@ export interface ConfigDependOptions extends OptionsFiles, OptionsOverrides {
   packageJson?: boolean
 }
 
+export interface ConfigESLintCommentsOptions extends OptionsOverrides {}
+
 export interface ConfigESLintPluginOptions extends OptionsOverrides {}
 
 export interface ConfigFormatOptions {
   /**
    * Enable formatter support for css, less, scss, sass and etc.
    *
-   * @default 'prettier'
+   * @default true
    */
-  css?: 'prettier' | boolean
-
-  /**
-   * Options for dprint
-   */
-  dprintOptions?: boolean
+  css?: boolean
 
   /**
    * Enable formatter support for html
    *
-   * @default 'prettier'
+   * @default true
    */
-  html?: 'prettier' | boolean
-
-  /**
-   * Enable formatter support for markdown
-   *
-   * @default 'prettier'
-   */
-  markdown?: 'dprint' | 'prettier' | boolean
+  html?: boolean
 
   /**
    * Options for prettier
@@ -81,7 +69,7 @@ export type ConfigIgnoresOptions = string[]
 
 export interface ConfigImportXOptions extends OptionsFeatures, OptionsOverrides {
   /**
-   * Use typescriptResolver if `typescript` is installed
+   * Use [eslint-import-resolver-typescript](https://github.com/import-js/eslint-import-resolver-typescript) if `typescript` is installed
    *
    * @default true
    */
@@ -330,7 +318,7 @@ interface ConfigOptionsInternal {
  */
 export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions {
   command?: ConfigCommandOptions
-  comments?: ConfigCommentsOptions
+  eslintComments?: ConfigESLintCommentsOptions
   ignores?: ConfigIgnoresOptions
   importX?: ConfigImportXOptions
   javascript?: ConfigJavaScriptOptions

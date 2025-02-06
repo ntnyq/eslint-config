@@ -150,7 +150,7 @@ Check for detail in:
 ```ts
 export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions {
   command?: ConfigCommandOptions
-  comments?: ConfigCommentsOptions
+  eslintComments?: ConfigESLintCommentsOptions
   ignores?: ConfigIgnoresOptions
   importX?: ConfigImportXOptions
   javascript?: ConfigJavaScriptOptions

@@ -6,8 +6,8 @@ import { FlatConfigComposer } from 'eslint-flat-config-utils'
 import {
   configAntfu,
   configCommand,
-  configComments,
   configDepend,
+  configESLintComments,
   configESLintPlugin,
   configGitHubAction,
   configGitIgnore,
@@ -119,8 +119,8 @@ export function defineESLintConfig(
       overrides: getOverrides(options, 'jsdoc'),
       ...resolveSubOptions(options, 'jsdoc'),
     }),
-    configComments({
-      overrides: getOverrides(options, 'comments'),
+    configESLintComments({
+      overrides: getOverrides(options, 'eslintComments'),
     }),
     configJavaScript({
       ...resolveSubOptions(options, 'javascript'),
