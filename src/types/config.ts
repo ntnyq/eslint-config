@@ -89,14 +89,7 @@ export interface ConfigJsdocOptions extends OptionsFeatures, OptionsOverrides {}
 
 export interface ConfigJsoncOptions extends OptionsOverrides {}
 
-export interface ConfigMarkdownOptions extends OptionsExtensions, OptionsFiles, OptionsOverrides {
-  /**
-   * Explicitly disable type aware linting for markdown files
-   *
-   * @default false
-   */
-  disableTypeAwareLinting?: boolean
-}
+export interface ConfigMarkdownOptions extends OptionsExtensions, OptionsFiles, OptionsOverrides {}
 
 export interface ConfigNodeOptions extends OptionsOverrides {}
 
@@ -152,6 +145,8 @@ export interface ConfigPiniaOptions extends OptionsFiles, OptionsOverrides {}
 export interface ConfigPrettierOptions extends OptionsOverrides {
   /**
    * Glob of built-in disabled files
+   *
+   * @default all svg, toml, svelte and astro files
    */
   disabledFiles?: string[]
 

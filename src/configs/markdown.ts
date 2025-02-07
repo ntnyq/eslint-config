@@ -5,7 +5,7 @@ import {
   pluginMarkdown,
   processorPassThrough,
 } from '../eslint'
-import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MARKDOWN_NESTED, GLOB_SRC } from '../globs'
+import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MARKDOWN_NESTED } from '../globs'
 import type { ConfigMarkdownOptions, TypedConfigItem } from '../types'
 
 export const configMarkdown = (options: ConfigMarkdownOptions = {}): TypedConfigItem[] => {
@@ -13,16 +13,12 @@ export const configMarkdown = (options: ConfigMarkdownOptions = {}): TypedConfig
     /**
      * code block files
      */
-    files = [`${GLOB_MARKDOWN}/${GLOB_SRC}`],
+    files = [GLOB_MARKDOWN_CODE],
+
     /**
      * other extensions
      */
     extensions = [],
-
-    /**
-     * disbale type aware linting
-     */
-    disableTypeAwareLinting = false,
   } = options
 
   const configs: TypedConfigItem[] = [
@@ -57,10 +53,10 @@ export const configMarkdown = (options: ConfigMarkdownOptions = {}): TypedConfig
     },
 
     {
-      name: 'ntnyq/markdown/disabled/code-blocks',
+      name: 'ntnyq/markdown/disabled',
       files: [
         ...files,
-        // Extension block support
+        // more nested extensions to disable
         ...extensions.map(ext => `${GLOB_MARKDOWN}/**/*.${ext}`),
       ],
       languageOptions: {
@@ -68,6 +64,9 @@ export const configMarkdown = (options: ConfigMarkdownOptions = {}): TypedConfig
           ecmaFeatures: {
             impliedStrict: true,
           },
+          // type-aware lint related parserOptions
+          project: false,
+          projectService: false,
         },
       },
       rules: {
@@ -96,19 +95,14 @@ export const configMarkdown = (options: ConfigMarkdownOptions = {}): TypedConfig
         '@typescript-eslint/no-unused-expressions': 'off',
         '@typescript-eslint/consistent-type-imports': 'off',
 
+        // disable all type-aware rules of @typescript-eslint
+        ...(configsTypescript.disableTypeChecked as TypedConfigItem).rules,
+
         // Overrides rules
         ...options.overrides,
       },
     },
   ]
-
-  if (disableTypeAwareLinting) {
-    configs.push({
-      ...(configsTypescript.disableTypeChecked as TypedConfigItem),
-      name: 'ntnyq/markdown/disable/type-aware',
-      files: [GLOB_MARKDOWN_CODE],
-    })
-  }
 
   return configs
 }
