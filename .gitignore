@@ -11,6 +11,7 @@ dist
 
 # eslint-typegen
 src/types/typegen.ts
+src/types/typegen.d.ts
 
 # @eslint/config-inspector
 .eslint-config-inspector

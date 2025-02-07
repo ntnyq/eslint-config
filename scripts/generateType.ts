@@ -84,13 +84,17 @@ const configs = await combineConfigs(
 
 const configNames = configs.map(i => i.name).filter(Boolean) as string[]
 
-let dts = await flatConfigsToRulesDTS(configs, {
+const dts = await flatConfigsToRulesDTS(configs, {
   includeAugmentation: false,
 })
 
-dts += `
-// Names of all the configs
+await writeFile(
+  'src/types/typegen.d.ts',
+  [
+    '// cSpell: disable',
+    dts,
+    `// Names of all the configs
 export type ConfigNames = ${configNames.map(i => `'${i}'`).join(' | ')}
-`
-
-await writeFile(`src/types/typegen.ts`, dts)
+`,
+  ].join('\n'),
+)
