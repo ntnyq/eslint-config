@@ -83,6 +83,7 @@
     "eslint-plugin-jsdoc": "^50.6.3",
     "eslint-plugin-jsonc": "^2.19.1",
     "eslint-plugin-n": "^17.15.1",
+    "eslint-plugin-no-only-tests": "^3.3.0",
     "eslint-plugin-ntnyq": "^0.9.2",
     "eslint-plugin-perfectionist": "^4.8.0",
     "eslint-plugin-pinia": "^0.4.1",

@@ -32,7 +32,6 @@ import {
   configTypeScript,
   configUnicorn,
   configUnoCSS,
-  configVitest,
   configVue,
   configYml,
 } from './configs'
@@ -64,11 +63,11 @@ export function defineESLintConfig(
     /**
      * Conditional by deps
      */
-    vue: enableVue = hasVue,
-    pinia: enablePinia = hasPinia,
-    test: enableTest = hasVitest,
-    unocss: enableUnoCSS = hasUnoCSS,
-    typescript: enableTypeScript = hasTypeScript,
+    vue: enableVue = hasVue(),
+    pinia: enablePinia = hasPinia(),
+    test: enableTest = hasVitest(),
+    unocss: enableUnoCSS = hasUnoCSS(),
+    typescript: enableTypeScript = hasTypeScript(),
 
     /**
      * Enabled by default
@@ -214,9 +213,7 @@ export function defineESLintConfig(
   if (enableTest) {
     configs.push(
       configTest({
-        overrides: getOverrides(options, 'test'),
-      }),
-      configVitest({
+        ...resolveSubOptions(options, 'test'),
         overrides: getOverrides(options, 'test'),
       }),
     )

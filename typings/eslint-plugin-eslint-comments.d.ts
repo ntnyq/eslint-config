@@ -1,7 +1,7 @@
 declare module '@eslint-community/eslint-plugin-eslint-comments' {
-  import type { ESLint, Linter } from 'eslint'
+  import type { Linter, Rule } from 'eslint'
   declare const plugin: {
-    rules: NonNullable<ESLint.Plugin['rules']>
+    rules: Record<string, Rule.RuleModule>
     configs: {
       recommended: Linter.Config
     }

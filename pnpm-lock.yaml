@@ -71,6 +71,9 @@ importers:
       eslint-plugin-n:
         specifier: ^17.15.1
         version: 17.15.1(eslint@9.19.0(jiti@2.4.2))
+      eslint-plugin-no-only-tests:
+        specifier: ^3.3.0
+        version: 3.3.0
       eslint-plugin-ntnyq:
         specifier: ^0.9.2
         version: 0.9.2(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3)
@@ -1996,6 +1999,10 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: '>=8.23.0'
+
+  eslint-plugin-no-only-tests@3.3.0:
+    resolution: {integrity: sha512-brcKcxGnISN2CcVhXJ/kEQlNa0MEfGRtwKtWA16SkqXHKitaKIMrfemJKLKX1YqDU5C/5JY3PvZXd5jEW04e0Q==}
+    engines: {node: '>=5.0.0'}
 
   eslint-plugin-ntnyq@0.9.2:
     resolution: {integrity: sha512-sgBzWr0H7qKqgSjFxcGZ6F9X42ibLI4JKnl863inwxgVZCMAN0mnqN7lzMBarTK7oCPzBoCDXIbZQcUyDAIfFQ==}
@@ -5541,6 +5548,8 @@ snapshots:
       ignore: 5.3.2
       minimatch: 9.0.5
       semver: 7.6.3
+
+  eslint-plugin-no-only-tests@3.3.0: {}
 
   eslint-plugin-ntnyq@0.9.2(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3):
     dependencies:

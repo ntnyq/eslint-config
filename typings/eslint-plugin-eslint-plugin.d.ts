@@ -1,7 +1,7 @@
 declare module 'eslint-plugin-eslint-plugin' {
-  import type { ESLint, Linter } from 'eslint'
+  import type { Linter, Rule } from 'eslint'
   declare const plugin: {
-    rules: NonNullable<ESLint.Plugin['rules']>
+    rules: Record<string, Rule.RuleModule>
     configs: {
       'flat/all': Linter.Config
       'flat/recommended': Linter.Config

@@ -240,11 +240,18 @@ export interface ConfigSpecialsOptions {
 
 export type ConfigSVGOOptions = ESLintConfig<SVGORuleOptions>
 
-export interface ConfigTestOptions extends OptionsOverrides {
+export interface ConfigTestOptions extends OptionsFiles, OptionsOverrides {
   /**
    * Overrides built-in vitest rules
    */
   overridesVitestRules?: TypedConfigItem['rules']
+
+  /**
+   * enable vitest plugin rules
+   *
+   * @default true if vitest in deps
+   */
+  vitest?: boolean
 }
 
 export interface ConfigTomlOptions extends OptionsOverrides {}

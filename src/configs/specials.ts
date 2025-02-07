@@ -7,7 +7,7 @@ import type { ConfigSpecialsOptions, TypedConfigItem } from '../types'
 export const configSpecials = (options: ConfigSpecialsOptions = {}): TypedConfigItem[] => {
   const {
     // Enable shadcn-vue support
-    shadcnVue: enableShadcnVue = hasShadcnVue,
+    shadcnVue: enableShadcnVue = hasShadcnVue(),
   } = options
 
   const configs: TypedConfigItem[] = [

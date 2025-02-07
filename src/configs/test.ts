@@ -1,39 +1,51 @@
-import { pluginVitest } from '../eslint'
+import { pluginNoOnlyTests, pluginVitest } from '../eslint'
 import { GLOB_TEST } from '../globs'
-import type { ConfigTestOptions, ESLintConfig, TypedConfigItem } from '../types'
+import { hasVitest } from '../utils'
+import type { ConfigTestOptions, TypedConfigItem } from '../types'
 
-export const configTest = (options: ConfigTestOptions = {}): TypedConfigItem[] => [
-  {
-    name: 'ntnyq/test',
-    files: [...GLOB_TEST],
-    rules: {
-      'no-unused-expressions': 'off',
-      'max-lines-per-function': 'off',
+export const configTest = (options: ConfigTestOptions = {}): TypedConfigItem[] => {
+  const {
+    // default test files
+    files = [...GLOB_TEST],
+    vitest: enableVitest = hasVitest(),
+  } = options
 
-      // Overrides rules
-      ...options.overrides,
-    },
-  },
-]
-
-export const configVitest = (options: ConfigTestOptions = {}): TypedConfigItem[] => {
-  if (!pluginVitest.configs?.recommended) return []
-
-  const vitestConfigs = pluginVitest.configs as { recommended: ESLintConfig }
-
-  return [
+  const configs: TypedConfigItem[] = [
     {
-      name: 'ntnyq/vitest',
+      name: 'ntnyq/test/setup',
+      plugins: {
+        'no-only-tests': pluginNoOnlyTests,
+      },
+    },
+    {
+      name: 'ntnyq/test/base',
+      files,
+      rules: {
+        'no-unused-expressions': 'off',
+        'max-lines-per-function': 'off',
+        'no-only-tests/no-only-tests': 'error',
+
+        // Overrides rules
+        ...options.overrides,
+      },
+    },
+  ]
+
+  if (enableVitest) {
+    configs.push({
+      name: 'ntnyq/test/vitest',
+      files,
       plugins: {
         vitest: pluginVitest,
       },
-      files: [...GLOB_TEST],
       rules: {
-        ...vitestConfigs.recommended.rules,
+        ...pluginVitest.configs.recommended.rules,
 
         // Overrides rules
         ...options.overridesVitestRules,
       },
-    },
-  ]
+    })
+  }
+
+  return configs
 }
