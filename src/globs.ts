@@ -68,7 +68,7 @@ export const GLOB_LOCKFILE = [
   '**/package-lock.json',
   '**/yarn.lock',
   '**/pnpm-lock.yaml',
-  '**/bun.lockb',
+  '**/bun.lock?(b)',
   '**/deno.lock',
 ]
 export const GLOB_EXCLUDE = [
