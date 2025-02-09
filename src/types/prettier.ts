@@ -15,6 +15,7 @@ export type PrettierOptions = Partial<
     | 'htmlWhitespaceSensitivity'
     | 'insertPragma'
     | 'jsxSingleQuote'
+    | 'objectWrap'
     | 'plugins'
     | 'printWidth'
     | 'proseWrap'
@@ -29,7 +30,9 @@ export type PrettierOptions = Partial<
     | 'trailingComma'
     | 'useTabs'
     | 'vueIndentScriptAndStyle'
-  >
+  > & {
+    experimentalOperatorPosition?: 'end' | 'start'
+  }
 > & {
   parser?: BuiltInParserName
 }
