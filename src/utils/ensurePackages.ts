@@ -18,15 +18,17 @@ function isPackageInScope(name: string): boolean {
 
 export async function ensurePackages(packages: (string | undefined)[]) {
   if (
-    process.env.CI ||
-    !process.stdout.isTTY ||
-    isInGitHooksOrRunByNanoStagedOrRunByTSX() ||
-    !isCwdInScope
+    process.env.CI
+    || !process.stdout.isTTY
+    || isInGitHooksOrRunByNanoStagedOrRunByTSX()
+    || !isCwdInScope
   ) {
     return
   }
 
-  const nonExistingPackages = packages.filter(pkg => !!pkg && !isPackageInScope(pkg)) as string[]
+  const nonExistingPackages = packages.filter(
+    pkg => !!pkg && !isPackageInScope(pkg),
+  ) as string[]
 
   if (nonExistingPackages.length === 0) {
     return

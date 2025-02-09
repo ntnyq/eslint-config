@@ -3,7 +3,9 @@ import createCommandConfig from 'eslint-plugin-command/config'
 import { commands as internalCommands } from '../commands'
 import type { ConfigCommandOptions, TypedConfigItem } from '../types'
 
-export const configCommand = (options: ConfigCommandOptions = {}): TypedConfigItem[] => [
+export const configCommand = (
+  options: ConfigCommandOptions = {},
+): TypedConfigItem[] => [
   {
     ...createCommandConfig({
       ...options,

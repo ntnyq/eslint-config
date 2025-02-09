@@ -12,7 +12,9 @@ const disabledRules: TypedConfigItem['rules'] = {
   'unicorn/prefer-global-this': 'off',
 }
 
-export const configUnicorn = (options: ConfigUnicornOptions = {}): TypedConfigItem[] => [
+export const configUnicorn = (
+  options: ConfigUnicornOptions = {},
+): TypedConfigItem[] => [
   {
     name: 'ntnyq/unicorn',
     plugins: {

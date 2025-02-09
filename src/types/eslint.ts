@@ -6,7 +6,8 @@ import type { Pretty } from './utils'
 /**
  * ESLint config
  */
-export type ESLintConfig<Rules extends ESLintRulesRecord = ESLintRulesRecord> = Linter.Config<Rules>
+export type ESLintConfig<Rules extends ESLintRulesRecord = ESLintRulesRecord> =
+  Linter.Config<Rules>
 
 /**
  * ESLint parser
@@ -45,7 +46,10 @@ export type TSESLintParserOptions = Pretty<
 /**
  * Typed flat config item
  */
-export type TypedConfigItem = Omit<Linter.Config<ESLintRulesRecord & RuleOptions>, 'plugins'> & {
+export type TypedConfigItem = Omit<
+  Linter.Config<ESLintRulesRecord & RuleOptions>,
+  'plugins'
+> & {
   /**
    * Most plugin are not properly typed
    */

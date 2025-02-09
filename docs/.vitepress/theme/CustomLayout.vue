@@ -9,8 +9,8 @@ const DefaultThemeLayout = DefaultTheme.Layout
 
 function supportViewTransition() {
   return (
-    !!document.startViewTransition &&
-    window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+    !!document.startViewTransition
+    && window.matchMedia('(prefers-reduced-motion: no-preference)').matches
   )
 }
 

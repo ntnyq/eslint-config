@@ -106,7 +106,7 @@
     "yaml-eslint-parser": "^1.2.3"
   },
   "devDependencies": {
-    "@ntnyq/prettier-config": "^1.22.1",
+    "@ntnyq/prettier-config": "^2.0.0-beta.1",
     "@types/node": "^22.13.1",
     "bumpp": "^10.0.2",
     "eslint": "^9.20.0",

@@ -1,6 +1,8 @@
 import type { ConfigSortOptions, TypedConfigItem } from '../types'
 
-export const configSort = (options: ConfigSortOptions = {}): TypedConfigItem[] => {
+export const configSort = (
+  options: ConfigSortOptions = {},
+): TypedConfigItem[] => {
   const configs: TypedConfigItem[] = []
   const {
     tsconfig: enableSortTsconfig = true,
@@ -17,7 +19,14 @@ export const configSort = (options: ConfigSortOptions = {}): TypedConfigItem[] =
         'jsonc/sort-keys': [
           'error',
           {
-            order: ['extends', 'compilerOptions', 'references', 'files', 'include', 'exclude'],
+            order: [
+              'extends',
+              'compilerOptions',
+              'references',
+              'files',
+              'include',
+              'exclude',
+            ],
             pathPattern: '^$',
           },
           {
@@ -232,7 +241,8 @@ export const configSort = (options: ConfigSortOptions = {}): TypedConfigItem[] =
             ],
           },
           {
-            pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$',
+            pathPattern:
+              '^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$',
             order: { type: 'asc' },
           },
           {

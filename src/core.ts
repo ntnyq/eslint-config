@@ -44,7 +44,13 @@ import {
   hasVue,
   resolveSubOptions,
 } from './utils'
-import type { Awaitable, ConfigNames, ConfigOptions, ESLintConfig, TypedConfigItem } from './types'
+import type {
+  Awaitable,
+  ConfigNames,
+  ConfigOptions,
+  ESLintConfig,
+  TypedConfigItem,
+} from './types'
 
 /**
  * Config factory
@@ -52,7 +58,9 @@ import type { Awaitable, ConfigNames, ConfigOptions, ESLintConfig, TypedConfigIt
 // eslint-disable-next-line @typescript-eslint/promise-function-async
 export function defineESLintConfig(
   options: ConfigOptions = {},
-  ...userConfigs: Awaitable<TypedConfigItem | TypedConfigItem[] | ESLintConfig[]>[]
+  ...userConfigs: Awaitable<
+    TypedConfigItem | TypedConfigItem[] | ESLintConfig[]
+  >[]
 ): FlatConfigComposer<TypedConfigItem, ConfigNames> {
   const {
     /**

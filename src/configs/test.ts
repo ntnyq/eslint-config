@@ -3,7 +3,9 @@ import { GLOB_TEST } from '../globs'
 import { hasVitest } from '../utils'
 import type { ConfigTestOptions, TypedConfigItem } from '../types'
 
-export const configTest = (options: ConfigTestOptions = {}): TypedConfigItem[] => {
+export const configTest = (
+  options: ConfigTestOptions = {},
+): TypedConfigItem[] => {
   const {
     // default test files
     files = [...GLOB_TEST],

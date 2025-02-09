@@ -5,7 +5,9 @@ import type { Awaitable, InteropModuleDefault } from '../types'
  * @param mod - The module
  * @returns The default export
  */
-export async function interopDefault<T>(mod: Awaitable<T>): Promise<InteropModuleDefault<T>> {
+export async function interopDefault<T>(
+  mod: Awaitable<T>,
+): Promise<InteropModuleDefault<T>> {
   const resolved = await mod
   // TODO: fix unsafe-any
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return

@@ -6,5 +6,7 @@ export function getOverrides<K extends keyof ConfigOptions>(
   key: K,
 ): Partial<TypedConfigItem['rules'] & RuleOptions> {
   const subOptions = resolveSubOptions(options, key)
-  return 'overrides' in subOptions && subOptions.overrides ? subOptions.overrides : {}
+  return 'overrides' in subOptions && subOptions.overrides
+    ? subOptions.overrides
+    : {}
 }

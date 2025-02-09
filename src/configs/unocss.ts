@@ -1,7 +1,9 @@
 import { pluginUnoCSS } from '../eslint'
 import type { ConfigUnoCSSOptions, TypedConfigItem } from '../types'
 
-export const configUnoCSS = (options: ConfigUnoCSSOptions = {}): TypedConfigItem[] => [
+export const configUnoCSS = (
+  options: ConfigUnoCSSOptions = {},
+): TypedConfigItem[] => [
   {
     name: 'ntnyq/unocss',
     plugins: {

@@ -5,7 +5,9 @@ import type { ConfigDependOptions, TypedConfigItem } from '../types'
 /**
  * @see {@link https://github.com/es-tooling/module-replacements}
  */
-export const configDepend = (options: ConfigDependOptions = {}): TypedConfigItem[] => {
+export const configDepend = (
+  options: ConfigDependOptions = {},
+): TypedConfigItem[] => {
   const {
     files = [GLOB_SRC],
     // check package.json file

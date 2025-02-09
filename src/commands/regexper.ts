@@ -31,7 +31,10 @@ export const regexper = defineCommand({
     }
 
     const indexStart =
-      ctx.comment.range[0] + ctx.matches.index! + spaceBefore.length + 2 /** comment prefix */
+      ctx.comment.range[0]
+      + ctx.matches.index!
+      + spaceBefore.length
+      + 2 /** comment prefix */
     const indexEnd = indexStart + commandStr.length + existingUrl.length
 
     ctx.report({
@@ -42,7 +45,10 @@ export const regexper = defineCommand({
       removeComment: false,
       message: 'Update the regexper link',
       fix(fixer) {
-        return fixer.replaceTextRange([indexStart, indexEnd], `@regexper ${url}`)
+        return fixer.replaceTextRange(
+          [indexStart, indexEnd],
+          `@regexper ${url}`,
+        )
       },
     })
   },

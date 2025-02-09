@@ -1,6 +1,17 @@
 import process from 'node:process'
-import { configsTypescript, parserTypeScript, pluginAntfu, pluginTypeScript } from '../eslint'
-import { GLOB_ASTRO, GLOB_MARKDOWN, GLOB_TS, GLOB_TSX, GLOB_TYPES } from '../globs'
+import {
+  configsTypescript,
+  parserTypeScript,
+  pluginAntfu,
+  pluginTypeScript,
+} from '../eslint'
+import {
+  GLOB_ASTRO,
+  GLOB_MARKDOWN,
+  GLOB_TS,
+  GLOB_TSX,
+  GLOB_TYPES,
+} from '../globs'
 import type {
   ConfigTypeScriptOptions,
   ESLintParser,
@@ -49,13 +60,17 @@ const typeAwareRules: TypedConfigItem['rules'] = {
 /**
  * typescript-eslint recommended rules
  */
-const recommendedRules: TypedConfigItem['rules'] = configsTypescript.recommended.reduce<
-  TypedConfigItem['rules']
->((rules, config) => {
-  return { ...rules, ...(config.rules || {}) }
-}, {})
+const recommendedRules: TypedConfigItem['rules'] =
+  configsTypescript.recommended.reduce<TypedConfigItem['rules']>(
+    (rules, config) => {
+      return { ...rules, ...(config.rules || {}) }
+    },
+    {},
+  )
 
-export const configTypeScript = (options: ConfigTypeScriptOptions = {}): TypedConfigItem[] => {
+export const configTypeScript = (
+  options: ConfigTypeScriptOptions = {},
+): TypedConfigItem[] => {
   /**
    * @see {@link https://typescript-eslint.io/troubleshooting/typed-linting}
    */
@@ -185,7 +200,10 @@ export const configTypeScript = (options: ConfigTypeScriptOptions = {}): TypedCo
 
         // Extra rules
         '@typescript-eslint/ban-tslint-comment': 'error',
-        '@typescript-eslint/consistent-generic-constructors': ['error', 'constructor'],
+        '@typescript-eslint/consistent-generic-constructors': [
+          'error',
+          'constructor',
+        ],
         '@typescript-eslint/ban-ts-comment': [
           'error',
           {

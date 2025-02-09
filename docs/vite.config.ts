@@ -11,10 +11,12 @@ export default defineConfig({
   plugins: [
     UnoCSS(),
     VueComponents({
-      dirs: [fileURLToPath(new URL('./.vitepress/components', import.meta.url))],
       dts: fileURLToPath(new URL('./components.d.ts', import.meta.url)),
       extensions: ['vue', 'md'],
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      dirs: [
+        fileURLToPath(new URL('./.vitepress/components', import.meta.url)),
+      ],
     }),
     groupIconVitePlugin(),
   ],

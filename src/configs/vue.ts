@@ -7,7 +7,11 @@ import {
   processorVueBlocks,
 } from '../eslint'
 import { GLOB_VUE } from '../globs'
-import type { ConfigVueOptions, ESLintProcessor, TypedConfigItem } from '../types'
+import type {
+  ConfigVueOptions,
+  ESLintProcessor,
+  TypedConfigItem,
+} from '../types'
 
 const sharedRules: TypedConfigItem['rules'] = {
   ...pluginVue.configs.base.rules,
@@ -50,7 +54,12 @@ const extensionRules: TypedConfigItem['rules'] = {
   'vue/dot-notation': ['error', { allowKeywords: true }],
   'vue/key-spacing': ['error', { beforeColon: false, afterColon: true }],
   'vue/keyword-spacing': ['error', { before: true, after: true }],
-  'vue/no-restricted-syntax': ['error', 'DebuggerStatement', 'LabeledStatement', 'WithStatement'],
+  'vue/no-restricted-syntax': [
+    'error',
+    'DebuggerStatement',
+    'LabeledStatement',
+    'WithStatement',
+  ],
   'vue/space-unary-ops': [
     'error',
     {
@@ -182,7 +191,13 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
   'vue/define-macros-order': [
     'error',
     {
-      order: ['defineProps', 'defineEmits', 'defineOptions', 'defineSlots', 'defineModel'],
+      order: [
+        'defineProps',
+        'defineEmits',
+        'defineOptions',
+        'defineSlots',
+        'defineModel',
+      ],
       defineExposeLast: true,
     },
   ],
@@ -205,7 +220,9 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
   ],
 }
 
-export const configVue = (options: ConfigVueOptions = {}): TypedConfigItem[] => {
+export const configVue = (
+  options: ConfigVueOptions = {},
+): TypedConfigItem[] => {
   const { files = [GLOB_VUE] } = options
   const sfcBlocks = options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {})
 

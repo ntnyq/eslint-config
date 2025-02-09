@@ -136,8 +136,8 @@ importers:
         version: 1.2.3
     devDependencies:
       '@ntnyq/prettier-config':
-        specifier: ^1.22.1
-        version: 1.22.1
+        specifier: ^2.0.0-beta.1
+        version: 2.0.0-beta.1
       '@types/node':
         specifier: ^22.13.1
         version: 22.13.1
@@ -940,8 +940,8 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@ntnyq/prettier-config@1.22.1':
-    resolution: {integrity: sha512-xZUFm7AKtsbeIMXqylVto/mimFeP26vgzug6EjxyO8kbKYIssYJ4Mf+2t4O9wcECTN+LYfuV6AldpVWpyAMa5Q==}
+  '@ntnyq/prettier-config@2.0.0-beta.1':
+    resolution: {integrity: sha512-RAxJuCug+hbHtub+lpFIEyYjnhcll4vw7UrN9JeCODOpqleFQKSC0IA+aaZS9fFIdWjjjQZS5Dg6uNaNVG/5cQ==}
 
   '@ntnyq/utils@0.4.5':
     resolution: {integrity: sha512-A4ik6khNFMCdisUxUVINGwuQD51POdZDjbznK+Kf5XxHuFUfd6ayVfnzsIvfIXyPBZZO2N5NPxs5r9hPOubkpQ==}
@@ -4224,7 +4224,7 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@ntnyq/prettier-config@1.22.1': {}
+  '@ntnyq/prettier-config@2.0.0-beta.1': {}
 
   '@ntnyq/utils@0.4.5':
     dependencies:

@@ -3,7 +3,13 @@ import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import { defineConfig } from 'vitepress'
 import { groupIconMdPlugin } from 'vitepress-plugin-group-icons'
 import { version } from '../../package.json'
-import { PACKAGE_NAME, REPO_SLUG, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from './meta'
+import {
+  PACKAGE_NAME,
+  REPO_SLUG,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+} from './meta'
 
 export default defineConfig({
   title: SITE_NAME,
@@ -65,7 +71,10 @@ export default defineConfig({
         text: `v${version}`,
         items: [
           { text: `v${version} (current)`, link: '/' },
-          { text: `Release Notes`, link: `https://github.com/${REPO_SLUG}/releases` },
+          {
+            text: `Release Notes`,
+            link: `https://github.com/${REPO_SLUG}/releases`,
+          },
         ],
       },
       // {

@@ -1,10 +1,22 @@
 import { DEFAULT_PRETTIER_OPTIONS } from '../constants'
 import { parserPlain, pluginFormat } from '../eslint'
-import { GLOB_CSS, GLOB_HTML, GLOB_LESS, GLOB_POSTCSS, GLOB_SCSS } from '../globs'
+import {
+  GLOB_CSS,
+  GLOB_HTML,
+  GLOB_LESS,
+  GLOB_POSTCSS,
+  GLOB_SCSS,
+} from '../globs'
 import { mergePrettierOptions } from '../utils'
-import type { ConfigFormatOptions, PrettierOptions, TypedConfigItem } from '../types'
+import type {
+  ConfigFormatOptions,
+  PrettierOptions,
+  TypedConfigItem,
+} from '../types'
 
-export const configFormat = (options: ConfigFormatOptions = {}): TypedConfigItem[] => {
+export const configFormat = (
+  options: ConfigFormatOptions = {},
+): TypedConfigItem[] => {
   const {
     css: enableCSS = true,
     html: enableHTML = true,

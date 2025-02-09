@@ -104,8 +104,12 @@ export const configPerfectionist = (
       type: 'alphabetical',
       order: 'asc',
       ignoreCase: true,
-      ...(options.disableNewlinesBetween ? {} : ({ newlinesBetween: 'ignore' } as const)),
-      ...(options.disableNewlinesBetween ? {} : ({ partitionByComment } as const)),
+      ...(options.disableNewlinesBetween
+        ? {}
+        : ({ newlinesBetween: 'ignore' } as const)),
+      ...(options.disableNewlinesBetween
+        ? {}
+        : ({ partitionByComment } as const)),
     } as const
 
     return ruleOptions
@@ -312,7 +316,13 @@ export const configPerfectionist = (
           'error',
           {
             ...getCommonRuleOptions(),
-            groups: ['property', 'multiline-property', 'method', 'multiline-method', 'unknown'],
+            groups: [
+              'property',
+              'multiline-property',
+              'method',
+              'multiline-method',
+              'unknown',
+            ],
           },
         ],
         'perfectionist/sort-sets': [

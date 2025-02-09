@@ -6,8 +6,12 @@
 import { pluginRegexp } from '../eslint'
 import type { ConfigRegexpOptions, TypedConfigItem } from '../types'
 
-export const configRegexp = (options: ConfigRegexpOptions = {}): TypedConfigItem[] => {
-  const recommendedConfig = pluginRegexp.configs['flat/recommended'] as TypedConfigItem
+export const configRegexp = (
+  options: ConfigRegexpOptions = {},
+): TypedConfigItem[] => {
+  const recommendedConfig = pluginRegexp.configs[
+    'flat/recommended'
+  ] as TypedConfigItem
 
   const recommendedRules = {
     ...recommendedConfig.rules,

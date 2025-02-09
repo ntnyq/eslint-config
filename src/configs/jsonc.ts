@@ -2,7 +2,9 @@ import { parserJsonc, pluginJsonc } from '../eslint'
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs'
 import type { ConfigJsoncOptions, TypedConfigItem } from '../types'
 
-export const configJsonc = (options: ConfigJsoncOptions = {}): TypedConfigItem[] => [
+export const configJsonc = (
+  options: ConfigJsoncOptions = {},
+): TypedConfigItem[] => [
   {
     name: 'ntnyq/jsonc',
     files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
@@ -13,7 +15,8 @@ export const configJsonc = (options: ConfigJsoncOptions = {}): TypedConfigItem[]
       parser: parserJsonc,
     },
     rules: {
-      ...(pluginJsonc.configs['recommended-with-jsonc'] as TypedConfigItem).rules,
+      ...(pluginJsonc.configs['recommended-with-jsonc'] as TypedConfigItem)
+        .rules,
 
       'jsonc/no-octal-escape': 'error',
       'jsonc/indent': ['error', 2],

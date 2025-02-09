@@ -14,7 +14,12 @@ import type {
   TSESLintParserOptions,
   TypedConfigItem,
 } from './eslint'
-import type { OptionsExtensions, OptionsFeatures, OptionsFiles, OptionsOverrides } from './options'
+import type {
+  OptionsExtensions,
+  OptionsFeatures,
+  OptionsFiles,
+  OptionsOverrides,
+} from './options'
 
 export interface ConfigAntfuOptions extends OptionsOverrides {}
 
@@ -54,7 +59,9 @@ export interface ConfigFormatOptions {
   prettierOptions?: PrettierOptions
 }
 
-export interface ConfigGitHubActionOptions extends GitHubActionOptions, OptionsOverrides {}
+export interface ConfigGitHubActionOptions
+  extends GitHubActionOptions,
+    OptionsOverrides {}
 
 export type ConfigGitIgnoreOptions = Omit<FlatGitignoreOptions, 'strict'> & {
   /**
@@ -67,7 +74,9 @@ export type ConfigGitIgnoreOptions = Omit<FlatGitignoreOptions, 'strict'> & {
 
 export type ConfigIgnoresOptions = string[]
 
-export interface ConfigImportXOptions extends OptionsFeatures, OptionsOverrides {
+export interface ConfigImportXOptions
+  extends OptionsFeatures,
+    OptionsOverrides {
   /**
    * Use [eslint-import-resolver-typescript](https://github.com/import-js/eslint-import-resolver-typescript) if `typescript` is installed
    *
@@ -89,7 +98,10 @@ export interface ConfigJsdocOptions extends OptionsFeatures, OptionsOverrides {}
 
 export interface ConfigJsoncOptions extends OptionsOverrides {}
 
-export interface ConfigMarkdownOptions extends OptionsExtensions, OptionsFiles, OptionsOverrides {}
+export interface ConfigMarkdownOptions
+  extends OptionsExtensions,
+    OptionsFiles,
+    OptionsOverrides {}
 
 export interface ConfigNodeOptions extends OptionsOverrides {}
 
@@ -251,7 +263,10 @@ export interface ConfigTestOptions extends OptionsFiles, OptionsOverrides {
 
 export interface ConfigTomlOptions extends OptionsOverrides {}
 
-export interface ConfigTypeScriptOptions extends OptionsExtensions, OptionsFiles, OptionsOverrides {
+export interface ConfigTypeScriptOptions
+  extends OptionsExtensions,
+    OptionsFiles,
+    OptionsOverrides {
   /**
    * Glob patterns for files that should be type aware.
    * @default ['**\/*.{ts,tsx}']
@@ -293,7 +308,10 @@ export interface ConfigUnoCSSOptions extends OptionsOverrides {
 
 export interface ConfigUnusedImportsOptions extends OptionsOverrides {}
 
-export interface ConfigVueOptions extends OptionsFeatures, OptionsFiles, OptionsOverrides {
+export interface ConfigVueOptions
+  extends OptionsFeatures,
+    OptionsFiles,
+    OptionsOverrides {
   /**
    * Create virtual files for Vue SFC blocks to enable linting.
    *
@@ -318,7 +336,9 @@ interface ConfigOptionsInternal {
  * Config factory options
  * @pg
  */
-export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions {
+export interface ConfigOptions
+  extends ConfigOptionsInternal,
+    OptionsExtensions {
   command?: ConfigCommandOptions
   eslintComments?: ConfigESLintCommentsOptions
   ignores?: ConfigIgnoresOptions

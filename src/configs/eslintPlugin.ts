@@ -6,7 +6,9 @@ export const configESLintPlugin = async (
 ): Promise<TypedConfigItem[]> => {
   await ensurePackages(['eslint-plugin-eslint-plugin'])
 
-  const pluginESLintPlugin = await interopDefault(import('eslint-plugin-eslint-plugin'))
+  const pluginESLintPlugin = await interopDefault(
+    import('eslint-plugin-eslint-plugin'),
+  )
 
   return [
     {

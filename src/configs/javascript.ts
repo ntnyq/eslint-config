@@ -25,7 +25,9 @@ const strictRules: TypedConfigItem['rules'] = {
   ],
 }
 
-export const configJavaScript = (options: ConfigJavaScriptOptions = {}): TypedConfigItem[] => [
+export const configJavaScript = (
+  options: ConfigJavaScriptOptions = {},
+): TypedConfigItem[] => [
   {
     ...jsConfig.configs.recommended,
     name: 'ntnyq/js/recommended',
@@ -51,7 +53,10 @@ export const configJavaScript = (options: ConfigJavaScriptOptions = {}): TypedCo
       'sort-imports': 'off',
 
       // standard v17.0.0
-      'accessor-pairs': ['error', { setWithoutGet: true, enforceForClassMembers: true }],
+      'accessor-pairs': [
+        'error',
+        { setWithoutGet: true, enforceForClassMembers: true },
+      ],
       camelcase: [
         'error',
         {
@@ -64,7 +69,10 @@ export const configJavaScript = (options: ConfigJavaScriptOptions = {}): TypedCo
       curly: ['error', 'multi-line'],
       'default-case-last': 'error',
       'dot-notation': ['error', { allowKeywords: true }],
-      'new-cap': ['error', { newIsCap: true, capIsNew: false, properties: true }],
+      'new-cap': [
+        'error',
+        { newIsCap: true, capIsNew: false, properties: true },
+      ],
       'no-array-constructor': 'error',
       'no-async-promise-executor': 'error',
       'no-caller': 'error',

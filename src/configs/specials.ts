@@ -4,7 +4,9 @@ import { GLOB_SRC, GLOB_SRC_EXT } from '../globs'
 import { hasShadcnVue, resolveSubOptions } from '../utils'
 import type { ConfigSpecialsOptions, TypedConfigItem } from '../types'
 
-export const configSpecials = (options: ConfigSpecialsOptions = {}): TypedConfigItem[] => {
+export const configSpecials = (
+  options: ConfigSpecialsOptions = {},
+): TypedConfigItem[] => {
   const {
     // Enable shadcn-vue support
     shadcnVue: enableShadcnVue = hasShadcnVue(),
@@ -85,7 +87,10 @@ export const configSpecials = (options: ConfigSpecialsOptions = {}): TypedConfig
 
     configs.push({
       name: 'ntnyq/specials/shadcn-vue',
-      files: shadcnOptions.files || ['**/components/ui/**/*.ts', '**/components/ui/**/*.vue'],
+      files: shadcnOptions.files || [
+        '**/components/ui/**/*.ts',
+        '**/components/ui/**/*.vue',
+      ],
       rules: {
         'vue/define-emits-declaration': 'off',
         'import-x/consistent-type-specifier-style': 'off',

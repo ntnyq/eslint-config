@@ -1,7 +1,13 @@
-import { createNodeResolver, createTypeScriptImportResolver, pluginImportX } from '../eslint'
+import {
+  createNodeResolver,
+  createTypeScriptImportResolver,
+  pluginImportX,
+} from '../eslint'
 import type { ConfigImportXOptions, TypedConfigItem } from '../types'
 
-export const configImportX = (options: ConfigImportXOptions = {}): TypedConfigItem[] => {
+export const configImportX = (
+  options: ConfigImportXOptions = {},
+): TypedConfigItem[] => {
   const {
     typescript: enableTypeScript,
     // use typescript resolve if possible
@@ -18,7 +24,15 @@ export const configImportX = (options: ConfigImportXOptions = {}): TypedConfigIt
         'import-x/resolver-next': [
           enableTypeScript && preferTypeScriptResolver
             ? createTypeScriptImportResolver({
-                extensions: ['.ts', '.tsx', '.d.ts', '.js', '.jsx', '.json', '.node'],
+                extensions: [
+                  '.ts',
+                  '.tsx',
+                  '.d.ts',
+                  '.js',
+                  '.jsx',
+                  '.json',
+                  '.node',
+                ],
               })
             : createNodeResolver({
                 extensions: ['.js', '.mjs', '.ts', '.mts', '.d.ts', '.json'],
@@ -40,7 +54,10 @@ export const configImportX = (options: ConfigImportXOptions = {}): TypedConfigIt
         'import-x/no-duplicates': 'error',
         'import-x/no-mutable-exports': 'error',
         'import-x/newline-after-import': 'error',
-        'import-x/consistent-type-specifier-style': ['error', 'prefer-top-level'],
+        'import-x/consistent-type-specifier-style': [
+          'error',
+          'prefer-top-level',
+        ],
 
         // Overrides rules
         ...options.overrides,
