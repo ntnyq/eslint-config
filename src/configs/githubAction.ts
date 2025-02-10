@@ -6,22 +6,22 @@ export const configGitHubAction = (
   options: ConfigGitHubActionOptions = {},
 ): TypedConfigItem[] => {
   const {
-    // Support common overrides rules
+    files = [GLOB_GITHUB_ACTION],
+    rules = {},
     overrides: overridesRules = {},
-
-    // Config options
     ...restOptions
   } = options
 
   return [
     createConfig({
       name: 'ntnyq/github-action',
-      files: [GLOB_GITHUB_ACTION],
+      files,
       rules: {
         'github-action/no-invalid-key': 'error',
         'github-action/prefer-file-extension': 'error',
         'github-action/require-action-name': 'error',
 
+        ...rules,
         ...overridesRules,
       },
       ...restOptions,
