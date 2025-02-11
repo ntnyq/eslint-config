@@ -188,6 +188,16 @@ export interface ConfigRegexpOptions extends OptionsOverrides {
 
 export interface ConfigSortOptions {
   /**
+   * JSON files to sort all properties alphabeta
+   */
+  additionalJsonFiles?: string[]
+
+  /**
+   * YAML files to sort all properties alphabeta
+   */
+  additionalYamlFiles?: string[]
+
+  /**
    * @default true
    */
   i18nLocale?: boolean

@@ -9,6 +9,8 @@ export const configSort = (
     packageJson: enableSortPackageJson = true,
     i18nLocale: enableSortI18nLocale = true,
     pnpmWorkspace: enableSortPnpmWorkspace = true,
+    additionalJsonFiles = [],
+    additionalYamlFiles = [],
   } = options
 
   if (enableSortTsconfig) {
@@ -26,6 +28,8 @@ export const configSort = (
               'files',
               'include',
               'exclude',
+              // vue.volar
+              'vueCompilerOptions',
             ],
             pathPattern: '^$',
           },
@@ -140,6 +144,25 @@ export const configSort = (
       name: 'ntnyq/sort/package-json',
       files: ['**/package.json'],
       rules: {
+        'jsonc/sort-array-values': [
+          'error',
+          {
+            pathPattern: '^files$',
+            order: { type: 'asc' },
+          },
+          {
+            pathPattern: '^keywords$',
+            order: { type: 'asc' },
+          },
+          {
+            pathPattern: '^activationEvents$',
+            order: { type: 'asc' },
+          },
+          {
+            pathPattern: '^contributes.*$',
+            order: { type: 'asc' },
+          },
+        ],
         'jsonc/sort-keys': [
           'error',
           {
@@ -241,17 +264,28 @@ export const configSort = (
             ],
           },
           {
+            order: { type: 'asc' },
             pathPattern:
               '^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$',
-            order: { type: 'asc' },
           },
           {
             order: { type: 'asc' },
             pathPattern: '^(?:resolutions|overrides|pnpm.overrides)$',
           },
           {
+            order: [
+              './package.json',
+              'types',
+              'import',
+              'require',
+              'default',
+              {
+                order: {
+                  type: 'asc',
+                },
+              },
+            ],
             pathPattern: '^exports.*$',
-            order: ['types', 'import', 'require', 'default'],
           },
           // VSCode extension
           {
@@ -263,13 +297,24 @@ export const configSort = (
            * @see {@link https://pnpm.io/package_json#publishconfig}
            */
           {
-            order: { type: 'asc' },
             pathPattern: '^publishConfig.*$',
+            order: [
+              './package.json',
+              'types',
+              'import',
+              'require',
+              'default',
+              {
+                order: {
+                  type: 'asc',
+                },
+              },
+            ],
           },
           // npm scripts
           {
-            pathPattern: '^scripts$',
             order: { type: 'asc' },
+            pathPattern: '^scripts$',
           },
           {
             order: [
@@ -286,25 +331,6 @@ export const configSort = (
               'pre-auto-gc',
             ],
             pathPattern: '^(?:gitHooks|husky|simple-git-hooks)$',
-          },
-        ],
-        'jsonc/sort-array-values': [
-          'error',
-          {
-            pathPattern: '^files$',
-            order: { type: 'asc' },
-          },
-          {
-            pathPattern: '^keywords$',
-            order: { type: 'asc' },
-          },
-          {
-            pathPattern: '^activationEvents$',
-            order: { type: 'asc' },
-          },
-          {
-            pathPattern: '^contributes.*$',
-            order: { type: 'asc' },
           },
         ],
       },
@@ -346,6 +372,38 @@ export const configSort = (
     configs.push({
       name: 'ntnyq/sort/pnpm-workspace',
       files: ['**/pnpm-workspace.yaml'],
+      rules: {
+        'yml/sort-keys': [
+          'error',
+          {
+            pathPattern: '.*',
+            order: { type: 'asc' },
+          },
+        ],
+      },
+    })
+  }
+
+  if (additionalJsonFiles.length) {
+    configs.push({
+      name: 'ntnyq/sort/additional-json',
+      files: additionalJsonFiles,
+      rules: {
+        'jsonc/sort-keys': [
+          'error',
+          {
+            pathPattern: '.*',
+            order: { type: 'asc' },
+          },
+        ],
+      },
+    })
+  }
+
+  if (additionalYamlFiles.length) {
+    configs.push({
+      name: 'ntnyq/sort/additional-yaml',
+      files: additionalYamlFiles,
       rules: {
         'yml/sort-keys': [
           'error',
