@@ -9,6 +9,7 @@ export const configTest = (
   const {
     // default test files
     files = [...GLOB_TEST],
+
     vitest: enableVitest = hasVitest(),
   } = options
 
@@ -23,8 +24,9 @@ export const configTest = (
       name: 'ntnyq/test/base',
       files,
       rules: {
-        'no-unused-expressions': 'off',
         'max-lines-per-function': 'off',
+        'no-unused-expressions': 'off',
+
         'no-only-tests/no-only-tests': 'error',
 
         // Overrides rules

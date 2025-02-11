@@ -5,12 +5,12 @@ export const configSort = (
 ): TypedConfigItem[] => {
   const configs: TypedConfigItem[] = []
   const {
-    tsconfig: enableSortTsconfig = true,
-    packageJson: enableSortPackageJson = true,
-    i18nLocale: enableSortI18nLocale = true,
-    pnpmWorkspace: enableSortPnpmWorkspace = true,
     additionalJsonFiles = [],
     additionalYamlFiles = [],
+    i18nLocale: enableSortI18nLocale = true,
+    packageJson: enableSortPackageJson = true,
+    pnpmWorkspace: enableSortPnpmWorkspace = true,
+    tsconfig: enableSortTsconfig = true,
   } = options
 
   if (enableSortTsconfig) {
@@ -21,6 +21,7 @@ export const configSort = (
         'jsonc/sort-keys': [
           'error',
           {
+            pathPattern: '^$',
             order: [
               'extends',
               'compilerOptions',
@@ -31,9 +32,9 @@ export const configSort = (
               // vue.volar
               'vueCompilerOptions',
             ],
-            pathPattern: '^$',
           },
           {
+            pathPattern: '^compilerOptions$',
             order: [
               /* Projects */
               'incremental',
@@ -132,7 +133,6 @@ export const configSort = (
               'skipDefaultLibCheck',
               'skipLibCheck',
             ],
-            pathPattern: '^compilerOptions$',
           },
         ],
       },
@@ -147,20 +147,20 @@ export const configSort = (
         'jsonc/sort-array-values': [
           'error',
           {
+            order: { type: 'asc' },
             pathPattern: '^files$',
-            order: { type: 'asc' },
           },
           {
+            order: { type: 'asc' },
             pathPattern: '^keywords$',
-            order: { type: 'asc' },
           },
           {
+            order: { type: 'asc' },
             pathPattern: '^activationEvents$',
-            order: { type: 'asc' },
           },
           {
-            pathPattern: '^contributes.*$',
             order: { type: 'asc' },
+            pathPattern: '^contributes.*$',
           },
         ],
         'jsonc/sort-keys': [
@@ -273,6 +273,7 @@ export const configSort = (
             pathPattern: '^(?:resolutions|overrides|pnpm.overrides)$',
           },
           {
+            pathPattern: '^exports.*$',
             order: [
               './package.json',
               'types',
@@ -285,7 +286,6 @@ export const configSort = (
                 },
               },
             ],
-            pathPattern: '^exports.*$',
           },
           // VSCode extension
           {
@@ -317,6 +317,7 @@ export const configSort = (
             pathPattern: '^scripts$',
           },
           {
+            pathPattern: '^(?:gitHooks|husky|simple-git-hooks)$',
             order: [
               // client hooks only
               'pre-commit',
@@ -330,7 +331,6 @@ export const configSort = (
               'pre-push',
               'pre-auto-gc',
             ],
-            pathPattern: '^(?:gitHooks|husky|simple-git-hooks)$',
           },
         ],
       },
@@ -346,8 +346,8 @@ export const configSort = (
           'jsonc/sort-keys': [
             'error',
             {
-              pathPattern: '.*',
               order: { type: 'asc' },
+              pathPattern: '.*',
             },
           ],
         },
@@ -359,8 +359,8 @@ export const configSort = (
           'yml/sort-keys': [
             'error',
             {
-              pathPattern: '.*',
               order: { type: 'asc' },
+              pathPattern: '.*',
             },
           ],
         },
@@ -376,8 +376,8 @@ export const configSort = (
         'yml/sort-keys': [
           'error',
           {
-            pathPattern: '.*',
             order: { type: 'asc' },
+            pathPattern: '.*',
           },
         ],
       },
@@ -392,8 +392,8 @@ export const configSort = (
         'jsonc/sort-keys': [
           'error',
           {
-            pathPattern: '.*',
             order: { type: 'asc' },
+            pathPattern: '.*',
           },
         ],
       },
@@ -408,8 +408,8 @@ export const configSort = (
         'yml/sort-keys': [
           'error',
           {
-            pathPattern: '.*',
             order: { type: 'asc' },
+            pathPattern: '.*',
           },
         ],
       },

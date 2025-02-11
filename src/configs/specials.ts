@@ -17,8 +17,8 @@ export const configSpecials = (
       name: 'ntnyq/specials/scripts',
       files: [`**/scripts/${GLOB_SRC}`],
       rules: {
-        'no-console': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
+        'no-console': 'off',
 
         // Overrides rules
         ...options.overridesScriptsRules,
@@ -28,8 +28,8 @@ export const configSpecials = (
       name: 'ntnyq/specials/cli',
       files: [`**/cli/${GLOB_SRC}`, `**/cli.${GLOB_SRC_EXT}`],
       rules: {
-        'no-console': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
+        'no-console': 'off',
 
         // Overrides rules
         ...options.overridesCliRules,
@@ -63,17 +63,17 @@ export const configSpecials = (
         perfectionist: pluginPerfectionist,
       },
       rules: {
-        'no-console': 'off',
-        'import-x/no-default-export': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
+        'import-x/no-default-export': 'off',
+        'no-console': 'off',
 
         'perfectionist/sort-objects': [
           'error',
           {
-            type: 'alphabetical',
+            groups: ['unknown', 'method', 'multiline'],
             order: 'asc',
             partitionByComment: true,
-            groups: ['unknown', 'method', 'multiline'],
+            type: 'alphabetical',
           },
         ],
 
@@ -92,10 +92,10 @@ export const configSpecials = (
         '**/components/ui/**/*.vue',
       ],
       rules: {
-        'vue/define-emits-declaration': 'off',
-        'import-x/consistent-type-specifier-style': 'off',
-        '@typescript-eslint/no-unused-vars': 'off',
         '@typescript-eslint/consistent-type-imports': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        'import-x/consistent-type-specifier-style': 'off',
+        'vue/define-emits-declaration': 'off',
 
         // Overrides rules
         ...shadcnOptions.overridesRules,

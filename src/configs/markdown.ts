@@ -67,39 +67,39 @@ export const configMarkdown = (
       ],
       languageOptions: {
         parserOptions: {
-          ecmaFeatures: {
-            impliedStrict: true,
-          },
           // type-aware lint related parserOptions
           project: false,
           projectService: false,
+          ecmaFeatures: {
+            impliedStrict: true,
+          },
         },
       },
       rules: {
-        'no-undef': 'off',
-        'no-alert': 'off',
-        'no-console': 'off',
-        'no-unused-vars': 'off',
-        'no-unused-expressions': 'off',
-        'no-restricted-imports': 'off',
+        '@typescript-eslint/comma-dangle': 'off',
+        '@typescript-eslint/consistent-type-imports': 'off',
+        '@typescript-eslint/no-extraneous-class': 'off',
+        '@typescript-eslint/no-namespace': 'off',
+        '@typescript-eslint/no-redeclare': 'off',
+        '@typescript-eslint/no-require-imports': 'off',
 
-        'node/prefer-global/buffer': 'off',
-        'node/prefer-global/process': 'off',
+        '@typescript-eslint/no-unused-expressions': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+
+        '@typescript-eslint/no-use-before-define': 'off',
 
         'import-x/no-unresolved': 'off',
+        'no-alert': 'off',
 
+        'no-console': 'off',
+        'no-restricted-imports': 'off',
+        'no-undef': 'off',
+        'no-unused-expressions': 'off',
+        'no-unused-vars': 'off',
+        'node/prefer-global/buffer': 'off',
+        'node/prefer-global/process': 'off',
         'unused-imports/no-unused-imports': 'off',
         'unused-imports/no-unused-vars': 'off',
-
-        '@typescript-eslint/comma-dangle': 'off',
-        '@typescript-eslint/no-redeclare': 'off',
-        '@typescript-eslint/no-namespace': 'off',
-        '@typescript-eslint/no-unused-vars': 'off',
-        '@typescript-eslint/no-require-imports': 'off',
-        '@typescript-eslint/no-extraneous-class': 'off',
-        '@typescript-eslint/no-use-before-define': 'off',
-        '@typescript-eslint/no-unused-expressions': 'off',
-        '@typescript-eslint/consistent-type-imports': 'off',
 
         // disable all type-aware rules of @typescript-eslint
         ...(configsTypescript.disableTypeChecked as TypedConfigItem).rules,

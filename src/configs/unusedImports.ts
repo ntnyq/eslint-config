@@ -11,18 +11,19 @@ export const configUnusedImports = (
     },
     rules: {
       '@typescript-eslint/no-unused-vars': 'off',
+
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'error',
         {
-          vars: 'all',
-          varsIgnorePattern: '^_',
           args: 'after-used',
           argsIgnorePattern: '^_',
-          ignoreRestSiblings: true,
-          destructuredArrayIgnorePattern: '^_',
           caughtErrors: 'all',
           caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+          vars: 'all',
+          varsIgnorePattern: '^_',
         },
       ],
 

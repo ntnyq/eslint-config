@@ -8,6 +8,7 @@ export const configGitHubAction = (
   const {
     files = [GLOB_GITHUB_ACTION],
     rules = {},
+
     overrides: overridesRules = {},
     ...restOptions
   } = options

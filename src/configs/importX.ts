@@ -9,9 +9,9 @@ export const configImportX = (
   options: ConfigImportXOptions = {},
 ): TypedConfigItem[] => {
   const {
-    typescript: enableTypeScript,
     // use typescript resolve if possible
     preferTypeScriptResolver = true,
+    typescript: enableTypeScript,
   } = options
 
   return [
@@ -40,24 +40,24 @@ export const configImportX = (
         ],
       },
       rules: {
-        'import-x/no-unresolved': 'off',
         'import-x/no-absolute-path': 'off',
         'import-x/no-named-as-default-member': 'off',
         'import-x/no-named-default': 'off',
+        'import-x/no-unresolved': 'off',
 
         // disabled in favor or `perfectionist/sort-imports`
         'import-x/order': 'off',
 
-        'import-x/first': 'error',
-        'import-x/export': 'error',
-        'import-x/no-self-import': 'error',
-        'import-x/no-duplicates': 'error',
-        'import-x/no-mutable-exports': 'error',
-        'import-x/newline-after-import': 'error',
         'import-x/consistent-type-specifier-style': [
           'error',
           'prefer-top-level',
         ],
+        'import-x/export': 'error',
+        'import-x/first': 'error',
+        'import-x/newline-after-import': 'error',
+        'import-x/no-duplicates': 'error',
+        'import-x/no-mutable-exports': 'error',
+        'import-x/no-self-import': 'error',
 
         // Overrides rules
         ...options.overrides,

@@ -10,9 +10,9 @@ export const configUnoCSS = (
       unocss: pluginUnoCSS,
     },
     rules: {
-      'unocss/order': 'error',
-
       'unocss/order-attributify': options.attributify ? 'error' : 'off',
+
+      'unocss/order': 'error',
 
       // Overrides rules
       ...options.overrides,

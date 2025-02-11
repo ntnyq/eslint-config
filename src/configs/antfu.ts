@@ -14,8 +14,8 @@ export const configAntfu = (
       // 'antfu/consistent-list-newline': 'error',
 
       'antfu/import-dedupe': 'error',
-      'antfu/no-import-dist': 'error',
       'antfu/indent-unindent': 'error',
+      'antfu/no-import-dist': 'error',
       'antfu/no-import-node-modules-by-path': 'error',
 
       // Overrides rules

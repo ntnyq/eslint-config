@@ -90,10 +90,10 @@ export const configPerfectionist = (
   options: ConfigPerfectionistOptions = {},
 ): TypedConfigItem[] => {
   const {
+    partitionByComment = ['@pg', '@perfectionist-group'],
+    sortConstants: enableSortConstants = true,
     sortEnums: enableSortEnums = true,
     sortTypes: enableSortTypes = true,
-    sortConstants: enableSortConstants = true,
-    partitionByComment = ['@pg', '@perfectionist-group'],
   } = options
 
   /**
@@ -101,9 +101,9 @@ export const configPerfectionist = (
    */
   function getCommonRuleOptions(options: CommonRuleOptions = {}) {
     const ruleOptions = {
-      type: 'alphabetical',
-      order: 'asc',
       ignoreCase: true,
+      order: 'asc',
+      type: 'alphabetical',
       ...(options.disableNewlinesBetween
         ? {}
         : ({ newlinesBetween: 'ignore' } as const)),
@@ -122,10 +122,21 @@ export const configPerfectionist = (
         perfectionist: pluginPerfectionist,
       },
       rules: {
+        'perfectionist/sort-exports': [
+          'error',
+          {
+            ...getCommonRuleOptions({
+              disableNewlinesBetween: true,
+            }),
+            groupKind: 'values-first',
+            type: 'line-length',
+          },
+        ],
         'perfectionist/sort-imports': [
           'error',
           {
             ...getCommonRuleOptions(),
+            internalPattern: ['^~/.+', '^@/.+', '^#.+'],
             groups: [
               // Side effect style imports (e.g. 'normalize.css')
               'side-effect-style',
@@ -173,17 +184,6 @@ export const configPerfectionist = (
                */
               'unknown',
             ],
-            internalPattern: ['^~/.+', '^@/.+', '^#.+'],
-          },
-        ],
-        'perfectionist/sort-exports': [
-          'error',
-          {
-            ...getCommonRuleOptions({
-              disableNewlinesBetween: true,
-            }),
-            type: 'line-length',
-            groupKind: 'values-first',
           },
         ],
         'perfectionist/sort-named-exports': [
@@ -192,8 +192,8 @@ export const configPerfectionist = (
             ...getCommonRuleOptions({
               disableNewlinesBetween: true,
             }),
-            ignoreAlias: false,
             groupKind: 'values-first',
+            ignoreAlias: false,
           },
         ],
         'perfectionist/sort-named-imports': [
@@ -202,8 +202,8 @@ export const configPerfectionist = (
             ...getCommonRuleOptions({
               disableNewlinesBetween: true,
             }),
-            ignoreAlias: false,
             groupKind: 'values-first',
+            ignoreAlias: false,
           },
         ],
 
@@ -312,6 +312,12 @@ export const configPerfectionist = (
             ...getCommonRuleOptions(),
           },
         ],
+        'perfectionist/sort-modules': [
+          'error',
+          {
+            ...getCommonRuleOptions(),
+          },
+        ],
         'perfectionist/sort-objects': [
           'error',
           {
@@ -326,12 +332,6 @@ export const configPerfectionist = (
           },
         ],
         'perfectionist/sort-sets': [
-          'error',
-          {
-            ...getCommonRuleOptions(),
-          },
-        ],
-        'perfectionist/sort-modules': [
           'error',
           {
             ...getCommonRuleOptions(),

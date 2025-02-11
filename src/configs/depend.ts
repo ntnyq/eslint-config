@@ -10,6 +10,7 @@ export const configDepend = (
 ): TypedConfigItem[] => {
   const {
     files = [GLOB_SRC],
+
     // check package.json file
     packageJson: enableCheckPackageJson = true,
   } = options

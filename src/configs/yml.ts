@@ -8,17 +8,18 @@ export const configYml = (
   {
     name: 'ntnyq/yml',
     files: [GLOB_YAML],
-    languageOptions: {
-      parser: parserYaml,
-    },
     plugins: {
       yml: pluginYml,
+    },
+    languageOptions: {
+      parser: parserYaml,
     },
     rules: {
       ...(pluginYml.configs.standard as TypedConfigItem).rules,
       ...(pluginYml.configs.prettier as TypedConfigItem).rules,
 
       'yml/no-empty-mapping-value': 'off',
+
       'yml/quotes': ['error', { avoidEscape: false, prefer: 'single' }],
 
       // Overrides rules

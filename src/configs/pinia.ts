@@ -15,12 +15,11 @@ export const configPinia = (
         pinia: pluginPinia,
       },
       rules: {
-        'pinia/prefer-single-store-per-file': 'error',
+        'pinia/never-export-initialized-store': 'error',
         'pinia/no-duplicate-store-ids': 'error',
         'pinia/no-return-global-properties': 'error',
         'pinia/no-store-to-refs-in-store': 'error',
-        'pinia/never-export-initialized-store': 'error',
-        'pinia/require-setup-store-properties-export': 'error',
+        'pinia/prefer-single-store-per-file': 'error',
         'pinia/prefer-use-store-naming-convention': [
           'error',
           {
@@ -28,6 +27,7 @@ export const configPinia = (
             storeSuffix: 'Store',
           },
         ],
+        'pinia/require-setup-store-properties-export': 'error',
 
         // Overrides rules
         ...options.overrides,

@@ -23,38 +23,38 @@ import type {
  * @see {@link https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/recommended-type-checked.ts}
  */
 const typeAwareRules: TypedConfigItem['rules'] = {
+  // too strict
+  '@typescript-eslint/strict-boolean-expressions': 'off',
   'dot-notation': 'off',
-  'require-await': 'off',
   'no-implied-eval': 'off',
   'no-throw-literal': 'off',
 
-  // too strict
-  '@typescript-eslint/strict-boolean-expressions': 'off',
+  'require-await': 'off',
 
-  '@typescript-eslint/require-await': 'error',
-  '@typescript-eslint/unbound-method': 'error',
-  '@typescript-eslint/no-unsafe-call': 'error',
   '@typescript-eslint/await-thenable': 'error',
+  '@typescript-eslint/dot-notation': ['error', { allowKeywords: true }],
+  '@typescript-eslint/no-duplicate-type-constituents': 'error',
+  '@typescript-eslint/no-floating-promises': 'error',
   '@typescript-eslint/no-for-in-array': 'error',
   '@typescript-eslint/no-implied-eval': 'error',
-  '@typescript-eslint/only-throw-error': 'error',
-  '@typescript-eslint/no-unsafe-return': 'error',
-  '@typescript-eslint/no-misused-spread': 'error',
-  '@typescript-eslint/no-unsafe-argument': 'error',
   '@typescript-eslint/no-misused-promises': 'error',
-  '@typescript-eslint/no-unsafe-assignment': 'error',
-  '@typescript-eslint/no-floating-promises': 'error',
-  '@typescript-eslint/promise-function-async': 'error',
-  '@typescript-eslint/restrict-plus-operands': 'error',
-  '@typescript-eslint/triple-slash-reference': 'error',
-  '@typescript-eslint/no-unsafe-member-access': 'error',
-  '@typescript-eslint/switch-exhaustiveness-check': 'error',
-  '@typescript-eslint/no-unnecessary-type-assertion': 'error',
-  '@typescript-eslint/restrict-template-expressions': 'error',
+  '@typescript-eslint/no-misused-spread': 'error',
   '@typescript-eslint/no-redundant-type-constituents': 'error',
-  '@typescript-eslint/no-duplicate-type-constituents': 'error',
+  '@typescript-eslint/no-unnecessary-type-assertion': 'error',
+  '@typescript-eslint/no-unsafe-argument': 'error',
+  '@typescript-eslint/no-unsafe-assignment': 'error',
+  '@typescript-eslint/no-unsafe-call': 'error',
+  '@typescript-eslint/no-unsafe-member-access': 'error',
+  '@typescript-eslint/no-unsafe-return': 'error',
+  '@typescript-eslint/only-throw-error': 'error',
+  '@typescript-eslint/promise-function-async': 'error',
+  '@typescript-eslint/require-await': 'error',
+  '@typescript-eslint/restrict-plus-operands': 'error',
+  '@typescript-eslint/restrict-template-expressions': 'error',
   '@typescript-eslint/return-await': ['error', 'in-try-catch'],
-  '@typescript-eslint/dot-notation': ['error', { allowKeywords: true }],
+  '@typescript-eslint/switch-exhaustiveness-check': 'error',
+  '@typescript-eslint/triple-slash-reference': 'error',
+  '@typescript-eslint/unbound-method': 'error',
 }
 
 /**
@@ -100,11 +100,11 @@ export const configTypeScript = (
       sourceType: 'module',
       ...(enableTypeAware
         ? {
+            tsconfigRootDir: process.cwd(),
             projectService: {
               allowDefaultProject: ['./*.js'],
               defaultProject: options.tsconfigPath,
             },
-            tsconfigRootDir: process.cwd(),
           }
         : {}),
       ...parserOptions,
@@ -143,28 +143,67 @@ export const configTypeScript = (
       rules: {
         ...recommendedRules,
 
-        '@typescript-eslint/no-namespace': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/consistent-indexed-object-style': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/explicit-member-accessibility': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/naming-convention': 'off',
         '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-namespace': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/triple-slash-reference': 'off',
-        '@typescript-eslint/explicit-member-accessibility': 'off',
-        '@typescript-eslint/explicit-function-return-type': 'off',
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
-        '@typescript-eslint/consistent-indexed-object-style': 'off',
 
-        '@typescript-eslint/prefer-as-const': 'warn',
+        'default-param-last': 'off',
 
         // Disabled in favor of enhanced ts rules
         'no-redeclare': 'off',
         'no-unused-vars': 'off',
-        'default-param-last': 'off',
         'no-use-before-define': 'off',
         'no-useless-constructor': 'off',
 
+        '@typescript-eslint/prefer-as-const': 'warn',
+
+        '@typescript-eslint/ban-ts-comment': [
+          'error',
+          {
+            minimumDescriptionLength: 1,
+            'ts-check': false,
+            'ts-expect-error': 'allow-with-description',
+            'ts-ignore': 'allow-with-description',
+            'ts-nocheck': 'allow-with-description',
+          },
+        ],
+        // Extra rules
+        '@typescript-eslint/ban-tslint-comment': 'error',
+        '@typescript-eslint/consistent-generic-constructors': [
+          'error',
+          'constructor',
+        ],
+        '@typescript-eslint/consistent-type-assertions': [
+          'error',
+          {
+            assertionStyle: 'as',
+            objectLiteralTypeAssertions: 'allow-as-parameter',
+          },
+        ],
+        '@typescript-eslint/consistent-type-imports': [
+          'error',
+          {
+            disallowTypeAnnotations: false,
+            fixStyle: 'separate-type-imports',
+            prefer: 'type-imports',
+          },
+        ],
+
         '@typescript-eslint/default-param-last': 'error',
-        '@typescript-eslint/no-useless-constructor': 'error',
+        '@typescript-eslint/no-empty-object-type': [
+          'error',
+          {
+            allowInterfaces: 'always',
+            allowObjectTypes: 'always',
+          },
+        ],
         '@typescript-eslint/no-redeclare': [
           'error',
           {
@@ -172,16 +211,12 @@ export const configTypeScript = (
             ignoreDeclarationMerge: true,
           },
         ],
-        '@typescript-eslint/no-use-before-define': [
+        '@typescript-eslint/no-unused-expressions': [
           'error',
           {
-            functions: false,
-            classes: false,
-            variables: true,
-            allowNamedExports: false,
-            enums: true,
-            typedefs: false,
-            ignoreTypeReferences: false,
+            allowShortCircuit: true,
+            allowTaggedTemplates: true,
+            allowTernary: true,
           },
         ],
         '@typescript-eslint/no-unused-vars': [
@@ -193,57 +228,23 @@ export const configTypeScript = (
             caughtErrors: 'all',
             caughtErrorsIgnorePattern: '^_',
             destructuredArrayIgnorePattern: '^_',
-            varsIgnorePattern: '^_',
             ignoreRestSiblings: true,
+            varsIgnorePattern: '^_',
           },
         ],
-
-        // Extra rules
-        '@typescript-eslint/ban-tslint-comment': 'error',
-        '@typescript-eslint/consistent-generic-constructors': [
-          'error',
-          'constructor',
-        ],
-        '@typescript-eslint/ban-ts-comment': [
+        '@typescript-eslint/no-use-before-define': [
           'error',
           {
-            minimumDescriptionLength: 1,
-            'ts-check': false,
-            'ts-expect-error': 'allow-with-description',
-            'ts-ignore': 'allow-with-description',
-            'ts-nocheck': 'allow-with-description',
+            allowNamedExports: false,
+            classes: false,
+            enums: true,
+            functions: false,
+            ignoreTypeReferences: false,
+            typedefs: false,
+            variables: true,
           },
         ],
-        '@typescript-eslint/no-unused-expressions': [
-          'error',
-          {
-            allowShortCircuit: true,
-            allowTernary: true,
-            allowTaggedTemplates: true,
-          },
-        ],
-        '@typescript-eslint/consistent-type-imports': [
-          'error',
-          {
-            prefer: 'type-imports',
-            fixStyle: 'separate-type-imports',
-            disallowTypeAnnotations: false,
-          },
-        ],
-        '@typescript-eslint/no-empty-object-type': [
-          'error',
-          {
-            allowInterfaces: 'always',
-            allowObjectTypes: 'always',
-          },
-        ],
-        '@typescript-eslint/consistent-type-assertions': [
-          'error',
-          {
-            assertionStyle: 'as',
-            objectLiteralTypeAssertions: 'allow-as-parameter',
-          },
-        ],
+        '@typescript-eslint/no-useless-constructor': 'error',
 
         // Overrides rules
         ...options.overrides,
@@ -270,11 +271,11 @@ export const configTypeScript = (
       name: 'ntnyq/ts/types',
       files: [...GLOB_TYPES],
       rules: {
-        'no-use-before-define': 'off',
-        'no-restricted-syntax': 'off',
-        'import-x/no-duplicates': 'off',
-        'import-x/newline-after-import': 'off',
         '@typescript-eslint/no-use-before-define': 'off',
+        'import-x/newline-after-import': 'off',
+        'import-x/no-duplicates': 'off',
+        'no-restricted-syntax': 'off',
+        'no-use-before-define': 'off',
       },
     },
   ]

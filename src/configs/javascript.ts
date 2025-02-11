@@ -4,25 +4,25 @@ import type { ConfigJavaScriptOptions, TypedConfigItem } from '../types'
 
 const strictRules: TypedConfigItem['rules'] = {
   complexity: ['error', { max: 30 }],
-  'max-params': ['error', { max: 5 }],
   'max-depth': ['error', { max: 5 }],
-  'max-nested-callbacks': ['error', { max: 10 }],
   'max-lines': [
     'error',
     {
       max: 1000,
-      skipComments: true,
       skipBlankLines: true,
+      skipComments: true,
     },
   ],
   'max-lines-per-function': [
     'error',
     {
       max: 200,
-      skipComments: true,
       skipBlankLines: true,
+      skipComments: true,
     },
   ],
+  'max-nested-callbacks': ['error', { max: 10 }],
+  'max-params': ['error', { max: 5 }],
 }
 
 export const configJavaScript = (
@@ -35,19 +35,19 @@ export const configJavaScript = (
   {
     name: 'ntnyq/js/core',
     languageOptions: {
+      sourceType: 'module',
       globals: {
         ...globals.browser,
         ...globals.es2021,
         ...globals.node,
       },
-      sourceType: 'module',
     },
 
     rules: {
-      'require-await': 'off',
+      'consistent-return': 'off',
       'no-return-assign': 'off',
       'no-useless-escape': 'off',
-      'consistent-return': 'off',
+      'require-await': 'off',
 
       // disabled in favor of `perfectionist/sort-named-imports`
       'sort-imports': 'off',
@@ -55,27 +55,33 @@ export const configJavaScript = (
       // standard v17.0.0
       'accessor-pairs': [
         'error',
-        { setWithoutGet: true, enforceForClassMembers: true },
+        { enforceForClassMembers: true, setWithoutGet: true },
       ],
+      'array-callback-return': 'error',
+      'block-scoped-var': 'error',
       camelcase: [
         'error',
         {
           allow: ['^UNSAFE_'],
-          properties: 'never',
           ignoreGlobals: true,
+          properties: 'never',
         },
       ],
       'constructor-super': 'error',
       curly: ['error', 'multi-line'],
       'default-case-last': 'error',
       'dot-notation': ['error', { allowKeywords: true }],
+      // best-practice
+      eqeqeq: ['error', 'smart'],
       'new-cap': [
         'error',
-        { newIsCap: true, capIsNew: false, properties: true },
+        { capIsNew: false, newIsCap: true, properties: true },
       ],
+      'no-alert': 'error',
       'no-array-constructor': 'error',
       'no-async-promise-executor': 'error',
       'no-caller': 'error',
+      'no-case-declarations': 'error',
       'no-class-assign': 'error',
       'no-compare-neg-zero': 'error',
       'no-cond-assign': 'error',
@@ -88,10 +94,10 @@ export const configJavaScript = (
       'no-dupe-class-members': 'error',
       'no-dupe-keys': 'error',
       'no-duplicate-case': 'error',
-      'no-useless-backreference': 'error',
       'no-empty': ['error', { allowEmptyCatch: true }],
       'no-empty-character-class': 'error',
       'no-empty-pattern': 'error',
+      'no-empty-static-block': 'error',
       'no-eval': 'error',
       'no-ex-assign': 'error',
       'no-extend-native': 'error',
@@ -109,15 +115,16 @@ export const configJavaScript = (
       'no-lone-blocks': 'error',
       'no-loss-of-precision': 'error',
       'no-misleading-character-class': 'error',
-      'no-prototype-builtins': 'error',
-      'no-useless-catch': 'error',
+      'no-multi-str': 'error',
       'no-new': 'error',
       'no-new-func': 'error',
+      'no-new-native-nonconstructor': 'error',
       'no-new-wrappers': 'error',
       'no-obj-calls': 'error',
       'no-octal': 'error',
       'no-octal-escape': 'error',
       'no-proto': 'error',
+      'no-prototype-builtins': 'error',
       'no-redeclare': ['error', { builtinGlobals: false }],
       'no-regex-spaces': 'error',
       'no-self-assign': ['error', { props: true }],
@@ -141,8 +148,8 @@ export const configJavaScript = (
         'error',
         {
           allowShortCircuit: true,
-          allowTernary: true,
           allowTaggedTemplates: true,
+          allowTernary: true,
         },
       ],
       'no-unused-vars': [
@@ -154,39 +161,36 @@ export const configJavaScript = (
           vars: 'all',
         },
       ],
+      'no-use-before-define': [
+        'error',
+        {
+          allowNamedExports: false,
+          classes: false,
+          functions: false,
+          variables: true,
+        },
+      ],
+      'no-useless-backreference': 'error',
       'no-useless-call': 'error',
+      'no-useless-catch': 'error',
       'no-useless-computed-key': 'error',
       'no-useless-constructor': 'error',
+
       'no-useless-rename': 'error',
       'no-useless-return': 'error',
-      'prefer-promise-reject-errors': 'error',
-      'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
-      'symbol-description': 'error',
-      'unicode-bom': ['error', 'never'],
-      'use-isnan': [
-        'error',
-        {
-          enforceForSwitchCase: true,
-          enforceForIndexOf: true,
-        },
-      ],
-      'valid-typeof': ['error', { requireStringLiterals: true }],
-      yoda: ['error', 'never'],
-
       // es6+
       'no-var': 'error',
-      'prefer-rest-params': 'error',
-      'prefer-spread': 'error',
-      'prefer-template': 'error',
-      'no-empty-static-block': 'error',
-      'no-new-native-nonconstructor': 'error',
-      'prefer-const': [
+      'no-void': 'error',
+      'no-with': 'error',
+      'object-shorthand': [
         'error',
+        'always',
         {
-          destructuring: 'all',
-          ignoreReadBeforeAssign: true,
+          avoidQuotes: true,
+          ignoreConstructors: false,
         },
       ],
+      'one-var': ['error', 'never'],
       'prefer-arrow-callback': [
         'error',
         {
@@ -194,35 +198,31 @@ export const configJavaScript = (
           allowUnboundThis: true,
         },
       ],
-      'object-shorthand': [
+      'prefer-const': [
         'error',
-        'always',
         {
-          ignoreConstructors: false,
-          avoidQuotes: true,
+          destructuring: 'all',
+          ignoreReadBeforeAssign: true,
         },
       ],
 
-      // best-practice
-      eqeqeq: ['error', 'smart'],
-      'array-callback-return': 'error',
-      'block-scoped-var': 'error',
-      'no-alert': 'error',
-      'no-case-declarations': 'error',
-      'no-multi-str': 'error',
-      'no-with': 'error',
-      'no-void': 'error',
-      'vars-on-top': 'error',
-      'one-var': ['error', 'never'],
-      'no-use-before-define': [
+      'prefer-promise-reject-errors': 'error',
+      'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
+      'prefer-rest-params': 'error',
+      'prefer-spread': 'error',
+      'prefer-template': 'error',
+      'symbol-description': 'error',
+      'unicode-bom': ['error', 'never'],
+      'use-isnan': [
         'error',
         {
-          functions: false,
-          classes: false,
-          variables: true,
-          allowNamedExports: false,
+          enforceForIndexOf: true,
+          enforceForSwitchCase: true,
         },
       ],
+      'valid-typeof': ['error', { requireStringLiterals: true }],
+      'vars-on-top': 'error',
+      yoda: ['error', 'never'],
 
       // Strict rules
       ...(options.strict ? strictRules : {}),

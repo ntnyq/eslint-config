@@ -18,26 +18,26 @@ export const configJsonc = (
       ...(pluginJsonc.configs['recommended-with-jsonc'] as TypedConfigItem)
         .rules,
 
-      'jsonc/no-octal-escape': 'error',
-      'jsonc/indent': ['error', 2],
-      'jsonc/comma-style': ['error', 'last'],
-      'jsonc/comma-dangle': ['error', 'never'],
-      'jsonc/object-curly-spacing': ['error', 'always'],
       'jsonc/array-bracket-spacing': ['error', 'never'],
+      'jsonc/comma-dangle': ['error', 'never'],
+      'jsonc/comma-style': ['error', 'last'],
+      'jsonc/indent': ['error', 2],
       'jsonc/key-spacing': [
         'error',
         {
-          beforeColon: false,
           afterColon: true,
+          beforeColon: false,
         },
       ],
+      'jsonc/no-octal-escape': 'error',
       'jsonc/object-curly-newline': [
         'error',
         {
-          multiline: true,
           consistent: true,
+          multiline: true,
         },
       ],
+      'jsonc/object-curly-spacing': ['error', 'always'],
       'jsonc/object-property-newline': [
         'error',
         {
