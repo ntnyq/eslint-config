@@ -70,10 +70,18 @@ export const configSpecials = (
         'perfectionist/sort-objects': [
           'error',
           {
-            groups: ['unknown', 'method', 'multiline'],
+            ignoreCase: true,
+            newlinesBetween: 'ignore',
             order: 'asc',
             partitionByComment: true,
             type: 'alphabetical',
+            groups: [
+              'property',
+              'multiline-property',
+              'method',
+              'multiline-method',
+              'unknown',
+            ],
           },
         ],
 
