@@ -341,7 +341,7 @@ export const configSort = (
     configs.push(
       {
         name: 'ntnyq/sort/i18n-locale/json',
-        files: ['**/{locales,i18n}/*.json'],
+        files: ['**/{i18n,langs,locales}/*.json'],
         rules: {
           'jsonc/sort-keys': [
             'error',
@@ -354,7 +354,7 @@ export const configSort = (
       },
       {
         name: 'ntnyq/sort/i18n-locale/yaml',
-        files: ['**/{locales,i18n}/*.y?(a)ml'],
+        files: ['**/{i18n,langs,locales}/*.y?(a)ml'],
         rules: {
           'yml/sort-keys': [
             'error',
