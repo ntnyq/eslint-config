@@ -86,12 +86,13 @@ export default defineConfig({
   "eslint.enable": true,
   "prettier.enable": true,
   "editor.formatOnSave": true,
+  "prettier.configPath": "./prettier.config.mjs",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never",
     "source.sortImports": "never"
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "eslint.validate": [
     "vue",
     "yaml",
@@ -148,7 +149,9 @@ Check for detail in:
 ### Config interface
 
 ```ts
-export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions {
+export interface ConfigOptions
+  extends ConfigOptionsInternal,
+    OptionsExtensions {
   command?: ConfigCommandOptions
   eslintComments?: ConfigESLintCommentsOptions
   ignores?: ConfigIgnoresOptions
@@ -162,6 +165,7 @@ export interface ConfigOptions extends ConfigOptionsInternal, OptionsExtensions 
    * bellow can be disabled
    */
   antfu?: boolean | ConfigAntfuOptions
+  deMorgan?: boolean | ConfigDeMorganOptions
   depend?: boolean | ConfigDependOptions
   githubAction?: boolean | ConfigGitHubActionOptions
   gitignore?: boolean | ConfigGitIgnoreOptions

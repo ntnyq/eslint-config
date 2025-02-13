@@ -25,6 +25,8 @@ export interface ConfigAntfuOptions extends OptionsOverrides {}
 
 export type ConfigCommandOptions = ESLintPluginCommandOptions
 
+export interface ConfigDeMorganOptions extends OptionsOverrides {}
+
 export interface ConfigDependOptions extends OptionsFiles, OptionsOverrides {
   /**
    * Check deps in package.json
@@ -363,6 +365,7 @@ export interface ConfigOptions
    * @pg
    */
   antfu?: boolean | ConfigAntfuOptions
+  deMorgan?: boolean | ConfigDeMorganOptions
   depend?: boolean | ConfigDependOptions
   eslintPlugin?: boolean | ConfigESLintPluginOptions
   githubAction?: boolean | ConfigGitHubActionOptions

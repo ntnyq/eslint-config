@@ -50,12 +50,12 @@ importers:
       eslint-plugin-command:
         specifier: ^3.0.0
         version: 3.0.0(eslint@9.20.1(jiti@2.4.2))
+      eslint-plugin-de-morgan:
+        specifier: ^1.0.0
+        version: 1.0.0(eslint@9.20.1(jiti@2.4.2))
       eslint-plugin-depend:
         specifier: ^0.12.0
         version: 0.12.0
-      eslint-plugin-eslint-plugin:
-        specifier: ^6.4.0
-        version: 6.4.0(eslint@9.20.1(jiti@2.4.2))
       eslint-plugin-format:
         specifier: ^1.0.1
         version: 1.0.1(eslint@9.20.1(jiti@2.4.2))
@@ -150,6 +150,9 @@ importers:
       eslint:
         specifier: ^9.20.1
         version: 9.20.1(jiti@2.4.2)
+      eslint-plugin-eslint-plugin:
+        specifier: ^6.4.0
+        version: 6.4.0(eslint@9.20.1(jiti@2.4.2))
       eslint-typegen:
         specifier: ^1.0.0
         version: 1.0.0(eslint@9.20.1(jiti@2.4.2))
@@ -1612,6 +1615,12 @@ packages:
     resolution: {integrity: sha512-6EFOKGnBMHr0dN/9uKYmxYz6RbsCmEzPRcKYrl+dfEMvlt6+zf6x5TzXKzOowhh3f/hqSBMZmxcB3HHyfbpwWw==}
     peerDependencies:
       eslint: '*'
+
+  eslint-plugin-de-morgan@1.0.0:
+    resolution: {integrity: sha512-MpaG9bTiiu0kvOskZPKvKguynFFC81nyynnY3czHOZvfhvsWFgfRG6ufQmSlzlDbWIf6u7fuEHp4+1uUfWdrvg==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    peerDependencies:
+      eslint: '>=8.0.0'
 
   eslint-plugin-depend@0.12.0:
     resolution: {integrity: sha512-bS5ESnC3eXDJPNv0RKkzRbLO45hRRLR/dleAUdbysXChWz1bAxa4MRh14EtDREn7fZieueqz4L7TfQQbzvdYHA==}
@@ -4752,6 +4761,10 @@ snapshots:
   eslint-plugin-command@3.0.0(eslint@9.20.1(jiti@2.4.2)):
     dependencies:
       '@es-joy/jsdoccomment': 0.50.0
+      eslint: 9.20.1(jiti@2.4.2)
+
+  eslint-plugin-de-morgan@1.0.0(eslint@9.20.1(jiti@2.4.2)):
+    dependencies:
       eslint: 9.20.1(jiti@2.4.2)
 
   eslint-plugin-depend@0.12.0:

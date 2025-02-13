@@ -4,6 +4,7 @@ import { builtinRules } from 'eslint/use-at-your-own-risk'
 import {
   configAntfu,
   configCommand,
+  configDeMorgan,
   configDepend,
   configESLintComments,
   configESLintPlugin,
@@ -50,6 +51,7 @@ const configs = await combineConfigs(
   },
   configAntfu(),
   configCommand(),
+  configDeMorgan(),
   configESLintComments(),
   configDepend(),
   configESLintPlugin(),

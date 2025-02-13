@@ -6,6 +6,7 @@ import { FlatConfigComposer } from 'eslint-flat-config-utils'
 import {
   configAntfu,
   configCommand,
+  configDeMorgan,
   configDepend,
   configESLintComments,
   configESLintPlugin,
@@ -89,6 +90,7 @@ export function defineESLintConfig(
     depend: enableDepend = true,
     regexp: enableRegexp = true,
     unicorn: enableUnicorn = true,
+    deMorgan: enableDeMorgan = true,
     prettier: enablePrettier = true,
     markdown: enableMarkdown = true,
     gitignore: enableGitIgnore = true,
@@ -157,6 +159,14 @@ export function defineESLintConfig(
       configPinia({
         ...resolveSubOptions(options, 'pinia'),
         overrides: getOverrides(options, 'pinia'),
+      }),
+    )
+  }
+
+  if (enableDeMorgan) {
+    configs.push(
+      configDeMorgan({
+        overrides: getOverrides(options, 'deMorgan'),
       }),
     )
   }
