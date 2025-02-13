@@ -14,11 +14,16 @@ export const GLOB_DTS = '**/*.d.?([cm])ts'
 
 export const GLOB_TYPES = [GLOB_DTS, `**/types/${GLOB_TS}`, `**/types.ts`]
 
+export const GLOB_TYPE_TEST = [
+  `**/*.test-d.${GLOB_SRC_EXT}`,
+  `**/*.spec-d.${GLOB_SRC_EXT}`,
+]
 export const GLOB_TEST = [
   `**/*.test.${GLOB_SRC_EXT}`,
   `**/*.spec.${GLOB_SRC_EXT}`,
   `**/*.bench.${GLOB_SRC_EXT}`,
   `**/*.benchmark.${GLOB_SRC_EXT}`,
+  ...GLOB_TYPE_TEST,
 ]
 
 export const GLOB_STYLE = '**/*.{c,le,sc}ss'
@@ -31,6 +36,7 @@ export const GLOB_JSON = '**/*.json'
 export const GLOB_JSON5 = '**/*.json5'
 export const GLOB_JSONC = '**/*.jsonc'
 export const GLOB_PACKAGE_JSON = '**/package.json'
+export const GLOB_TSCONFIG_JSON = ['**/tsconfig.json', '**/tsconfig.*.json']
 
 export const GLOB_SVG = '**/*.svg'
 
