@@ -1,4 +1,9 @@
 import globals from 'globals'
+import {
+  COMMON_SHARED_PERFECTIONIST_RULE_OPTIONS,
+  EXTRA_SHARED_PERFECTIONIST_RULE_OPTIONS,
+  SHARED_SORT_OBJECTS_GROUPS,
+} from '../constants'
 import { pluginImportX, pluginPerfectionist } from '../eslint'
 import { GLOB_SRC, GLOB_SRC_EXT } from '../globs'
 import { hasShadcnVue, resolveSubOptions } from '../utils'
@@ -70,18 +75,9 @@ export const configSpecials = (
         'perfectionist/sort-objects': [
           'error',
           {
-            ignoreCase: true,
-            newlinesBetween: 'ignore',
-            order: 'asc',
-            partitionByComment: true,
-            type: 'alphabetical',
-            groups: [
-              'property',
-              'multiline-property',
-              'method',
-              'multiline-method',
-              'unknown',
-            ],
+            ...COMMON_SHARED_PERFECTIONIST_RULE_OPTIONS,
+            ...EXTRA_SHARED_PERFECTIONIST_RULE_OPTIONS,
+            groups: SHARED_SORT_OBJECTS_GROUPS,
           },
         ],
 

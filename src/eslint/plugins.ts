@@ -2,20 +2,20 @@
  * @file ESLint plugins
  */
 
-export * as pluginRegexp from 'eslint-plugin-regexp'
 export * as pluginDepend from 'eslint-plugin-depend'
+export * as pluginRegexp from 'eslint-plugin-regexp'
 export { default as pluginNode } from 'eslint-plugin-n'
 export { default as pluginVue } from 'eslint-plugin-vue'
 export { default as pluginYml } from 'eslint-plugin-yml'
 export { default as pluginSvgo } from 'eslint-plugin-svgo'
 export { default as pluginToml } from 'eslint-plugin-toml'
-export { default as pluginPinia } from 'eslint-plugin-pinia'
 export { default as pluginMarkdown } from '@eslint/markdown'
 export { default as pluginAntfu } from 'eslint-plugin-antfu'
 export { default as pluginJsdoc } from 'eslint-plugin-jsdoc'
 export { default as pluginJsonc } from 'eslint-plugin-jsonc'
-export { plugin as pluginTypeScript } from 'typescript-eslint'
+export { default as pluginPinia } from 'eslint-plugin-pinia'
 export { default as pluginFormat } from 'eslint-plugin-format'
+export { plugin as pluginTypeScript } from 'typescript-eslint'
 export { default as pluginUnoCSS } from '@unocss/eslint-plugin'
 export { default as pluginVitest } from '@vitest/eslint-plugin'
 export { default as pluginUnicorn } from 'eslint-plugin-unicorn'

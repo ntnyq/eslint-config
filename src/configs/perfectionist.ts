@@ -1,3 +1,8 @@
+import {
+  COMMON_SHARED_PERFECTIONIST_RULE_OPTIONS,
+  EXTRA_SHARED_PERFECTIONIST_RULE_OPTIONS,
+  SHARED_SORT_OBJECTS_GROUPS,
+} from '../constants'
 import { pluginPerfectionist } from '../eslint'
 import { GLOB_SRC, GLOB_SRC_EXT, GLOB_TYPES } from '../globs'
 import type { ConfigPerfectionistOptions, TypedConfigItem } from '../types'
@@ -90,27 +95,22 @@ export const configPerfectionist = (
   options: ConfigPerfectionistOptions = {},
 ): TypedConfigItem[] => {
   const {
-    partitionByComment = ['@pg', '@perfectionist-group'],
+    partitionByComment = EXTRA_SHARED_PERFECTIONIST_RULE_OPTIONS.partitionByComment,
     sortConstants: enableSortConstants = true,
     sortEnums: enableSortEnums = true,
     sortTypes: enableSortTypes = true,
   } = options
 
-  /**
-   * Prefer `alphabetical` sort type
-   */
   function getCommonRuleOptions(options: CommonRuleOptions = {}) {
     const ruleOptions = {
-      ignoreCase: true,
-      order: 'asc',
-      type: 'alphabetical',
+      ...COMMON_SHARED_PERFECTIONIST_RULE_OPTIONS,
       ...(options.disableNewlinesBetween
         ? {}
         : ({ newlinesBetween: 'ignore' } as const)),
       ...(options.disableNewlinesBetween
         ? {}
         : ({ partitionByComment } as const)),
-    } as const
+    }
 
     return ruleOptions
   }
@@ -322,13 +322,7 @@ export const configPerfectionist = (
           'error',
           {
             ...getCommonRuleOptions(),
-            groups: [
-              'property',
-              'multiline-property',
-              'method',
-              'multiline-method',
-              'unknown',
-            ],
+            groups: SHARED_SORT_OBJECTS_GROUPS,
           },
         ],
         'perfectionist/sort-sets': [
