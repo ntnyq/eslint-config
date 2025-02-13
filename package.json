@@ -126,7 +126,10 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
-    ]
+    ],
+    "overrides": {
+      "esbuild": "^0.25.0"
+    }
   },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,vue,svg,json,jsonc,md,yaml,yml}": "eslint --fix",
