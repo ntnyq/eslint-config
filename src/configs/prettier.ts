@@ -1,7 +1,45 @@
 import { pluginPrettier } from '../eslint'
 import { GLOB_ASTRO, GLOB_SVELTE, GLOB_SVG, GLOB_TOML } from '../globs'
-import type { ConfigPrettierOptions, TypedConfigItem } from '../types'
+import type {
+  ESLintRuleSeverity,
+  OptionsOverrides,
+  TypedConfigItem,
+} from '../types'
 
+/**
+ * Options type of {@link configPrettier}
+ */
+export interface ConfigPrettierOptions extends OptionsOverrides {
+  /**
+   * Glob of built-in disabled files
+   *
+   * @default all svg, toml, svelte and astro files
+   */
+  disabledFiles?: string[]
+
+  /**
+   * rule severity
+   *
+   * @default `warn`
+   */
+  severity?: ESLintRuleSeverity
+
+  /**
+   * Glob of user custom disabled files
+   *
+   * @default []
+   */
+  userDisabledFiles?: string[]
+}
+
+/**
+ * Config for using prettier
+ *
+ * @see {@link https://github.com/prettier/eslint-plugin-prettier}
+ *
+ * @param options - {@link ConfigPrettierOptions}
+ * @returns ESLint configs
+ */
 export const configPrettier = (
   options: ConfigPrettierOptions = {},
 ): TypedConfigItem[] => {

@@ -1,7 +1,6 @@
 export * from './utils'
 export * from './config'
 export * from './eslint'
-export * from './shared'
 export * from './options'
 export * from './prettier'
 export type * from './typegen'

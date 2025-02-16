@@ -1,5 +1,10 @@
 import { pluginUnicorn } from '../eslint'
-import type { ConfigUnicornOptions, TypedConfigItem } from '../types'
+import type { OptionsOverrides, TypedConfigItem } from '../types'
+
+/**
+ * Options type of {@link configUnicorn}
+ */
+export type ConfigUnicornOptions = OptionsOverrides
 
 const disabledRules: TypedConfigItem['rules'] = {
   'unicorn/better-regex': 'off',
@@ -12,6 +17,14 @@ const disabledRules: TypedConfigItem['rules'] = {
   'unicorn/prefer-top-level-await': 'off',
 }
 
+/**
+ * Config for powerful rules
+ *
+ * @see {@link https://github.com/sindresorhus/eslint-plugin-unicorn}
+ *
+ * @param options - {@link ConfigUnicornOptions}
+ * @returns ESLint configs
+ */
 export const configUnicorn = (
   options: ConfigUnicornOptions = {},
 ): TypedConfigItem[] => [

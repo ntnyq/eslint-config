@@ -1,8 +1,18 @@
 import { GLOB_EXCLUDE } from '../globs'
-import type { ConfigIgnoresOptions, TypedConfigItem } from '../types'
+import type { TypedConfigItem } from '../types'
 
 /**
+ * Options type for {@link configIgnores}
+ */
+export type ConfigIgnoresOptions = string[]
+
+/**
+ * Config for ignore files from linting
+ *
  * @see https://eslint.org/docs/latest/use/configure/configuration-files-new#globally-ignoring-files-with-ignores
+ *
+ * @param customIgnores - {@link ConfigIgnoresOptions}
+ * @returns ESLint configs
  */
 export const configIgnores = (
   customIgnores: ConfigIgnoresOptions = [],

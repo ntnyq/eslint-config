@@ -4,8 +4,32 @@
  */
 
 import { pluginRegexp } from '../eslint'
-import type { ConfigRegexpOptions, TypedConfigItem } from '../types'
+import type {
+  ESLintRuleSeverity,
+  OptionsOverrides,
+  TypedConfigItem,
+} from '../types'
 
+/**
+ * Options type of {@link configRegexp}
+ */
+export type ConfigRegexpOptions = OptionsOverrides & {
+  /**
+   * rule severity
+   *
+   * @default 'error'
+   */
+  severity?: ESLintRuleSeverity
+}
+
+/**
+ * Config for regexp
+ *
+ * @see {@link https://github.com/ota-meshi/eslint-plugin-regexp}
+ *
+ * @param options - {@link ConfigRegexpOptions}
+ * @returns ESLint configs
+ */
 export const configRegexp = (
   options: ConfigRegexpOptions = {},
 ): TypedConfigItem[] => {

@@ -1,5 +1,14 @@
 import { pluginJsdoc } from '../eslint'
-import type { ConfigJsdocOptions, TypedConfigItem } from '../types'
+import type {
+  OptionsFeatures,
+  OptionsOverrides,
+  TypedConfigItem,
+} from '../types'
+
+/**
+ * Options type of {@link configJsdoc}
+ */
+export type ConfigJsdocOptions = OptionsFeatures & OptionsOverrides
 
 /**
  * JavaScript specific rules
@@ -25,6 +34,14 @@ const typescriptRules: TypedConfigItem['rules'] = {
   'jsdoc/no-types': 'error',
 }
 
+/**
+ * Config for jsdoc
+ *
+ * @see {@link https://github.com/gajus/eslint-plugin-jsdoc}
+ *
+ * @param options - {@link ConfigJsdocOptions}
+ * @returns ESLint configs
+ */
 export const configJsdoc = (
   options: ConfigJsdocOptions = {},
 ): TypedConfigItem[] => [

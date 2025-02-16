@@ -1,6 +1,19 @@
 import { createConfig as createNtnyqConfig } from 'eslint-plugin-ntnyq'
-import type { ConfigNtnyqOptions, TypedConfigItem } from '../types'
+import type { OptionsOverrides, TypedConfigItem } from '../types'
 
+/**
+ * Options type of {@link configNtnyq}
+ */
+export type ConfigNtnyqOptions = OptionsOverrides
+
+/**
+ * Config for common files
+ *
+ * @see {@link https://github.com/ntnyq/eslint-plugin-ntnyq}
+ *
+ * @param options - {@link ConfigNtnyqOptions}
+ * @returns ESLint configs
+ */
 export const configNtnyq = (
   options: ConfigNtnyqOptions = {},
 ): TypedConfigItem[] => [

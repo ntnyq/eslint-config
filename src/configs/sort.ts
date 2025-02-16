@@ -1,5 +1,46 @@
-import type { ConfigSortOptions, TypedConfigItem } from '../types'
+import type { TypedConfigItem } from '../types'
 
+/**
+ * Options type of {@link configSort}
+ */
+export interface ConfigSortOptions {
+  /**
+   * JSON files to sort all properties alphabeta
+   */
+  additionalJsonFiles?: string[]
+
+  /**
+   * YAML files to sort all properties alphabeta
+   */
+  additionalYamlFiles?: string[]
+
+  /**
+   * @default true
+   */
+  i18nLocale?: boolean
+
+  /**
+   * @default true
+   */
+  packageJson?: boolean
+
+  /**
+   * @default true
+   */
+  pnpmWorkspace?: boolean
+
+  /**
+   * @default true
+   */
+  tsconfig?: boolean
+}
+
+/**
+ * Config for sort keys and values
+ *
+ * @param options - {@link ConfigSortOptions}
+ * @returns ESLint configs
+ */
 export const configSort = (
   options: ConfigSortOptions = {},
 ): TypedConfigItem[] => {

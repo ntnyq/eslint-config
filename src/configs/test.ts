@@ -1,8 +1,34 @@
 import { pluginNoOnlyTests, pluginVitest } from '../eslint'
 import { GLOB_TEST } from '../globs'
 import { hasVitest } from '../utils'
-import type { ConfigTestOptions, TypedConfigItem } from '../types'
+import type { OptionsFiles, OptionsOverrides, TypedConfigItem } from '../types'
 
+/**
+ * Options type of {@link configTest}
+ */
+export type ConfigTestOptions = OptionsFiles
+  & OptionsOverrides & {
+    /**
+     * Overrides built-in vitest rules
+     */
+    overridesVitestRules?: TypedConfigItem['rules']
+
+    /**
+     * enable vitest plugin rules
+     *
+     * @default true if vitest in deps
+     */
+    vitest?: boolean
+  }
+
+/**
+ * Config for test files
+ *
+ * @see {@link https://github.com/vitest-dev/eslint-plugin-vitest}
+ *
+ * @param options - {@link ConfigTestOptions}
+ * @returns ESLint configs
+ */
 export const configTest = (
   options: ConfigTestOptions = {},
 ): TypedConfigItem[] => {

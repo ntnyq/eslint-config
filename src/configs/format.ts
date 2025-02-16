@@ -8,12 +8,40 @@ import {
   GLOB_SCSS,
 } from '../globs'
 import { mergePrettierOptions } from '../utils'
-import type {
-  ConfigFormatOptions,
-  PrettierOptions,
-  TypedConfigItem,
-} from '../types'
+import type { PrettierOptions, TypedConfigItem } from '../types'
 
+/**
+ * Options type of {@link configFormat}
+ */
+export interface ConfigFormatOptions {
+  /**
+   * Enable formatter support for css, less, scss, sass and etc.
+   *
+   * @default true
+   */
+  css?: boolean
+
+  /**
+   * Enable formatter support for html
+   *
+   * @default true
+   */
+  html?: boolean
+
+  /**
+   * Options for prettier
+   */
+  prettierOptions?: PrettierOptions
+}
+
+/**
+ * Config to use a formatter
+ *
+ * @see {@link https://github.com/antfu/eslint-plugin-format}
+ *
+ * @param options - {@link ConfigFormatOptions}
+ * @returns ESLint configs
+ */
 export const configFormat = (
   options: ConfigFormatOptions = {},
 ): TypedConfigItem[] => {

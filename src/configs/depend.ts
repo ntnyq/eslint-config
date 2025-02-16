@@ -1,9 +1,28 @@
 import { parserJsonc, pluginDepend } from '../eslint'
 import { GLOB_PACKAGE_JSON, GLOB_SRC } from '../globs'
-import type { ConfigDependOptions, TypedConfigItem } from '../types'
+import type { OptionsFiles, OptionsOverrides, TypedConfigItem } from '../types'
 
 /**
+ * Options type of {@link configDepend}
+ */
+export type ConfigDependOptions = OptionsFiles
+  & OptionsOverrides & {
+    /**
+     * Check deps in package.json
+     *
+     * @default true
+     */
+    packageJson?: boolean
+  }
+
+/**
+ * Config for optimisations dependency
+ *
+ * @see {@link https://github.com/es-tooling/eslint-plugin-depend}
  * @see {@link https://github.com/es-tooling/module-replacements}
+ *
+ * @param options - {@link ConfigDependOptions}
+ * @returns ESLint configs
  */
 export const configDepend = (
   options: ConfigDependOptions = {},

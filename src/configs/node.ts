@@ -1,6 +1,19 @@
 import { pluginNode } from '../eslint'
-import type { ConfigNodeOptions, TypedConfigItem } from '../types'
+import type { OptionsOverrides, TypedConfigItem } from '../types'
 
+/**
+ * Options type of {@link configNode}
+ */
+export type ConfigNodeOptions = OptionsOverrides
+
+/**
+ * Config for common files
+ *
+ * @see {@link https://github.com/eslint-community/eslint-plugin-n}
+ *
+ * @param options - {@link ConfigNodeOptions}
+ * @returns ESLint configs
+ */
 export const configNode = (
   options: ConfigNodeOptions = {},
 ): TypedConfigItem[] => [

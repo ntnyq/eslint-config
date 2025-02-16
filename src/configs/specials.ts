@@ -7,8 +7,54 @@ import {
 import { pluginImportX, pluginPerfectionist } from '../eslint'
 import { GLOB_SRC, GLOB_SRC_EXT } from '../globs'
 import { hasShadcnVue, resolveSubOptions } from '../utils'
-import type { ConfigSpecialsOptions, TypedConfigItem } from '../types'
+import type { TypedConfigItem } from '../types'
 
+/**
+ * Options for {@link configSpecials}
+ */
+export interface ConfigSpecialsOptions {
+  /**
+   * Overrides cli rules
+   */
+  overridesCliRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides config files rules
+   */
+  overridesConfigFileRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides scripts rules
+   */
+  overridesScriptsRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides user scripts rules
+   */
+  overridesUserScriptsRules?: TypedConfigItem['rules']
+
+  /**
+   * More special case configs
+   */
+  specialCaseConfigs?: TypedConfigItem[]
+
+  /**
+   * ShadcnVue config
+   */
+  shadcnVue?:
+    | boolean
+    | {
+        files?: TypedConfigItem['files']
+        overridesRules?: TypedConfigItem['rules']
+      }
+}
+
+/**
+ * Config for special files
+ *
+ * @param options - {@link ConfigSpecialsOptions}
+ * @returns ESLint configs
+ */
 export const configSpecials = (
   options: ConfigSpecialsOptions = {},
 ): TypedConfigItem[] => {

@@ -1,6 +1,18 @@
 import jsConfig from '@eslint/js'
 import globals from 'globals'
-import type { ConfigJavaScriptOptions, TypedConfigItem } from '../types'
+import type { OptionsOverrides, TypedConfigItem } from '../types'
+
+/**
+ * Options type of {@link configJavaScript}
+ */
+export type ConfigJavaScriptOptions = OptionsOverrides & {
+  /**
+   * Enable strict checking for JavaScript files
+   *
+   * @default false
+   */
+  strict?: boolean
+}
 
 const strictRules: TypedConfigItem['rules'] = {
   complexity: ['error', { max: 30 }],
@@ -25,6 +37,14 @@ const strictRules: TypedConfigItem['rules'] = {
   'max-params': ['error', { max: 5 }],
 }
 
+/**
+ * Config for JavaScript
+ *
+ * @see {@link https://github.com/eslint/eslint/tree/main/packages/js}
+ *
+ * @param options - {@link ConfigJavaScriptOptions}
+ * @returns ESLint configs
+ */
 export const configJavaScript = (
   options: ConfigJavaScriptOptions = {},
 ): TypedConfigItem[] => [

@@ -203,6 +203,7 @@ export function defineESLintConfig(
   if (enableYML) {
     configs.push(
       configYml({
+        ...resolveSubOptions(options, 'yml'),
         overrides: getOverrides(options, 'yml'),
       }),
     )
@@ -211,6 +212,7 @@ export function defineESLintConfig(
   if (enableTOML) {
     configs.push(
       configToml({
+        ...resolveSubOptions(options, 'toml'),
         overrides: getOverrides(options, 'toml'),
       }),
     )
@@ -219,6 +221,7 @@ export function defineESLintConfig(
   if (enableJSONC) {
     configs.push(
       configJsonc({
+        ...resolveSubOptions(options, 'jsonc'),
         overrides: getOverrides(options, 'jsonc'),
       }),
     )
