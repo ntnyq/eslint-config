@@ -276,6 +276,11 @@ export const configTypeScript = (
         'import-x/no-duplicates': 'off',
         'no-restricted-syntax': 'off',
         'no-use-before-define': 'off',
+
+        // `var` is special for type extend
+        // e.g: extend globalThis
+        'no-var': 'off',
+        'vars-on-top': 'off',
       },
     },
   ]
