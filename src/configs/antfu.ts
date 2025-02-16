@@ -1,6 +1,19 @@
 import { pluginAntfu } from '../eslint'
-import type { ConfigAntfuOptions, TypedConfigItem } from '../types'
+import type { OptionsOverrides, TypedConfigItem } from '../types'
 
+/**
+ * Options type of {@link configAntfu}
+ */
+export type ConfigAntfuOptions = OptionsOverrides
+
+/**
+ * Config for common files
+ *
+ * @see {@link https://github.com/antfu/eslint-plugin-antfu}
+ *
+ * @param options - {@link ConfigAntfuOptions}
+ * @returns ESLint configs
+ */
 export const configAntfu = (
   options: ConfigAntfuOptions = {},
 ): TypedConfigItem[] => [

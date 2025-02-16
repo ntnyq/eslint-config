@@ -1,6 +1,19 @@
 import { ensurePackages, interopDefault } from '../utils'
-import type { ConfigESLintPluginOptions, TypedConfigItem } from '../types'
+import type { OptionsOverrides, TypedConfigItem } from '../types'
 
+/**
+ * Options type of {@link configESLintPlugin}
+ */
+export type ConfigESLintPluginOptions = OptionsOverrides
+
+/**
+ * Config for eslint plugin
+ *
+ * @see {@link https://github.com/eslint-community/eslint-plugin-eslint-plugin}
+ *
+ * @param options - {@link ConfigESLintPluginOptions}
+ * @returns ESLint configs
+ */
 export const configESLintPlugin = async (
   options: ConfigESLintPluginOptions = {},
 ): Promise<TypedConfigItem[]> => {

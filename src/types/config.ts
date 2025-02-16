@@ -2,22 +2,31 @@
  * @file Config options
  */
 
-import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
-import type { ESLintPluginCommandOptions } from 'eslint-plugin-command/types'
-import type { CreateConfigOptions as GitHubActionOptions } from 'eslint-plugin-github-action'
-import type { RuleOptions as SVGORuleOptions } from 'eslint-plugin-svgo/rule-options'
 import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
 import type {
+  ConfigAntfuOptions,
+  ConfigCommandOptions,
+  ConfigDependOptions,
+  ConfigESLintCommentsOptions,
+  ConfigESLintPluginOptions,
+  ConfigGitHubActionOptions,
+  ConfigGitIgnoreOptions,
   ConfigIgnoresOptions,
+  ConfigImportXOptions,
+  ConfigJavaScriptOptions,
+  ConfigJsdocOptions,
   ConfigJsoncOptions,
+  ConfigMarkdownOptions,
   ConfigPerfectionistOptions,
+  ConfigRegexpOptions,
+  ConfigSVGOOptions,
   ConfigTomlOptions,
   ConfigUnicornOptions,
+  ConfigUnoCSSOptions,
   ConfigYmlOptions,
 } from '../configs'
 import type { PrettierOptions } from '../types'
 import type {
-  ESLintConfig,
   ESLintRuleSeverity,
   TSESLintParserOptions,
   TypedConfigItem,
@@ -29,24 +38,7 @@ import type {
   OptionsOverrides,
 } from './options'
 
-export interface ConfigAntfuOptions extends OptionsOverrides {}
-
-export type ConfigCommandOptions = ESLintPluginCommandOptions
-
 export interface ConfigDeMorganOptions extends OptionsOverrides {}
-
-export interface ConfigDependOptions extends OptionsFiles, OptionsOverrides {
-  /**
-   * Check deps in package.json
-   *
-   * @default true
-   */
-  packageJson?: boolean
-}
-
-export interface ConfigESLintCommentsOptions extends OptionsOverrides {}
-
-export interface ConfigESLintPluginOptions extends OptionsOverrides {}
 
 export interface ConfigFormatOptions {
   /**
@@ -68,46 +60,6 @@ export interface ConfigFormatOptions {
    */
   prettierOptions?: PrettierOptions
 }
-
-export interface ConfigGitHubActionOptions
-  extends GitHubActionOptions,
-    OptionsOverrides {}
-
-export type ConfigGitIgnoreOptions = Omit<FlatGitignoreOptions, 'strict'> & {
-  /**
-   * Throw an error if gitignore file not found.
-   *
-   * @default false
-   */
-  strict?: boolean
-}
-
-export interface ConfigImportXOptions
-  extends OptionsFeatures,
-    OptionsOverrides {
-  /**
-   * Use [eslint-import-resolver-typescript](https://github.com/import-js/eslint-import-resolver-typescript) if `typescript` is installed
-   *
-   * @default true
-   */
-  preferTypeScriptResolver?: boolean
-}
-
-export interface ConfigJavaScriptOptions extends OptionsOverrides {
-  /**
-   * Enable strict checking for JavaScript files
-   *
-   * @default false
-   */
-  strict?: boolean
-}
-
-export interface ConfigJsdocOptions extends OptionsFeatures, OptionsOverrides {}
-
-export interface ConfigMarkdownOptions
-  extends OptionsExtensions,
-    OptionsFiles,
-    OptionsOverrides {}
 
 export interface ConfigNodeOptions extends OptionsOverrides {}
 
@@ -136,15 +88,6 @@ export interface ConfigPrettierOptions extends OptionsOverrides {
    * @default []
    */
   userDisabledFiles?: string[]
-}
-
-export interface ConfigRegexpOptions extends OptionsOverrides {
-  /**
-   * rule severity
-   *
-   * @default 'error'
-   */
-  severity?: ESLintRuleSeverity
 }
 
 export interface ConfigSortOptions {
@@ -216,8 +159,6 @@ export interface ConfigSpecialsOptions {
       }
 }
 
-export type ConfigSVGOOptions = ESLintConfig<SVGORuleOptions>
-
 export interface ConfigTestOptions extends OptionsFiles, OptionsOverrides {
   /**
    * Overrides built-in vitest rules
@@ -262,15 +203,6 @@ export interface ConfigTypeScriptOptions
    * Enable type aware check for TypeScript files
    */
   tsconfigPath?: string
-}
-
-export interface ConfigUnoCSSOptions extends OptionsOverrides {
-  /**
-   * Enable attributify sort order
-   *
-   * @default false
-   */
-  attributify?: boolean
 }
 
 export interface ConfigUnusedImportsOptions extends OptionsOverrides {}

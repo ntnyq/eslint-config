@@ -1,7 +1,21 @@
 import { createConfig } from 'eslint-plugin-github-action'
 import { GLOB_GITHUB_ACTION } from '../globs'
-import type { ConfigGitHubActionOptions, TypedConfigItem } from '../types'
+import type { CreateConfigOptions as GitHubActionOptions } from 'eslint-plugin-github-action'
+import type { OptionsOverrides, TypedConfigItem } from '../types'
 
+/**
+ * Options type of {@link configGitHubAction}
+ */
+export type ConfigGitHubActionOptions = GitHubActionOptions & OptionsOverrides
+
+/**
+ * Config for github action files
+ *
+ * @see {@link https://github.com/ntnyq/eslint-plugin-github-action}
+ *
+ * @param options - {@link ConfigGitHubActionOptions}
+ * @returns ESLint configs
+ */
 export const configGitHubAction = (
   options: ConfigGitHubActionOptions = {},
 ): TypedConfigItem[] => {

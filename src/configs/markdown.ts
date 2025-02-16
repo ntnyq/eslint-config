@@ -10,8 +10,28 @@ import {
   GLOB_MARKDOWN_CODE,
   GLOB_MARKDOWN_NESTED,
 } from '../globs'
-import type { ConfigMarkdownOptions, TypedConfigItem } from '../types'
+import type {
+  OptionsExtensions,
+  OptionsFiles,
+  OptionsOverrides,
+  TypedConfigItem,
+} from '../types'
 
+/**
+ * Options type of {@link configMarkdown}
+ */
+export type ConfigMarkdownOptions = OptionsExtensions
+  & OptionsFiles
+  & OptionsOverrides
+
+/**
+ * Config for markdown files
+ *
+ * @see {@link https://github.com/eslint/markdown}
+ *
+ * @param options - {@link ConfigMarkdownOptions}
+ * @returns ESLint configs
+ */
 export const configMarkdown = (
   options: ConfigMarkdownOptions = {},
 ): TypedConfigItem[] => {

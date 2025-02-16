@@ -3,8 +3,33 @@ import {
   createTypeScriptImportResolver,
   pluginImportX,
 } from '../eslint'
-import type { ConfigImportXOptions, TypedConfigItem } from '../types'
+import type {
+  OptionsFeatures,
+  OptionsOverrides,
+  TypedConfigItem,
+} from '../types'
 
+/**
+ * Options type of {@link configImportX}
+ */
+export type ConfigImportXOptions = OptionsFeatures
+  & OptionsOverrides & {
+    /**
+     * Use [eslint-import-resolver-typescript](https://github.com/import-js/eslint-import-resolver-typescript) if `typescript` is installed
+     *
+     * @default true
+     */
+    preferTypeScriptResolver?: boolean
+  }
+
+/**
+ * Config for imports and exports
+ *
+ * @see {@link https://github.com/un-ts/eslint-plugin-import-x}
+ *
+ * @param options - {@link ConfigImportXOptions}
+ * @returns ESLint configs
+ */
 export const configImportX = (
   options: ConfigImportXOptions = {},
 ): TypedConfigItem[] => {
