@@ -7,7 +7,15 @@ import type { ESLintPluginCommandOptions } from 'eslint-plugin-command/types'
 import type { CreateConfigOptions as GitHubActionOptions } from 'eslint-plugin-github-action'
 import type { RuleOptions as SVGORuleOptions } from 'eslint-plugin-svgo/rule-options'
 import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
-import type { PerfectionistPartitionByComment, PrettierOptions } from '../types'
+import type {
+  ConfigIgnoresOptions,
+  ConfigJsoncOptions,
+  ConfigPerfectionistOptions,
+  ConfigTomlOptions,
+  ConfigUnicornOptions,
+  ConfigYmlOptions,
+} from '../configs'
+import type { PrettierOptions } from '../types'
 import type {
   ESLintConfig,
   ESLintRuleSeverity,
@@ -74,8 +82,6 @@ export type ConfigGitIgnoreOptions = Omit<FlatGitignoreOptions, 'strict'> & {
   strict?: boolean
 }
 
-export type ConfigIgnoresOptions = string[]
-
 export interface ConfigImportXOptions
   extends OptionsFeatures,
     OptionsOverrides {
@@ -98,8 +104,6 @@ export interface ConfigJavaScriptOptions extends OptionsOverrides {
 
 export interface ConfigJsdocOptions extends OptionsFeatures, OptionsOverrides {}
 
-export interface ConfigJsoncOptions extends OptionsOverrides {}
-
 export interface ConfigMarkdownOptions
   extends OptionsExtensions,
     OptionsFiles,
@@ -108,51 +112,6 @@ export interface ConfigMarkdownOptions
 export interface ConfigNodeOptions extends OptionsOverrides {}
 
 export interface ConfigNtnyqOptions extends OptionsOverrides {}
-
-export interface ConfigPerfectionistOptions extends OptionsOverrides {
-  /**
-   * Overrides rules for `constants`
-   */
-  overridesConstantsRules?: TypedConfigItem['rules']
-
-  /**
-   * Overrides rules for `enums`
-   */
-  overridesEnumsRules?: TypedConfigItem['rules']
-
-  /**
-   * Overrides rules for `types`
-   */
-  overridesTypesRules?: TypedConfigItem['rules']
-
-  /**
-   * Shared `partitionByComment` option
-   *
-   * @default ['@pg', '@perfectionist-group']
-   */
-  partitionByComment?: PerfectionistPartitionByComment
-
-  /**
-   * Enable sort `constants`
-   *
-   * @default true
-   */
-  sortConstants?: boolean
-
-  /**
-   * Enable sort `enums`
-   *
-   * @default true
-   */
-  sortEnums?: boolean
-
-  /**
-   * Enable sort `types`
-   *
-   * @default true
-   */
-  sortTypes?: boolean
-}
 
 export interface ConfigPiniaOptions extends OptionsFiles, OptionsOverrides {}
 
@@ -273,8 +232,6 @@ export interface ConfigTestOptions extends OptionsFiles, OptionsOverrides {
   vitest?: boolean
 }
 
-export interface ConfigTomlOptions extends OptionsOverrides {}
-
 export interface ConfigTypeScriptOptions
   extends OptionsExtensions,
     OptionsFiles,
@@ -307,8 +264,6 @@ export interface ConfigTypeScriptOptions
   tsconfigPath?: string
 }
 
-export interface ConfigUnicornOptions extends OptionsOverrides {}
-
 export interface ConfigUnoCSSOptions extends OptionsOverrides {
   /**
    * Enable attributify sort order
@@ -333,8 +288,6 @@ export interface ConfigVueOptions
    */
   sfcBlocks?: boolean | VueBlocksOptions
 }
-
-export interface ConfigYmlOptions extends OptionsOverrides {}
 
 /**
  * Internal configs, not enabled

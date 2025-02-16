@@ -5,7 +5,69 @@ import {
 } from '../constants'
 import { pluginPerfectionist } from '../eslint'
 import { GLOB_SRC, GLOB_SRC_EXT, GLOB_TYPES } from '../globs'
-import type { ConfigPerfectionistOptions, TypedConfigItem } from '../types'
+import type { OptionsOverrides, TypedConfigItem } from '../types'
+
+/**
+ * Option `partitionByComment` type
+ *
+ * @see {@link https://perfectionist.dev/rules/sort-imports#partitionbycomment}
+ */
+export type PerfectionistPartitionByComment =
+  | boolean
+  | string
+  | string[]
+  | {
+      block?: boolean | string | string[]
+      line?: boolean | string | string[]
+    }
+
+/**
+ * Options type of {@link configPerfectionist}
+ */
+export type ConfigPerfectionistOptions = OptionsOverrides & {
+  /**
+   * Overrides rules for `constants`
+   */
+  overridesConstantsRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides rules for `enums`
+   */
+  overridesEnumsRules?: TypedConfigItem['rules']
+
+  /**
+   * Overrides rules for `types`
+   */
+  overridesTypesRules?: TypedConfigItem['rules']
+
+  /**
+   * Shared `partitionByComment` option
+   *
+   * @default ['@pg', '@perfectionist-group']
+   */
+  partitionByComment?: PerfectionistPartitionByComment
+
+  /**
+   * Enable sort `constants`
+   *
+   * @default true
+   */
+  sortConstants?: boolean
+
+  /**
+   * Enable sort `enums`
+   *
+   * @default true
+   */
+  sortEnums?: boolean
+
+  /**
+   * Enable sort `types`
+   *
+   * @default true
+   */
+  sortTypes?: boolean
+}
 
 interface CommonRuleOptions {
   disableNewlinesBetween?: boolean
@@ -91,6 +153,14 @@ const INTERSECTION_OR_UNION_TYPES_GROUPS = [
   'nullish',
 ]
 
+/**
+ * Config for sorting imports, exports, objects and etc
+ *
+ * @see {@link https://github.com/azat-io/eslint-plugin-perfectionist}
+ *
+ * @param options - {@link ConfigPerfectionistOptions}
+ * @returns ESLint configs
+ */
 export const configPerfectionist = (
   options: ConfigPerfectionistOptions = {},
 ): TypedConfigItem[] => {
