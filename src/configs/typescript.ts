@@ -1,6 +1,6 @@
 import process from 'node:process'
 import {
-  configsTypescript,
+  configsTypeScript,
   parserTypeScript,
   pluginAntfu,
   pluginTypeScript,
@@ -61,7 +61,7 @@ const typeAwareRules: TypedConfigItem['rules'] = {
  * typescript-eslint recommended rules
  */
 const recommendedRules: TypedConfigItem['rules'] =
-  configsTypescript.recommended.reduce<TypedConfigItem['rules']>(
+  configsTypeScript.recommended.reduce<TypedConfigItem['rules']>(
     (rules, config) => {
       return { ...rules, ...(config.rules || {}) }
     },

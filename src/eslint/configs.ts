@@ -2,4 +2,4 @@
  * @file Configs
  */
 
-export { configs as configsTypescript } from 'typescript-eslint'
+export { configs as configsTypeScript } from 'typescript-eslint'

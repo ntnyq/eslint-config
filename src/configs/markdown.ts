@@ -1,5 +1,5 @@
 import {
-  configsTypescript,
+  configsTypeScript,
   mergeProcessors,
   parserPlain,
   pluginMarkdown,
@@ -102,7 +102,7 @@ export const configMarkdown = (
         'unused-imports/no-unused-vars': 'off',
 
         // disable all type-aware rules of @typescript-eslint
-        ...(configsTypescript.disableTypeChecked as TypedConfigItem).rules,
+        ...(configsTypeScript.disableTypeChecked as TypedConfigItem).rules,
 
         // Overrides rules
         ...options.overrides,
