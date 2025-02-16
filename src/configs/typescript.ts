@@ -13,11 +13,47 @@ import {
   GLOB_TYPES,
 } from '../globs'
 import type {
-  ConfigTypeScriptOptions,
   ESLintParser,
+  OptionsExtensions,
+  OptionsFiles,
+  OptionsOverrides,
   TSESLintParserOptions,
   TypedConfigItem,
 } from '../types'
+
+/**
+ * Options type of {@link configTypeScript}
+ */
+export type ConfigTypeScriptOptions = OptionsExtensions
+  & OptionsFiles
+  & OptionsOverrides & {
+    /**
+     * Glob patterns for files that should be type aware.
+     * @default ['**\/*.{ts,tsx}']
+     */
+    filesTypeAware?: string[]
+
+    /**
+     * Glob patterns for files that should not be type aware.
+     * @default ['**\/*.md\/**', '**\/*.astro/*.ts']
+     */
+    ignoresTypeAware?: string[]
+
+    /**
+     * Overrides built-in type aware rules
+     */
+    overridesTypeAwareRules?: TypedConfigItem['rules']
+
+    /**
+     * Additional parser options
+     */
+    parserOptions?: TSESLintParserOptions
+
+    /**
+     * Enable type aware check for TypeScript files
+     */
+    tsconfigPath?: string
+  }
 
 /**
  * @see {@link https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/recommended-type-checked.ts}
@@ -68,6 +104,14 @@ const recommendedRules: TypedConfigItem['rules'] =
     {},
   )
 
+/**
+ * Config for TypeScript files
+ *
+ * @see {@link https://github.com/typescript-eslint/typescript-eslint}
+ *
+ * @param options - {@link ConfigTypeScriptOptions}
+ * @returns ESLint configs
+ */
 export const configTypeScript = (
   options: ConfigTypeScriptOptions = {},
 ): TypedConfigItem[] => {

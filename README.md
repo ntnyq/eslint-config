@@ -149,9 +149,7 @@ Check for detail in:
 ### Config interface
 
 ```ts
-export interface ConfigOptions
-  extends ConfigOptionsInternal,
-    OptionsExtensions {
+export interface ConfigOptions extends OptionsExtensions {
   command?: ConfigCommandOptions
   eslintComments?: ConfigESLintCommentsOptions
   ignores?: ConfigIgnoresOptions
@@ -162,7 +160,7 @@ export interface ConfigOptions
   specials?: ConfigSpecialsOptions
 
   /**
-   * bellow can be disabled
+   * Configs bellow can be disabled
    */
   antfu?: boolean | ConfigAntfuOptions
   deMorgan?: boolean | ConfigDeMorganOptions
@@ -184,16 +182,12 @@ export interface ConfigOptions
   unocss?: boolean | ConfigUnoCSSOptions
   vue?: boolean | ConfigVueOptions
   yml?: boolean | ConfigYmlOptions
-
   /**
    * disabled by default
    */
   svgo?: boolean | ConfigSVGOOptions
-
   /**
    * disabled by default
-   *
-   * require `eslint-plugin-eslint-plugin` installed mannally
    */
   eslintPlugin?: boolean | ConfigESLintPluginOptions
 }

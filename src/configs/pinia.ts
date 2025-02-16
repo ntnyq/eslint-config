@@ -1,7 +1,20 @@
 import { pluginPinia } from '../eslint'
 import { GLOB_PINIA_STORE } from '../globs'
-import type { ConfigPiniaOptions, TypedConfigItem } from '../types'
+import type { OptionsFiles, OptionsOverrides, TypedConfigItem } from '../types'
 
+/**
+ * Options type of {@link configPinia}
+ */
+export type ConfigPiniaOptions = OptionsFiles & OptionsOverrides
+
+/**
+ * Config for pinia store
+ *
+ * @see {@link https://github.com/lisilinhart/eslint-plugin-pinia}
+ *
+ * @param options - {@link ConfigPiniaOptions}
+ * @returns ESLint configs
+ */
 export const configPinia = (
   options: ConfigPiniaOptions = {},
 ): TypedConfigItem[] => {

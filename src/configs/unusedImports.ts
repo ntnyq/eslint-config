@@ -1,6 +1,19 @@
 import { pluginUnusedImports } from '../eslint'
-import type { ConfigUnusedImportsOptions, TypedConfigItem } from '../types'
+import type { OptionsOverrides, TypedConfigItem } from '../types'
 
+/**
+ * Options type of {@link configUnusedImports}
+ */
+export type ConfigUnusedImportsOptions = OptionsOverrides
+
+/**
+ * Config for remove unused imports
+ *
+ * @see {@link https://github.com/sweepline/eslint-plugin-unused-imports}
+ *
+ * @param options - {@link ConfigUnusedImportsOptions}
+ * @returns ESLint configs
+ */
 export const configUnusedImports = (
   options: ConfigUnusedImportsOptions = {},
 ): TypedConfigItem[] => [

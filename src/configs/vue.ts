@@ -7,11 +7,31 @@ import {
   processorVueBlocks,
 } from '../eslint'
 import { GLOB_VUE } from '../globs'
+import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
 import type {
-  ConfigVueOptions,
   ESLintProcessor,
+  OptionsFeatures,
+  OptionsFiles,
+  OptionsOverrides,
   TypedConfigItem,
 } from '../types'
+
+/**
+ * Options type of {@link configVue}
+ */
+export interface ConfigVueOptions
+  extends OptionsFeatures,
+    OptionsFiles,
+    OptionsOverrides {
+  /**
+   * Create virtual files for Vue SFC blocks to enable linting.
+   *
+   * @see https://github.com/antfu/eslint-processor-vue-blocks
+   *
+   * @default true
+   */
+  sfcBlocks?: boolean | VueBlocksOptions
+}
 
 const sharedRules: TypedConfigItem['rules'] = {
   ...pluginVue.configs.base.rules,
@@ -221,6 +241,14 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
   'vue/valid-define-options': 'error',
 }
 
+/**
+ * Config for vue files
+ *
+ * @see {@link https://github.com/vuejs/eslint-plugin-vue}
+ *
+ * @param options - {@link ConfigVueOptions}
+ * @returns ESLint configs
+ */
 export const configVue = (
   options: ConfigVueOptions = {},
 ): TypedConfigItem[] => {
