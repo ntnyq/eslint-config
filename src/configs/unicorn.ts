@@ -73,9 +73,7 @@ export const configUnicorn = (
       'unicorn/prefer-structured-clone': 'error',
       'unicorn/prefer-type-error': 'error',
       'unicorn/switch-case-braces': ['error', 'avoid'],
-
       'unicorn/throw-new-error': 'error',
-
       /**
        * @pg String
        */
@@ -83,7 +81,6 @@ export const configUnicorn = (
       'unicorn/prefer-string-slice': 'error',
       'unicorn/prefer-string-starts-ends-with': 'error',
       'unicorn/prefer-string-trim-start-end': 'error',
-
       /**
        * @pg DOM
        */
@@ -95,7 +92,6 @@ export const configUnicorn = (
       'unicorn/prefer-dom-node-text-content': 'error',
       'unicorn/prefer-modern-dom-apis': 'error',
       'unicorn/prefer-query-selector': 'error',
-
       /**
        * @pg Array
        */
@@ -108,7 +104,6 @@ export const configUnicorn = (
       'unicorn/prefer-array-index-of': 'error',
       'unicorn/prefer-array-some': 'error',
       'unicorn/require-array-join-separator': 'error',
-
       /**
        * @pg Set
        */

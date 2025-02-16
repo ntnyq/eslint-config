@@ -175,3 +175,12 @@ export const PERFECTIONIST_SORT_IMPORTS_GROUPS = [
    */
   'unknown',
 ]
+
+/**
+ * Shared option `groups` for rule `sort-classes`
+ *
+ * // TODO: make this
+ *
+ * @see {@link https://perfectionist.dev/rules/sort-classes}
+ */
+export const PERFECTIONIST_SORT_CLASSES_GROUPS = ['unknown']

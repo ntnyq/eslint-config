@@ -1,5 +1,6 @@
 import jsConfig from '@eslint/js'
 import globals from 'globals'
+import { GLOB_JSX_ONLY } from '../globs'
 import type { OptionsOverrides, TypedConfigItem } from '../types'
 
 /**
@@ -68,7 +69,6 @@ export const configJavaScript = (
       'no-return-assign': 'off',
       'no-useless-escape': 'off',
       'require-await': 'off',
-
       // disabled in favor of `perfectionist/sort-named-imports`
       'sort-imports': 'off',
 
@@ -195,7 +195,6 @@ export const configJavaScript = (
       'no-useless-catch': 'error',
       'no-useless-computed-key': 'error',
       'no-useless-constructor': 'error',
-
       'no-useless-rename': 'error',
       'no-useless-return': 'error',
       // es6+
@@ -225,7 +224,6 @@ export const configJavaScript = (
           ignoreReadBeforeAssign: true,
         },
       ],
-
       'prefer-promise-reject-errors': 'error',
       'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
       'prefer-rest-params': 'error',
@@ -256,7 +254,7 @@ export const configJavaScript = (
 export const configJSX = (): TypedConfigItem[] => [
   {
     name: 'ntnyq/jsx',
-    files: ['**/*.jsx'],
+    files: [GLOB_JSX_ONLY],
     languageOptions: {
       parserOptions: {
         ecmaFeatures: {

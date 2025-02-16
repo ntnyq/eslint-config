@@ -69,7 +69,6 @@ export const configImportX = (
         'import-x/no-named-as-default-member': 'off',
         'import-x/no-named-default': 'off',
         'import-x/no-unresolved': 'off',
-
         // disabled in favor or `perfectionist/sort-imports`
         'import-x/order': 'off',
 

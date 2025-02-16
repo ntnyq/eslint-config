@@ -102,15 +102,11 @@ export const configMarkdown = (
         '@typescript-eslint/no-namespace': 'off',
         '@typescript-eslint/no-redeclare': 'off',
         '@typescript-eslint/no-require-imports': 'off',
-
         '@typescript-eslint/no-unused-expressions': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
-
         '@typescript-eslint/no-use-before-define': 'off',
-
         'import-x/no-unresolved': 'off',
         'no-alert': 'off',
-
         'no-console': 'off',
         'no-restricted-imports': 'off',
         'no-undef': 'off',

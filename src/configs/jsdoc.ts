@@ -93,7 +93,6 @@ export const configJsdoc = (
         },
       ],
       'jsdoc/check-types': 'error',
-
       // Fixable rules
       'jsdoc/empty-tags': 'error',
       'jsdoc/multiline-blocks': 'error',

@@ -47,7 +47,6 @@ export const configToml = (
         'toml/precision-of-integer': 'error',
         'toml/quoted-keys': 'error',
         'toml/spaced-comment': 'error',
-
         'toml/table-bracket-spacing': 'error',
         'toml/tables-order': 'error',
         'toml/vue-custom-block/no-parsing-error': 'error',

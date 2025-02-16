@@ -64,7 +64,6 @@ const typeAwareRules: TypedConfigItem['rules'] = {
   'dot-notation': 'off',
   'no-implied-eval': 'off',
   'no-throw-literal': 'off',
-
   'require-await': 'off',
 
   '@typescript-eslint/await-thenable': 'error',
@@ -197,9 +196,7 @@ export const configTypeScript = (
         '@typescript-eslint/no-namespace': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/triple-slash-reference': 'off',
-
         'default-param-last': 'off',
-
         // Disabled in favor of enhanced ts rules
         'no-redeclare': 'off',
         'no-unused-vars': 'off',
@@ -239,7 +236,6 @@ export const configTypeScript = (
             prefer: 'type-imports',
           },
         ],
-
         '@typescript-eslint/default-param-last': 'error',
         '@typescript-eslint/no-empty-object-type': [
           'error',
@@ -320,7 +316,6 @@ export const configTypeScript = (
         'import-x/no-duplicates': 'off',
         'no-restricted-syntax': 'off',
         'no-use-before-define': 'off',
-
         // `var` is special for type extend
         // e.g: extend globalThis
         'no-var': 'off',

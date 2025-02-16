@@ -7,9 +7,11 @@ export const GLOB_SRC = `**/*.${GLOB_SRC_EXT}`
 
 export const GLOB_JS = '**/*.?([cm])js'
 export const GLOB_JSX = `${GLOB_JS}x`
+export const GLOB_JSX_ONLY = '**/*.jsx'
 
 export const GLOB_TS = '**/*.?([cm])ts'
 export const GLOB_TSX = `${GLOB_TS}x`
+export const GLOB_TSX_ONLY = '**/*.tsx'
 export const GLOB_DTS = '**/*.d.?([cm])ts'
 
 export const GLOB_TYPES = [GLOB_DTS, `**/types/${GLOB_TS}`, `**/types.ts`]

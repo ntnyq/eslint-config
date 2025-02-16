@@ -1,6 +1,7 @@
 import {
   PERFECTIONIST_COMMON_RULE_OPTIONS,
   PERFECTIONIST_EXTRA_RULE_OPTIONS,
+  PERFECTIONIST_SORT_CLASSES_GROUPS,
   PERFECTIONIST_SORT_IMPORTS_GROUPS,
   PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS,
   PERFECTIONIST_SORT_INTERSECTION_TYPES_OR_UNION_TYPES_GROUPS,
@@ -28,6 +29,15 @@ export type PerfectionistPartitionByComment =
  * Options type of {@link configPerfectionist}
  */
 export type ConfigPerfectionistOptions = OptionsOverrides & {
+  /**
+   * Enable all perfectionist rule
+   *
+   * Once enabled, all `types`, `enums` and `constants` related options will be ignores
+   *
+   * @default false
+   */
+  all?: boolean
+
   /**
    * Overrides rules for `constants`
    */
@@ -72,11 +82,6 @@ export type ConfigPerfectionistOptions = OptionsOverrides & {
   sortTypes?: boolean
 }
 
-interface CommonRuleOptions {
-  disableNewlinesBetween?: boolean
-  disablePartitionByComment?: boolean
-}
-
 /**
  * Config for sorting imports, exports, objects and etc
  *
@@ -95,71 +100,202 @@ export const configPerfectionist = (
     sortTypes: enableSortTypes = true,
   } = options
 
-  function getCommonRuleOptions(options: CommonRuleOptions = {}) {
-    const ruleOptions = {
-      ...PERFECTIONIST_COMMON_RULE_OPTIONS,
-      ...(options.disableNewlinesBetween
-        ? {}
-        : ({ newlinesBetween: 'ignore' } as const)),
-      ...(options.disableNewlinesBetween
-        ? {}
-        : ({ partitionByComment } as const)),
-    }
+  const commonRuleOptions = {
+    ...PERFECTIONIST_COMMON_RULE_OPTIONS,
+  }
+  const commonRuleOptionsWithNewlinesBetween = {
+    ...commonRuleOptions,
+    newlinesBetween: 'ignore',
+  } as const
+  const commonRuleOptionsWithPartitionByComment = {
+    ...commonRuleOptions,
+    partitionByComment,
+  } as const
+  const commonRuleOptionsWithBoth = {
+    ...commonRuleOptionsWithNewlinesBetween,
+    ...commonRuleOptionsWithPartitionByComment,
+  }
 
-    return ruleOptions
+  const commonRules: TypedConfigItem['rules'] = {
+    'perfectionist/sort-exports': [
+      'error',
+      {
+        ...commonRuleOptionsWithPartitionByComment,
+        groupKind: 'values-first',
+        type: 'line-length',
+      },
+    ],
+    'perfectionist/sort-imports': [
+      'error',
+      {
+        ...commonRuleOptionsWithBoth,
+        groups: PERFECTIONIST_SORT_IMPORTS_GROUPS,
+        internalPattern: ['^~/.+', '^@/.+', '^#.+'],
+      },
+    ],
+    'perfectionist/sort-named-exports': [
+      'error',
+      {
+        ...commonRuleOptionsWithPartitionByComment,
+        groupKind: 'values-first',
+        ignoreAlias: false,
+      },
+    ],
+    'perfectionist/sort-named-imports': [
+      'error',
+      {
+        ...commonRuleOptionsWithPartitionByComment,
+        groupKind: 'values-first',
+        ignoreAlias: false,
+      },
+    ],
+  }
+  const sharedRules: TypedConfigItem['rules'] = {
+    'perfectionist/sort-enums': [
+      'error',
+      {
+        ...commonRuleOptionsWithBoth,
+      },
+    ],
+  }
+  const sortEnumsRules: TypedConfigItem['rules'] = {
+    'perfectionist/sort-modules': [
+      'error',
+      {
+        ...commonRuleOptionsWithBoth,
+      },
+    ],
+  }
+  const sortTypesRules: TypedConfigItem['rules'] = {
+    'perfectionist/sort-heritage-clauses': [
+      'error',
+      {
+        ...commonRuleOptions,
+      },
+    ],
+    'perfectionist/sort-interfaces': [
+      'error',
+      {
+        ...commonRuleOptionsWithBoth,
+        groups: PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS,
+      },
+    ],
+    'perfectionist/sort-intersection-types': [
+      'error',
+      {
+        ...commonRuleOptionsWithBoth,
+        groups: PERFECTIONIST_SORT_INTERSECTION_TYPES_OR_UNION_TYPES_GROUPS,
+      },
+    ],
+    'perfectionist/sort-object-types': [
+      'error',
+      {
+        ...commonRuleOptionsWithBoth,
+        groups: PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS,
+      },
+    ],
+    'perfectionist/sort-union-types': [
+      'error',
+      {
+        ...commonRuleOptionsWithBoth,
+        groups: PERFECTIONIST_SORT_INTERSECTION_TYPES_OR_UNION_TYPES_GROUPS,
+      },
+    ],
+  }
+  const sortConstantsRules: TypedConfigItem['rules'] = {
+    'perfectionist/sort-maps': [
+      'error',
+      {
+        ...commonRuleOptionsWithBoth,
+      },
+    ],
+    'perfectionist/sort-objects': [
+      'error',
+      {
+        ...commonRuleOptionsWithBoth,
+        groups: PERFECTIONIST_SORT_OBJECTS_GROUPS,
+      },
+    ],
+    'perfectionist/sort-sets': [
+      'error',
+      {
+        ...commonRuleOptionsWithBoth,
+      },
+    ],
+  }
+  const extraRules: TypedConfigItem['rules'] = {
+    'perfectionist/sort-array-includes': [
+      'error',
+      {
+        ...commonRuleOptionsWithBoth,
+        groups: ['literal', 'spread'],
+      },
+    ],
+    'perfectionist/sort-classes': [
+      'error',
+      {
+        ...commonRuleOptionsWithBoth,
+        groups: PERFECTIONIST_SORT_CLASSES_GROUPS,
+      },
+    ],
+    'perfectionist/sort-decorators': [
+      'error',
+      {
+        ...commonRuleOptionsWithPartitionByComment,
+      },
+    ],
+    'perfectionist/sort-jsx-props': [
+      'error',
+      {
+        ...commonRuleOptions,
+        groups: ['shorthand', 'multiline', 'unknown'],
+      },
+    ],
+    'perfectionist/sort-switch-case': [
+      'error',
+      {
+        ...commonRuleOptions,
+      },
+    ],
+    'perfectionist/sort-variable-declarations': [
+      'error',
+      {
+        ...commonRuleOptionsWithPartitionByComment,
+      },
+    ],
   }
 
   const configs: TypedConfigItem[] = [
     {
-      name: 'ntnyq/perfectionist/common',
+      name: options.all
+        ? 'ntnyq/perfectionist/all'
+        : 'ntnyq/perfectionist/common',
       plugins: {
         perfectionist: pluginPerfectionist,
       },
       rules: {
-        'perfectionist/sort-exports': [
-          'error',
-          {
-            ...getCommonRuleOptions({
-              disableNewlinesBetween: true,
-            }),
-            groupKind: 'values-first',
-            type: 'line-length',
-          },
-        ],
-        'perfectionist/sort-imports': [
-          'error',
-          {
-            ...getCommonRuleOptions(),
-            groups: PERFECTIONIST_SORT_IMPORTS_GROUPS,
-            internalPattern: ['^~/.+', '^@/.+', '^#.+'],
-          },
-        ],
-        'perfectionist/sort-named-exports': [
-          'error',
-          {
-            ...getCommonRuleOptions({
-              disableNewlinesBetween: true,
-            }),
-            groupKind: 'values-first',
-            ignoreAlias: false,
-          },
-        ],
-        'perfectionist/sort-named-imports': [
-          'error',
-          {
-            ...getCommonRuleOptions({
-              disableNewlinesBetween: true,
-            }),
-            groupKind: 'values-first',
-            ignoreAlias: false,
-          },
-        ],
+        ...commonRules,
+
+        ...(options.all
+          ? {
+              ...sharedRules,
+              ...sortEnumsRules,
+              ...sortTypesRules,
+              ...sortConstantsRules,
+              ...extraRules,
+            }
+          : {}),
 
         // Overrides rules
         ...options.overrides,
       },
     },
   ]
+
+  // return in advanced, ignore other options
+  if (options.all) {
+    return configs
+  }
 
   if (enableSortEnums) {
     configs.push({
@@ -169,18 +305,9 @@ export const configPerfectionist = (
         perfectionist: pluginPerfectionist,
       },
       rules: {
-        'perfectionist/sort-enums': [
-          'error',
-          {
-            ...getCommonRuleOptions(),
-          },
-        ],
-        'perfectionist/sort-modules': [
-          'error',
-          {
-            ...getCommonRuleOptions(),
-          },
-        ],
+        ...sharedRules,
+
+        ...sortEnumsRules,
 
         // Overrides rules
         ...options.overridesEnumsRules,
@@ -196,49 +323,9 @@ export const configPerfectionist = (
         perfectionist: pluginPerfectionist,
       },
       rules: {
-        'perfectionist/sort-heritage-clauses': [
-          'error',
-          {
-            ...getCommonRuleOptions({
-              disableNewlinesBetween: true,
-              disablePartitionByComment: true,
-            }),
-          },
-        ],
-        'perfectionist/sort-interfaces': [
-          'error',
-          {
-            ...getCommonRuleOptions(),
-            groups: PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS,
-          },
-        ],
-        'perfectionist/sort-intersection-types': [
-          'error',
-          {
-            ...getCommonRuleOptions(),
-            groups: PERFECTIONIST_SORT_INTERSECTION_TYPES_OR_UNION_TYPES_GROUPS,
-          },
-        ],
-        'perfectionist/sort-modules': [
-          'error',
-          {
-            ...getCommonRuleOptions(),
-          },
-        ],
-        'perfectionist/sort-object-types': [
-          'error',
-          {
-            ...getCommonRuleOptions(),
-            groups: PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS,
-          },
-        ],
-        'perfectionist/sort-union-types': [
-          'error',
-          {
-            ...getCommonRuleOptions(),
-            groups: PERFECTIONIST_SORT_INTERSECTION_TYPES_OR_UNION_TYPES_GROUPS,
-          },
-        ],
+        ...sharedRules,
+
+        ...sortTypesRules,
 
         // Overrides rules
         ...options.overridesTypesRules,
@@ -254,31 +341,9 @@ export const configPerfectionist = (
         perfectionist: pluginPerfectionist,
       },
       rules: {
-        'perfectionist/sort-maps': [
-          'error',
-          {
-            ...getCommonRuleOptions(),
-          },
-        ],
-        'perfectionist/sort-modules': [
-          'error',
-          {
-            ...getCommonRuleOptions(),
-          },
-        ],
-        'perfectionist/sort-objects': [
-          'error',
-          {
-            ...getCommonRuleOptions(),
-            groups: PERFECTIONIST_SORT_OBJECTS_GROUPS,
-          },
-        ],
-        'perfectionist/sort-sets': [
-          'error',
-          {
-            ...getCommonRuleOptions(),
-          },
-        ],
+        ...sharedRules,
+
+        ...sortConstantsRules,
 
         // Overrides rules
         ...options.overridesConstantsRules,

@@ -67,26 +67,6 @@ const ESLINT_CONFIG_GROUP = [
     groupName: 'config-rules',
   },
 ] satisfies CustomGroupDefinition[]
-const RULE_SERVERITY_GROUP = [
-  {
-    elementValuePattern: 'off',
-    groupName: 'rule-severity-off',
-    order: 'asc',
-    type: 'alphabetical',
-  },
-  {
-    elementValuePattern: 'warn',
-    groupName: 'rule-severity-warn',
-    order: 'asc',
-    type: 'alphabetical',
-  },
-  {
-    elementValuePattern: 'error',
-    groupName: 'rule-severity-error',
-    order: 'asc',
-    type: 'alphabetical',
-  },
-] satisfies CustomGroupDefinition[]
 
 export default defineESLintConfig(
   {
@@ -110,11 +90,32 @@ export default defineESLintConfig(
         {
           ...PERFECTIONIST_COMMON_RULE_OPTIONS,
           ...PERFECTIONIST_EXTRA_RULE_OPTIONS,
-          customGroups: [...ESLINT_CONFIG_GROUP, ...RULE_SERVERITY_GROUP],
+          customGroups: [
+            ...ESLINT_CONFIG_GROUP,
+            {
+              elementValuePattern: 'off',
+              groupName: 'rule-severity-off',
+              newlinesInside: 'never',
+              order: 'asc',
+              type: 'alphabetical',
+            },
+            {
+              elementValuePattern: 'warn',
+              groupName: 'rule-severity-warn',
+              newlinesInside: 'never',
+              order: 'asc',
+              type: 'alphabetical',
+            },
+            {
+              elementValuePattern: 'error',
+              groupName: 'rule-severity-error',
+              newlinesInside: 'never',
+              order: 'asc',
+              type: 'alphabetical',
+            },
+          ],
           groups: [
             ...ESLINT_CONFIG_GROUP.map(v => v.groupName),
-
-            // rule-severity-groups
             { newlinesBetween: 'always' },
             'rule-severity-off',
             { newlinesBetween: 'always' },
@@ -122,7 +123,6 @@ export default defineESLintConfig(
             { newlinesBetween: 'always' },
             'rule-severity-error',
             { newlinesBetween: 'always' },
-
             ...PERFECTIONIST_SORT_OBJECTS_GROUPS,
           ],
         },
