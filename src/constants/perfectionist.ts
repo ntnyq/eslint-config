@@ -2,7 +2,7 @@
  * Shared perfectionist rule options for all rules
  */
 export const PERFECTIONIST_COMMON_RULE_OPTIONS = {
-  fallbackSort: { order: 'asc', type: 'alphabetical' },
+  // fallbackSort: { order: 'asc', type: 'alphabetical' },
   ignoreCase: true,
   order: 'asc',
   type: 'alphabetical',
