@@ -1,11 +1,11 @@
-import type { PrettierOptions } from './types'
+import type { PrettierOptions } from '../types'
 
 /**
  * Options from `@ntnyq/prettier-config`
  *
  * @see {@link https://github.com/ntnyq/configs/blob/main/packages/prettier-config/index.js}
  */
-export const DEFAULT_PRETTIER_OPTIONS: PrettierOptions = {
+export const PRETTIER_DEFAULT_OPTIONS: PrettierOptions = {
   arrowParens: 'avoid',
   bracketSameLine: false,
   bracketSpacing: true,
@@ -31,25 +31,3 @@ export const DEFAULT_PRETTIER_OPTIONS: PrettierOptions = {
   useTabs: false,
   vueIndentScriptAndStyle: false,
 }
-
-/**
- * Shared perfectionist rule options
- */
-export const COMMON_SHARED_PERFECTIONIST_RULE_OPTIONS = {
-  fallbackSort: { order: 'asc', type: 'alphabetical' },
-  ignoreCase: true,
-  order: 'asc',
-  type: 'alphabetical',
-} as const
-export const EXTRA_SHARED_PERFECTIONIST_RULE_OPTIONS = {
-  newlinesBetween: 'ignore',
-  partitionByComment: ['@pg', '@perfectionist-group'] as string[],
-} as const
-
-export const SHARED_SORT_OBJECTS_GROUPS = [
-  'property',
-  'multiline-property',
-  'method',
-  'multiline-method',
-  'unknown',
-]

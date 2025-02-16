@@ -1,9 +1,9 @@
 import {
-  COMMON_SHARED_PERFECTIONIST_RULE_OPTIONS,
   defineESLintConfig,
-  EXTRA_SHARED_PERFECTIONIST_RULE_OPTIONS,
+  PERFECTIONIST_COMMON_RULE_OPTIONS,
+  PERFECTIONIST_EXTRA_RULE_OPTIONS,
+  PERFECTIONIST_SORT_OBJECTS_GROUPS,
   pluginPerfectionist,
-  SHARED_SORT_OBJECTS_GROUPS,
 } from './src'
 
 interface CustomGroupDefinition {
@@ -108,8 +108,8 @@ export default defineESLintConfig(
       'perfectionist/sort-objects': [
         'error',
         {
-          ...COMMON_SHARED_PERFECTIONIST_RULE_OPTIONS,
-          ...EXTRA_SHARED_PERFECTIONIST_RULE_OPTIONS,
+          ...PERFECTIONIST_COMMON_RULE_OPTIONS,
+          ...PERFECTIONIST_EXTRA_RULE_OPTIONS,
           customGroups: [...ESLINT_CONFIG_GROUP, ...RULE_SERVERITY_GROUP],
           groups: [
             ...ESLINT_CONFIG_GROUP.map(v => v.groupName),
@@ -123,7 +123,7 @@ export default defineESLintConfig(
             'rule-severity-error',
             { newlinesBetween: 'always' },
 
-            ...SHARED_SORT_OBJECTS_GROUPS,
+            ...PERFECTIONIST_SORT_OBJECTS_GROUPS,
           ],
         },
       ],

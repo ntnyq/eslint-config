@@ -1,4 +1,4 @@
-import { DEFAULT_PRETTIER_OPTIONS } from '../constants'
+import { PRETTIER_DEFAULT_OPTIONS } from '../constants'
 import { parserPlain, pluginFormat } from '../eslint'
 import {
   GLOB_CSS,
@@ -53,7 +53,7 @@ export const configFormat = (
   } = options
 
   const sharedPrettierOptions: PrettierOptions = {
-    ...DEFAULT_PRETTIER_OPTIONS,
+    ...PRETTIER_DEFAULT_OPTIONS,
     ...prettierOptions,
   }
 

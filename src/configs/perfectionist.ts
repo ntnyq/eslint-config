@@ -1,7 +1,10 @@
 import {
-  COMMON_SHARED_PERFECTIONIST_RULE_OPTIONS,
-  EXTRA_SHARED_PERFECTIONIST_RULE_OPTIONS,
-  SHARED_SORT_OBJECTS_GROUPS,
+  PERFECTIONIST_COMMON_RULE_OPTIONS,
+  PERFECTIONIST_EXTRA_RULE_OPTIONS,
+  PERFECTIONIST_SORT_IMPORTS_GROUPS,
+  PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS,
+  PERFECTIONIST_SORT_INTERSECTION_TYPES_OR_UNION_TYPES_GROUPS,
+  PERFECTIONIST_SORT_OBJECTS_GROUPS,
 } from '../constants'
 import { pluginPerfectionist } from '../eslint'
 import { GLOB_SRC, GLOB_SRC_EXT, GLOB_TYPES } from '../globs'
@@ -74,85 +77,6 @@ interface CommonRuleOptions {
   disablePartitionByComment?: boolean
 }
 
-const INTERFACE_OR_OBJECT_TYPES_GROUPS = [
-  'required-property',
-  'optional-property',
-  'required-method',
-  'optional-method',
-  'required-multiline-property',
-  'optional-multiline-property',
-  'required-multiline-method',
-  'optional-multiline-method',
-  'unknown',
-  'index-signature',
-  'multiline-index-signature',
-]
-
-/**
- * Philosophy: keep simple thing first except null & undefined
- */
-const INTERSECTION_OR_UNION_TYPES_GROUPS = [
-  /**
-   * eg. 'foobar', 24, false
-   */
-  'literal',
-
-  /**
-   * eg. number, string
-   */
-  'keyword',
-
-  /**
-   * eg. FooBar
-   */
-  'named',
-
-  /**
-   * eg. Foo & Bar
-   */
-  'intersection',
-
-  /**
-   * eg. Foobar extends string ? Foo : Bar
-   */
-  'conditional',
-
-  /**
-   * eg. (...args: any[]) => void
-   */
-  'function',
-
-  /**
-   * eg. import('eslint').Linter
-   */
-  'import',
-
-  /**
-   * eg. { foo: string; bar: number; }
-   */
-  'object',
-
-  /**
-   * eg. keyof T
-   */
-  'operator',
-
-  /**
-   * eg. [string, number]
-   */
-  'tuple',
-
-  /**
-   * eg. Foo | Bar
-   */
-  'union',
-
-  /**
-   * eg. null | undefined
-   */
-  'nullish',
-]
-
 /**
  * Config for sorting imports, exports, objects and etc
  *
@@ -165,7 +89,7 @@ export const configPerfectionist = (
   options: ConfigPerfectionistOptions = {},
 ): TypedConfigItem[] => {
   const {
-    partitionByComment = EXTRA_SHARED_PERFECTIONIST_RULE_OPTIONS.partitionByComment,
+    partitionByComment = PERFECTIONIST_EXTRA_RULE_OPTIONS.partitionByComment,
     sortConstants: enableSortConstants = true,
     sortEnums: enableSortEnums = true,
     sortTypes: enableSortTypes = true,
@@ -173,7 +97,7 @@ export const configPerfectionist = (
 
   function getCommonRuleOptions(options: CommonRuleOptions = {}) {
     const ruleOptions = {
-      ...COMMON_SHARED_PERFECTIONIST_RULE_OPTIONS,
+      ...PERFECTIONIST_COMMON_RULE_OPTIONS,
       ...(options.disableNewlinesBetween
         ? {}
         : ({ newlinesBetween: 'ignore' } as const)),
@@ -206,54 +130,8 @@ export const configPerfectionist = (
           'error',
           {
             ...getCommonRuleOptions(),
+            groups: PERFECTIONIST_SORT_IMPORTS_GROUPS,
             internalPattern: ['^~/.+', '^@/.+', '^#.+'],
-            groups: [
-              // Side effect style imports (e.g. 'normalize.css')
-              'side-effect-style',
-
-              // Styles (e.g. *.{css,scss,less})
-              'style',
-
-              // Node.js built-in modules. (e.g. fs, path)
-              'builtin',
-
-              // External modules installed in the project (e.g. vue, lodash)
-              'external',
-
-              // Internal modules (e.g. @/utils, @/components)
-              'internal',
-
-              // Modules from parent directory (e.g. ../utils)
-              'parent',
-
-              // Modules from the same directory (e.g. ./utils)
-              'sibling',
-
-              // Main file from the current directory (e.g. ./index)
-              'index',
-
-              // TypeScript object-imports (e.g. import log = console.log)
-              'object',
-
-              // Side effect imports (e.g. import 'babel-polyfill')
-              'side-effect',
-
-              /**
-               * Type import at the end
-               */
-              'builtin-type',
-              'external-type',
-              'internal-type',
-              'parent-type',
-              'sibling-type',
-              'index-type',
-              'type',
-
-              /**
-               * Imports that don’t fit into any other group
-               */
-              'unknown',
-            ],
           },
         ],
         'perfectionist/sort-named-exports': [
@@ -331,14 +209,14 @@ export const configPerfectionist = (
           'error',
           {
             ...getCommonRuleOptions(),
-            groups: INTERFACE_OR_OBJECT_TYPES_GROUPS,
+            groups: PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS,
           },
         ],
         'perfectionist/sort-intersection-types': [
           'error',
           {
             ...getCommonRuleOptions(),
-            groups: INTERSECTION_OR_UNION_TYPES_GROUPS,
+            groups: PERFECTIONIST_SORT_INTERSECTION_TYPES_OR_UNION_TYPES_GROUPS,
           },
         ],
         'perfectionist/sort-modules': [
@@ -351,14 +229,14 @@ export const configPerfectionist = (
           'error',
           {
             ...getCommonRuleOptions(),
-            groups: INTERFACE_OR_OBJECT_TYPES_GROUPS,
+            groups: PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS,
           },
         ],
         'perfectionist/sort-union-types': [
           'error',
           {
             ...getCommonRuleOptions(),
-            groups: INTERSECTION_OR_UNION_TYPES_GROUPS,
+            groups: PERFECTIONIST_SORT_INTERSECTION_TYPES_OR_UNION_TYPES_GROUPS,
           },
         ],
 
@@ -392,7 +270,7 @@ export const configPerfectionist = (
           'error',
           {
             ...getCommonRuleOptions(),
-            groups: SHARED_SORT_OBJECTS_GROUPS,
+            groups: PERFECTIONIST_SORT_OBJECTS_GROUPS,
           },
         ],
         'perfectionist/sort-sets': [

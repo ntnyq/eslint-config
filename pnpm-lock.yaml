@@ -93,8 +93,8 @@ importers:
         specifier: ^2.7.0
         version: 2.7.0(eslint@9.20.1(jiti@2.4.2))
       eslint-plugin-svgo:
-        specifier: ^0.5.1
-        version: 0.5.1(eslint@9.20.1(jiti@2.4.2))
+        specifier: ^0.5.2
+        version: 0.5.2(eslint@9.20.1(jiti@2.4.2))
       eslint-plugin-toml:
         specifier: ^0.12.0
         version: 0.12.0(eslint@9.20.1(jiti@2.4.2))
@@ -139,8 +139,8 @@ importers:
         version: 1.2.3
     devDependencies:
       '@ntnyq/prettier-config':
-        specifier: ^2.0.0-beta.2
-        version: 2.0.0-beta.2
+        specifier: ^2.0.0
+        version: 2.0.0
       '@types/node':
         specifier: ^22.13.4
         version: 22.13.4
@@ -658,8 +658,8 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@ntnyq/prettier-config@2.0.0-beta.2':
-    resolution: {integrity: sha512-vBFHdUW+VPnZTOckLQHKSJitoKaM6IJxh6uvWMtjDa8NKUjci135upL9SxYzTw8KiQB9O6AUGiAEWbr656q5EA==}
+  '@ntnyq/prettier-config@2.0.0':
+    resolution: {integrity: sha512-cgb+VCW8+BJzZBSURgDEjMNt0JNiZ+Kx4k2rC54Igs+VmRiI2J8jPTVVqEKG2urhGLcUA2IuCE6ZDMMKuibN3Q==}
 
   '@ntnyq/utils@0.4.5':
     resolution: {integrity: sha512-A4ik6khNFMCdisUxUVINGwuQD51POdZDjbznK+Kf5XxHuFUfd6ayVfnzsIvfIXyPBZZO2N5NPxs5r9hPOubkpQ==}
@@ -1674,8 +1674,8 @@ packages:
     peerDependencies:
       eslint: '>=8.44.0'
 
-  eslint-plugin-svgo@0.5.1:
-    resolution: {integrity: sha512-Fwuvv2g7JFu6IprbvjBbpFC1Y0gIxk4BlAtQJOrUpyRGXRuNpi02m6EcbGkSsaIa9DLmkEdU9agcidU49FWspQ==}
+  eslint-plugin-svgo@0.5.2:
+    resolution: {integrity: sha512-0Ct7H9TgGj64Q+8AtBfrbicyV6qkNHkTLMK8WArg1mtp7Q4LhU49P9GGBoSNUBtcQA6hpW7HTpMr2exNctM3sA==}
     engines: {node: '>=18.18.0'}
     peerDependencies:
       eslint: ^9.5.0
@@ -3615,7 +3615,7 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@ntnyq/prettier-config@2.0.0-beta.2': {}
+  '@ntnyq/prettier-config@2.0.0': {}
 
   '@ntnyq/utils@0.4.5':
     dependencies:
@@ -4795,7 +4795,7 @@ snapshots:
       regexp-ast-analysis: 0.7.1
       scslre: 0.3.0
 
-  eslint-plugin-svgo@0.5.1(eslint@9.20.1(jiti@2.4.2)):
+  eslint-plugin-svgo@0.5.2(eslint@9.20.1(jiti@2.4.2)):
     dependencies:
       eslint: 9.20.1(jiti@2.4.2)
       eslint-formatting-reporter: 0.0.0(eslint@9.20.1(jiti@2.4.2))
