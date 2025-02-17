@@ -1,4 +1,4 @@
-import { createConfig as createNtnyqConfig } from 'eslint-plugin-ntnyq'
+import { pluginNtnyq } from '../eslint'
 import type { OptionsOverrides, TypedConfigItem } from '../types'
 
 /**
@@ -18,14 +18,16 @@ export const configNtnyq = (
   options: ConfigNtnyqOptions = {},
 ): TypedConfigItem[] => [
   {
-    ...createNtnyqConfig({
-      rules: {
-        'ntnyq/prefer-newline-after-file-header': 'error',
-
-        // Overrides rules
-        ...options.overrides,
-      },
-    }),
     name: 'ntnyq/ntnyq',
+    plugins: {
+      ntnyq: pluginNtnyq,
+    },
+    rules: {
+      'ntnyq/no-duplicate-exports': 'error',
+      'ntnyq/prefer-newline-after-file-header': 'error',
+
+      // Overrides rules
+      ...options.overrides,
+    },
   },
 ]
