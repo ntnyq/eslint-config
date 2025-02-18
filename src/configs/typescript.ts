@@ -13,6 +13,7 @@ import {
   GLOB_TYPES,
 } from '../globs'
 import type {
+  ESLintConfig,
   ESLintParser,
   OptionsExtensions,
   OptionsFiles,
@@ -135,7 +136,7 @@ export const configTypeScript = (
 
   function createParserConfig(
     enableTypeAware = false,
-    files: string[] = [],
+    files: ESLintConfig['files'] = [],
     ignores: string[] = [],
   ) {
     const typescriptParserOptions: TSESLintParserOptions = {

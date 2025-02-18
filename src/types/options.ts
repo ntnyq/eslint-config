@@ -1,4 +1,4 @@
-import type { TypedConfigItem } from './eslint'
+import type { ESLintConfig, TypedConfigItem } from './eslint'
 
 /**
  * Options for add `extensions` support
@@ -21,7 +21,14 @@ export type OptionsFeatures = {
  * Options for overrides `files`
  */
 export interface OptionsFiles {
-  files?: string[]
+  files?: ESLintConfig['files']
+}
+
+/**
+ * Options for overrides ignores for specific config
+ */
+export interface OptionsIgnores {
+  ignores?: ESLintConfig['ignores']
 }
 
 /**

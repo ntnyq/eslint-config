@@ -2,11 +2,10 @@
  * @file ESLint processors
  */
 
-export { default as processorVueBlocks } from 'eslint-processor-vue-blocks'
-
 /**
  * Processors
  */
+export { default as processorVueBlocks } from 'eslint-processor-vue-blocks'
 
 /**
  * Processor Utils

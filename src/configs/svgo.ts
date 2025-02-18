@@ -1,12 +1,11 @@
-import { createConfig as createSVGOConfig } from 'eslint-plugin-svgo'
+import { parserPlain, pluginSvgo } from '../eslint'
 import { GLOB_SVG } from '../globs'
-import type { RuleOptions as SVGORuleOptions } from 'eslint-plugin-svgo/rule-options'
-import type { ESLintConfig, TypedConfigItem } from '../types'
+import type { OptionsFiles, OptionsIgnores, TypedConfigItem } from '../types'
 
 /**
  * Options type of {@link configSVGO}
  */
-export type ConfigSVGOOptions = ESLintConfig<SVGORuleOptions>
+export type ConfigSVGOOptions = OptionsFiles & OptionsIgnores
 
 /**
  * Config for svg files
@@ -19,16 +18,22 @@ export type ConfigSVGOOptions = ESLintConfig<SVGORuleOptions>
 export const configSVGO = (
   options: ConfigSVGOOptions = {},
 ): TypedConfigItem[] => {
-  const { files = [GLOB_SVG], rules: overridesRules = {} } = options
+  const { files = [GLOB_SVG], ignores = [] } = options
+
   return [
-    createSVGOConfig({
+    {
       name: 'ntnyq/svgo',
       files,
+      ignores,
+      plugins: {
+        svgo: pluginSvgo,
+      },
+      languageOptions: {
+        parser: parserPlain,
+      },
       rules: {
         'svgo/svgo': 'error',
-
-        ...overridesRules,
       },
-    }),
+    },
   ]
 }
