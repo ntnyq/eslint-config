@@ -54,7 +54,7 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "eslint": "^9.5.0",
+    "eslint": "^9.20.0",
     "eslint-plugin-eslint-plugin": "^6.4.0"
   },
   "peerDependenciesMeta": {
@@ -128,10 +128,16 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
-    ],
-    "overrides": {
-      "esbuild": "^0.25.0"
-    }
+    ]
+  },
+  "resolutions": {
+    "@shikijs/core": "^3.0.0",
+    "@shikijs/markdown-it": "^3.0.0",
+    "@shikijs/rehype": "^3.0.0",
+    "@shikijs/transformers": "^3.0.0",
+    "@shikijs/types": "^3.0.0",
+    "esbuild": "^0.25.0",
+    "shiki": "^3.0.0"
   },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,vue,svg,json,jsonc,md,yaml,yml}": "eslint --fix",

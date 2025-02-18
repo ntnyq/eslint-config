@@ -15,7 +15,7 @@
 - Out-of-box support for TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG and etc
 - Strict but provides useful rules to guard your codebase
 - Custom ESLint commands for [eslint-plugin-command](https://github.com/antfu/eslint-plugin-command)
-- [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files) for ESLint v9.5.0+
+- [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files) for ESLint v9.20.0+
 
 ## Install
 
