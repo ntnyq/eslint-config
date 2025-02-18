@@ -68,6 +68,14 @@ export const configTest = (
       plugins: {
         vitest: pluginVitest,
       },
+      settings: {
+        /**
+         * @see https://github.com/vitest-dev/eslint-plugin-vitest/tree/main?tab=readme-ov-file#enabling-with-type-testing
+         */
+        vitest: {
+          typecheck: true,
+        },
+      },
       rules: {
         ...pluginVitest.configs.recommended.rules,
 
