@@ -68,7 +68,7 @@
     "@eslint-community/eslint-plugin-eslint-comments": "^4.4.1",
     "@eslint/js": "^9.20.0",
     "@eslint/markdown": "^6.2.2",
-    "@unocss/eslint-plugin": "^65.5.0",
+    "@unocss/eslint-plugin": "^66.0.0",
     "@vitest/eslint-plugin": "^1.1.31",
     "eslint-config-flat-gitignore": "^2.0.0",
     "eslint-flat-config-utils": "^2.0.1",
