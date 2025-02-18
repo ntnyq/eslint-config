@@ -8,14 +8,14 @@
     "dev": "vitepress dev ."
   },
   "devDependencies": {
-    "@shikijs/transformers": "^2.4.1",
-    "@shikijs/vitepress-twoslash": "^2.4.1",
+    "@shikijs/transformers": "^2.5.0",
+    "@shikijs/vitepress-twoslash": "^2.5.0",
     "@vueuse/core": "^12.7.0",
     "unocss": "^66.0.0",
-    "unplugin-vue-components": "^28.1.0",
+    "unplugin-vue-components": "^28.2.0",
     "vite": "^6.1.0",
     "vitepress": "^1.6.3",
-    "vitepress-plugin-group-icons": "^1.3.5",
+    "vitepress-plugin-group-icons": "^1.3.6",
     "vue": "^3.5.13"
   }
 }
