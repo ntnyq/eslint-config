@@ -34,6 +34,36 @@ export const configUnicorn = (
       unicorn: pluginUnicorn,
     },
     rules: {
+      'unicorn/consistent-assert': 'error',
+      'unicorn/consistent-existence-index-check': 'error',
+      'unicorn/error-message': 'error',
+      'unicorn/escape-case': 'error',
+      'unicorn/new-for-builtins': 'error',
+      'unicorn/no-accessor-recursion': 'error',
+      'unicorn/no-console-spaces': 'error',
+      'unicorn/no-for-loop': 'error',
+      'unicorn/no-hex-escape': 'error',
+      'unicorn/no-instanceof-builtins': 'error',
+      'unicorn/no-lonely-if': 'error',
+      'unicorn/no-new-buffer': 'error',
+      'unicorn/no-static-only-class': 'error',
+      'unicorn/no-typeof-undefined': 'error',
+      'unicorn/no-unnecessary-await': 'error',
+      'unicorn/prefer-includes': 'error',
+      'unicorn/prefer-keyboard-event-key': 'error',
+      'unicorn/prefer-math-min-max': 'error',
+      'unicorn/prefer-math-trunc': 'error',
+      'unicorn/prefer-modern-math-apis': 'error',
+      'unicorn/prefer-negative-index': 'error',
+      'unicorn/prefer-node-protocol': 'error',
+      'unicorn/prefer-optional-catch-binding': 'error',
+      'unicorn/prefer-prototype-methods': 'error',
+      'unicorn/prefer-reflect-apply': 'error',
+      'unicorn/prefer-structured-clone': 'error',
+      'unicorn/switch-case-braces': ['error', 'avoid'],
+      /**
+       * @pg Error
+       */
       'unicorn/catch-error-name': [
         'error',
         {
@@ -42,38 +72,24 @@ export const configUnicorn = (
           ignore: ['^_.'],
         },
       ],
-      'unicorn/consistent-existence-index-check': 'error',
       'unicorn/custom-error-definition': 'error',
-      'unicorn/error-message': 'error',
-      'unicorn/escape-case': 'error',
-      'unicorn/new-for-builtins': 'error',
-      'unicorn/no-console-spaces': 'error',
-      'unicorn/no-for-loop': 'error',
-      'unicorn/no-hex-escape': 'error',
-      'unicorn/no-lonely-if': 'error',
-      'unicorn/no-new-buffer': 'error',
-      'unicorn/no-static-only-class': 'error',
-      'unicorn/no-typeof-undefined': 'error',
-      'unicorn/no-unnecessary-await': 'error',
+      'unicorn/prefer-type-error': 'error',
+      'unicorn/throw-new-error': 'error',
+      /**
+       * @pg Number
+       */
       'unicorn/no-zero-fractions': 'error',
       'unicorn/number-literal-case': 'error',
-      'unicorn/prefer-date-now': 'error',
-      'unicorn/prefer-includes': 'error',
-      'unicorn/prefer-keyboard-event-key': 'error',
-      'unicorn/prefer-math-min-max': 'error',
-      'unicorn/prefer-math-trunc': 'error',
-      'unicorn/prefer-modern-math-apis': 'error',
-      'unicorn/prefer-negative-index': 'error',
-      'unicorn/prefer-node-protocol': 'error',
       'unicorn/prefer-number-properties': 'error',
-      'unicorn/prefer-optional-catch-binding': 'error',
-      'unicorn/prefer-prototype-methods': 'error',
-      'unicorn/prefer-reflect-apply': 'error',
+      /**
+       * @pg RegExp
+       */
       'unicorn/prefer-regexp-test': 'error',
-      'unicorn/prefer-structured-clone': 'error',
-      'unicorn/prefer-type-error': 'error',
-      'unicorn/switch-case-braces': ['error', 'avoid'],
-      'unicorn/throw-new-error': 'error',
+      /**
+       * @pg Date
+       */
+      'unicorn/consistent-date-clone': 'error',
+      'unicorn/prefer-date-now': 'error',
       /**
        * @pg String
        */
@@ -97,7 +113,6 @@ export const configUnicorn = (
        */
       'unicorn/no-array-method-this-argument': 'error',
       'unicorn/no-array-push-push': 'error',
-      'unicorn/no-instanceof-array': 'error',
       'unicorn/no-new-array': 'error',
       'unicorn/prefer-array-find': 'error',
       'unicorn/prefer-array-flat-map': 'error',
