@@ -1,7 +1,7 @@
 import {
   defineConfig,
   presetIcons,
-  presetUno,
+  presetWind3,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
@@ -10,7 +10,7 @@ export default defineConfig({
   transformers: [transformerDirectives(), transformerVariantGroup()],
 
   presets: [
-    presetUno(),
+    presetWind3(),
     presetIcons({
       autoInstall: true,
       extraProperties: {},
@@ -21,7 +21,12 @@ export default defineConfig({
   shortcuts: [
     {
       'flex-center': 'flex justify-center items-center',
+      'flex-col-center': 'flex-center flex-col',
       'wh-full': 'w-full h-full',
     },
   ],
+
+  theme: {
+    colors: {},
+  },
 })

@@ -72,12 +72,28 @@ export const configTest = (
         /**
          * @see https://github.com/vitest-dev/eslint-plugin-vitest/tree/main?tab=readme-ov-file#enabling-with-type-testing
          */
-        vitest: {
-          typecheck: true,
-        },
+        // https://github.com/vitest-dev/eslint-plugin-vitest/issues/664
+        // vitest: {
+        //   typecheck: true,
+        // },
       },
       rules: {
         ...pluginVitest.configs.recommended.rules,
+
+        'vitest/expect-expect': [
+          'error',
+          {
+            assertFunctionNames: [
+              'expect',
+              'assert',
+              /**
+               * type test
+               */
+              'expectTypeOf',
+              'assertType',
+            ],
+          },
+        ],
 
         // Overrides rules
         ...options.overridesVitestRules,

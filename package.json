@@ -140,7 +140,7 @@
     "shiki": "^3.0.0"
   },
   "nano-staged": {
-    "*.{js,ts,mjs,cjs,vue,svg,json,jsonc,md,yaml,yml}": "eslint --fix",
+    "*.{js,ts,mjs,cjs,md,vue,svg,yml,yaml,json}": "eslint --fix",
     "*.{css,scss,html}": "prettier -uw"
   }
 }
