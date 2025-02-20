@@ -120,8 +120,8 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0(@vue/compiler-sfc@3.5.13)(eslint@9.20.1(jiti@2.4.2))
       globals:
-        specifier: ^15.15.0
-        version: 15.15.0
+        specifier: ^16.0.0
+        version: 16.0.0
       jsonc-eslint-parser:
         specifier: ^2.4.0
         version: 2.4.0
@@ -1900,6 +1900,10 @@ packages:
 
   globals@15.15.0:
     resolution: {integrity: sha512-7ACyT3wmyp3I61S4fG682L0VA2RGD9otkqGJIwNUMF1SWUombIIk+af1unuDYgMm082aHYwD+mzJvv9Iu8dsgg==}
+    engines: {node: '>=18'}
+
+  globals@16.0.0:
+    resolution: {integrity: sha512-iInW14XItCXET01CQFqudPOWP2jYMl7T+QRQT+UNcR/iQncN/F0UNpgd76iFkBPgNQb4+X3LV9tLJYzwh+Gl3A==}
     engines: {node: '>=18'}
 
   graceful-fs@4.2.11:
@@ -5058,6 +5062,8 @@ snapshots:
   globals@14.0.0: {}
 
   globals@15.15.0: {}
+
+  globals@16.0.0: {}
 
   graceful-fs@4.2.11: {}
 
