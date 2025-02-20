@@ -19,6 +19,11 @@ export interface ConfigSpecialsOptions {
   overridesCliRules?: TypedConfigItem['rules']
 
   /**
+   * Overrides bin rules
+   */
+  overridesBinRules?: TypedConfigItem['rules']
+
+  /**
    * Overrides config files rules
    */
   overridesConfigFileRules?: TypedConfigItem['rules']
@@ -84,6 +89,18 @@ export const configSpecials = (
 
         // Overrides rules
         ...options.overridesCliRules,
+      },
+    },
+    {
+      name: 'ntnyq/specials/bin',
+      files: [`**/bin/${GLOB_SRC}`, `**/bin.${GLOB_SRC_EXT}`],
+      rules: {
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        'antfu/no-import-dist': 'off',
+        'no-console': 'off',
+
+        // Overrides rules
+        ...options.overridesBinRules,
       },
     },
     {
