@@ -20,7 +20,7 @@
 ## Install
 
 ```shell
-pnpm add eslint prettier typescript @ntnyq/eslint-config @ntnyq/prettier-config -D
+pnpm add eslint typescript @ntnyq/eslint-config -D
 ```
 
 ## Usage
@@ -53,7 +53,14 @@ Add scripts `lint` in `package.json`:
 
 ## Prettier config
 
+Install `prettier` and setup your prettier config:
+
+```shell
+pnpm add prettier @ntnyq/prettier-config -D
+```
+
 ```js
+// prettier.config.mjs
 // @ts-check
 
 import { config, defineConfig } from '@ntnyq/prettier-config'

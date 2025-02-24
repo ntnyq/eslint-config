@@ -1,8 +1,11 @@
 import { transformerRenderWhitespace } from '@shikijs/transformers'
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
+import { globSync } from 'tinyglobby'
+import { pascalCase } from 'uncase'
 import { defineConfig } from 'vitepress'
 import { groupIconMdPlugin } from 'vitepress-plugin-group-icons'
 import { version } from '../../package.json'
+import { resolve } from '../../scripts/utils'
 import {
   PACKAGE_NAME,
   REPO_SLUG,
@@ -10,6 +13,7 @@ import {
   SITE_NAME,
   SITE_URL,
 } from './meta'
+import type { DefaultTheme } from 'vitepress/theme'
 
 export default defineConfig({
   title: SITE_NAME,
@@ -43,10 +47,10 @@ export default defineConfig({
       pattern: `https://github.com/${REPO_SLUG}/edit/main/docs/:path`,
     },
 
-    // logo: {
-    //   light: '/logo.svg',
-    //   dark: '/logo.svg',
-    // },
+    logo: {
+      light: '/logo.svg',
+      dark: '/logo.svg',
+    },
 
     socialLinks: [
       { icon: 'x', link: 'https://twitter.com/ntnyq' },
@@ -77,13 +81,18 @@ export default defineConfig({
           },
         ],
       },
-      // {
-      //   link: '/inspector',
-      //   text: 'Inspector',
-      // },
     ],
 
-    sidebar: [],
+    sidebar: {
+      '/guide/': {
+        base: '/guide',
+        items: sidebarGuide(),
+      },
+      '/configs': {
+        base: '/configs',
+        items: sidebarConfigs(),
+      },
+    },
   },
 
   markdown: {
@@ -101,3 +110,35 @@ export default defineConfig({
     ],
   },
 })
+
+function sidebarGuide(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'Guide',
+      items: [],
+    },
+  ]
+}
+
+function sidebarConfigs(): DefaultTheme.SidebarItem[] {
+  const files = globSync('*.md', {
+    cwd: resolve('docs/configs'),
+    ignore: ['index.md', 'ignores.md'],
+    onlyFiles: true,
+  })
+
+  // keep ignores at the first
+  files.unshift('ignores')
+
+  return [
+    {
+      text: 'Configs',
+      items: files
+        .map(file => file.replace('.md', ''))
+        .map(file => ({
+          text: pascalCase(file),
+          link: `/${file}`,
+        })),
+    },
+  ]
+}

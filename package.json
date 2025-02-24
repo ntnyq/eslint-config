@@ -117,9 +117,11 @@
     "jiti": "^2.4.2",
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^7.0.2",
+    "tinyglobby": "^0.2.12",
     "tsup": "^8.3.6",
     "tsx": "^4.19.3",
     "typescript": "^5.7.3",
+    "uncase": "^0.0.4",
     "vitest": "^3.0.6"
   },
   "engines": {

@@ -4,16 +4,17 @@ layout: home
 hero:
   name: ESLint Config
   tagline: An opinionated ESLint config preset of ntnyq
-  # image:
-  #   light: /logo.svg
-  #   dark: /logo.svg
+  image:
+    light: /logo.svg
+    dark: /logo.svg
   actions:
     - theme: brand
       text: Get Started
       link: /guide/
-    # - theme: alt
-    #   text: Inspector
-    #   link: /inspector/
+    - theme: alt
+      text: Inspector
+      link: https://eslint-config.ntnyq.com
+      target: _blank
 ---
 
 ## :book: Usage

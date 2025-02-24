@@ -5,15 +5,33 @@
 ::: code-group
 
 ```shell [npm]
-npm i eslint prettier typescript @ntnyq/eslint-config @ntnyq/prettier-config -D
+npm i eslint typescript @ntnyq/eslint-config -D
 ```
 
 ```shell [yarn]
-yarn add eslint prettier typescript @ntnyq/eslint-config @ntnyq/prettier-config -D
+yarn add eslint typescript @ntnyq/eslint-config -D
 ```
 
 ```shell [pnpm]
-pnpm add eslint prettier typescript @ntnyq/eslint-config @ntnyq/prettier-config -D
+pnpm add eslint typescript @ntnyq/eslint-config -D
+```
+
+:::
+
+## Prettier
+
+::: code-group
+
+```shell [npm]
+npm i prettier @ntnyq/prettier-config -D
+```
+
+```shell [yarn]
+yarn add prettier @ntnyq/prettier-config -D
+```
+
+```shell [pnpm]
+pnpm add prettier @ntnyq/prettier-config -D
 ```
 
 :::
