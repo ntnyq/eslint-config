@@ -11,18 +11,18 @@ import {
   GLOB_MARKDOWN_NESTED,
 } from '../globs'
 import type {
-  OptionsExtensions,
   OptionsFiles,
   OptionsOverrides,
+  OptionsShareable,
   TypedConfigItem,
 } from '../types'
 
 /**
  * Options type of {@link configMarkdown}
  */
-export type ConfigMarkdownOptions = OptionsExtensions
-  & OptionsFiles
+export type ConfigMarkdownOptions = OptionsFiles
   & OptionsOverrides
+  & Pick<OptionsShareable, 'extraFileExtensions'>
 
 /**
  * Config for markdown files
@@ -41,10 +41,7 @@ export const configMarkdown = (
      */
     files = [GLOB_MARKDOWN_CODE],
 
-    /**
-     * other extensions
-     */
-    extensions = [],
+    extraFileExtensions = [],
   } = options
 
   const configs: TypedConfigItem[] = [
@@ -83,7 +80,7 @@ export const configMarkdown = (
       files: [
         ...files,
         // more nested extensions to disable
-        ...extensions.map(ext => `${GLOB_MARKDOWN}/**/*.${ext}`),
+        ...extraFileExtensions.map(ext => `${GLOB_MARKDOWN}/**/*${ext}`),
       ],
       languageOptions: {
         parserOptions: {

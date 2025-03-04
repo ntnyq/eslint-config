@@ -10,28 +10,27 @@ import { GLOB_VUE } from '../globs'
 import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
 import type {
   ESLintProcessor,
-  OptionsFeatures,
   OptionsFiles,
   OptionsOverrides,
+  OptionsShareable,
   TypedConfigItem,
 } from '../types'
 
 /**
  * Options type of {@link configVue}
  */
-export interface ConfigVueOptions
-  extends OptionsFeatures,
-    OptionsFiles,
-    OptionsOverrides {
-  /**
-   * Create virtual files for Vue SFC blocks to enable linting.
-   *
-   * @see https://github.com/antfu/eslint-processor-vue-blocks
-   *
-   * @default true
-   */
-  sfcBlocks?: boolean | VueBlocksOptions
-}
+export type ConfigVueOptions = OptionsFiles
+  & OptionsOverrides
+  & OptionsShareable & {
+    /**
+     * Create virtual files for Vue SFC blocks to enable linting.
+     *
+     * @see https://github.com/antfu/eslint-processor-vue-blocks
+     *
+     * @default true
+     */
+    sfcBlocks?: boolean | VueBlocksOptions
+  }
 
 const sharedRules: TypedConfigItem['rules'] = {
   ...pluginVue.configs.base.rules,
@@ -252,7 +251,11 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
 export const configVue = (
   options: ConfigVueOptions = {},
 ): TypedConfigItem[] => {
-  const { files = [GLOB_VUE] } = options
+  const {
+    files = [GLOB_VUE],
+
+    extraFileExtensions = [],
+  } = options
   const sfcBlocks = options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {})
 
   function getVueProcessor(): ESLintProcessor {
@@ -289,7 +292,7 @@ export const configVue = (
         parser: parserVue,
         parserOptions: {
           ecmaVersion: 'latest',
-          extraFileExtensions: ['.vue'],
+          extraFileExtensions,
           parser: parserTypeScript,
           sourceType: 'module',
           ecmaFeatures: {
