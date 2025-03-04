@@ -156,7 +156,16 @@ Check for detail in:
 ### Config interface
 
 ```ts
-export interface ConfigOptions extends OptionsExtensions {
+export interface ConfigOptions {
+  /**
+   * Shareable options
+   */
+  shareable?: OptionsShareable
+
+  /**
+   * Configs enabled by default
+   * @pg
+   */
   command?: ConfigCommandOptions
   eslintComments?: ConfigESLintCommentsOptions
   ignores?: ConfigIgnoresOptions

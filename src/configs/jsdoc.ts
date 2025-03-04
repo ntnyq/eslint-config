@@ -1,14 +1,15 @@
 import { pluginJsdoc } from '../eslint'
 import type {
-  OptionsFeatures,
   OptionsOverrides,
+  OptionsShareable,
   TypedConfigItem,
 } from '../types'
 
 /**
  * Options type of {@link configJsdoc}
  */
-export type ConfigJsdocOptions = OptionsFeatures & OptionsOverrides
+export type ConfigJsdocOptions = Pick<OptionsShareable, 'typescript'>
+  & OptionsOverrides
 
 /**
  * JavaScript specific rules
