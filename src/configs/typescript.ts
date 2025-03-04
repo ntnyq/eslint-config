@@ -15,9 +15,9 @@ import {
 import type {
   ESLintConfig,
   ESLintParser,
-  OptionsExtensions,
   OptionsFiles,
   OptionsOverrides,
+  OptionsShareable,
   TSESLintParserOptions,
   TypedConfigItem,
 } from '../types'
@@ -25,9 +25,9 @@ import type {
 /**
  * Options type of {@link configTypeScript}
  */
-export type ConfigTypeScriptOptions = OptionsExtensions
-  & OptionsFiles
-  & OptionsOverrides & {
+export type ConfigTypeScriptOptions = OptionsFiles
+  & OptionsOverrides
+  & Pick<OptionsShareable, 'extraFileExtensions'> & {
     /**
      * Glob patterns for files that should be type aware.
      * @default ['**\/*.{ts,tsx}']
@@ -120,7 +120,7 @@ export const configTypeScript = (
    */
   const enableTypeAwareLint = !!options?.tsconfigPath
   const {
-    extensions = [],
+    extraFileExtensions = [],
     filesTypeAware = [GLOB_TS, GLOB_TSX],
     ignoresTypeAware = [GLOB_ASTRO, `${GLOB_MARKDOWN}/**`],
     overridesTypeAwareRules = {},
@@ -130,8 +130,8 @@ export const configTypeScript = (
   const files = options.files ?? [
     GLOB_TS,
     GLOB_TSX,
-    // Enable typescript in these exts
-    ...extensions.map(ext => `**/*.${ext}`),
+    // Enable typescript in these files
+    ...extraFileExtensions.map(ext => `**/*${ext}`),
   ]
 
   function createParserConfig(
@@ -140,7 +140,7 @@ export const configTypeScript = (
     ignores: string[] = [],
   ) {
     const typescriptParserOptions: TSESLintParserOptions = {
-      extraFileExtensions: extensions.map(ext => `.${ext}`),
+      extraFileExtensions,
       sourceType: 'module',
       ...(enableTypeAware
         ? {
