@@ -65,9 +65,9 @@ export function defineESLintConfig(
 ): FlatConfigComposer<TypedConfigItem, ConfigNames> {
   const {
     /**
-     * Shared options
+     * Shareable options
      */
-    extensions: supportedExtensions = [],
+    shareable = {},
 
     /**
      * Conditional by deps
@@ -102,9 +102,10 @@ export function defineESLintConfig(
     eslintPlugin: enableESLintPlugin = false,
   } = options
   const configs: Awaitable<TypedConfigItem | TypedConfigItem[]>[] = []
+  const { extraFileExtensions = [] } = shareable
 
   if (enableVue) {
-    supportedExtensions.push('vue')
+    extraFileExtensions.push('.vue')
   }
 
   if (enableGitIgnore) {
@@ -184,8 +185,8 @@ export function defineESLintConfig(
     configs.push(
       configTypeScript({
         ...resolveSubOptions(options, 'typescript'),
-        extensions: supportedExtensions,
         overrides: getOverrides(options, 'typescript'),
+        extraFileExtensions,
       }),
     )
   }
@@ -196,6 +197,7 @@ export function defineESLintConfig(
         ...resolveSubOptions(options, 'vue'),
         typescript: !!enableTypeScript,
         overrides: getOverrides(options, 'vue'),
+        extraFileExtensions,
       }),
     )
   }
@@ -252,8 +254,8 @@ export function defineESLintConfig(
     configs.push(
       configMarkdown({
         ...resolveSubOptions(options, 'markdown'),
-        extensions: supportedExtensions,
         overrides: getOverrides(options, 'markdown'),
+        extraFileExtensions,
       }),
     )
   }

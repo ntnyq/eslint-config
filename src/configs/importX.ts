@@ -4,15 +4,15 @@ import {
   pluginImportX,
 } from '../eslint'
 import type {
-  OptionsFeatures,
   OptionsOverrides,
+  OptionsShareable,
   TypedConfigItem,
 } from '../types'
 
 /**
  * Options type of {@link configImportX}
  */
-export type ConfigImportXOptions = OptionsFeatures
+export type ConfigImportXOptions = Pick<OptionsShareable, 'typescript'>
   & OptionsOverrides & {
     /**
      * Use [eslint-import-resolver-typescript](https://github.com/import-js/eslint-import-resolver-typescript) if `typescript` is installed
