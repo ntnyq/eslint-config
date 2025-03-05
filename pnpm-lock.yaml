@@ -112,7 +112,7 @@ importers:
         version: 4.1.4(@typescript-eslint/eslint-plugin@8.26.0(@typescript-eslint/parser@8.26.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.21.0(jiti@2.4.2))
       eslint-plugin-vue:
         specifier: ^10.0.0
-        version: 10.0.0(eslint@9.21.0(jiti@2.4.2))(vue-eslint-parser@10.1.0(eslint@9.21.0(jiti@2.4.2)))
+        version: 10.0.0(eslint@9.21.0(jiti@2.4.2))(vue-eslint-parser@10.1.1(eslint@9.21.0(jiti@2.4.2)))
       eslint-plugin-yml:
         specifier: ^1.17.0
         version: 1.17.0(eslint@9.21.0(jiti@2.4.2))
@@ -138,8 +138,8 @@ importers:
         specifier: ^8.26.0
         version: 8.26.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2)
       vue-eslint-parser:
-        specifier: ^10.1.0
-        version: 10.1.0(eslint@9.21.0(jiti@2.4.2))
+        specifier: ^10.1.1
+        version: 10.1.1(eslint@9.21.0(jiti@2.4.2))
       yaml-eslint-parser:
         specifier: ^1.3.0
         version: 1.3.0
@@ -202,8 +202,8 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0(typescript@5.8.2)
       '@vueuse/core':
-        specifier: ^12.8.1
-        version: 12.8.1(typescript@5.8.2)
+        specifier: ^12.8.2
+        version: 12.8.2(typescript@5.8.2)
       unocss:
         specifier: ^66.1.0-beta.3
         version: 66.1.0-beta.3(postcss@8.5.3)(vite@6.2.0(@types/node@22.13.9)(jiti@2.4.2)(tsx@4.19.3)(yaml@2.7.0))(vue@3.5.13(typescript@5.8.2))
@@ -1112,8 +1112,8 @@ packages:
   '@vueuse/core@12.8.0':
     resolution: {integrity: sha512-FTKJQZBJaV1vLKIoC9FEPJ05kmnpIREh27qnClwNu9EUbmjqS9hMB6Ct3B7YN6XK76ldUMkHSb+wK056eLKi8A==}
 
-  '@vueuse/core@12.8.1':
-    resolution: {integrity: sha512-oLM2NLjLYmTx3vat5yePUDCCA+AW0B3O0UWaMV4OyMmBLNAzPqI+uHCps4MyVnzTdZetYxE3jRe53XSJ7ZsKmg==}
+  '@vueuse/core@12.8.2':
+    resolution: {integrity: sha512-HbvCmZdzAu3VGi/pWYm5Ut+Kd9mn1ZHnn4L5G8kOQTPs/IwIAmJoBrmYk2ckLArgMXZj0AW3n5CAejLUO+PhdQ==}
 
   '@vueuse/integrations@12.8.0':
     resolution: {integrity: sha512-JxsbfEhpRAR8UTwNZf5lzLV9xLJHorRt3pRX6arxu8ABgjtPOj6wSBL84O6fPzGXTa+W3Neq/SHvnbZGKx88/Q==}
@@ -1159,14 +1159,14 @@ packages:
   '@vueuse/metadata@12.8.0':
     resolution: {integrity: sha512-ClPEZrptbzkJ3jUBIT3xeSAG1eP1q7sNUpV8JRtSzP2tCaIyViZ8m/+fStUglDFmln+40W133F74WQOAqb4tiQ==}
 
-  '@vueuse/metadata@12.8.1':
-    resolution: {integrity: sha512-a0sOZ815F2n2CnLXVjIYABVbN04FYYobOl3UwMfbCC6grUoPZjpJ/C5JvUjvQU/++XVunEdtnJec8saswCAQow==}
+  '@vueuse/metadata@12.8.2':
+    resolution: {integrity: sha512-rAyLGEuoBJ/Il5AmFHiziCPdQzRt88VxR+Y/A/QhJ1EWtWqPBBAxTAFaSkviwEuOEZNtW8pvkPgoCZQ+HxqW1A==}
 
   '@vueuse/shared@12.8.0':
     resolution: {integrity: sha512-ynML4lIiTUZ6MHeXlBKqCeDVz1OsXApPdjYsrcj7IGBUW9kH36l2ngS6P8LCx3t+w9/La5vsBH+Qj+lqsahRsg==}
 
-  '@vueuse/shared@12.8.1':
-    resolution: {integrity: sha512-7StU60YRBzJyrlUu9NVIinUftdMVG6tlVcUvqNBfq/A92W+ex+lWgp0z27IojRFmEVgVCuUZglgOQIyT8u6VCQ==}
+  '@vueuse/shared@12.8.2':
+    resolution: {integrity: sha512-dznP38YzxZoNloI0qpEfpkms8knDtaoQ6Y/sfS0L7Yki4zh40LFHEhur0odJC6xTHG5dxWVPiUWBXn+wCG2s5w==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -3115,8 +3115,8 @@ packages:
       jsdom:
         optional: true
 
-  vue-eslint-parser@10.1.0:
-    resolution: {integrity: sha512-ZlBmdu5DorbpnKQpVUBAuxNkyZmaK8vTc+849e+CtozTtnjsfigCmauQaBMP5ARYVXnaq7b87G+n4bMwrusF2w==}
+  vue-eslint-parser@10.1.1:
+    resolution: {integrity: sha512-bh2Z/Au5slro9QJ3neFYLanZtb1jH+W2bKqGHXAoYD4vZgNG3KeotL7JpPv5xzY4UXUXJl7TrIsnzECH63kd3Q==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
@@ -4219,11 +4219,11 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@vueuse/core@12.8.1(typescript@5.8.2)':
+  '@vueuse/core@12.8.2(typescript@5.8.2)':
     dependencies:
       '@types/web-bluetooth': 0.0.21
-      '@vueuse/metadata': 12.8.1
-      '@vueuse/shared': 12.8.1(typescript@5.8.2)
+      '@vueuse/metadata': 12.8.2
+      '@vueuse/shared': 12.8.2(typescript@5.8.2)
       vue: 3.5.13(typescript@5.8.2)
     transitivePeerDependencies:
       - typescript
@@ -4241,7 +4241,7 @@ snapshots:
 
   '@vueuse/metadata@12.8.0': {}
 
-  '@vueuse/metadata@12.8.1': {}
+  '@vueuse/metadata@12.8.2': {}
 
   '@vueuse/shared@12.8.0(typescript@5.8.2)':
     dependencies:
@@ -4249,7 +4249,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@vueuse/shared@12.8.1(typescript@5.8.2)':
+  '@vueuse/shared@12.8.2(typescript@5.8.2)':
     dependencies:
       vue: 3.5.13(typescript@5.8.2)
     transitivePeerDependencies:
@@ -4879,7 +4879,7 @@ snapshots:
     optionalDependencies:
       '@typescript-eslint/eslint-plugin': 8.26.0(@typescript-eslint/parser@8.26.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2)
 
-  eslint-plugin-vue@10.0.0(eslint@9.21.0(jiti@2.4.2))(vue-eslint-parser@10.1.0(eslint@9.21.0(jiti@2.4.2))):
+  eslint-plugin-vue@10.0.0(eslint@9.21.0(jiti@2.4.2))(vue-eslint-parser@10.1.1(eslint@9.21.0(jiti@2.4.2))):
     dependencies:
       '@eslint-community/eslint-utils': 4.4.1(eslint@9.21.0(jiti@2.4.2))
       eslint: 9.21.0(jiti@2.4.2)
@@ -4887,7 +4887,7 @@ snapshots:
       nth-check: 2.1.1
       postcss-selector-parser: 6.1.2
       semver: 7.7.1
-      vue-eslint-parser: 10.1.0(eslint@9.21.0(jiti@2.4.2))
+      vue-eslint-parser: 10.1.1(eslint@9.21.0(jiti@2.4.2))
       xml-name-validator: 4.0.0
 
   eslint-plugin-yml@1.17.0(eslint@9.21.0(jiti@2.4.2)):
@@ -6416,7 +6416,7 @@ snapshots:
       '@vitejs/plugin-vue': 5.2.1(vite@5.4.14(@types/node@22.13.9))(vue@3.5.13(typescript@5.8.2))
       '@vue/devtools-api': 7.7.2
       '@vue/shared': 3.5.13
-      '@vueuse/core': 12.8.1(typescript@5.8.2)
+      '@vueuse/core': 12.8.2(typescript@5.8.2)
       '@vueuse/integrations': 12.8.0(change-case@5.4.4)(focus-trap@7.6.4)(typescript@5.8.2)
       focus-trap: 7.6.4
       mark.js: 8.11.1
@@ -6492,7 +6492,7 @@ snapshots:
       - tsx
       - yaml
 
-  vue-eslint-parser@10.1.0(eslint@9.21.0(jiti@2.4.2)):
+  vue-eslint-parser@10.1.1(eslint@9.21.0(jiti@2.4.2)):
     dependencies:
       debug: 4.4.0
       eslint: 9.21.0(jiti@2.4.2)
