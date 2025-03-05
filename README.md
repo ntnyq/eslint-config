@@ -20,7 +20,19 @@
 ## Install
 
 ```shell
+npm i eslint typescript @ntnyq/eslint-config -D
+```
+
+```shell
+yarn add eslint typescript @ntnyq/eslint-config -D
+```
+
+```shell
 pnpm add eslint typescript @ntnyq/eslint-config -D
+```
+
+```shell
+bun add eslint typescript @ntnyq/eslint-config -D
 ```
 
 ## Usage
@@ -40,8 +52,8 @@ Add scripts `lint` in `package.json`:
 ```json
 {
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   }
 }
 ```
@@ -56,7 +68,19 @@ Add scripts `lint` in `package.json`:
 Install `prettier` and setup your prettier config:
 
 ```shell
+npm i prettier @ntnyq/prettier-config -D
+```
+
+```shell
+yarn add prettier @ntnyq/prettier-config -D
+```
+
+```shell
 pnpm add prettier @ntnyq/prettier-config -D
+```
+
+```shell
+bun add prettier @ntnyq/prettier-config -D
 ```
 
 ```js
@@ -132,7 +156,7 @@ pnpm add husky nano-staged -D
     "prepare": "husky"
   },
   "nano-staged": {
-    "*.{js,ts,cjs,mjs,jsx,tsx,vue,md,svg,json,toml,yml,yaml}": "eslint --fix",
+    "*.{js,ts,cjs,mjs,jsx,tsx,vue,md,svg,yml,yaml,toml,json}": "eslint --fix",
     "*.{css,scss,html}": "prettier -uw"
   }
 }

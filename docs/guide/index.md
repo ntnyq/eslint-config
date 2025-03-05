@@ -16,6 +16,10 @@ yarn add eslint typescript @ntnyq/eslint-config -D
 pnpm add eslint typescript @ntnyq/eslint-config -D
 ```
 
+```shell [bun]
+bun add eslint typescript @ntnyq/eslint-config -D
+```
+
 :::
 
 ## Prettier
@@ -32,6 +36,10 @@ yarn add prettier @ntnyq/prettier-config -D
 
 ```shell [pnpm]
 pnpm add prettier @ntnyq/prettier-config -D
+```
+
+```shell [bun]
+bun add prettier @ntnyq/prettier-config -D
 ```
 
 :::

@@ -81,6 +81,11 @@ export default defineConfig({
           },
         ],
       },
+      {
+        link: 'https://eslint-config-inspector.ntnyq.com',
+        target: '_blank',
+        text: 'Inspector',
+      },
     ],
 
     sidebar: {

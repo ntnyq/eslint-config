@@ -13,19 +13,13 @@ hero:
       link: /guide/
     - theme: alt
       text: Inspector
-      link: https://eslint-config.ntnyq.com
+      link: https://eslint-config-inspector.ntnyq.com
       target: _blank
 ---
 
 ## :book: Usage
 
 See [Guide](./guide/index.md).
-
-<!--
-## :recycle: Inspector
-
-See [Inspector](./inspector/index.md).
--->
 
 ## :gear: Configs
 
