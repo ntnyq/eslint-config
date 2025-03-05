@@ -368,6 +368,8 @@ export const configVue = (
               'inheritAttrs',
               'model',
               ['props', 'propsData'],
+              'slots',
+              'expose',
               'emits',
               'setup',
               'asyncData',
