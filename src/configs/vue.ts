@@ -35,9 +35,9 @@ export interface ConfigVueOptions
 
 const sharedRules: TypedConfigItem['rules'] = {
   ...pluginVue.configs.base.rules,
-  ...pluginVue.configs['vue3-essential'].rules,
-  ...pluginVue.configs['vue3-strongly-recommended'].rules,
-  ...pluginVue.configs['vue3-recommended'].rules,
+  ...pluginVue.configs.essential.rules,
+  ...pluginVue.configs['strongly-recommended'].rules,
+  ...pluginVue.configs.recommended.rules,
 }
 
 const disabledRules: TypedConfigItem['rules'] = {
