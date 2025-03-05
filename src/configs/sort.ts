@@ -115,6 +115,8 @@ export const configSort = (
               'resolveJsonModule',
               'allowArbitraryExtensions',
               'noResolve',
+              'erasableSyntaxOnly',
+              'libReplacement',
               /* JavaScript Support */
               'allowJs',
               'checkJs',
@@ -144,6 +146,7 @@ export const configSort = (
               'declarationDir',
               'preserveValueImports',
               /* Interop Constraints */
+              'isolatedDeclarations',
               'isolatedModules',
               'verbatimModuleSyntax',
               'allowSyntheticDefaultImports',
@@ -173,7 +176,16 @@ export const configSort = (
               /* Completeness */
               'skipDefaultLibCheck',
               'skipLibCheck',
+              {
+                order: {
+                  type: 'asc',
+                },
+              },
             ],
+          },
+          {
+            order: { type: 'asc' },
+            pathPattern: '^vueCompilerOptions$',
           },
         ],
       },
@@ -302,6 +314,11 @@ export const configSort = (
               'nano-staged',
               'lint-staged',
               'eslintConfig',
+              {
+                order: {
+                  type: 'asc',
+                },
+              },
             ],
           },
           {
