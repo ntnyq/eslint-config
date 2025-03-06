@@ -2,7 +2,7 @@
   "name": "@ntnyq/eslint-config",
   "type": "module",
   "version": "4.0.0-beta.11",
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.6.1",
   "description": "An opinionated ESLint config preset of ntnyq",
   "keywords": [
     "eslint",
@@ -67,7 +67,7 @@
     "@clack/prompts": "^0.10.0",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.4.1",
     "@eslint/js": "^9.21.0",
-    "@eslint/markdown": "^6.2.2",
+    "@eslint/markdown": "^6.3.0",
     "@unocss/eslint-plugin": "^66.1.0-beta.3",
     "@vitest/eslint-plugin": "^1.1.36",
     "eslint-config-flat-gitignore": "^2.1.0",
@@ -122,15 +122,10 @@
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
     "uncase": "^0.0.4",
-    "vitest": "^3.0.7"
+    "vitest": "^3.0.8"
   },
   "engines": {
     "node": ">=18.18.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
   },
   "resolutions": {
     "@shikijs/core": "^3.1.0",
