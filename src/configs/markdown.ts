@@ -93,7 +93,6 @@ export const configMarkdown = (
         },
       },
       rules: {
-        '@typescript-eslint/comma-dangle': 'off',
         '@typescript-eslint/consistent-type-imports': 'off',
         '@typescript-eslint/no-extraneous-class': 'off',
         '@typescript-eslint/no-namespace': 'off',
