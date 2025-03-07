@@ -2,20 +2,22 @@ import { resolve } from 'node:path'
 import process from 'node:process'
 import { isPackageExists } from 'local-pkg'
 
-export const hasPinia = () => isPackageExists('pinia')
-export const hasVitest = () => isPackageExists('vitest')
-export const hasTypeScript = () => isPackageExists('typescript')
+type ExistChecker = () => boolean
 
-export const hasShadcnVue = () =>
+export const hasPinia: ExistChecker = () => isPackageExists('pinia')
+export const hasVitest: ExistChecker = () => isPackageExists('vitest')
+export const hasTypeScript: ExistChecker = () => isPackageExists('typescript')
+
+export const hasShadcnVue: ExistChecker = () =>
   isPackageExists('radix-vue') && isPackageExists('clsx')
 
-export const hasUnoCSS = () =>
+export const hasUnoCSS: ExistChecker = () =>
   isPackageExists('unocss')
   || isPackageExists('@unocss/postcss')
   || isPackageExists('@unocss/webpack')
   || isPackageExists('@unocss/nuxt')
 
-export const hasVue = () =>
+export const hasVue: ExistChecker = () =>
   isPackageExists('vue')
   || isPackageExists('nuxt')
   || isPackageExists('vitepress')

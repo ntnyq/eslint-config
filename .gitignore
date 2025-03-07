@@ -9,6 +9,9 @@ node_modules
 
 dist
 
+# tsc
+*.tsbuildinfo
+
 # eslint-typegen
 src/types/typegen.ts
 src/types/typegen.d.ts

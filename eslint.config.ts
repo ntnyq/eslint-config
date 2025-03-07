@@ -76,6 +76,11 @@ export default defineESLintConfig(
     vue: true,
     typescript: {
       tsconfigPath: './tsconfig.json',
+      allowDefaultProject: [
+        'eslint-inspector.config.ts',
+        'eslint.config.ts',
+        'tsup.config.ts',
+      ],
     },
   },
   {

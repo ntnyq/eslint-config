@@ -54,6 +54,11 @@ export type ConfigTypeScriptOptions = OptionsFiles
      * Enable type aware check for TypeScript files
      */
     tsconfigPath?: string
+
+    /**
+     * Globs of files to run with default project compiler
+     */
+    allowDefaultProject?: string[]
   }
 
 /**
@@ -120,6 +125,7 @@ export const configTypeScript = (
    */
   const enableTypeAwareLint = !!options?.tsconfigPath
   const {
+    allowDefaultProject = [],
     extraFileExtensions = [],
     filesTypeAware = [GLOB_TS, GLOB_TSX],
     ignoresTypeAware = [GLOB_ASTRO, `${GLOB_MARKDOWN}/**`],
@@ -146,7 +152,7 @@ export const configTypeScript = (
         ? {
             tsconfigRootDir: process.cwd(),
             projectService: {
-              allowDefaultProject: ['./*.js'],
+              allowDefaultProject: ['./*.js', ...allowDefaultProject],
               defaultProject: options.tsconfigPath,
             },
           }

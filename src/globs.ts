@@ -3,24 +3,28 @@
  */
 
 export const GLOB_SRC_EXT = '?([cm])[jt]s?(x)'
-export const GLOB_SRC = `**/*.${GLOB_SRC_EXT}`
+export const GLOB_SRC: string = `**/*.${GLOB_SRC_EXT}`
 
 export const GLOB_JS = '**/*.?([cm])js'
-export const GLOB_JSX = `${GLOB_JS}x`
+export const GLOB_JSX: string = `${GLOB_JS}x`
 export const GLOB_JSX_ONLY = '**/*.jsx'
 
 export const GLOB_TS = '**/*.?([cm])ts'
-export const GLOB_TSX = `${GLOB_TS}x`
+export const GLOB_TSX: string = `${GLOB_TS}x`
 export const GLOB_TSX_ONLY = '**/*.tsx'
 export const GLOB_DTS = '**/*.d.?([cm])ts'
 
-export const GLOB_TYPES = [GLOB_DTS, `**/types/${GLOB_TS}`, `**/types.ts`]
+export const GLOB_TYPES: string[] = [
+  GLOB_DTS,
+  `**/types/${GLOB_TS}`,
+  `**/types.ts`,
+]
 
-export const GLOB_TYPE_TEST = [
+export const GLOB_TYPE_TEST: string[] = [
   `**/*.test-d.${GLOB_SRC_EXT}`,
   `**/*.spec-d.${GLOB_SRC_EXT}`,
 ]
-export const GLOB_TEST = [
+export const GLOB_TEST: string[] = [
   `**/*.test.${GLOB_SRC_EXT}`,
   `**/*.spec.${GLOB_SRC_EXT}`,
   `**/*.bench.${GLOB_SRC_EXT}`,
@@ -38,7 +42,10 @@ export const GLOB_JSON = '**/*.json'
 export const GLOB_JSON5 = '**/*.json5'
 export const GLOB_JSONC = '**/*.jsonc'
 export const GLOB_PACKAGE_JSON = '**/package.json'
-export const GLOB_TSCONFIG_JSON = ['**/tsconfig.json', '**/tsconfig.*.json']
+export const GLOB_TSCONFIG_JSON: string[] = [
+  '**/tsconfig.json',
+  '**/tsconfig.*.json',
+]
 
 export const GLOB_SVG = '**/*.svg'
 
@@ -52,10 +59,10 @@ export const GLOB_ASTRO_TS = '**/*.astro/*.ts'
 export const GLOB_SVELTE = '**/*.svelte'
 
 export const GLOB_MARKDOWN = '**/*.md'
-export const GLOB_MARKDOWN_CODE = `${GLOB_MARKDOWN}/${GLOB_SRC}`
-export const GLOB_MARKDOWN_NESTED = `${GLOB_MARKDOWN}/*.md`
+export const GLOB_MARKDOWN_CODE: string = `${GLOB_MARKDOWN}/${GLOB_SRC}`
+export const GLOB_MARKDOWN_NESTED: string = `${GLOB_MARKDOWN}/*.md`
 
-export const GLOB_ALL_SRC = [
+export const GLOB_ALL_SRC: string[] = [
   GLOB_SRC,
   GLOB_STYLE,
   GLOB_JSON,
@@ -67,19 +74,19 @@ export const GLOB_ALL_SRC = [
   GLOB_MARKDOWN,
 ]
 
-export const GLOB_PINIA_STORE = `**/store?(s)/*.${GLOB_SRC_EXT}`
+export const GLOB_PINIA_STORE: string = `**/store?(s)/*.${GLOB_SRC_EXT}`
 export const GLOB_GITHUB_ACTION = '**/.github/workflows/*.y?(a)ml'
 
 export const GLOB_NODE_MODULES = '**/node_modules/**'
 export const GLOB_DIST = '**/dist/**'
-export const GLOB_LOCKFILE = [
+export const GLOB_LOCKFILE: string[] = [
   '**/package-lock.json',
   '**/yarn.lock',
   '**/pnpm-lock.yaml',
   '**/bun.lock?(b)',
   '**/deno.lock',
 ]
-export const GLOB_EXCLUDE = [
+export const GLOB_EXCLUDE: string[] = [
   GLOB_NODE_MODULES,
   GLOB_DIST,
   ...GLOB_LOCKFILE,

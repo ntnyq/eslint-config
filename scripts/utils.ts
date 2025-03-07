@@ -3,5 +3,5 @@ import { fileURLToPath, URL } from 'node:url'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
-export const resolve = (...args: string[]) =>
+export const resolve = (...args: string[]): string =>
   path.resolve(__dirname, '..', ...args)

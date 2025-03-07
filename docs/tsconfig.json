@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "lib": ["ES2022", "DOM"],
+    "baseUrl": "."
+  },
+  "include": [
+    ".vitepress/**/*.ts",
+    ".vitepress/**/*.vue",
+    "./shims.d.ts",
+    "./*.config.ts"
+  ]
+}

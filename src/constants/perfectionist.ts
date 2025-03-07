@@ -21,7 +21,7 @@ export const PERFECTIONIST_EXTRA_RULE_OPTIONS = {
  *
  * @see {@link https://perfectionist.dev/rules/sort-objects}
  */
-export const PERFECTIONIST_SORT_OBJECTS_GROUPS = [
+export const PERFECTIONIST_SORT_OBJECTS_GROUPS: string[] = [
   'property',
   'multiline-property',
   'method',
@@ -37,7 +37,7 @@ export const PERFECTIONIST_SORT_OBJECTS_GROUPS = [
  * @see {@link https://perfectionist.dev/rules/sort-interfaces}
  * @see {@link https://perfectionist.dev/rules/sort-object-types}
  */
-export const PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS = [
+export const PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS: string[] = [
   'required-property',
   'optional-property',
   'required-method',
@@ -61,74 +61,75 @@ export const PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS = [
  * @see {@link https://perfectionist.dev/rules/sort-intersection-types}
  * @see {@link https://perfectionist.dev/rules/sort-union-types}
  */
-export const PERFECTIONIST_SORT_INTERSECTION_TYPES_OR_UNION_TYPES_GROUPS = [
-  /**
-   * eg. 'foobar', 24, false
-   */
-  'literal',
+export const PERFECTIONIST_SORT_INTERSECTION_TYPES_OR_UNION_TYPES_GROUPS: string[] =
+  [
+    /**
+     * eg. 'foobar', 24, false
+     */
+    'literal',
 
-  /**
-   * eg. number, string
-   */
-  'keyword',
+    /**
+     * eg. number, string
+     */
+    'keyword',
 
-  /**
-   * eg. FooBar
-   */
-  'named',
+    /**
+     * eg. FooBar
+     */
+    'named',
 
-  /**
-   * eg. Foo & Bar
-   */
-  'intersection',
+    /**
+     * eg. Foo & Bar
+     */
+    'intersection',
 
-  /**
-   * eg. Foobar extends string ? Foo : Bar
-   */
-  'conditional',
+    /**
+     * eg. Foobar extends string ? Foo : Bar
+     */
+    'conditional',
 
-  /**
-   * eg. (...args: any[]) => void
-   */
-  'function',
+    /**
+     * eg. (...args: any[]) => void
+     */
+    'function',
 
-  /**
-   * eg. import('eslint').Linter
-   */
-  'import',
+    /**
+     * eg. import('eslint').Linter
+     */
+    'import',
 
-  /**
-   * eg. { foo: string; bar: number; }
-   */
-  'object',
+    /**
+     * eg. { foo: string; bar: number; }
+     */
+    'object',
 
-  /**
-   * eg. keyof T
-   */
-  'operator',
+    /**
+     * eg. keyof T
+     */
+    'operator',
 
-  /**
-   * eg. [string, number]
-   */
-  'tuple',
+    /**
+     * eg. [string, number]
+     */
+    'tuple',
 
-  /**
-   * eg. Foo | Bar
-   */
-  'union',
+    /**
+     * eg. Foo | Bar
+     */
+    'union',
 
-  /**
-   * eg. null | undefined
-   */
-  'nullish',
-]
+    /**
+     * eg. null | undefined
+     */
+    'nullish',
+  ]
 
 /**
  * Shared option `groups` for rule `sort-imports`
  *
  * @see {@link https://perfectionist.dev/rules/sort-imports}
  */
-export const PERFECTIONIST_SORT_IMPORTS_GROUPS = [
+export const PERFECTIONIST_SORT_IMPORTS_GROUPS: string[] = [
   // Side effect style imports (e.g. 'normalize.css')
   'side-effect-style',
 
@@ -183,4 +184,4 @@ export const PERFECTIONIST_SORT_IMPORTS_GROUPS = [
  *
  * @see {@link https://perfectionist.dev/rules/sort-classes}
  */
-export const PERFECTIONIST_SORT_CLASSES_GROUPS = ['unknown']
+export const PERFECTIONIST_SORT_CLASSES_GROUPS: string[] = ['unknown']

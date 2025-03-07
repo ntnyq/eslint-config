@@ -1,8 +1,5 @@
-import {
-  createNodeResolver,
-  createTypeScriptImportResolver,
-  pluginImportX,
-} from '../eslint'
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript'
+import { pluginImportX } from '../eslint'
 import type {
   OptionsOverrides,
   OptionsShareable,
@@ -59,7 +56,7 @@ export const configImportX = (
                   '.node',
                 ],
               })
-            : createNodeResolver({
+            : pluginImportX.createNodeResolver({
                 extensions: ['.js', '.mjs', '.ts', '.mts', '.d.ts', '.json'],
               }),
         ],

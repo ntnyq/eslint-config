@@ -7,7 +7,7 @@ import type { PrettierOptions } from '../types'
 export function mergePrettierOptions(
   options: PrettierOptions = {},
   overrides: PrettierOptions = {},
-) {
+): PrettierOptions {
   const result: PrettierOptions = {
     ...options,
     ...overrides,

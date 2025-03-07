@@ -1,5 +1,4 @@
 export * from './env'
-export * from './toArray'
 export * from './getOverrides'
 export * from './combineConfigs'
 export * from './ensurePackages'
