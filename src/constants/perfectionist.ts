@@ -180,7 +180,7 @@ export const PERFECTIONIST_SORT_IMPORTS_GROUPS: string[] = [
 /**
  * Shared option `groups` for rule `sort-classes`
  *
- * // TODO: make this
+ * // TODO: implement this
  *
  * @see {@link https://perfectionist.dev/rules/sort-classes}
  */

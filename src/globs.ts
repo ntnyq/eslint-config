@@ -2,17 +2,17 @@
  * @file globs constants
  */
 
-export const GLOB_SRC_EXT = '?([cm])[jt]s?(x)'
+export const GLOB_SRC_EXT: string = '?([cm])[jt]s?(x)'
 export const GLOB_SRC: string = `**/*.${GLOB_SRC_EXT}`
 
-export const GLOB_JS = '**/*.?([cm])js'
+export const GLOB_JS: string = '**/*.?([cm])js'
 export const GLOB_JSX: string = `${GLOB_JS}x`
-export const GLOB_JSX_ONLY = '**/*.jsx'
+export const GLOB_JSX_ONLY: string = '**/*.jsx'
 
-export const GLOB_TS = '**/*.?([cm])ts'
+export const GLOB_TS: string = '**/*.?([cm])ts'
 export const GLOB_TSX: string = `${GLOB_TS}x`
-export const GLOB_TSX_ONLY = '**/*.tsx'
-export const GLOB_DTS = '**/*.d.?([cm])ts'
+export const GLOB_TSX_ONLY: string = '**/*.tsx'
+export const GLOB_DTS: string = '**/*.d.?([cm])ts'
 
 export const GLOB_TYPES: string[] = [
   GLOB_DTS,
@@ -32,33 +32,33 @@ export const GLOB_TEST: string[] = [
   ...GLOB_TYPE_TEST,
 ]
 
-export const GLOB_STYLE = '**/*.{c,le,sc}ss'
-export const GLOB_CSS = '**/*.css'
-export const GLOB_LESS = '**/*.less'
-export const GLOB_SCSS = '**/*.scss'
-export const GLOB_POSTCSS = '**/*.{p,post}css'
+export const GLOB_STYLE: string = '**/*.{c,le,sc}ss'
+export const GLOB_CSS: string = '**/*.css'
+export const GLOB_LESS: string = '**/*.less'
+export const GLOB_SCSS: string = '**/*.scss'
+export const GLOB_POSTCSS: string = '**/*.{p,post}css'
 
-export const GLOB_JSON = '**/*.json'
-export const GLOB_JSON5 = '**/*.json5'
-export const GLOB_JSONC = '**/*.jsonc'
-export const GLOB_PACKAGE_JSON = '**/package.json'
+export const GLOB_JSON: string = '**/*.json'
+export const GLOB_JSON5: string = '**/*.json5'
+export const GLOB_JSONC: string = '**/*.jsonc'
+export const GLOB_PACKAGE_JSON: string = '**/package.json'
 export const GLOB_TSCONFIG_JSON: string[] = [
   '**/tsconfig.json',
   '**/tsconfig.*.json',
 ]
 
-export const GLOB_SVG = '**/*.svg'
+export const GLOB_SVG: string = '**/*.svg'
 
-export const GLOB_VUE = '**/*.vue'
+export const GLOB_VUE: string = '**/*.vue'
 
-export const GLOB_YAML = '**/*.y?(a)ml'
-export const GLOB_TOML = '**/*.toml'
-export const GLOB_HTML = '**/*.htm?(l)'
-export const GLOB_ASTRO = '**/*.astro'
-export const GLOB_ASTRO_TS = '**/*.astro/*.ts'
-export const GLOB_SVELTE = '**/*.svelte'
+export const GLOB_YAML: string = '**/*.y?(a)ml'
+export const GLOB_TOML: string = '**/*.toml'
+export const GLOB_HTML: string = '**/*.htm?(l)'
+export const GLOB_ASTRO: string = '**/*.astro'
+export const GLOB_ASTRO_TS: string = '**/*.astro/*.ts'
+export const GLOB_SVELTE: string = '**/*.svelte'
 
-export const GLOB_MARKDOWN = '**/*.md'
+export const GLOB_MARKDOWN: string = '**/*.md'
 export const GLOB_MARKDOWN_CODE: string = `${GLOB_MARKDOWN}/${GLOB_SRC}`
 export const GLOB_MARKDOWN_NESTED: string = `${GLOB_MARKDOWN}/*.md`
 
@@ -75,10 +75,10 @@ export const GLOB_ALL_SRC: string[] = [
 ]
 
 export const GLOB_PINIA_STORE: string = `**/store?(s)/*.${GLOB_SRC_EXT}`
-export const GLOB_GITHUB_ACTION = '**/.github/workflows/*.y?(a)ml'
+export const GLOB_GITHUB_ACTION: string = '**/.github/workflows/*.y?(a)ml'
 
-export const GLOB_NODE_MODULES = '**/node_modules/**'
-export const GLOB_DIST = '**/dist/**'
+export const GLOB_NODE_MODULES: string = '**/node_modules/**'
+export const GLOB_DIST: string = '**/dist/**'
 export const GLOB_LOCKFILE: string[] = [
   '**/package-lock.json',
   '**/yarn.lock',

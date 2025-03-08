@@ -7,8 +7,8 @@ import { fileURLToPath } from 'node:url'
 import { isPackageExists } from 'local-pkg'
 import { isInGitHooksOrRunByNanoStagedOrRunByTSX } from './isInGitHooksOrRunByNanoStagedOrRunByTSX'
 
-const scopeUrl = fileURLToPath(new URL('.', import.meta.url))
-const isCwdInScope = isPackageExists('@ntnyq/eslint-config')
+const scopeUrl: string = fileURLToPath(new URL('.', import.meta.url))
+const isCwdInScope: boolean = isPackageExists('@ntnyq/eslint-config')
 
 function isPackageInScope(name: string): boolean {
   return isPackageExists(name, {
@@ -28,7 +28,7 @@ export async function ensurePackages(
     return
   }
 
-  const nonExistingPackages = packages.filter(
+  const nonExistingPackages: string[] = packages.filter(
     pkg => !!pkg && !isPackageInScope(pkg),
   ) as string[]
 
@@ -38,7 +38,7 @@ export async function ensurePackages(
 
   const { confirm } = await import('@clack/prompts')
 
-  const confirmInstall = await confirm({
+  const confirmInstall: boolean | symbol = await confirm({
     message: `${nonExistingPackages.length === 1 ? 'Package is' : 'Packages are'} required for this config: ${nonExistingPackages.join(', ')}. Do you want to install them?`,
   })
 

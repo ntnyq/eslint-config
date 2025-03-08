@@ -256,7 +256,8 @@ export const configVue = (
 
     extraFileExtensions = [],
   } = options
-  const sfcBlocks = options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {})
+  const sfcBlocks: false | VueBlocksOptions =
+    options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {})
 
   function getVueProcessor(): ESLintProcessor {
     const processorVueSFC = pluginVue.processors['.vue'] as ESLintProcessor

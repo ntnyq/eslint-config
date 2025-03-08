@@ -23,13 +23,13 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "files": [
     "dist"
   ],
@@ -39,8 +39,8 @@
   "scripts": {
     "build": "run-s generate:type build:lib",
     "build:inspector": "pnpm dlx @eslint/config-inspector build --config eslint-inspector.config.ts",
-    "build:lib": "tsup",
-    "dev": "tsup --watch src",
+    "build:lib": "unbuild",
+    "dev": "unbuild --watch",
     "docs:build": "pnpm -C docs run build",
     "docs:dev": "pnpm -C docs run dev",
     "generate:site": "run-s generate:type build:lib build:inspector",
@@ -50,6 +50,7 @@
     "release": "run-s release:check release:version",
     "release:check": "run-s build lint typecheck",
     "release:version": "bumpp && npm publish --tag next",
+    "stub": "unbuild --stub",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
@@ -118,9 +119,9 @@
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^7.0.2",
     "tinyglobby": "^0.2.12",
-    "tsup": "^8.4.0",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
+    "unbuild": "^3.5.0",
     "uncase": "^0.0.4",
     "vitest": "^3.0.8"
   },

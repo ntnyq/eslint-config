@@ -305,25 +305,28 @@ export function defineESLintConfig(
     configs.push(configSVGO(resolveSubOptions(options, 'svgo')))
   }
 
-  const specialsConfigs = configSpecials(resolveSubOptions(options, 'specials'))
+  const specialsConfigs: TypedConfigItem[] = configSpecials(
+    resolveSubOptions(options, 'specials'),
+  )
 
-  const prettierConfigs = enablePrettier
+  const prettierConfigs: TypedConfigItem[] = enablePrettier
     ? configPrettier({
         ...resolveSubOptions(options, 'prettier'),
         overrides: getOverrides(options, 'prettier'),
       })
     : []
 
-  const composer = new FlatConfigComposer<TypedConfigItem, ConfigNames>(
-    ...configs,
+  const composer: FlatConfigComposer<TypedConfigItem, ConfigNames> =
+    new FlatConfigComposer<TypedConfigItem, ConfigNames>(
+      ...configs,
 
-    // User custom configs
-    ...userConfigs,
+      // User custom configs
+      ...userConfigs,
 
-    // Keep prettier and specials at last
-    ...specialsConfigs,
-    ...prettierConfigs,
-  )
+      // Keep prettier and specials at last
+      ...specialsConfigs,
+      ...prettierConfigs,
+    )
 
   return composer
 }

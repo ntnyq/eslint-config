@@ -79,7 +79,7 @@ export default defineESLintConfig(
       allowDefaultProject: [
         'eslint-inspector.config.ts',
         'eslint.config.ts',
-        'tsup.config.ts',
+        'build.config.ts',
       ],
     },
   },

@@ -6,7 +6,7 @@ export const regexper: Command = defineCommand({
   // @regexper https://regexper.com/#%2F(%5Cb%7C%5Cs%7C%5E)(%40regexper)(%5Cs%5CS%2B)%3F(%5Cb%7C%5Cs%7C%24)%2F
   match: /(\b|\s|^)(@regexper)(\s\S+)?(\b|\s|$)/,
   action(ctx) {
-    const literal = ctx.findNodeBelow(node => {
+    const literal: Tree.RegExpLiteral | undefined = ctx.findNodeBelow(node => {
       return node.type === 'Literal' && 'regex' in node
     }) as Tree.RegExpLiteral | undefined
 
@@ -24,18 +24,18 @@ export const regexper: Command = defineCommand({
       _spaceAfter = '',
     ] = ctx.matches as string[]
 
-    const url = `https://regexper.com/#${encodeURIComponent(literal.raw)}`
+    const url: string = `https://regexper.com/#${encodeURIComponent(literal.raw)}`
 
     if (existingUrl.trim() === url.trim()) {
       return
     }
 
-    const indexStart =
+    const indexStart: number =
       ctx.comment.range[0]
       + ctx.matches.index!
       + spaceBefore.length
       + 2 /** comment prefix */
-    const indexEnd = indexStart + commandStr.length + existingUrl.length
+    const indexEnd: number = indexStart + commandStr.length + existingUrl.length
 
     ctx.report({
       loc: {
