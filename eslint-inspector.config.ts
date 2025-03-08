@@ -2,6 +2,7 @@ import { defineESLintConfig } from './src'
 
 export default defineESLintConfig({
   eslintPlugin: true,
+  pnpm: true,
   svgo: true,
   test: true,
   unocss: true,

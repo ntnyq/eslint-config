@@ -22,6 +22,7 @@ import type {
   ConfigNtnyqOptions,
   ConfigPerfectionistOptions,
   ConfigPiniaOptions,
+  ConfigPnpmOptions,
   ConfigPrettierOptions,
   ConfigRegexpOptions,
   ConfigSortOptions,
@@ -75,6 +76,7 @@ export interface ConfigOptions {
   ntnyq?: boolean | ConfigNtnyqOptions
   perfectionist?: boolean | ConfigPerfectionistOptions
   pinia?: boolean | ConfigPiniaOptions
+  pnpm?: boolean | ConfigPnpmOptions
   prettier?: boolean | ConfigPrettierOptions
   regexp?: boolean | ConfigRegexpOptions
   sort?: boolean | ConfigSortOptions

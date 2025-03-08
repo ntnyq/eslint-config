@@ -92,6 +92,9 @@ importers:
       eslint-plugin-pinia:
         specifier: ^0.4.1
         version: 0.4.1(@typescript-eslint/utils@8.26.0(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.22.0(jiti@2.4.2))
+      eslint-plugin-pnpm:
+        specifier: ^0.1.2
+        version: 0.1.2(eslint@9.22.0(jiti@2.4.2))
       eslint-plugin-prettier:
         specifier: ^5.2.3
         version: 5.2.3(@types/eslint@9.6.1)(eslint@9.22.0(jiti@2.4.2))(prettier@3.5.3)
@@ -1749,6 +1752,11 @@ packages:
       '@typescript-eslint/utils':
         optional: true
 
+  eslint-plugin-pnpm@0.1.2:
+    resolution: {integrity: sha512-Ta70r1MEUEv8Q5KqJBOklYE/Bal/qrCClu/jhLMC8US6emkYvYPgkoO4QCO/fmDECKU8GWZB8b91GIiapXbm2w==}
+    peerDependencies:
+      eslint: ^9.0.0
+
   eslint-plugin-prettier@5.2.3:
     resolution: {integrity: sha512-qJ+y0FfCp/mQYQ/vWQ3s7eUlFEL4PyKfAJxsnYTJ4YT73nsJBWqmEpFryxV9OeUiqmsTsYJ5Y+KDNaeP31wrRw==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -2559,6 +2567,9 @@ packages:
   pluralize@8.0.0:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
+
+  pnpm-workspace-yaml@0.1.2:
+    resolution: {integrity: sha512-FaSo51Psz+jHV8YtnuIVemTheOIO5EnMtw0HSPTUsASEdOf3ppM5OBxKO5Dpvx4fWKNZF44vEEMFKc5YZG4qjA==}
 
   postcss-calc@10.1.1:
     resolution: {integrity: sha512-NYEsLHh8DgG/PRH2+G9BTuUdtf9ViS+vdoQ0YA5OQdGsfN4ztiwtDWNtBl9EKeqNMFnIu8IKZ0cLxEQ5r5KVMw==}
@@ -5068,6 +5079,13 @@ snapshots:
     optionalDependencies:
       '@typescript-eslint/utils': 8.26.0(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2)
 
+  eslint-plugin-pnpm@0.1.2(eslint@9.22.0(jiti@2.4.2)):
+    dependencies:
+      eslint: 9.22.0(jiti@2.4.2)
+      find-up-simple: 1.0.1
+      jsonc-eslint-parser: 2.4.0
+      pnpm-workspace-yaml: 0.1.2
+
   eslint-plugin-prettier@5.2.3(@types/eslint@9.6.1)(eslint@9.22.0(jiti@2.4.2))(prettier@3.5.3):
     dependencies:
       eslint: 9.22.0(jiti@2.4.2)
@@ -6054,6 +6072,10 @@ snapshots:
       pathe: 2.0.3
 
   pluralize@8.0.0: {}
+
+  pnpm-workspace-yaml@0.1.2:
+    dependencies:
+      yaml: 2.7.0
 
   postcss-calc@10.1.1(postcss@8.5.3):
     dependencies:

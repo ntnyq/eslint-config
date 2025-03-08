@@ -23,6 +23,7 @@ import {
   configNtnyq,
   configPerfectionist,
   configPinia,
+  configPnpm,
   configPrettier,
   configRegexp,
   configSort,
@@ -98,6 +99,7 @@ export function defineESLintConfig(
     perfectionist: enablePerfectionist = true,
 
     // disabled by default
+    pnpm: enablePnpm = false,
     svgo: enableSVGO = false,
     eslintPlugin: enableESLintPlugin = false,
   } = options
@@ -297,6 +299,15 @@ export function defineESLintConfig(
     configs.push(
       configESLintPlugin({
         overrides: getOverrides(options, 'eslintPlugin'),
+      }),
+    )
+  }
+
+  if (enablePnpm) {
+    configs.push(
+      configPnpm({
+        ...resolveSubOptions(options, 'pnpm'),
+        overrides: getOverrides(options, 'pnpm'),
       }),
     )
   }

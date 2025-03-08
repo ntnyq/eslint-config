@@ -222,13 +222,12 @@ export interface ConfigOptions {
   unocss?: boolean | ConfigUnoCSSOptions
   vue?: boolean | ConfigVueOptions
   yml?: boolean | ConfigYmlOptions
+
   /**
-   * disabled by default
+   * Configs bellow are disabled by default
    */
+  pnpm?: boolean | ConfigPnpmOptions
   svgo?: boolean | ConfigSVGOOptions
-  /**
-   * disabled by default
-   */
   eslintPlugin?: boolean | ConfigESLintPluginOptions
 }
 ```
