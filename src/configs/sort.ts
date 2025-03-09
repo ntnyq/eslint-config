@@ -72,6 +72,12 @@ export const configSort = (
               'exclude',
               // vue.volar
               'vueCompilerOptions',
+              // Unknown fields
+              {
+                order: {
+                  type: 'asc',
+                },
+              },
             ],
           },
           {
@@ -176,6 +182,8 @@ export const configSort = (
               /* Completeness */
               'skipDefaultLibCheck',
               'skipLibCheck',
+
+              // Unknown fields
               {
                 order: {
                   type: 'asc',
@@ -201,19 +209,7 @@ export const configSort = (
           'error',
           {
             order: { type: 'asc' },
-            pathPattern: '^files$',
-          },
-          {
-            order: { type: 'asc' },
-            pathPattern: '^keywords$',
-          },
-          {
-            order: { type: 'asc' },
-            pathPattern: '^activationEvents$',
-          },
-          {
-            order: { type: 'asc' },
-            pathPattern: '^contributes.*$',
+            pathPattern: '^(?:files|keywords|activationEvents|contributes.*)$',
           },
         ],
         'jsonc/sort-keys': [
@@ -314,6 +310,8 @@ export const configSort = (
               'nano-staged',
               'lint-staged',
               'eslintConfig',
+
+              // Unknown fields
               {
                 order: {
                   type: 'asc',
@@ -338,6 +336,7 @@ export const configSort = (
               'import',
               'require',
               'default',
+              // Unknown fields
               {
                 order: {
                   type: 'asc',
@@ -362,6 +361,7 @@ export const configSort = (
               'import',
               'require',
               'default',
+              // Unknown fields
               {
                 order: {
                   type: 'asc',
@@ -388,6 +388,12 @@ export const configSort = (
               'post-merge',
               'pre-push',
               'pre-auto-gc',
+              // Unknown fields
+              {
+                order: {
+                  type: 'asc',
+                },
+              },
             ],
           },
         ],
@@ -434,8 +440,66 @@ export const configSort = (
         'yml/sort-keys': [
           'error',
           {
+            pathPattern: '^$',
+            order: [
+              // legacy workspace content
+              'packages',
+              'catalog',
+              'catalogs',
+
+              // pnpm settings with common used fields first
+              'allowedDeprecatedVersions',
+              'overrides',
+              'onlyBuiltDependencies',
+              'patchedDependencies',
+              'peerDependencyRules',
+
+              // non common used fields
+              'allowNonAppliedPatches',
+              'auditConfig',
+              'configDependencies',
+              'executionEnv',
+              'ignoredBuiltDependencies',
+              'ignoredOptionalDependencies',
+              'neverBuiltDependencies',
+              'onlyBuiltDependenciesFile',
+              'packageExtensions',
+              'requiredScripts',
+              'supportedArchitectures',
+              'updateConfig',
+              // Unknown fields
+              {
+                order: {
+                  type: 'asc',
+                },
+              },
+            ],
+          },
+          {
             order: { type: 'asc' },
-            pathPattern: '.*',
+            pathPattern:
+              '^(?:catalog|overrides|patchedDependencies|peerDependencyRules)$',
+          },
+          {
+            allowLineSeparatedGroups: true,
+            order: { type: 'asc' },
+            pathPattern: '^catalogs$',
+          },
+        ],
+        'yml/sort-sequence-values': [
+          'error',
+          {
+            order: [
+              '.',
+              // Unknown fields
+              {
+                order: {
+                  type: 'asc',
+                },
+              },
+            ],
+            pathPattern:
+              '^(?:packages|onlyBuiltDependencies|peerDependencyRules.ignoreMissing)$',
           },
         ],
       },

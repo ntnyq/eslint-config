@@ -1,5 +1,5 @@
-onlyBuiltDependencies:
-  - esbuild
 packages:
   - .
   - docs
+onlyBuiltDependencies:
+  - esbuild
