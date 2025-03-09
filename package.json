@@ -47,9 +47,10 @@
     "generate:type": "tsx scripts/generateType.ts",
     "lint": "eslint --cache",
     "prepare": "husky",
-    "release": "run-s release:check release:version",
+    "release": "run-s release:check release:version release:publish",
     "release:check": "run-s build lint typecheck",
-    "release:version": "bumpp && npm publish --tag next",
+    "release:publish": "npm publish",
+    "release:version": "bumpp",
     "stub": "unbuild --stub",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
