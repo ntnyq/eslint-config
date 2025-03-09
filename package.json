@@ -45,7 +45,7 @@
     "docs:dev": "pnpm -C docs run dev",
     "generate:site": "run-s generate:type build:lib build:inspector",
     "generate:type": "tsx scripts/generateType.ts",
-    "lint": "eslint .",
+    "lint": "eslint",
     "prepare": "husky",
     "release": "run-s release:check release:version",
     "release:check": "run-s build lint typecheck",
