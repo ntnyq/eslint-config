@@ -1,5 +1,5 @@
 import { PRETTIER_DEFAULT_OPTIONS } from '../constants'
-import { parserPlain, pluginFormat } from '../eslint'
+import { parserPlain } from '../eslint'
 import {
   GLOB_CSS,
   GLOB_HTML,
@@ -7,7 +7,7 @@ import {
   GLOB_POSTCSS,
   GLOB_SCSS,
 } from '../globs'
-import { mergePrettierOptions } from '../utils'
+import { ensurePackages, interopDefault, mergePrettierOptions } from '../utils'
 import type { PrettierOptions, TypedConfigItem } from '../types'
 
 /**
@@ -42,9 +42,13 @@ export interface ConfigFormatOptions {
  * @param options - {@link ConfigFormatOptions}
  * @returns ESLint configs
  */
-export const configFormat = (
+export const configFormat = async (
   options: ConfigFormatOptions = {},
-): TypedConfigItem[] => {
+): Promise<TypedConfigItem[]> => {
+  await ensurePackages(['eslint-plugin-format'])
+
+  const pluginFormat = await interopDefault(import('eslint-plugin-format'))
+
   const {
     css: enableCSS = true,
     html: enableHTML = true,

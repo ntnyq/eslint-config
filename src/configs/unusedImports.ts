@@ -1,4 +1,4 @@
-import { pluginUnusedImports } from '../eslint'
+import { ensurePackages, interopDefault } from '../utils'
 import type { OptionsOverrides, TypedConfigItem } from '../types'
 
 /**
@@ -14,34 +14,42 @@ export type ConfigUnusedImportsOptions = OptionsOverrides
  * @param options - {@link ConfigUnusedImportsOptions}
  * @returns ESLint configs
  */
-export const configUnusedImports = (
+export const configUnusedImports = async (
   options: ConfigUnusedImportsOptions = {},
-): TypedConfigItem[] => [
-  {
-    name: 'ntnyq/unused-imports',
-    plugins: {
-      'unused-imports': pluginUnusedImports,
-    },
-    rules: {
-      '@typescript-eslint/no-unused-vars': 'off',
+): Promise<TypedConfigItem[]> => {
+  await ensurePackages(['eslint-plugin-unused-imports'])
 
-      'unused-imports/no-unused-imports': 'error',
-      'unused-imports/no-unused-vars': [
-        'error',
-        {
-          args: 'after-used',
-          argsIgnorePattern: '^_',
-          caughtErrors: 'all',
-          caughtErrorsIgnorePattern: '^_',
-          destructuredArrayIgnorePattern: '^_',
-          ignoreRestSiblings: true,
-          vars: 'all',
-          varsIgnorePattern: '^_',
-        },
-      ],
+  const pluginUnusedImports = await interopDefault(
+    import('eslint-plugin-unused-imports'),
+  )
 
-      // Overrides rules
-      ...options.overrides,
+  return [
+    {
+      name: 'ntnyq/unused-imports',
+      plugins: {
+        'unused-imports': pluginUnusedImports,
+      },
+      rules: {
+        '@typescript-eslint/no-unused-vars': 'off',
+
+        'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-vars': [
+          'error',
+          {
+            args: 'after-used',
+            argsIgnorePattern: '^_',
+            caughtErrors: 'all',
+            caughtErrorsIgnorePattern: '^_',
+            destructuredArrayIgnorePattern: '^_',
+            ignoreRestSiblings: true,
+            vars: 'all',
+            varsIgnorePattern: '^_',
+          },
+        ],
+
+        // Overrides rules
+        ...options.overrides,
+      },
     },
-  },
-]
+  ]
+}

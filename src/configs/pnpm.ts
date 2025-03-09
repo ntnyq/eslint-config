@@ -10,7 +10,7 @@ export type ConfigPnpmOptions = OptionsFiles & OptionsOverrides
 /**
  * Config for optimize logic
  *
- * @see {@link https://github.com/azat-io/eslint-plugin-de-morgan}
+ * @see {@link https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm}
  *
  * @param options - {@link ConfigPnpmOptions}
  * @returns ESLint configs
@@ -36,8 +36,8 @@ export const configPnpm = (
             autofix: true,
           },
         ],
-        'pnpm/prefer-workspace-settings': 'error',
         'pnpm/valid-catalog': 'error',
+
         // Overrides rules
         ...options.overrides,
       },
