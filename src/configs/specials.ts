@@ -163,6 +163,8 @@ export const configSpecials = (
         '@typescript-eslint/no-unused-vars': 'off',
         'import-x/consistent-type-specifier-style': 'off',
         'vue/define-emits-declaration': 'off',
+        'vue/html-button-has-type': 'off',
+        'vue/no-duplicate-attr-inheritance': 'off',
 
         // Overrides rules
         ...shadcnOptions.overridesRules,
