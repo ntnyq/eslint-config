@@ -514,8 +514,13 @@ export const configSort = (
         'jsonc/sort-keys': [
           'error',
           {
-            order: { type: 'asc' },
             pathPattern: '.*',
+            order: [
+              '$schema',
+              {
+                order: { type: 'asc' },
+              },
+            ],
           },
         ],
       },
