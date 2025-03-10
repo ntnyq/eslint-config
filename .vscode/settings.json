@@ -48,6 +48,8 @@
     "nuxt",
     "pinia",
     "pnpm",
+    "rehype",
+    "reka",
     "shadcn",
     "shiki",
     "shikijs",

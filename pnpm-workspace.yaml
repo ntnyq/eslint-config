@@ -1,5 +1,13 @@
 packages:
   - .
   - docs
+overrides:
+  '@shikijs/core': ^3.1.0
+  '@shikijs/markdown-it': ^3.1.0
+  '@shikijs/rehype': ^3.1.0
+  '@shikijs/transformers': ^3.1.0
+  '@shikijs/types': ^3.1.0
+  esbuild: ^0.25.1
+  shiki: ^3.1.0
 onlyBuiltDependencies:
   - esbuild

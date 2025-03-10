@@ -9,7 +9,9 @@ export const hasVitest: ExistChecker = () => isPackageExists('vitest')
 export const hasTypeScript: ExistChecker = () => isPackageExists('typescript')
 
 export const hasShadcnVue: ExistChecker = () =>
-  isPackageExists('radix-vue') && isPackageExists('clsx')
+  (isPackageExists('radix-vue') || isPackageExists('reka-ui'))
+  && isPackageExists('class-variance-authority')
+  && isPackageExists('clsx')
 
 export const hasUnoCSS: ExistChecker = () =>
   isPackageExists('unocss')
