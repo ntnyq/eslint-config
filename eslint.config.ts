@@ -25,48 +25,22 @@ interface CustomGroupDefinition {
     | { pattern: string; flags?: string }[]
 }
 
-const ESLINT_CONFIG_GROUP = [
-  {
-    elementNamePattern: '^name$',
-    groupName: 'config-name',
-  },
-  {
-    elementNamePattern: '^files$',
-    groupName: 'config-files',
-  },
-  {
-    elementNamePattern: '^ignores$',
-    groupName: 'config-ignores',
-  },
-  {
-    elementNamePattern: '^plugins$',
-    groupName: 'config-plugins',
-  },
-  {
-    elementNamePattern: '^language$',
-    groupName: 'config-language',
-  },
-  {
-    elementNamePattern: '^processor$',
-    groupName: 'config-processor',
-  },
-  {
-    elementNamePattern: '^settings$',
-    groupName: 'config-settings',
-  },
-  {
-    elementNamePattern: '^languageOptions$',
-    groupName: 'config-language-options',
-  },
-  {
-    elementNamePattern: '^linterOptions$',
-    groupName: 'config-linter-options',
-  },
-  {
-    elementNamePattern: '^rules$',
-    groupName: 'config-rules',
-  },
-] satisfies CustomGroupDefinition[]
+const ESLINT_CONFIG_GROUP: CustomGroupDefinition[] = [
+  'name',
+  'files',
+  'ignores',
+  'plugins',
+  'language',
+  'processor',
+  'settings',
+  'languageOptions',
+  'linterOptions',
+  'rules',
+  'overrides',
+].map(key => ({
+  elementNamePattern: `^${key}$`,
+  groupName: `config-${key}`,
+}))
 
 export default defineESLintConfig(
   {
