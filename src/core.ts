@@ -304,12 +304,7 @@ export function defineESLintConfig(
   }
 
   if (enablePnpm) {
-    configs.push(
-      configPnpm({
-        ...resolveSubOptions(options, 'pnpm'),
-        overrides: getOverrides(options, 'pnpm'),
-      }),
-    )
+    configs.push(configPnpm(resolveSubOptions(options, 'pnpm')))
   }
 
   if (enableSVGO) {

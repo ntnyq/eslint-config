@@ -47,16 +47,16 @@ export const GLOB_TSCONFIG_JSON: string[] = [
   '**/tsconfig.*.json',
 ]
 
-export const GLOB_SVG: string = '**/*.svg'
-
-export const GLOB_VUE: string = '**/*.vue'
-
 export const GLOB_YAML: string = '**/*.y?(a)ml'
+export const GLOB_PNPM_WORKSPACE_YAML: string = '**/pnpm-workspace.yaml'
+
+export const GLOB_SVG: string = '**/*.svg'
+export const GLOB_VUE: string = '**/*.vue'
+export const GLOB_SVELTE: string = '**/*.svelte'
 export const GLOB_TOML: string = '**/*.toml'
 export const GLOB_HTML: string = '**/*.htm?(l)'
 export const GLOB_ASTRO: string = '**/*.astro'
 export const GLOB_ASTRO_TS: string = '**/*.astro/*.ts'
-export const GLOB_SVELTE: string = '**/*.svelte'
 
 export const GLOB_MARKDOWN: string = '**/*.md'
 export const GLOB_MARKDOWN_CODE: string = `${GLOB_MARKDOWN}/${GLOB_SRC}`
