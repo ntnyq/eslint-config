@@ -165,6 +165,7 @@ export const configSpecials = (
         'vue/define-emits-declaration': 'off',
         'vue/html-button-has-type': 'off',
         'vue/no-duplicate-attr-inheritance': 'off',
+        'vue/prefer-use-template-ref': 'off',
 
         // Overrides rules
         ...shadcnOptions.overridesRules,
