@@ -1,3 +1,9 @@
+import {
+  GLOB_JSON_SCHEMA,
+  GLOB_PACKAGE_JSON,
+  GLOB_PNPM_WORKSPACE_YAML,
+  GLOB_TSCONFIG_JSON,
+} from '../globs'
 import type { TypedConfigItem } from '../types'
 
 /**
@@ -33,6 +39,11 @@ export interface ConfigSortOptions {
    * @default true
    */
   tsconfig?: boolean
+
+  /**
+   * @default true
+   */
+  jsonSchema?: boolean
 }
 
 /**
@@ -49,6 +60,7 @@ export const configSort = (
     additionalJsonFiles = [],
     additionalYamlFiles = [],
     i18nLocale: enableSortI18nLocale = true,
+    jsonSchema: enableSortJsonSchema = true,
     packageJson: enableSortPackageJson = true,
     pnpmWorkspace: enableSortPnpmWorkspace = true,
     tsconfig: enableSortTsconfig = true,
@@ -57,7 +69,7 @@ export const configSort = (
   if (enableSortTsconfig) {
     configs.push({
       name: 'ntnyq/sort/tsconfig',
-      files: ['**/tsconfig.json', '**/tsconfig.*.json'],
+      files: [...GLOB_TSCONFIG_JSON],
       rules: {
         'jsonc/sort-keys': [
           'error',
@@ -203,7 +215,7 @@ export const configSort = (
   if (enableSortPackageJson) {
     configs.push({
       name: 'ntnyq/sort/package-json',
-      files: ['**/package.json'],
+      files: [GLOB_PACKAGE_JSON],
       rules: {
         'jsonc/sort-array-values': [
           'error',
@@ -432,10 +444,61 @@ export const configSort = (
     )
   }
 
+  /**
+   * @see {@link https://json-schema.org/draft-07/schema}
+   */
+  if (enableSortJsonSchema) {
+    configs.push({
+      name: 'ntnyq/sort/json-schema',
+      files: [...GLOB_JSON_SCHEMA],
+      rules: {
+        'jsonc/sort-array-values': [
+          'error',
+          {
+            order: { type: 'asc' },
+            pathPattern: '^(?:required)$',
+          },
+        ],
+        'jsonc/sort-keys': [
+          'error',
+          {
+            pathPattern: '^$',
+            order: [
+              // Meta
+              '$schema',
+              '$comment',
+              '$id',
+              '$ref',
+              'title',
+              'description',
+              'type',
+
+              'definitions',
+              'properties',
+              'required',
+              'additionalProperties',
+
+              // Unknown fields
+              {
+                order: {
+                  type: 'asc',
+                },
+              },
+            ],
+          },
+          {
+            order: { type: 'asc' },
+            pathPattern: '^(?:definitions|properties)$',
+          },
+        ],
+      },
+    })
+  }
+
   if (enableSortPnpmWorkspace) {
     configs.push({
       name: 'ntnyq/sort/pnpm-workspace',
-      files: ['**/pnpm-workspace.yaml'],
+      files: [GLOB_PNPM_WORKSPACE_YAML],
       rules: {
         'yml/sort-keys': [
           'error',

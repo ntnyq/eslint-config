@@ -42,6 +42,10 @@ export const GLOB_JSON: string = '**/*.json'
 export const GLOB_JSON5: string = '**/*.json5'
 export const GLOB_JSONC: string = '**/*.jsonc'
 export const GLOB_PACKAGE_JSON: string = '**/package.json'
+export const GLOB_JSON_SCHEMA: string[] = [
+  '**/*.schema.json',
+  '**/schemas/*.json',
+]
 export const GLOB_TSCONFIG_JSON: string[] = [
   '**/tsconfig.json',
   '**/tsconfig.*.json',
