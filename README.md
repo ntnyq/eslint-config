@@ -1,4 +1,4 @@
-# eslint-config
+# @ntnyq/eslint-config
 
 > ESLint config for JavaScript, TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG and etc.
 
@@ -9,7 +9,7 @@
 
 ## Features
 
-- Designed to work alongside with [Prettier](https://prettier.io)
+- Designed to work alongside with [Prettier](https://prettier.io) and [TypeScript](https://www.typescriptlang.org/)
 - Opinionable: single quote, no semi, trailing comma, etc
 - Respect `.gitignore` via [eslint-config-flat-gitignore](https://github.com/antfu/eslint-config-flat-gitignore)
 - Out-of-box support for TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG and etc
@@ -44,7 +44,9 @@ Highly recommended using **`eslint.config.mjs`** as the config file :
 
 import { defineESLintConfig } from '@ntnyq/eslint-config'
 
-export default defineESLintConfig()
+export default defineESLintConfig({
+  // Options here
+})
 ```
 
 Add scripts `lint` in `package.json`:
@@ -144,11 +146,11 @@ export default defineConfig({
 
 ### 1. Add dependencies
 
-```bash
+```shell
 pnpm add husky nano-staged -D
 ```
 
-### 2. Config `package.json`
+### 2. Config in `package.json`
 
 ```json
 {
@@ -164,11 +166,15 @@ pnpm add husky nano-staged -D
 
 ### 3. Add a Git hook
 
-```bash
+```shell
 echo "nano-staged" > .husky/pre-commit
 ```
 
 </details>
+
+## View what rules are enabled
+
+Please check [eslint-config-inspector](https://eslint-config-inspector.ntnyq.com/) powered by [@eslint/config-inspector](https://github.com/eslint/config-inspector).
 
 ## Advanced config
 
@@ -234,7 +240,7 @@ export interface ConfigOptions {
 
 ## Versioning policy
 
-This project follows [Semantic Versioning](https://semver.org/) for releases.
+This project aims to follows [Semantic Versioning](https://semver.org/) for releases.
 
 ### Changes considered as Breaking Changes
 
