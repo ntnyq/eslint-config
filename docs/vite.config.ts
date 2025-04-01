@@ -9,7 +9,9 @@ export default defineConfig({
     exclude: ['vitepress'],
   },
   plugins: [
-    UnoCSS(),
+    UnoCSS({
+      inspector: false,
+    }),
     VueComponents({
       dts: fileURLToPath(new URL('./components.d.ts', import.meta.url)),
       extensions: ['vue', 'md'],
