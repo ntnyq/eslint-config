@@ -2,7 +2,6 @@
  * @file ESLint plugins
  */
 
-export * as pluginDepend from 'eslint-plugin-depend'
 export * as pluginRegexp from 'eslint-plugin-regexp'
 export { default as pluginNode } from 'eslint-plugin-n'
 export { default as pluginVue } from 'eslint-plugin-vue'
@@ -16,6 +15,7 @@ export { default as pluginJsdoc } from 'eslint-plugin-jsdoc'
 export { default as pluginJsonc } from 'eslint-plugin-jsonc'
 export { default as pluginNtnyq } from 'eslint-plugin-ntnyq'
 export { default as pluginPinia } from 'eslint-plugin-pinia'
+export { default as pluginDepend } from 'eslint-plugin-depend'
 export { plugin as pluginTypeScript } from 'typescript-eslint'
 export { default as pluginUnoCSS } from '@unocss/eslint-plugin'
 export { default as pluginVitest } from '@vitest/eslint-plugin'
