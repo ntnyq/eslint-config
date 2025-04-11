@@ -79,7 +79,7 @@
     "@eslint/js": "^9.24.0",
     "@eslint/markdown": "^6.3.0",
     "@unocss/eslint-plugin": "^66.1.0-beta.10",
-    "@vitest/eslint-plugin": "^1.1.40",
+    "@vitest/eslint-plugin": "^1.1.42",
     "eslint-config-flat-gitignore": "^2.1.0",
     "eslint-flat-config-utils": "^2.0.1",
     "eslint-import-resolver-typescript": "^4.3.2",
