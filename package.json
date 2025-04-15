@@ -2,7 +2,7 @@
   "name": "@ntnyq/eslint-config",
   "type": "module",
   "version": "4.0.3",
-  "packageManager": "pnpm@10.8.0",
+  "packageManager": "pnpm@10.8.1",
   "description": "An opinionated ESLint config preset of ntnyq",
   "keywords": [
     "eslint",
@@ -111,7 +111,7 @@
     "local-pkg": "^1.1.1",
     "prettier": "^3.5.3",
     "toml-eslint-parser": "^0.10.0",
-    "typescript-eslint": "^8.29.1",
+    "typescript-eslint": "^8.30.1",
     "vue-eslint-parser": "^10.1.3",
     "yaml-eslint-parser": "^1.3.0"
   },
