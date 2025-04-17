@@ -89,7 +89,7 @@
     "eslint-plugin-de-morgan": "^1.2.1",
     "eslint-plugin-depend": "^1.0.0",
     "eslint-plugin-github-action": "^0.0.15",
-    "eslint-plugin-import-x": "^4.10.3",
+    "eslint-plugin-import-x": "^4.10.5",
     "eslint-plugin-jsdoc": "^50.6.9",
     "eslint-plugin-jsonc": "^2.20.0",
     "eslint-plugin-n": "^17.17.0",
@@ -131,7 +131,7 @@
     "tsx": "^4.19.3",
     "typescript": "^5.8.3",
     "unbuild": "^3.5.0",
-    "uncase": "^0.0.4",
+    "uncase": "^0.1.0",
     "vitest": "^3.1.1"
   },
   "engines": {
