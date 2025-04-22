@@ -2,7 +2,7 @@
   "name": "@ntnyq/eslint-config",
   "type": "module",
   "version": "4.0.4",
-  "packageManager": "pnpm@10.8.1",
+  "packageManager": "pnpm@10.9.0",
   "description": "An opinionated ESLint config preset of ntnyq",
   "keywords": [
     "eslint",
@@ -76,13 +76,13 @@
     "@antfu/install-pkg": "^1.0.0",
     "@clack/prompts": "^0.10.1",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
-    "@eslint/js": "^9.25.0",
+    "@eslint/js": "^9.25.1",
     "@eslint/markdown": "^6.4.0",
     "@unocss/eslint-plugin": "^66.1.0-beta.12",
     "@vitest/eslint-plugin": "^1.1.43",
     "eslint-config-flat-gitignore": "^2.1.0",
     "eslint-flat-config-utils": "^2.0.1",
-    "eslint-import-resolver-typescript": "^4.3.3",
+    "eslint-import-resolver-typescript": "^4.3.4",
     "eslint-merge-processors": "^2.0.0",
     "eslint-plugin-antfu": "^3.1.1",
     "eslint-plugin-command": "^3.2.0",
@@ -95,7 +95,7 @@
     "eslint-plugin-n": "^17.17.0",
     "eslint-plugin-no-only-tests": "^3.3.0",
     "eslint-plugin-ntnyq": "^0.11.0",
-    "eslint-plugin-perfectionist": "^4.11.0",
+    "eslint-plugin-perfectionist": "^4.12.1",
     "eslint-plugin-pinia": "^0.4.1",
     "eslint-plugin-pnpm": "^0.3.1",
     "eslint-plugin-prettier": "^5.2.6",
@@ -111,7 +111,7 @@
     "local-pkg": "^1.1.1",
     "prettier": "^3.5.3",
     "toml-eslint-parser": "^0.10.0",
-    "typescript-eslint": "^8.30.1",
+    "typescript-eslint": "^8.31.0",
     "vue-eslint-parser": "^10.1.3",
     "yaml-eslint-parser": "^1.3.0"
   },
@@ -119,7 +119,7 @@
     "@ntnyq/prettier-config": "^2.0.0",
     "@types/node": "^22.14.1",
     "bumpp": "^10.1.0",
-    "eslint": "^9.25.0",
+    "eslint": "^9.25.1",
     "eslint-parser-plain": "^0.1.1",
     "eslint-plugin-eslint-plugin": "^6.4.0",
     "eslint-typegen": "^2.1.0",
@@ -132,7 +132,7 @@
     "typescript": "^5.8.3",
     "unbuild": "^3.5.0",
     "uncase": "^0.1.0",
-    "vitest": "^3.1.1"
+    "vitest": "^3.1.2"
   },
   "engines": {
     "node": ">=18.18.0"
