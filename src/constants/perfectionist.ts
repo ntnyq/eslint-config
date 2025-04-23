@@ -134,28 +134,31 @@ export const PERFECTIONIST_SORT_IMPORTS_GROUPS: string[] = [
   'side-effect-style',
 
   // Styles (e.g. *.{css,scss,less})
-  'style',
+  'value-style',
 
   // Node.js built-in modules. (e.g. fs, path)
-  'builtin',
+  'value-builtin',
 
   // External modules installed in the project (e.g. vue, lodash)
-  'external',
+  'value-external',
+
+  // Node.js subpath imports (e.g. fs/promises)
+  'value-subpath',
 
   // Internal modules (e.g. @/utils, @/components)
-  'internal',
+  'value-internal',
 
   // Modules from parent directory (e.g. ../utils)
-  'parent',
+  'value-parent',
 
   // Modules from the same directory (e.g. ./utils)
-  'sibling',
+  'value-sibling',
 
   // Main file from the current directory (e.g. ./index)
-  'index',
+  'value-index',
 
-  // TypeScript object-imports (e.g. import log = console.log)
-  'object',
+  // TypeScript import-equals imports (e.g. import log = console.log)
+  'ts-equals-import',
 
   // Side effect imports (e.g. import 'babel-polyfill')
   'side-effect',
@@ -163,13 +166,13 @@ export const PERFECTIONIST_SORT_IMPORTS_GROUPS: string[] = [
   /**
    * Type import at the end
    */
-  'builtin-type',
-  'external-type',
-  'internal-type',
-  'parent-type',
-  'sibling-type',
-  'index-type',
-  'type',
+  'type-builtin',
+  'type-external',
+  'type-subpath',
+  'type-internal',
+  'type-parent',
+  'type-sibling',
+  'type-index',
 
   /**
    * Imports that don’t fit into any other group
