@@ -2,9 +2,12 @@ import {
   PERFECTIONIST_COMMON_RULE_OPTIONS,
   PERFECTIONIST_EXTRA_RULE_OPTIONS,
   PERFECTIONIST_SORT_CLASSES_GROUPS,
+  PERFECTIONIST_SORT_EXPORTS_GROUPS,
   PERFECTIONIST_SORT_IMPORTS_GROUPS,
   PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS,
   PERFECTIONIST_SORT_INTERSECTION_TYPES_OR_UNION_TYPES_GROUPS,
+  PERFECTIONIST_SORT_NAMED_EXPORTS_GROUPS,
+  PERFECTIONIST_SORT_NAMED_IMPORTS_GROUPS,
   PERFECTIONIST_SORT_OBJECTS_GROUPS,
 } from '../constants'
 import { pluginPerfectionist } from '../eslint'
@@ -120,8 +123,8 @@ export const configPerfectionist = (
     'perfectionist/sort-exports': [
       'error',
       {
-        ...commonRuleOptionsWithPartitionByComment,
-        groupKind: 'values-first',
+        ...commonRuleOptionsWithBoth,
+        groups: PERFECTIONIST_SORT_EXPORTS_GROUPS,
         type: 'line-length',
       },
     ],
@@ -136,16 +139,16 @@ export const configPerfectionist = (
     'perfectionist/sort-named-exports': [
       'error',
       {
-        ...commonRuleOptionsWithPartitionByComment,
-        groupKind: 'values-first',
+        ...commonRuleOptionsWithBoth,
+        groups: PERFECTIONIST_SORT_NAMED_EXPORTS_GROUPS,
         ignoreAlias: false,
       },
     ],
     'perfectionist/sort-named-imports': [
       'error',
       {
-        ...commonRuleOptionsWithPartitionByComment,
-        groupKind: 'values-first',
+        ...commonRuleOptionsWithBoth,
+        groups: PERFECTIONIST_SORT_NAMED_IMPORTS_GROUPS,
         ignoreAlias: false,
       },
     ],

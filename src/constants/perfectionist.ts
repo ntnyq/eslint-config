@@ -178,6 +178,39 @@ export const PERFECTIONIST_SORT_IMPORTS_GROUPS: string[] = [
 ]
 
 /**
+ * Shared option `groups` for rule `sort-exports`
+ *
+ * @see {@link https://perfectionist.dev/rules/sort-exports}
+ */
+export const PERFECTIONIST_SORT_EXPORTS_GROUPS: string[] = [
+  'value-export',
+  'type-export',
+  'unknown',
+]
+
+/**
+ * Shared option `groups` for rule `sort-named-exports`
+ *
+ * @see {@link https://perfectionist.dev/rules/sort-named-exports}
+ */
+export const PERFECTIONIST_SORT_NAMED_EXPORTS_GROUPS: string[] = [
+  'value-export',
+  'type-export',
+  'unknown',
+]
+
+/**
+ * Shared option `groups` for rule `sort-named-imports`
+ *
+ * @see {@link https://perfectionist.dev/rules/sort-named-imports}
+ */
+export const PERFECTIONIST_SORT_NAMED_IMPORTS_GROUPS: string[] = [
+  'value-import',
+  'type-import',
+  'unknown',
+]
+
+/**
  * Shared option `groups` for rule `sort-classes`
  *
  * // TODO: implement this
