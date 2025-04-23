@@ -59,6 +59,7 @@
     "tauri",
     "tseslint",
     "unplugin",
+    "unrs",
     "vitepress",
     "vuepress",
     "vueuse"

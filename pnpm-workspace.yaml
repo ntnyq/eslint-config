@@ -1,13 +1,10 @@
 packages:
   - .
   - docs
+
 overrides:
-  '@shikijs/core': ^3.2.2
-  '@shikijs/markdown-it': ^3.2.2
-  '@shikijs/rehype': ^3.2.2
-  '@shikijs/transformers': ^3.2.2
-  '@shikijs/types': ^3.2.2
   esbuild: ^0.25.2
-  shiki: ^3.2.2
+
 onlyBuiltDependencies:
   - esbuild
+  - unrs-resolver
