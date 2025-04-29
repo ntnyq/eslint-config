@@ -8,6 +8,7 @@ import { isPackageExists } from 'local-pkg'
 import { isInGitHooksOrRunBySpecifyPackages } from './isInGitHooksOrRunBySpecifyPackages'
 
 const scopeUrl: string = fileURLToPath(new URL('.', import.meta.url))
+
 const isCwdInScope: boolean = isPackageExists('@ntnyq/eslint-config')
 
 function isPackageInScope(name: string): boolean {

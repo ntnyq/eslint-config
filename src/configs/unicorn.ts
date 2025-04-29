@@ -14,6 +14,10 @@ const disabledRules: TypedConfigItem['rules'] = {
    * @see https://caniuse.com/?search=globalThis
    */
   'unicorn/prefer-global-this': 'off',
+  /**
+   * Required node v20.11
+   */
+  'unicorn/prefer-import-meta-properties': 'off',
   'unicorn/prefer-top-level-await': 'off',
 }
 
@@ -112,12 +116,15 @@ export const configUnicorn = (
        * @pg Array
        */
       'unicorn/no-array-method-this-argument': 'error',
-      'unicorn/no-array-push-push': 'error',
       'unicorn/no-new-array': 'error',
+      'unicorn/no-unnecessary-array-flat-depth': 'error',
+      'unicorn/no-unnecessary-array-splice-count': 'error',
+      'unicorn/no-unnecessary-slice-end': 'error',
       'unicorn/prefer-array-find': 'error',
       'unicorn/prefer-array-flat-map': 'error',
       'unicorn/prefer-array-index-of': 'error',
       'unicorn/prefer-array-some': 'error',
+      'unicorn/prefer-single-call': 'error',
       'unicorn/require-array-join-separator': 'error',
       /**
        * @pg Set
