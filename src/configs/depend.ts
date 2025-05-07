@@ -13,7 +13,14 @@ export type ConfigDependOptions = OptionsFiles
      * @default true
      */
     packageJson?: boolean
+
+    /**
+     * Allowed dependencies
+     */
+    allowed?: string[]
   }
+
+const ALLOWED_DEPENDENCIES = ['eslint-plugin-unicorn']
 
 /**
  * Config for optimisations dependency
@@ -30,6 +37,7 @@ export const configDepend = (
   const {
     files = [GLOB_SRC],
 
+    allowed = [],
     // check package.json file
     packageJson: enableCheckPackageJson = true,
   } = options
@@ -42,7 +50,12 @@ export const configDepend = (
         depend: pluginDepend,
       },
       rules: {
-        'depend/ban-dependencies': 'error',
+        'depend/ban-dependencies': [
+          'error',
+          {
+            allowed: [...allowed, ...ALLOWED_DEPENDENCIES],
+          },
+        ],
 
         // Overrides rules
         ...options.overrides,
@@ -61,7 +74,12 @@ export const configDepend = (
         parser: parserJsonc,
       },
       rules: {
-        'depend/ban-dependencies': 'error',
+        'depend/ban-dependencies': [
+          'error',
+          {
+            allowed: [...allowed, ...ALLOWED_DEPENDENCIES],
+          },
+        ],
 
         // Overrides rules
         ...options.overrides,
