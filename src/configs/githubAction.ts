@@ -18,11 +18,7 @@ export type ConfigGitHubActionOptions = OptionsFiles & OptionsOverrides
 export const configGitHubAction = (
   options: ConfigGitHubActionOptions = {},
 ): TypedConfigItem[] => {
-  const {
-    //
-    files = [GLOB_GITHUB_ACTION],
-    overrides: overridesRules = {},
-  } = options
+  const { files = [GLOB_GITHUB_ACTION] } = options
 
   return [
     {
@@ -38,8 +34,10 @@ export const configGitHubAction = (
         'github-action/no-invalid-key': 'error',
         'github-action/prefer-file-extension': 'error',
         'github-action/require-action-name': 'error',
+        'github-action/valid-timeout-minutes': 'error',
+        'github-action/valid-trigger-events': 'error',
 
-        ...overridesRules,
+        ...options.overrides,
       },
     },
   ]
