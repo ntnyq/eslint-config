@@ -8,8 +8,8 @@
     "dev": "vitepress dev ."
   },
   "devDependencies": {
-    "@shikijs/transformers": "^3.3.0",
-    "@shikijs/vitepress-twoslash": "^3.3.0",
+    "@shikijs/transformers": "^3.4.0",
+    "@shikijs/vitepress-twoslash": "^3.4.0",
     "@vueuse/core": "^13.1.0",
     "unocss": "^66.1.0",
     "unplugin-vue-components": "^28.5.0",

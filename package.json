@@ -73,7 +73,7 @@
     }
   },
   "dependencies": {
-    "@antfu/install-pkg": "^1.0.0",
+    "@antfu/install-pkg": "^1.1.0",
     "@clack/prompts": "^0.10.1",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
     "@eslint/js": "^9.26.0",
@@ -87,8 +87,8 @@
     "eslint-plugin-antfu": "^3.1.1",
     "eslint-plugin-command": "^3.2.0",
     "eslint-plugin-de-morgan": "^1.2.1",
-    "eslint-plugin-depend": "^1.0.0",
-    "eslint-plugin-github-action": "^0.0.15",
+    "eslint-plugin-depend": "^1.1.0",
+    "eslint-plugin-github-action": "^0.0.16",
     "eslint-plugin-import-x": "^4.11.0",
     "eslint-plugin-jsdoc": "^50.6.11",
     "eslint-plugin-jsonc": "^2.20.0",
@@ -102,7 +102,7 @@
     "eslint-plugin-regexp": "^2.7.0",
     "eslint-plugin-svgo": "^0.7.2",
     "eslint-plugin-toml": "^0.12.0",
-    "eslint-plugin-unicorn": "^59.0.0",
+    "eslint-plugin-unicorn": "^59.0.1",
     "eslint-plugin-vue": "^10.1.0",
     "eslint-plugin-yml": "^1.18.0",
     "eslint-processor-vue-blocks": "^2.0.0",
@@ -117,7 +117,7 @@
   },
   "devDependencies": {
     "@ntnyq/prettier-config": "^2.0.0",
-    "@types/node": "^22.15.11",
+    "@types/node": "^22.15.14",
     "bumpp": "^10.1.0",
     "eslint": "^9.26.0",
     "eslint-parser-plain": "^0.1.1",
