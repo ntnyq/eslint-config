@@ -8,7 +8,7 @@ import type { OptionsFiles, OptionsOverrides, TypedConfigItem } from '../types'
 export type ConfigJsoncOptions = OptionsOverrides
   & OptionsFiles & {
     /**
-     * Whether prettier is enabled
+     * Whether disable prettier related rules
      */
     prettier?: boolean
   }

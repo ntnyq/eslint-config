@@ -207,6 +207,7 @@ export function defineESLintConfig(
   if (enableYML) {
     configs.push(
       configYml({
+        prettier: !!enablePrettier,
         ...resolveSubOptions(options, 'yml'),
         overrides: getOverrides(options, 'yml'),
       }),
