@@ -5,7 +5,22 @@ import type { OptionsFiles, OptionsOverrides, TypedConfigItem } from '../types'
 /**
  * Options type of {@link configJsonc}
  */
-export type ConfigJsoncOptions = OptionsOverrides & OptionsFiles
+export type ConfigJsoncOptions = OptionsOverrides
+  & OptionsFiles & {
+    /**
+     * Whether prettier is enabled
+     */
+    prettier?: boolean
+  }
+
+/**
+ * @see {@link https://github.com/ota-meshi/eslint-plugin-jsonc/blob/master/lib/configs/base.ts}
+ */
+const disabledCoreRules: TypedConfigItem['rules'] = {
+  'no-unused-expressions': 'off',
+  'no-unused-vars': 'off',
+  strict: 'off',
+}
 
 /**
  * Config for json, jsonc and json5 files
@@ -31,9 +46,6 @@ export const configJsonc = (
         parser: parserJsonc,
       },
       rules: {
-        ...(pluginJsonc.configs['recommended-with-jsonc'] as TypedConfigItem)
-          .rules,
-
         'jsonc/array-bracket-spacing': ['error', 'never'],
         'jsonc/comma-dangle': ['error', 'never'],
         'jsonc/comma-style': ['error', 'last'],
@@ -45,7 +57,29 @@ export const configJsonc = (
             beforeColon: false,
           },
         ],
+        'jsonc/no-bigint-literals': 'error',
+        'jsonc/no-binary-expression': 'error',
+        'jsonc/no-binary-numeric-literals': 'error',
+        'jsonc/no-dupe-keys': 'error',
+        'jsonc/no-escape-sequence-in-identifier': 'error',
+        'jsonc/no-floating-decimal': 'error',
+        'jsonc/no-hexadecimal-numeric-literals': 'error',
+        'jsonc/no-infinity': 'error',
+        'jsonc/no-multi-str': 'error',
+        'jsonc/no-nan': 'error',
+        'jsonc/no-number-props': 'error',
+        'jsonc/no-numeric-separators': 'error',
+        'jsonc/no-octal': 'error',
         'jsonc/no-octal-escape': 'error',
+        'jsonc/no-octal-numeric-literals': 'error',
+        'jsonc/no-parenthesized': 'error',
+        'jsonc/no-plus-sign': 'error',
+        'jsonc/no-regexp-literals': 'error',
+        'jsonc/no-sparse-arrays': 'error',
+        'jsonc/no-template-literals': 'error',
+        'jsonc/no-undefined-value': 'error',
+        'jsonc/no-unicode-codepoint-escapes': 'error',
+        'jsonc/no-useless-escape': 'error',
         'jsonc/object-curly-newline': [
           'error',
           {
@@ -60,6 +94,32 @@ export const configJsonc = (
             allowMultiplePropertiesPerLine: true,
           },
         ],
+        'jsonc/quote-props': 'error',
+        'jsonc/quotes': 'error',
+        'jsonc/space-unary-ops': 'error',
+        'jsonc/valid-json-number': 'error',
+        'jsonc/vue-custom-block/no-parsing-error': 'error',
+
+        ...disabledCoreRules,
+
+        ...(options.prettier
+          ? {
+              'jsonc/array-bracket-newline': 'off',
+              'jsonc/array-bracket-spacing': 'off',
+              'jsonc/array-element-newline': 'off',
+              'jsonc/comma-dangle': 'off',
+              'jsonc/comma-style': 'off',
+              'jsonc/indent': 'off',
+              'jsonc/key-spacing': 'off',
+              'jsonc/no-floating-decimal': 'off',
+              'jsonc/object-curly-newline': 'off',
+              'jsonc/object-curly-spacing': 'off',
+              'jsonc/object-property-newline': 'off',
+              'jsonc/quote-props': 'off',
+              'jsonc/quotes': 'off',
+              'jsonc/space-unary-ops': 'off',
+            }
+          : {}),
 
         // Overrides rules
         ...options.overrides,

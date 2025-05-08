@@ -225,6 +225,7 @@ export function defineESLintConfig(
   if (enableJSONC) {
     configs.push(
       configJsonc({
+        prettier: !!enablePrettier,
         ...resolveSubOptions(options, 'jsonc'),
         overrides: getOverrides(options, 'jsonc'),
       }),

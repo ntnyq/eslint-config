@@ -36,7 +36,13 @@ export const configYml = (
 
         'yml/no-empty-mapping-value': 'off',
 
-        'yml/quotes': ['error', { avoidEscape: false, prefer: 'single' }],
+        'yml/quotes': [
+          'error',
+          {
+            avoidEscape: false,
+            prefer: 'single',
+          },
+        ],
 
         // Overrides rules
         ...options.overrides,
