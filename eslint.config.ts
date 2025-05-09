@@ -1,7 +1,7 @@
 import {
   defineESLintConfig,
-  PERFECTIONIST_COMMON_RULE_OPTIONS,
   PERFECTIONIST_EXTRA_RULE_OPTIONS,
+  PERFECTIONIST_PLUGIN_SETTINGS,
   PERFECTIONIST_SORT_OBJECTS_GROUPS,
   pluginPerfectionist,
 } from './src'
@@ -30,9 +30,9 @@ const ESLINT_CONFIG_GROUP: CustomGroupDefinition[] = [
   'files',
   'ignores',
   'plugins',
+  'settings',
   'language',
   'processor',
-  'settings',
   'languageOptions',
   'linterOptions',
   'rules',
@@ -67,7 +67,6 @@ export default defineESLintConfig(
       'perfectionist/sort-objects': [
         'error',
         {
-          ...PERFECTIONIST_COMMON_RULE_OPTIONS,
           ...PERFECTIONIST_EXTRA_RULE_OPTIONS,
           customGroups: [
             ...ESLINT_CONFIG_GROUP,
@@ -106,6 +105,9 @@ export default defineESLintConfig(
           ],
         },
       ],
+    },
+    settings: {
+      perfectionist: PERFECTIONIST_PLUGIN_SETTINGS,
     },
   },
 )

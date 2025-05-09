@@ -1,10 +1,12 @@
 /**
  * Shared perfectionist rule options for all rules
  */
-export const PERFECTIONIST_COMMON_RULE_OPTIONS = {
+export const PERFECTIONIST_PLUGIN_SETTINGS = {
   fallbackSort: { order: 'asc', type: 'alphabetical' },
   ignoreCase: true,
   order: 'asc',
+  partitionByNewLine: false,
+  specialCharacters: 'keep',
   type: 'alphabetical',
 } as const
 
