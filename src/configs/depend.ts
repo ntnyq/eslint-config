@@ -20,8 +20,6 @@ export type ConfigDependOptions = OptionsFiles
     allowed?: string[]
   }
 
-const ALLOWED_DEPENDENCIES = ['eslint-plugin-unicorn']
-
 /**
  * Config for optimisations dependency
  *
@@ -53,7 +51,7 @@ export const configDepend = (
         'depend/ban-dependencies': [
           'error',
           {
-            allowed: [...allowed, ...ALLOWED_DEPENDENCIES],
+            allowed,
           },
         ],
 
@@ -77,7 +75,7 @@ export const configDepend = (
         'depend/ban-dependencies': [
           'error',
           {
-            allowed: [...allowed, ...ALLOWED_DEPENDENCIES],
+            allowed,
           },
         ],
 
