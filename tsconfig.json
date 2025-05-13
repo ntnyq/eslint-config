@@ -1,19 +1,27 @@
 {
-  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "moduleDetection": "force",
-    "declaration": true,
-    "isolatedDeclarations": true
+    "target": "ESNext",
+    "lib": ["ES2022", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "types": ["node"],
+    "resolveJsonModule": true,
+    "erasableSyntaxOnly": true,
+    "libReplacement": false,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true
   },
-  "references": [
-    {
-      "path": "./docs/tsconfig.json"
-    }
-  ],
   "include": [
     "./src/**/*.ts",
     "./tests/**/*.ts",
+    "./typings/**/*.ts",
     "./scripts/**/*.ts",
-    "./typings/**/*.ts"
+    "./docs/**/*.ts",
+    "./docs/**/*.vue",
+    "./docs/.vitepress/**/*.ts",
+    "./*.config.ts"
   ]
 }

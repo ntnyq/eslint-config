@@ -49,12 +49,8 @@ export default defineESLintConfig(
     unocss: true,
     vue: true,
     typescript: {
+      allowDefaultProject: [],
       tsconfigPath: './tsconfig.json',
-      allowDefaultProject: [
-        'eslint-inspector.config.ts',
-        'eslint.config.ts',
-        'build.config.ts',
-      ],
     },
   },
   {
