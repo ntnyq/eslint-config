@@ -7,6 +7,11 @@
 [![NPM DOWNLOADS](https://img.shields.io/npm/dy/@ntnyq/eslint-config)](https://www.npmjs.com/package/@ntnyq/eslint-config)
 [![LICENSE](https://img.shields.io/github/license/ntnyq/eslint-config.svg)](https://github.com/ntnyq/eslint-config/blob/main/LICENSE)
 
+## Requirement
+
+- NodeJS v20.11.0+
+- ESLint v9.20.0+
+
 ## Features
 
 - Designed to work alongside with [Prettier](https://prettier.io) and [TypeScript](https://www.typescriptlang.org/)

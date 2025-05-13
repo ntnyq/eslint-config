@@ -3,17 +3,14 @@
  */
 
 import process from 'node:process'
-import { fileURLToPath } from 'node:url'
 import { isPackageExists } from 'local-pkg'
 import { isInGitHooksOrRunBySpecifyPackages } from './isInGitHooksOrRunBySpecifyPackages'
-
-const scopeUrl: string = fileURLToPath(new URL('.', import.meta.url))
 
 const isCwdInScope: boolean = isPackageExists('@ntnyq/eslint-config')
 
 function isPackageInScope(name: string): boolean {
   return isPackageExists(name, {
-    paths: [scopeUrl],
+    paths: [import.meta.dirname],
   })
 }
 

@@ -14,10 +14,6 @@ const disabledRules: TypedConfigItem['rules'] = {
    * @see https://caniuse.com/?search=globalThis
    */
   'unicorn/prefer-global-this': 'off',
-  /**
-   * Required node v20.11
-   */
-  'unicorn/prefer-import-meta-properties': 'off',
   'unicorn/prefer-top-level-await': 'off',
 }
 
@@ -53,6 +49,7 @@ export const configUnicorn = (
       'unicorn/no-static-only-class': 'error',
       'unicorn/no-typeof-undefined': 'error',
       'unicorn/no-unnecessary-await': 'error',
+      'unicorn/prefer-import-meta-properties': 'error',
       'unicorn/prefer-includes': 'error',
       'unicorn/prefer-keyboard-event-key': 'error',
       'unicorn/prefer-math-min-max': 'error',

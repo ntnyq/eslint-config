@@ -34,7 +34,8 @@
     "dist"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "tag": "next"
   },
   "scripts": {
     "build": "run-s generate:type build:lib",
@@ -49,7 +50,7 @@
     "prepare": "husky",
     "release": "run-s release:check release:version release:publish",
     "release:check": "run-s build lint test typecheck",
-    "release:publish": "pnpm publish",
+    "release:publish": "pnpm publish --tag next",
     "release:version": "bumpp",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
@@ -134,7 +135,7 @@
     "vitest": "^3.1.3"
   },
   "engines": {
-    "node": ">=18.18.0"
+    "node": ">=20.11.0"
   },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,md,vue,svg,yml,yaml,toml,json}": "eslint --fix",
