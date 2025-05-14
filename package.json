@@ -55,12 +55,20 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
+    "@html-eslint/eslint-plugin": "^0.40.3",
+    "@html-eslint/parser": "^0.40.0",
     "eslint": "^9.20.0",
     "eslint-plugin-eslint-plugin": "^6.4.0",
     "eslint-plugin-format": "^1.0.1",
     "eslint-plugin-unused-imports": "^4.1.4"
   },
   "peerDependenciesMeta": {
+    "@html-eslint/eslint-plugin": {
+      "optional": true
+    },
+    "@html-eslint/parser": {
+      "optional": true
+    },
     "eslint-plugin-eslint-plugin": {
       "optional": true
     },
@@ -117,7 +125,7 @@
   },
   "devDependencies": {
     "@ntnyq/prettier-config": "^2.0.0",
-    "@types/node": "^22.15.17",
+    "@types/node": "^22.15.18",
     "bumpp": "^10.1.0",
     "eslint": "^9.26.0",
     "eslint-plugin-eslint-plugin": "^6.4.0",

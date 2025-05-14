@@ -12,6 +12,7 @@ import {
   configESLintPlugin,
   configGitHubAction,
   configGitIgnore,
+  configHtml,
   configIgnores,
   configImportX,
   configJavaScript,
@@ -101,6 +102,7 @@ export function defineESLintConfig(
     // disabled by default
     pnpm: enablePnpm = false,
     svgo: enableSVGO = false,
+    html: enableHTML = false,
     eslintPlugin: enableESLintPlugin = false,
   } = options
   const configs: Awaitable<TypedConfigItem | TypedConfigItem[]>[] = []
@@ -311,6 +313,15 @@ export function defineESLintConfig(
 
   if (enableSVGO) {
     configs.push(configSVGO(resolveSubOptions(options, 'svgo')))
+  }
+
+  if (enableHTML) {
+    configs.push(
+      configHtml({
+        ...resolveSubOptions(options, 'html'),
+        overrides: getOverrides(options, 'html'),
+      }),
+    )
   }
 
   const specialsConfigs: TypedConfigItem[] = configSpecials(

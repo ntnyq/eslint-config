@@ -12,6 +12,7 @@ import type {
   ConfigFormatOptions,
   ConfigGitHubActionOptions,
   ConfigGitIgnoreOptions,
+  ConfigHtmlOptions,
   ConfigIgnoresOptions,
   ConfigImportXOptions,
   ConfigJavaScriptOptions,
@@ -71,6 +72,7 @@ export interface ConfigOptions {
   eslintPlugin?: boolean | ConfigESLintPluginOptions
   githubAction?: boolean | ConfigGitHubActionOptions
   gitignore?: boolean | ConfigGitIgnoreOptions
+  html?: boolean | ConfigHtmlOptions
   jsonc?: boolean | ConfigJsoncOptions
   markdown?: boolean | ConfigMarkdownOptions
   ntnyq?: boolean | ConfigNtnyqOptions

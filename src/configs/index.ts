@@ -4,6 +4,7 @@
 
 export * from './vue'
 export * from './yml'
+export * from './html'
 export * from './node'
 export * from './pnpm'
 export * from './sort'
