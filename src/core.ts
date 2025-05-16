@@ -5,6 +5,7 @@
 import { FlatConfigComposer } from 'eslint-flat-config-utils'
 import {
   configAntfu,
+  configAstro,
   configCommand,
   configDeMorgan,
   configDepend,
@@ -103,6 +104,7 @@ export function defineESLintConfig(
     pnpm: enablePnpm = false,
     svgo: enableSVGO = false,
     html: enableHTML = false,
+    astro: enableAstro = false,
     eslintPlugin: enableESLintPlugin = false,
   } = options
   const configs: Awaitable<TypedConfigItem | TypedConfigItem[]>[] = []
@@ -110,6 +112,10 @@ export function defineESLintConfig(
 
   if (enableVue) {
     extraFileExtensions.push('.vue')
+  }
+
+  if (enableAstro) {
+    extraFileExtensions.push('.astro')
   }
 
   if (enableGitIgnore) {
@@ -303,6 +309,17 @@ export function defineESLintConfig(
     configs.push(
       configESLintPlugin({
         overrides: getOverrides(options, 'eslintPlugin'),
+      }),
+    )
+  }
+
+  if (enableAstro) {
+    configs.push(
+      configAstro({
+        ...resolveSubOptions(options, 'astro'),
+        typescript: !!enableTypeScript,
+        overrides: getOverrides(options, 'astro'),
+        extraFileExtensions,
       }),
     )
   }

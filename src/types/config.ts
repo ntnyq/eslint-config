@@ -4,6 +4,7 @@
 
 import type {
   ConfigAntfuOptions,
+  ConfigAstroOptions,
   ConfigCommandOptions,
   ConfigDeMorganOptions,
   ConfigDependOptions,
@@ -67,6 +68,7 @@ export interface ConfigOptions {
    * @pg
    */
   antfu?: boolean | ConfigAntfuOptions
+  astro?: boolean | ConfigAstroOptions
   deMorgan?: boolean | ConfigDeMorganOptions
   depend?: boolean | ConfigDependOptions
   eslintPlugin?: boolean | ConfigESLintPluginOptions

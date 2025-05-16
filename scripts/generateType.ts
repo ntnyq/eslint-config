@@ -3,6 +3,7 @@ import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
 import { builtinRules } from 'eslint/use-at-your-own-risk'
 import {
   configAntfu,
+  configAstro,
   configCommand,
   configDeMorgan,
   configDepend,
@@ -52,6 +53,7 @@ const configs = await combineConfigs(
     },
   },
   configAntfu(),
+  configAstro(),
   configCommand(),
   configDeMorgan(),
   configESLintComments(),

@@ -1,7 +1,9 @@
 import { defineESLintConfig } from './src'
 
 export default defineESLintConfig({
+  astro: true,
   eslintPlugin: true,
+  html: true,
   pnpm: true,
   svgo: true,
   test: true,

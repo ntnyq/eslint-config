@@ -237,6 +237,7 @@ export interface ConfigOptions {
   /**
    * Configs bellow are disabled by default
    */
+  astro?: boolean | ConfigAstroOptions
   html?: boolean | ConfigHtmlOptions
   pnpm?: boolean | ConfigPnpmOptions
   svgo?: boolean | ConfigSVGOOptions
