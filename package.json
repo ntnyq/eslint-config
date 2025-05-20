@@ -74,6 +74,12 @@
     "@html-eslint/parser": {
       "optional": true
     },
+    "astro-eslint-parser": {
+      "optional": true
+    },
+    "eslint-plugin-astro": {
+      "optional": true
+    },
     "eslint-plugin-eslint-plugin": {
       "optional": true
     },
