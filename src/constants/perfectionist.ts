@@ -1,7 +1,7 @@
 /**
- * Shared perfectionist rule options for all rules
+ * Shared perfectionist plugin settings
  */
-export const PERFECTIONIST_PLUGIN_SETTINGS = {
+const pluginSettings = {
   fallbackSort: { order: 'asc', type: 'alphabetical' },
   ignoreCase: true,
   order: 'asc',
@@ -13,7 +13,7 @@ export const PERFECTIONIST_PLUGIN_SETTINGS = {
 /**
  * Shared perfectionist rule options for some rules
  */
-export const PERFECTIONIST_EXTRA_RULE_OPTIONS = {
+const partialRuleOptions = {
   newlinesBetween: 'ignore',
   partitionByComment: ['@pg', '@perfectionist-group'] as string[],
 } as const
@@ -23,7 +23,7 @@ export const PERFECTIONIST_EXTRA_RULE_OPTIONS = {
  *
  * @see {@link https://perfectionist.dev/rules/sort-objects}
  */
-export const PERFECTIONIST_SORT_OBJECTS_GROUPS: string[] = [
+const sortObjectsGroups: string[] = [
   'property',
   'multiline-property',
   'method',
@@ -39,7 +39,7 @@ export const PERFECTIONIST_SORT_OBJECTS_GROUPS: string[] = [
  * @see {@link https://perfectionist.dev/rules/sort-interfaces}
  * @see {@link https://perfectionist.dev/rules/sort-object-types}
  */
-export const PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS: string[] = [
+const sortInterfacesOrObjectTypesGroups: string[] = [
   'required-property',
   'optional-property',
   'required-method',
@@ -63,75 +63,74 @@ export const PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS: string[] = [
  * @see {@link https://perfectionist.dev/rules/sort-intersection-types}
  * @see {@link https://perfectionist.dev/rules/sort-union-types}
  */
-export const PERFECTIONIST_SORT_INTERSECTION_TYPES_OR_UNION_TYPES_GROUPS: string[] =
-  [
-    /**
-     * eg. 'foobar', 24, false
-     */
-    'literal',
+const sortIntersectionTypesOrUnionTypesGroups: string[] = [
+  /**
+   * eg. 'foobar', 24, false
+   */
+  'literal',
 
-    /**
-     * eg. number, string
-     */
-    'keyword',
+  /**
+   * eg. number, string
+   */
+  'keyword',
 
-    /**
-     * eg. FooBar
-     */
-    'named',
+  /**
+   * eg. FooBar
+   */
+  'named',
 
-    /**
-     * eg. Foo & Bar
-     */
-    'intersection',
+  /**
+   * eg. Foo & Bar
+   */
+  'intersection',
 
-    /**
-     * eg. Foobar extends string ? Foo : Bar
-     */
-    'conditional',
+  /**
+   * eg. Foobar extends string ? Foo : Bar
+   */
+  'conditional',
 
-    /**
-     * eg. (...args: any[]) => void
-     */
-    'function',
+  /**
+   * eg. (...args: any[]) => void
+   */
+  'function',
 
-    /**
-     * eg. import('eslint').Linter
-     */
-    'import',
+  /**
+   * eg. import('eslint').Linter
+   */
+  'import',
 
-    /**
-     * eg. { foo: string; bar: number; }
-     */
-    'object',
+  /**
+   * eg. { foo: string; bar: number; }
+   */
+  'object',
 
-    /**
-     * eg. keyof T
-     */
-    'operator',
+  /**
+   * eg. keyof T
+   */
+  'operator',
 
-    /**
-     * eg. [string, number]
-     */
-    'tuple',
+  /**
+   * eg. [string, number]
+   */
+  'tuple',
 
-    /**
-     * eg. Foo | Bar
-     */
-    'union',
+  /**
+   * eg. Foo | Bar
+   */
+  'union',
 
-    /**
-     * eg. null | undefined
-     */
-    'nullish',
-  ]
+  /**
+   * eg. null | undefined
+   */
+  'nullish',
+]
 
 /**
  * Shared option `groups` for rule `sort-imports`
  *
  * @see {@link https://perfectionist.dev/rules/sort-imports}
  */
-export const PERFECTIONIST_SORT_IMPORTS_GROUPS: string[] = [
+const sortImportsTypes: string[] = [
   // Side effect style imports (e.g. 'normalize.css')
   'side-effect-style',
 
@@ -187,18 +186,14 @@ export const PERFECTIONIST_SORT_IMPORTS_GROUPS: string[] = [
  *
  * @see {@link https://perfectionist.dev/rules/sort-exports}
  */
-export const PERFECTIONIST_SORT_EXPORTS_GROUPS: string[] = [
-  'value-export',
-  'type-export',
-  'unknown',
-]
+const sortExportsGroups: string[] = ['value-export', 'type-export', 'unknown']
 
 /**
  * Shared option `groups` for rule `sort-named-exports`
  *
  * @see {@link https://perfectionist.dev/rules/sort-named-exports}
  */
-export const PERFECTIONIST_SORT_NAMED_EXPORTS_GROUPS: string[] = [
+const sortNamedExportsGroups: string[] = [
   'value-export',
   'type-export',
   'unknown',
@@ -209,7 +204,7 @@ export const PERFECTIONIST_SORT_NAMED_EXPORTS_GROUPS: string[] = [
  *
  * @see {@link https://perfectionist.dev/rules/sort-named-imports}
  */
-export const PERFECTIONIST_SORT_NAMED_IMPORTS_GROUPS: string[] = [
+const sortNamedImportsGroups: string[] = [
   'value-import',
   'type-import',
   'unknown',
@@ -222,4 +217,20 @@ export const PERFECTIONIST_SORT_NAMED_IMPORTS_GROUPS: string[] = [
  *
  * @see {@link https://perfectionist.dev/rules/sort-classes}
  */
-export const PERFECTIONIST_SORT_CLASSES_GROUPS: string[] = ['unknown']
+const sortClassesGroups: string[] = ['unknown']
+
+/**
+ * Shared constants about eslint-plugin-perfectionist
+ */
+export const PERFECTIONIST = Object.freeze({
+  partialRuleOptions,
+  pluginSettings,
+  sortClassesGroups,
+  sortExportsGroups,
+  sortImportsTypes,
+  sortInterfacesOrObjectTypesGroups,
+  sortIntersectionTypesOrUnionTypesGroups,
+  sortNamedExportsGroups,
+  sortNamedImportsGroups,
+  sortObjectsGroups,
+})

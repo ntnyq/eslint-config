@@ -1,10 +1,4 @@
-import {
-  defineESLintConfig,
-  PERFECTIONIST_EXTRA_RULE_OPTIONS,
-  PERFECTIONIST_PLUGIN_SETTINGS,
-  PERFECTIONIST_SORT_OBJECTS_GROUPS,
-  pluginPerfectionist,
-} from './src'
+import { defineESLintConfig, PERFECTIONIST, pluginPerfectionist } from './src'
 
 interface CustomGroupDefinition {
   groupName: string
@@ -63,7 +57,7 @@ export default defineESLintConfig(
       'perfectionist/sort-objects': [
         'error',
         {
-          ...PERFECTIONIST_EXTRA_RULE_OPTIONS,
+          ...PERFECTIONIST.partialRuleOptions,
           customGroups: [
             ...ESLINT_CONFIG_GROUP,
             {
@@ -97,13 +91,13 @@ export default defineESLintConfig(
             { newlinesBetween: 'always' },
             'rule-severity-error',
             { newlinesBetween: 'always' },
-            ...PERFECTIONIST_SORT_OBJECTS_GROUPS,
+            ...PERFECTIONIST.sortObjectsGroups,
           ],
         },
       ],
     },
     settings: {
-      perfectionist: PERFECTIONIST_PLUGIN_SETTINGS,
+      perfectionist: PERFECTIONIST.pluginSettings,
     },
   },
 )

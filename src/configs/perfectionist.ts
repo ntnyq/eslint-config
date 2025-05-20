@@ -1,15 +1,4 @@
-import {
-  PERFECTIONIST_EXTRA_RULE_OPTIONS,
-  PERFECTIONIST_PLUGIN_SETTINGS,
-  PERFECTIONIST_SORT_CLASSES_GROUPS,
-  PERFECTIONIST_SORT_EXPORTS_GROUPS,
-  PERFECTIONIST_SORT_IMPORTS_GROUPS,
-  PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS,
-  PERFECTIONIST_SORT_INTERSECTION_TYPES_OR_UNION_TYPES_GROUPS,
-  PERFECTIONIST_SORT_NAMED_EXPORTS_GROUPS,
-  PERFECTIONIST_SORT_NAMED_IMPORTS_GROUPS,
-  PERFECTIONIST_SORT_OBJECTS_GROUPS,
-} from '../constants'
+import { PERFECTIONIST } from '../constants'
 import { pluginPerfectionist } from '../eslint'
 import { GLOB_SRC, GLOB_SRC_EXT, GLOB_TYPES } from '../globs'
 import type { OptionsOverrides, TypedConfigItem } from '../types'
@@ -97,7 +86,7 @@ export const configPerfectionist = (
   options: ConfigPerfectionistOptions = {},
 ): TypedConfigItem[] => {
   const {
-    partitionByComment = PERFECTIONIST_EXTRA_RULE_OPTIONS.partitionByComment,
+    partitionByComment = PERFECTIONIST.partialRuleOptions.partitionByComment,
     sortConstants: enableSortConstants = true,
     sortEnums: enableSortEnums = true,
     sortTypes: enableSortTypes = true,
@@ -113,7 +102,7 @@ export const configPerfectionist = (
       'error',
       {
         ...sharedOptionsWithNewlinesBetween,
-        groups: PERFECTIONIST_SORT_EXPORTS_GROUPS,
+        groups: PERFECTIONIST.sortExportsGroups,
         type: 'line-length',
       },
     ],
@@ -121,7 +110,7 @@ export const configPerfectionist = (
       'error',
       {
         ...sharedOptionsWithNewlinesBetween,
-        groups: PERFECTIONIST_SORT_IMPORTS_GROUPS,
+        groups: PERFECTIONIST.sortImportsTypes,
         internalPattern: ['^~/.+', '^@/.+', '^#.+'],
       },
     ],
@@ -129,7 +118,7 @@ export const configPerfectionist = (
       'error',
       {
         ...sharedOptionsWithNewlinesBetween,
-        groups: PERFECTIONIST_SORT_NAMED_EXPORTS_GROUPS,
+        groups: PERFECTIONIST.sortNamedExportsGroups,
         ignoreAlias: false,
       },
     ],
@@ -137,7 +126,7 @@ export const configPerfectionist = (
       'error',
       {
         ...sharedOptionsWithNewlinesBetween,
-        groups: PERFECTIONIST_SORT_NAMED_IMPORTS_GROUPS,
+        groups: PERFECTIONIST.sortNamedImportsGroups,
         ignoreAlias: false,
       },
     ],
@@ -164,28 +153,28 @@ export const configPerfectionist = (
       'error',
       {
         ...sharedOptionsWithNewlinesBetween,
-        groups: PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS,
+        groups: PERFECTIONIST.sortInterfacesOrObjectTypesGroups,
       },
     ],
     'perfectionist/sort-intersection-types': [
       'error',
       {
         ...sharedOptionsWithNewlinesBetween,
-        groups: PERFECTIONIST_SORT_INTERSECTION_TYPES_OR_UNION_TYPES_GROUPS,
+        groups: PERFECTIONIST.sortIntersectionTypesOrUnionTypesGroups,
       },
     ],
     'perfectionist/sort-object-types': [
       'error',
       {
         ...sharedOptionsWithNewlinesBetween,
-        groups: PERFECTIONIST_SORT_INTERFACES_OR_OBJECT_TYPES_GROUPS,
+        groups: PERFECTIONIST.sortInterfacesOrObjectTypesGroups,
       },
     ],
     'perfectionist/sort-union-types': [
       'error',
       {
         ...sharedOptionsWithNewlinesBetween,
-        groups: PERFECTIONIST_SORT_INTERSECTION_TYPES_OR_UNION_TYPES_GROUPS,
+        groups: PERFECTIONIST.sortIntersectionTypesOrUnionTypesGroups,
       },
     ],
   }
@@ -200,7 +189,7 @@ export const configPerfectionist = (
       'error',
       {
         ...sharedOptionsWithNewlinesBetween,
-        groups: PERFECTIONIST_SORT_OBJECTS_GROUPS,
+        groups: PERFECTIONIST.sortObjectsGroups,
       },
     ],
     'perfectionist/sort-sets': [
@@ -222,7 +211,7 @@ export const configPerfectionist = (
       'error',
       {
         ...sharedOptionsWithNewlinesBetween,
-        groups: PERFECTIONIST_SORT_CLASSES_GROUPS,
+        groups: PERFECTIONIST.sortClassesGroups,
       },
     ],
     'perfectionist/sort-decorators': [
@@ -255,7 +244,7 @@ export const configPerfectionist = (
         perfectionist: pluginPerfectionist,
       },
       settings: {
-        perfectionist: PERFECTIONIST_PLUGIN_SETTINGS,
+        perfectionist: PERFECTIONIST.pluginSettings,
       },
       rules: {
         ...commonRules,
@@ -289,7 +278,7 @@ export const configPerfectionist = (
         perfectionist: pluginPerfectionist,
       },
       settings: {
-        perfectionist: PERFECTIONIST_PLUGIN_SETTINGS,
+        perfectionist: PERFECTIONIST.pluginSettings,
       },
       rules: {
         ...sharedRules,
@@ -310,7 +299,7 @@ export const configPerfectionist = (
         perfectionist: pluginPerfectionist,
       },
       settings: {
-        perfectionist: PERFECTIONIST_PLUGIN_SETTINGS,
+        perfectionist: PERFECTIONIST.pluginSettings,
       },
       rules: {
         ...sharedRules,
@@ -331,7 +320,7 @@ export const configPerfectionist = (
         perfectionist: pluginPerfectionist,
       },
       settings: {
-        perfectionist: PERFECTIONIST_PLUGIN_SETTINGS,
+        perfectionist: PERFECTIONIST.pluginSettings,
       },
       rules: {
         ...sharedRules,

@@ -1,9 +1,5 @@
 import globals from 'globals'
-import {
-  PERFECTIONIST_EXTRA_RULE_OPTIONS,
-  PERFECTIONIST_PLUGIN_SETTINGS,
-  PERFECTIONIST_SORT_OBJECTS_GROUPS,
-} from '../constants'
+import { PERFECTIONIST } from '../constants'
 import { pluginImportX, pluginPerfectionist } from '../eslint'
 import { GLOB_SRC, GLOB_SRC_EXT } from '../globs'
 import { hasShadcnVue, resolveSubOptions } from '../utils'
@@ -131,7 +127,7 @@ export const configSpecials = (
         perfectionist: pluginPerfectionist,
       },
       settings: {
-        perfectionist: PERFECTIONIST_PLUGIN_SETTINGS,
+        perfectionist: PERFECTIONIST.pluginSettings,
       },
       rules: {
         '@typescript-eslint/explicit-function-return-type': 'off',
@@ -141,8 +137,8 @@ export const configSpecials = (
         'perfectionist/sort-objects': [
           'error',
           {
-            ...PERFECTIONIST_EXTRA_RULE_OPTIONS,
-            groups: PERFECTIONIST_SORT_OBJECTS_GROUPS,
+            ...PERFECTIONIST.partialRuleOptions,
+            groups: PERFECTIONIST.sortObjectsGroups,
           },
         ],
 
