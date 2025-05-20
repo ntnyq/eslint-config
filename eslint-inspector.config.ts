@@ -5,6 +5,7 @@ export default defineESLintConfig({
   eslintPlugin: true,
   html: true,
   pnpm: true,
+  svelte: true,
   svgo: true,
   test: true,
   unocss: true,

@@ -30,6 +30,7 @@ import {
   configRegexp,
   configSort,
   configSpecials,
+  configSvelte,
   configSVGO,
   configTest,
   configToml,
@@ -105,6 +106,7 @@ export function defineESLintConfig(
     svgo: enableSVGO = false,
     html: enableHTML = false,
     astro: enableAstro = false,
+    svelte: enableSvelte = false,
     eslintPlugin: enableESLintPlugin = false,
   } = options
   const configs: Awaitable<TypedConfigItem | TypedConfigItem[]>[] = []
@@ -116,6 +118,10 @@ export function defineESLintConfig(
 
   if (enableAstro) {
     extraFileExtensions.push('.astro')
+  }
+
+  if (enableSvelte) {
+    extraFileExtensions.push('.svelte')
   }
 
   if (enableGitIgnore) {
@@ -241,6 +247,28 @@ export function defineESLintConfig(
     )
   }
 
+  if (enableAstro) {
+    configs.push(
+      configAstro({
+        ...resolveSubOptions(options, 'astro'),
+        typescript: !!enableTypeScript,
+        overrides: getOverrides(options, 'astro'),
+        extraFileExtensions,
+      }),
+    )
+  }
+
+  if (enableSvelte) {
+    configs.push(
+      configSvelte({
+        ...resolveSubOptions(options, 'svelte'),
+        typescript: !!enableTypeScript,
+        overrides: getOverrides(options, 'svelte'),
+        extraFileExtensions,
+      }),
+    )
+  }
+
   if (enableSort) {
     configs.push(configSort(resolveSubOptions(options, 'sort')))
   }
@@ -309,17 +337,6 @@ export function defineESLintConfig(
     configs.push(
       configESLintPlugin({
         overrides: getOverrides(options, 'eslintPlugin'),
-      }),
-    )
-  }
-
-  if (enableAstro) {
-    configs.push(
-      configAstro({
-        ...resolveSubOptions(options, 'astro'),
-        typescript: !!enableTypeScript,
-        overrides: getOverrides(options, 'astro'),
-        extraFileExtensions,
       }),
     )
   }

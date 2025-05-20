@@ -29,6 +29,7 @@ import type {
   ConfigRegexpOptions,
   ConfigSortOptions,
   ConfigSpecialsOptions,
+  ConfigSvelteOptions,
   ConfigSVGOOptions,
   ConfigTestOptions,
   ConfigTomlOptions,
@@ -84,6 +85,7 @@ export interface ConfigOptions {
   prettier?: boolean | ConfigPrettierOptions
   regexp?: boolean | ConfigRegexpOptions
   sort?: boolean | ConfigSortOptions
+  svelte?: boolean | ConfigSvelteOptions
   svgo?: boolean | ConfigSVGOOptions
   test?: boolean | ConfigTestOptions
   toml?: boolean | ConfigTomlOptions
