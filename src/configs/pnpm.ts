@@ -1,5 +1,6 @@
-import { parserJsonc, parserYaml, pluginPnpm } from '../eslint'
+import { parserJsonc, parserYaml } from '../eslint'
 import { GLOB_PACKAGE_JSON, GLOB_PNPM_WORKSPACE_YAML } from '../globs'
+import { ensurePackages, interopDefault } from '../utils'
 import type { TypedConfigItem } from '../types'
 
 /**
@@ -20,9 +21,13 @@ export type ConfigPnpmOptions = {
  * @param options - {@link ConfigPnpmOptions}
  * @returns ESLint configs
  */
-export const configPnpm = (
+export const configPnpm = async (
   options: ConfigPnpmOptions = {},
-): TypedConfigItem[] => {
+): Promise<TypedConfigItem[]> => {
+  await ensurePackages(['eslint-plugin-pnpm'])
+
+  const pluginPnpm = await interopDefault(import('eslint-plugin-pnpm'))
+
   const {
     filesJson = [GLOB_PACKAGE_JSON],
     filesYaml = [GLOB_PNPM_WORKSPACE_YAML],
