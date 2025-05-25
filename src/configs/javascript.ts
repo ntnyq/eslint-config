@@ -88,7 +88,7 @@ export const configJavaScript = (
         },
       ],
       'constructor-super': 'error',
-      curly: ['error', 'multi-line'],
+      curly: ['error', 'all'],
       'default-case-last': 'error',
       'dot-notation': ['error', { allowKeywords: true }],
       // best-practice

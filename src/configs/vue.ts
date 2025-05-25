@@ -262,7 +262,9 @@ export const configVue = (
   function getVueProcessor(): ESLintProcessor {
     const processorVueSFC = pluginVue.processors['.vue'] as ESLintProcessor
 
-    if (!sfcBlocks) return processorVueSFC
+    if (!sfcBlocks) {
+      return processorVueSFC
+    }
 
     return mergeProcessors([
       processorVueSFC,
