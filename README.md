@@ -49,9 +49,30 @@ Highly recommended using **`eslint.config.mjs`** as the config file :
 
 import { defineESLintConfig } from '@ntnyq/eslint-config'
 
-export default defineESLintConfig({
+export default defineESLintConfig(
   // Options here
-})
+  {
+    // Enable a config
+    svgo: true,
+    // Disable a config
+    jsdoc: false,
+    vue: {
+      // Overrides built-in rules
+      overrides: {
+        'vue/slot-name-casing': 'off',
+      },
+    },
+  },
+  // Optional user configs here
+  [
+    {
+      files: ['**/utils/*.ts'],
+      rules: {
+        'antfu/top-level-function': 'error',
+      },
+    },
+  ],
+)
 ```
 
 Add scripts `lint` in `package.json`:
@@ -94,11 +115,9 @@ bun add prettier @ntnyq/prettier-config -D
 // prettier.config.mjs
 // @ts-check
 
-import { config, defineConfig } from '@ntnyq/prettier-config'
+import { defineConfig } from '@ntnyq/prettier-config'
 
 export default defineConfig({
-  ...config,
-
   // overrides if needed
   overrides: [
     {
