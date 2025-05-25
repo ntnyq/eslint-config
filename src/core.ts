@@ -98,6 +98,9 @@ export function defineESLintConfig(
     prettier: enablePrettier = true,
     markdown: enableMarkdown = true,
     gitignore: enableGitIgnore = true,
+    jsdoc: enableJsdoc = true,
+    importX: enableImportX = true,
+    specials: enableSpecials = true,
     githubAction: enableGitHubAction = true,
     perfectionist: enablePerfectionist = true,
 
@@ -135,16 +138,6 @@ export function defineESLintConfig(
       overrides: getOverrides(options, 'node'),
     }),
     configCommand(resolveSubOptions(options, 'command')),
-    configImportX({
-      ...resolveSubOptions(options, 'importX'),
-      typescript: !!enableTypeScript,
-      overrides: getOverrides(options, 'importX'),
-    }),
-    configJsdoc({
-      typescript: !!enableTypeScript,
-      overrides: getOverrides(options, 'jsdoc'),
-      ...resolveSubOptions(options, 'jsdoc'),
-    }),
     configESLintComments({
       overrides: getOverrides(options, 'eslintComments'),
     }),
@@ -153,6 +146,22 @@ export function defineESLintConfig(
       overrides: getOverrides(options, 'javascript'),
     }),
   )
+
+  if (enableImportX) {
+    configImportX({
+      typescript: !!enableTypeScript,
+      ...resolveSubOptions(options, 'importX'),
+      overrides: getOverrides(options, 'importX'),
+    })
+  }
+
+  if (enableJsdoc) {
+    configJsdoc({
+      typescript: !!enableTypeScript,
+      overrides: getOverrides(options, 'jsdoc'),
+      ...resolveSubOptions(options, 'jsdoc'),
+    })
+  }
 
   if (enablePerfectionist) {
     configs.push(
@@ -358,9 +367,9 @@ export function defineESLintConfig(
     )
   }
 
-  const specialsConfigs: TypedConfigItem[] = configSpecials(
-    resolveSubOptions(options, 'specials'),
-  )
+  if (enableSpecials) {
+    configs.push(configSpecials(resolveSubOptions(options, 'specials')))
+  }
 
   const prettierConfigs: TypedConfigItem[] = enablePrettier
     ? configPrettier({
@@ -377,7 +386,6 @@ export function defineESLintConfig(
       ...userConfigs,
 
       // Keep prettier and specials at last
-      ...specialsConfigs,
       ...prettierConfigs,
     )
 

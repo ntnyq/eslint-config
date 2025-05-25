@@ -58,11 +58,8 @@ export interface ConfigOptions {
   command?: ConfigCommandOptions
   eslintComments?: ConfigESLintCommentsOptions
   ignores?: ConfigIgnoresOptions
-  importX?: ConfigImportXOptions
   javascript?: ConfigJavaScriptOptions
-  jsdoc?: ConfigJsdocOptions
   node?: ConfigNodeOptions
-  specials?: ConfigSpecialsOptions
 
   /**
    * Configs bellow can be disabled
@@ -76,6 +73,8 @@ export interface ConfigOptions {
   githubAction?: boolean | ConfigGitHubActionOptions
   gitignore?: boolean | ConfigGitIgnoreOptions
   html?: boolean | ConfigHtmlOptions
+  importX?: boolean | ConfigImportXOptions
+  jsdoc?: boolean | ConfigJsdocOptions
   jsonc?: boolean | ConfigJsoncOptions
   markdown?: boolean | ConfigMarkdownOptions
   ntnyq?: boolean | ConfigNtnyqOptions
@@ -85,6 +84,7 @@ export interface ConfigOptions {
   prettier?: boolean | ConfigPrettierOptions
   regexp?: boolean | ConfigRegexpOptions
   sort?: boolean | ConfigSortOptions
+  specials?: boolean | ConfigSpecialsOptions
   svelte?: boolean | ConfigSvelteOptions
   svgo?: boolean | ConfigSVGOOptions
   test?: boolean | ConfigTestOptions

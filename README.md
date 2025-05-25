@@ -223,11 +223,8 @@ export interface ConfigOptions {
   command?: ConfigCommandOptions
   eslintComments?: ConfigESLintCommentsOptions
   ignores?: ConfigIgnoresOptions
-  importX?: ConfigImportXOptions
   javascript?: ConfigJavaScriptOptions
-  jsdoc?: ConfigJsdocOptions
   node?: ConfigNodeOptions
-  specials?: ConfigSpecialsOptions
 
   /**
    * Configs bellow can be disabled
@@ -237,6 +234,8 @@ export interface ConfigOptions {
   depend?: boolean | ConfigDependOptions
   githubAction?: boolean | ConfigGitHubActionOptions
   gitignore?: boolean | ConfigGitIgnoreOptions
+  importX?: boolean | ConfigImportXOptions
+  jsdoc?: boolean | ConfigJsdocOptions
   jsonc?: boolean | ConfigJsoncOptions
   markdown?: boolean | ConfigMarkdownOptions
   ntnyq?: boolean | ConfigNtnyqOptions
@@ -245,6 +244,7 @@ export interface ConfigOptions {
   prettier?: boolean | ConfigPrettierOptions
   regexp?: boolean | ConfigRegexpOptions
   sort?: boolean | ConfigSortOptions
+  specials?: boolean | ConfigSpecialsOptions
   test?: boolean | ConfigTestOptions
   toml?: boolean | ConfigTomlOptions
   typescript?: boolean | ConfigTypeScriptOptions
