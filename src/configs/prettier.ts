@@ -93,9 +93,13 @@ export const configPrettier = (
         'vue/space-infix-ops': 'off',
         'vue/space-unary-ops': 'off',
         'vue/template-curly-spacing': 'off',
-        ...(pluginPrettier.configs!.recommended as TypedConfigItem).rules,
+        /**
+         * @pg
+         * @see {@link https://github.com/prettier/eslint-plugin-prettier/blob/cd48a275f130e515f23cebdf7c6cb588b041cd64/eslint-plugin-prettier.js#L101-L103}
+         */
+        'arrow-body-style': 'off',
+        'prefer-arrow-callback': 'off',
         'prettier/prettier': options.severity || 'warn',
-
         // Overrides rules
         ...options.overrides,
       },
