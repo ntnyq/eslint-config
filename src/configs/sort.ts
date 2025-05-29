@@ -451,6 +451,7 @@ export const configSort = (
     configs.push({
       name: 'ntnyq/sort/json-schema',
       files: [...GLOB_JSON_SCHEMA],
+      ignores: [GLOB_PACKAGE_JSON],
       rules: {
         'jsonc/sort-array-values': [
           'error',
@@ -471,13 +472,13 @@ export const configSort = (
               '$ref',
               'title',
               'description',
+              'version',
               'type',
 
               'definitions',
               'properties',
               'required',
               'additionalProperties',
-
               // Unknown fields
               {
                 order: {
