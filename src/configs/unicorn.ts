@@ -69,7 +69,6 @@ export const configUnicorn = (
         'error',
         {
           name: 'err',
-
           ignore: ['^_.'],
         },
       ],

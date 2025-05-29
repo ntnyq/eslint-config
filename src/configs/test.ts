@@ -52,7 +52,6 @@ export const configTest = (
       rules: {
         'max-lines-per-function': 'off',
         'no-unused-expressions': 'off',
-
         'no-only-tests/no-only-tests': 'error',
 
         // Overrides rules

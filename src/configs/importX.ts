@@ -68,7 +68,6 @@ export const configImportX = (
         'import-x/no-unresolved': 'off',
         // disabled in favor or `perfectionist/sort-imports`
         'import-x/order': 'off',
-
         'import-x/consistent-type-specifier-style': [
           'error',
           'prefer-top-level',

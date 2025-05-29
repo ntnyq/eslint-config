@@ -93,7 +93,6 @@ export const configPrettier = (
         'vue/space-infix-ops': 'off',
         'vue/space-unary-ops': 'off',
         'vue/template-curly-spacing': 'off',
-
         ...(pluginPrettier.configs!.recommended as TypedConfigItem).rules,
         'prettier/prettier': options.severity || 'warn',
 

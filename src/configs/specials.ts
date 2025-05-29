@@ -133,7 +133,6 @@ export const configSpecials = (
         '@typescript-eslint/explicit-function-return-type': 'off',
         'import-x/no-default-export': 'off',
         'no-console': 'off',
-
         'perfectionist/sort-objects': [
           'error',
           {

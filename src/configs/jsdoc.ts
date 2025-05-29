@@ -16,7 +16,6 @@ export type ConfigJsdocOptions = Pick<OptionsShareable, 'typescript'>
  */
 const javscriptRules: TypedConfigItem['rules'] = {
   'jsdoc/no-types': 'off',
-
   'jsdoc/no-undefined-types': 'error',
   'jsdoc/require-param-type': 'error',
   'jsdoc/require-property-type': 'error',
@@ -31,7 +30,6 @@ const typescriptRules: TypedConfigItem['rules'] = {
   'jsdoc/require-param-type': 'off',
   'jsdoc/require-property-type': 'off',
   'jsdoc/require-returns-type': 'off',
-
   'jsdoc/no-types': 'error',
 }
 
@@ -55,7 +53,6 @@ export const configJsdoc = (
       // Disabled rules
       'jsdoc/tag-lines': 'off', // Use `jsdoc/sort-tags`
       'jsdoc/text-escaping': 'off', // No need
-
       'jsdoc/check-access': 'warn',
       'jsdoc/implements-on-classes': 'warn',
       'jsdoc/require-param-name': 'warn',
@@ -65,7 +62,6 @@ export const configJsdoc = (
       'jsdoc/require-returns-check': 'warn',
       'jsdoc/require-returns-description': 'warn',
       'jsdoc/require-yields-check': 'warn',
-
       'jsdoc/check-alignment': 'error',
       'jsdoc/check-line-alignment': 'error',
       'jsdoc/check-param-names': 'error',

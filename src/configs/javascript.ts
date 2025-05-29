@@ -71,7 +71,6 @@ export const configJavaScript = (
       'require-await': 'off',
       // disabled in favor of `perfectionist/sort-named-imports`
       'sort-imports': 'off',
-
       // standard v17.0.0
       'accessor-pairs': [
         'error',

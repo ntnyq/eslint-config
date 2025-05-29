@@ -58,7 +58,6 @@ export const configSvelte = async (
         'import-x/no-mutable-exports': 'off',
         // incompatible with most recent (attribute-form) generic types RFC
         'no-undef': 'off',
-
         'no-unused-vars': [
           'error',
           {

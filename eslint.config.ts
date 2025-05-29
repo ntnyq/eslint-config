@@ -35,6 +35,7 @@ const ESLINT_CONFIG_GROUP: CustomGroupDefinition[] = [
   elementNamePattern: `^${key}$`,
   groupName: `config-${key}`,
 }))
+const ESLINT_RULE_SEVERITY = ['off', 'warn', 'error']
 
 export default defineESLintConfig(
   {
@@ -60,37 +61,19 @@ export default defineESLintConfig(
           ...PERFECTIONIST.partialRuleOptions,
           customGroups: [
             ...ESLINT_CONFIG_GROUP,
-            {
-              elementValuePattern: 'off',
-              groupName: 'rule-severity-off',
+            ...ESLINT_RULE_SEVERITY.map<CustomGroupDefinition>(severity => ({
+              elementValuePattern: severity,
+              groupName: `rule-severity-${severity}`,
               newlinesInside: 'never',
               order: 'asc',
               type: 'alphabetical',
-            },
-            {
-              elementValuePattern: 'warn',
-              groupName: 'rule-severity-warn',
-              newlinesInside: 'never',
-              order: 'asc',
-              type: 'alphabetical',
-            },
-            {
-              elementValuePattern: 'error',
-              groupName: 'rule-severity-error',
-              newlinesInside: 'never',
-              order: 'asc',
-              type: 'alphabetical',
-            },
+            })),
           ],
           groups: [
-            ...ESLINT_CONFIG_GROUP.map(v => v.groupName),
-            { newlinesBetween: 'always' },
-            'rule-severity-off',
-            { newlinesBetween: 'always' },
-            'rule-severity-warn',
-            { newlinesBetween: 'always' },
-            'rule-severity-error',
-            { newlinesBetween: 'always' },
+            ...ESLINT_CONFIG_GROUP.map(group => group.groupName),
+            ...ESLINT_RULE_SEVERITY.map(
+              severity => `rule-severity-${severity}`,
+            ),
             ...PERFECTIONIST.sortObjectsGroups,
           ],
         },

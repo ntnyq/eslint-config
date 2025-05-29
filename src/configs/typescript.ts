@@ -71,7 +71,6 @@ const typeAwareRules: TypedConfigItem['rules'] = {
   'no-implied-eval': 'off',
   'no-throw-literal': 'off',
   'require-await': 'off',
-
   '@typescript-eslint/await-thenable': 'error',
   '@typescript-eslint/dot-notation': ['error', { allowKeywords: true }],
   '@typescript-eslint/no-duplicate-type-constituents': 'error',
@@ -209,9 +208,7 @@ export const configTypeScript = (
         'no-unused-vars': 'off',
         'no-use-before-define': 'off',
         'no-useless-constructor': 'off',
-
         '@typescript-eslint/prefer-as-const': 'warn',
-
         '@typescript-eslint/ban-ts-comment': [
           'error',
           {

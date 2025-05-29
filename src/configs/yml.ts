@@ -47,7 +47,6 @@ export const configYml = (
       },
       rules: {
         'yml/no-empty-mapping-value': 'off',
-
         'yml/block-mapping': 'error',
         'yml/block-mapping-question-indicator-newline': 'error',
         'yml/block-sequence': 'error',
