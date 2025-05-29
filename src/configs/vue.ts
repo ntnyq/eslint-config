@@ -151,6 +151,12 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
     },
   ],
   'vue/define-props-declaration': ['error', 'type-based'],
+  'vue/define-props-destructuring': [
+    'error',
+    {
+      destructure: 'never',
+    },
+  ],
   'vue/enforce-style-attribute': [
     'error',
     {
@@ -251,11 +257,7 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
 export const configVue = (
   options: ConfigVueOptions = {},
 ): TypedConfigItem[] => {
-  const {
-    files = [GLOB_VUE],
-
-    extraFileExtensions = [],
-  } = options
+  const { files = [GLOB_VUE], extraFileExtensions = [] } = options
   const sfcBlocks: false | VueBlocksOptions =
     options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {})
 
