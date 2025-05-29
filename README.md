@@ -7,6 +7,9 @@
 [![NPM DOWNLOADS](https://img.shields.io/npm/dy/@ntnyq/eslint-config)](https://www.npmjs.com/package/@ntnyq/eslint-config)
 [![LICENSE](https://img.shields.io/github/license/ntnyq/eslint-config.svg)](https://github.com/ntnyq/eslint-config/blob/main/LICENSE)
 
+> [!IMPORTANT]
+> Feel free to create and maintain your own fork if you think this is too much opinionated.
+
 ## Requirement
 
 - NodeJS v20.11.0+
@@ -93,6 +96,8 @@ Add scripts `lint` in `package.json`:
 
 ## Prettier config
 
+> Feel free to use your own prettier config.
+
 Install `prettier` and setup your prettier config:
 
 ```shell
@@ -118,7 +123,9 @@ bun add prettier @ntnyq/prettier-config -D
 import { defineConfig } from '@ntnyq/prettier-config'
 
 export default defineConfig({
-  // overrides if needed
+  // Custom options if needed
+  printWidth: 100,
+  trailingComma: 'none',
   overrides: [
     {
       files: ['**/*.html'],
