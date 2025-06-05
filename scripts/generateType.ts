@@ -98,13 +98,15 @@ const dts = await flatConfigsToRulesDTS(configs, {
   includeAugmentation: false,
 })
 
-await writeFile(
-  'src/types/typegen.d.ts',
-  [
-    '// cSpell: disable',
-    dts,
-    `// Names of all the configs
+export async function generateTypes() {
+  await writeFile(
+    'src/types/typegen.d.ts',
+    [
+      '// cSpell: disable',
+      dts,
+      `// Names of all the configs
 export type ConfigNames = ${configNames.map(i => `'${i}'`).join(' | ')}
 `,
-  ].join('\n'),
-)
+    ].join('\n'),
+  )
+}

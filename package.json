@@ -37,14 +37,12 @@
     "tag": "next"
   },
   "scripts": {
-    "build": "run-s generate:types build:lib",
-    "build:inspector": "pnpm dlx @eslint/config-inspector build --config eslint-inspector.config.ts",
-    "build:lib": "tsdown",
+    "build": "tsdown",
     "dev": "tsdown --watch",
     "docs:build": "pnpm -C docs run build",
     "docs:dev": "pnpm -C docs run dev",
-    "generate:site": "run-s generate:types build:lib build:inspector",
-    "generate:types": "tsx scripts/generateType.ts",
+    "inspector:build": "run-s build inspector:generate",
+    "inspector:generate": "pnpm dlx @eslint/config-inspector build --config eslint-inspector.config.ts",
     "lint": "eslint --cache",
     "prepare": "husky",
     "release": "run-s release:check release:version release:publish",
@@ -150,6 +148,7 @@
     "@ntnyq/prettier-config": "^2.2.0",
     "@types/node": "^22.15.29",
     "bumpp": "^10.1.1",
+    "consola": "^3.4.2",
     "eslint": "^9.28.0",
     "eslint-plugin-eslint-plugin": "^6.4.0",
     "eslint-typegen": "^2.2.0",
@@ -159,7 +158,6 @@
     "npm-run-all2": "^8.0.4",
     "tinyglobby": "^0.2.14",
     "tsdown": "^0.12.6",
-    "tsx": "^4.19.4",
     "typescript": "^5.8.3",
     "uncase": "^0.1.0",
     "vitest": "^3.2.1"
