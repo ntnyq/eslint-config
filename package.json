@@ -2,7 +2,7 @@
   "name": "@ntnyq/eslint-config",
   "type": "module",
   "version": "5.0.0-beta.5",
-  "packageManager": "pnpm@10.11.0",
+  "packageManager": "pnpm@10.11.1",
   "description": "An opinionated ESLint config preset of ntnyq",
   "keywords": [
     "eslint",
@@ -122,15 +122,15 @@
     "eslint-plugin-depend": "^1.2.0",
     "eslint-plugin-github-action": "^0.0.16",
     "eslint-plugin-import-x": "^4.15.0",
-    "eslint-plugin-jsdoc": "^50.6.17",
+    "eslint-plugin-jsdoc": "^50.7.1",
     "eslint-plugin-jsonc": "^2.20.1",
-    "eslint-plugin-n": "^17.18.0",
+    "eslint-plugin-n": "^17.19.0",
     "eslint-plugin-no-only-tests": "^3.3.0",
     "eslint-plugin-ntnyq": "^0.11.0",
-    "eslint-plugin-perfectionist": "^4.13.0",
+    "eslint-plugin-perfectionist": "^4.14.0",
     "eslint-plugin-pinia": "^0.4.1",
     "eslint-plugin-prettier": "^5.4.1",
-    "eslint-plugin-regexp": "^2.7.0",
+    "eslint-plugin-regexp": "^2.8.0",
     "eslint-plugin-svgo": "^0.8.0",
     "eslint-plugin-toml": "^0.12.0",
     "eslint-plugin-unicorn": "^59.0.1",
@@ -142,7 +142,7 @@
     "local-pkg": "^1.1.1",
     "prettier": "^3.5.3",
     "toml-eslint-parser": "^0.10.0",
-    "typescript-eslint": "^8.33.0",
+    "typescript-eslint": "^8.33.1",
     "vue-eslint-parser": "^10.1.3",
     "yaml-eslint-parser": "^1.3.0"
   },
@@ -158,11 +158,11 @@
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^8.0.4",
     "tinyglobby": "^0.2.14",
-    "tsdown": "^0.12.5",
+    "tsdown": "^0.12.6",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3",
     "uncase": "^0.1.0",
-    "vitest": "^3.1.4"
+    "vitest": "^3.2.1"
   },
   "engines": {
     "node": ">=20.11.0"
