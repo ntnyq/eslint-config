@@ -40,7 +40,6 @@ export const configMarkdown = (
      * code block files
      */
     files = [GLOB_MARKDOWN_CODE],
-
     extraFileExtensions = [],
   } = options
 
@@ -114,7 +113,7 @@ export const configMarkdown = (
         'unused-imports/no-unused-vars': 'off',
 
         // disable all type-aware rules of @typescript-eslint
-        ...(configsTypeScript.disableTypeChecked as TypedConfigItem).rules,
+        ...configsTypeScript.disableTypeChecked.rules,
 
         // Overrides rules
         ...options.overrides,

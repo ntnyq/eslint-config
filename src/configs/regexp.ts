@@ -33,9 +33,7 @@ export type ConfigRegexpOptions = OptionsOverrides & {
 export const configRegexp = (
   options: ConfigRegexpOptions = {},
 ): TypedConfigItem[] => {
-  const recommendedConfig = pluginRegexp.configs[
-    'flat/recommended'
-  ] as TypedConfigItem
+  const recommendedConfig = pluginRegexp.configs['flat/recommended']
 
   const recommendedRules = {
     ...recommendedConfig.rules,
