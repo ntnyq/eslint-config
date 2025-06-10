@@ -148,19 +148,23 @@ export function defineESLintConfig(
   )
 
   if (enableImportX) {
-    configImportX({
-      typescript: !!enableTypeScript,
-      ...resolveSubOptions(options, 'importX'),
-      overrides: getOverrides(options, 'importX'),
-    })
+    configs.push(
+      configImportX({
+        typescript: !!enableTypeScript,
+        ...resolveSubOptions(options, 'importX'),
+        overrides: getOverrides(options, 'importX'),
+      }),
+    )
   }
 
   if (enableJsdoc) {
-    configJsdoc({
-      typescript: !!enableTypeScript,
-      overrides: getOverrides(options, 'jsdoc'),
-      ...resolveSubOptions(options, 'jsdoc'),
-    })
+    configs.push(
+      configJsdoc({
+        typescript: !!enableTypeScript,
+        overrides: getOverrides(options, 'jsdoc'),
+        ...resolveSubOptions(options, 'jsdoc'),
+      }),
+    )
   }
 
   if (enablePerfectionist) {
