@@ -120,7 +120,7 @@
     "eslint-plugin-depend": "^1.2.0",
     "eslint-plugin-github-action": "^0.0.16",
     "eslint-plugin-import-x": "^4.15.1",
-    "eslint-plugin-jsdoc": "^50.7.1",
+    "eslint-plugin-jsdoc": "^51.0.1",
     "eslint-plugin-jsonc": "^2.20.1",
     "eslint-plugin-n": "^17.19.0",
     "eslint-plugin-no-only-tests": "^3.3.0",
