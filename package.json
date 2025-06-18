@@ -107,7 +107,7 @@
     "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
     "@eslint/js": "^9.29.0",
     "@eslint/markdown": "^6.5.0",
-    "@unocss/eslint-plugin": "^66.2.2",
+    "@unocss/eslint-plugin": "^66.2.3",
     "@vitest/eslint-plugin": "^1.2.7",
     "eslint-config-flat-gitignore": "^2.1.0",
     "eslint-flat-config-utils": "^2.1.0",
@@ -120,12 +120,12 @@
     "eslint-plugin-depend": "^1.2.0",
     "eslint-plugin-github-action": "^0.0.16",
     "eslint-plugin-import-x": "^4.15.2",
-    "eslint-plugin-jsdoc": "^51.0.1",
+    "eslint-plugin-jsdoc": "^51.0.3",
     "eslint-plugin-jsonc": "^2.20.1",
     "eslint-plugin-n": "^17.20.0",
     "eslint-plugin-no-only-tests": "^3.3.0",
     "eslint-plugin-ntnyq": "^0.11.0",
-    "eslint-plugin-perfectionist": "^4.14.0",
+    "eslint-plugin-perfectionist": "^4.15.0",
     "eslint-plugin-pinia": "^0.4.1",
     "eslint-plugin-prettier": "^5.5.0",
     "eslint-plugin-regexp": "^2.9.0",
@@ -160,7 +160,7 @@
     "tsdown": "^0.12.8",
     "typescript": "^5.8.3",
     "uncase": "^0.1.0",
-    "vitest": "^3.2.3"
+    "vitest": "^3.2.4"
   },
   "engines": {
     "node": ">=20.11.0"
