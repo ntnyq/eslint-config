@@ -15,6 +15,9 @@
 - NodeJS v20.11.0+
 - ESLint v9.20.0+
 
+> [!TIP]
+> For NodeJS v18 support, please use [v4](https://github.com/ntnyq/eslint-config/tree/v4)
+
 ## Features
 
 - Designed to work alongside with [Prettier](https://prettier.io) and [TypeScript](https://www.typescriptlang.org/)
