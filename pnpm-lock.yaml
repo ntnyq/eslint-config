@@ -114,8 +114,8 @@ importers:
         specifier: ^3.8.1
         version: 3.9.3(eslint@9.30.0(jiti@2.4.2))(svelte@5.34.7)
       eslint-plugin-svgo:
-        specifier: ^0.8.0
-        version: 0.8.0(eslint@9.30.0(jiti@2.4.2))
+        specifier: ^0.9.0
+        version: 0.9.0(eslint@9.30.0(jiti@2.4.2))
       eslint-plugin-toml:
         specifier: ^0.12.0
         version: 0.12.0(eslint@9.30.0(jiti@2.4.2))
@@ -229,8 +229,8 @@ importers:
         specifier: ^66.3.2
         version: 66.3.2(postcss@8.5.6)(vite@7.0.0(@types/node@24.0.7)(jiti@2.4.2)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
       unplugin-vue-components:
-        specifier: ^28.7.0
-        version: 28.7.0(@babel/parser@7.27.5)(vue@3.5.17(typescript@5.8.3))
+        specifier: ^28.8.0
+        version: 28.8.0(@babel/parser@7.27.5)(vue@3.5.17(typescript@5.8.3))
       vite:
         specifier: ^7.0.0
         version: 7.0.0(@types/node@24.0.7)(jiti@2.4.2)(yaml@2.8.0)
@@ -2126,9 +2126,8 @@ packages:
       svelte:
         optional: true
 
-  eslint-plugin-svgo@0.8.0:
-    resolution: {integrity: sha512-87TX2eGTeO2OkHSIhxVcN7Ip4sf/HjqLJSEQlmnfEyUkaqMVtJ+uGRcrRgH6c8644nxuQMeC3Q8x20HWDRfjIQ==}
-    engines: {node: '>=18.18.0'}
+  eslint-plugin-svgo@0.9.0:
+    resolution: {integrity: sha512-/n+fcQLizUNkw++DgBrZGDFBTAkDieGbDbDZkVGFarM4FSTUxJkdO+ZhZ1QG+oAij273rWGMDNugPtWC3UMbiA==}
     peerDependencies:
       eslint: ^9.5.0
 
@@ -2319,9 +2318,8 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
-  generate-differences@0.0.1:
-    resolution: {integrity: sha512-KCs8iF4+JqCurMvon8mNqAg6fo+RidRPvakiIs2+6refSCHmbLnwNfA6dKHwAJtkGQSWs5Dan7ZAcms8p7xsnw==}
-    engines: {node: '>=18.18.0'}
+  generate-differences@0.1.0:
+    resolution: {integrity: sha512-V5pUOHbOjqKJmNjmyGPdPpZ70fqgSXDztJhmavPfWXUciBUqZuLuunuTg7W5lr2B4JkhCHtjjsa3jV2QkCg6mg==}
 
   get-tsconfig@4.10.1:
     resolution: {integrity: sha512-auHyJ4AgMz7vgS8Hp3N6HXSmlMdUyhSUrfBF16w153rxtLIEOE+HGqaBppczZvnHLqQJfiHotCYpNhl0lUROFQ==}
@@ -3301,12 +3299,12 @@ packages:
     resolution: {integrity: sha512-8U/MtpkPkkk3Atewj1+RcKIjb5WBimZ/WSLhhR3w6SsIj8XJuKTacSP8g+2JhfSGw0Cb125Y+2zA/IzJZDVbhA==}
     engines: {node: '>=18.12.0'}
 
-  unplugin-vue-components@28.7.0:
-    resolution: {integrity: sha512-3SuWAHlTjOiZckqRBGXRdN/k6IMmKyt2Ch5/+DKwYaT321H0ItdZDvW4r8/YkEKQpN9TN3F/SZ0W342gQROC3Q==}
+  unplugin-vue-components@28.8.0:
+    resolution: {integrity: sha512-2Q6ZongpoQzuXDK0ZsVzMoshH0MWZQ1pzVL538G7oIDKRTVzHjppBDS8aB99SADGHN3lpGU7frraCG6yWNoL5Q==}
     engines: {node: '>=14'}
     peerDependencies:
       '@babel/parser': ^7.15.8
-      '@nuxt/kit': ^3.2.2
+      '@nuxt/kit': ^3.2.2 || ^4.0.0
       vue: 2 || 3
     peerDependenciesMeta:
       '@babel/parser':
@@ -5486,10 +5484,10 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  eslint-plugin-svgo@0.8.0(eslint@9.30.0(jiti@2.4.2)):
+  eslint-plugin-svgo@0.9.0(eslint@9.30.0(jiti@2.4.2)):
     dependencies:
       eslint: 9.30.0(jiti@2.4.2)
-      generate-differences: 0.0.1
+      generate-differences: 0.1.0
       svgo: 4.0.0
       synckit: 0.11.8
 
@@ -5723,7 +5721,7 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
-  generate-differences@0.0.1: {}
+  generate-differences@0.1.0: {}
 
   get-tsconfig@4.10.1:
     dependencies:
@@ -6898,7 +6896,7 @@ snapshots:
       pathe: 2.0.3
       picomatch: 4.0.2
 
-  unplugin-vue-components@28.7.0(@babel/parser@7.27.5)(vue@3.5.17(typescript@5.8.3)):
+  unplugin-vue-components@28.8.0(@babel/parser@7.27.5)(vue@3.5.17(typescript@5.8.3)):
     dependencies:
       chokidar: 3.6.0
       debug: 4.4.1
