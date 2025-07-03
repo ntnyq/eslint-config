@@ -1,10 +1,10 @@
 packages:
   - .
   - docs
-
 overrides:
   esbuild: ^0.25.5
-
 onlyBuiltDependencies:
   - esbuild
   - unrs-resolver
+patchedDependencies:
+  eslint-plugin-vue: patches/eslint-plugin-vue.patch

@@ -1,0 +1,10 @@
+diff --git a/lib/index.d.ts b/lib/index.d.ts
+index b6d658852c187e8b4a6e1292bd1937ec248a7b5e..078755509d2d27d9a572e74fd6cb2507d83a64e3 100644
+--- a/lib/index.d.ts
++++ b/lib/index.d.ts
+@@ -1,4 +1,4 @@
+-/// <reference path="./eslint-typegen.d.ts" />
++// /// <reference path="./eslint-typegen.d.ts" />
+ import type { Linter } from 'eslint'
+
+ declare const vue: {
