@@ -146,7 +146,7 @@
   },
   "devDependencies": {
     "@ntnyq/prettier-config": "^3.0.1",
-    "@types/node": "^24.0.10",
+    "@types/node": "^24.0.12",
     "@typescript-eslint/utils": "^8.36.0",
     "bumpp": "^10.2.0",
     "consola": "^3.4.2",

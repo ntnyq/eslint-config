@@ -95,6 +95,8 @@ export const GLOB_EXCLUDE: string[] = [
   GLOB_DIST,
   ...GLOB_LOCKFILE,
 
+  '**/.pnpm-store/**',
+
   // Force lint
   '!.github',
   '!.vitepress',
