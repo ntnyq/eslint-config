@@ -1,11 +1,16 @@
 import { parserPlain, pluginSvgo } from '../eslint'
 import { GLOB_SVG } from '../globs'
-import type { OptionsFiles, OptionsIgnores, TypedConfigItem } from '../types'
+import type {
+  OptionsFiles,
+  OptionsIgnores,
+  OptionsOverrides,
+  TypedConfigItem,
+} from '../types'
 
 /**
  * Options type of {@link configSVGO}
  */
-export type ConfigSVGOOptions = OptionsFiles & OptionsIgnores
+export type ConfigSVGOOptions = OptionsFiles & OptionsIgnores & OptionsOverrides
 
 /**
  * Config for svg files
@@ -32,7 +37,18 @@ export const configSVGO = (
         parser: parserPlain,
       },
       rules: {
-        'svgo/svgo': 'error',
+        'svgo/svgo': [
+          'error',
+          {
+            plugins: ['preset-default'],
+            js2svg: {
+              indent: 2,
+              pretty: true,
+            },
+          },
+        ],
+
+        ...options.overrides,
       },
     },
   ]
