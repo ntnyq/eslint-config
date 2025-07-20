@@ -31,6 +31,21 @@ export type ConfigPerfectionistOptions = OptionsOverrides & {
   all?: boolean
 
   /**
+   * files for `constants`, will overrides default values
+   */
+  filesConstants?: TypedConfigItem['files']
+
+  /**
+   * files for `enums`, will overrides default values
+   */
+  filesEnums?: TypedConfigItem['files']
+
+  /**
+   * files for `types`, will overrides default values
+   */
+  filesTypes?: TypedConfigItem['files']
+
+  /**
    * Overrides rules for `constants`
    */
   overridesConstantsRules?: TypedConfigItem['rules']
@@ -86,10 +101,16 @@ export const configPerfectionist = (
   options: ConfigPerfectionistOptions = {},
 ): TypedConfigItem[] => {
   const {
+    filesEnums = [`**/enums/${GLOB_SRC}`, `**/enums.${GLOB_SRC_EXT}`],
+    filesTypes = [...GLOB_TYPES],
     partitionByComment = PERFECTIONIST.partialRuleOptions.partitionByComment,
     sortConstants: enableSortConstants = true,
     sortEnums: enableSortEnums = true,
     sortTypes: enableSortTypes = true,
+    filesConstants = [
+      `**/constants/${GLOB_SRC}`,
+      `**/constants.${GLOB_SRC_EXT}`,
+    ],
   } = options
 
   const sharedOptionsWithNewlinesBetween = {
@@ -273,7 +294,7 @@ export const configPerfectionist = (
   if (enableSortEnums) {
     configs.push({
       name: 'ntnyq/perfectionist/enums',
-      files: [`**/enums/${GLOB_SRC}`, `**/enums.${GLOB_SRC_EXT}`],
+      files: filesEnums,
       plugins: {
         perfectionist: pluginPerfectionist,
       },
@@ -294,7 +315,7 @@ export const configPerfectionist = (
   if (enableSortTypes) {
     configs.push({
       name: 'ntnyq/perfectionist/types',
-      files: [...GLOB_TYPES],
+      files: filesTypes,
       plugins: {
         perfectionist: pluginPerfectionist,
       },
@@ -315,7 +336,7 @@ export const configPerfectionist = (
   if (enableSortConstants) {
     configs.push({
       name: 'ntnyq/perfectionist/constants',
-      files: [`**/constants/${GLOB_SRC}`, `**/constants.${GLOB_SRC_EXT}`],
+      files: filesConstants,
       plugins: {
         perfectionist: pluginPerfectionist,
       },

@@ -34,7 +34,6 @@ export const configDepend = (
 ): TypedConfigItem[] => {
   const {
     files = [GLOB_SRC],
-
     allowed = [],
     // check package.json file
     packageJson: enableCheckPackageJson = true,
