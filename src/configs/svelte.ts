@@ -33,11 +33,7 @@ export const configSvelte = async (
     interopDefault(import('eslint-plugin-svelte')),
   ])
 
-  const {
-    files = [GLOB_SVELTE],
-
-    extraFileExtensions = [],
-  } = options
+  const { files = [GLOB_SVELTE], extraFileExtensions = [] } = options
   return [
     {
       name: 'ntnyq/svelte',

@@ -56,7 +56,7 @@ export const GLOB_PNPM_WORKSPACE_YAML: string = '**/pnpm-workspace.yaml'
 
 export const GLOB_SVG: string = '**/*.svg'
 export const GLOB_VUE: string = '**/*.vue'
-export const GLOB_SVELTE: string = '**/*.svelte'
+export const GLOB_SVELTE: string = '**/*.svelte?(.{js,ts})'
 export const GLOB_TOML: string = '**/*.toml'
 export const GLOB_HTML: string = '**/*.htm?(l)'
 export const GLOB_ASTRO: string = '**/*.astro'
