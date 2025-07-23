@@ -7,14 +7,27 @@ import type { OptionsOverrides, TypedConfigItem } from '../types'
 export type ConfigUnicornOptions = OptionsOverrides
 
 const disabledRules: TypedConfigItem['rules'] = {
+  /**
+   * Prefer `eslint-plugin-regexp` instead
+   */
   'unicorn/better-regex': 'off',
   'unicorn/explicit-length-check': 'off',
   'unicorn/no-array-callback-reference': 'off',
+  /**
+   * TODO: enable this rule when use vite v7 in prod
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toReversed#browser_compatibility
+   */
+  'unicorn/no-array-reverse': 'off',
   /**
    * @see https://caniuse.com/?search=globalThis
    */
   'unicorn/prefer-global-this': 'off',
   'unicorn/prefer-top-level-await': 'off',
+  /**
+   * TODO: next major version
+   */
+  'unicorn/require-module-specifiers': 'off',
 }
 
 /**
@@ -49,6 +62,7 @@ export const configUnicorn = (
       'unicorn/no-static-only-class': 'error',
       'unicorn/no-typeof-undefined': 'error',
       'unicorn/no-unnecessary-await': 'error',
+      'unicorn/prefer-class-fields': 'error',
       'unicorn/prefer-import-meta-properties': 'error',
       'unicorn/prefer-includes': 'error',
       'unicorn/prefer-keyboard-event-key': 'error',
@@ -73,6 +87,7 @@ export const configUnicorn = (
         },
       ],
       'unicorn/custom-error-definition': 'error',
+      'unicorn/no-useless-error-capture-stack-trace': 'error',
       'unicorn/prefer-type-error': 'error',
       'unicorn/throw-new-error': 'error',
       /**
