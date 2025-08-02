@@ -65,6 +65,7 @@ const extensionRules: TypedConfigItem['rules'] = {
   'vue/no-empty-pattern': 'error',
   'vue/no-extra-parens': ['error', 'functions'],
   'vue/no-loss-of-precision': 'error',
+  'vue/no-negated-condition': 'error',
   'vue/no-restricted-syntax': [
     'error',
     'DebuggerStatement',
@@ -129,7 +130,6 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
     'PascalCase',
     {
       ignores: ['slot', 'component'],
-
       // Force auto-import components to be PascalCase
       registeredComponentsOnly: false,
     },
@@ -206,6 +206,7 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
   'vue/no-empty-component-block': 'error',
   'vue/no-irregular-whitespace': 'error',
   'vue/no-multiple-objects-in-class': 'error',
+  'vue/no-negated-v-if-condition': 'error',
   'vue/no-ref-object-reactivity-loss': 'error',
   'vue/no-required-prop-with-default': [
     'error',
