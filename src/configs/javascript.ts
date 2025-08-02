@@ -63,7 +63,6 @@ export const configJavaScript = (
         ...globals.node,
       },
     },
-
     rules: {
       'consistent-return': 'off',
       'no-return-assign': 'off',
@@ -135,6 +134,7 @@ export const configJavaScript = (
       'no-loss-of-precision': 'error',
       'no-misleading-character-class': 'error',
       'no-multi-str': 'error',
+      'no-negated-condition': 'error',
       'no-new': 'error',
       'no-new-func': 'error',
       'no-new-native-nonconstructor': 'error',
