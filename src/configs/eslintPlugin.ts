@@ -25,10 +25,10 @@ export const configESLintPlugin = async (
 
   return [
     {
-      ...pluginESLintPlugin.configs['flat/all'],
+      ...pluginESLintPlugin.configs.all,
       name: 'ntnyq/eslint-plugin',
       rules: {
-        ...pluginESLintPlugin.configs['flat/all'].rules,
+        ...pluginESLintPlugin.configs.all.rules,
 
         // injected by `createRule`
         'eslint-plugin/require-meta-docs-url': 'off',
