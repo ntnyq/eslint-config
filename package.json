@@ -37,12 +37,14 @@
     "tag": "latest"
   },
   "scripts": {
-    "build": "tsdown",
-    "dev": "tsdown --watch",
+    "build": "run-s types:generate lib:build",
+    "dev": "run-s types:generate lib:dev",
     "docs:build": "pnpm -C docs run build",
     "docs:dev": "pnpm -C docs run dev",
     "inspector:build": "run-s build inspector:generate",
     "inspector:generate": "pnpm dlx @eslint/config-inspector build --config eslint-inspector.config.ts",
+    "lib:build": "tsdown",
+    "lib:dev": "tsdown --watch",
     "lint": "eslint --cache",
     "prepare": "husky",
     "release": "run-s release:check release:version release:publish",
@@ -50,7 +52,8 @@
     "release:publish": "pnpm publish",
     "release:version": "bumpp",
     "test": "vitest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "types:generate": "tsx scripts/generateType.ts"
   },
   "peerDependencies": {
     "@html-eslint/eslint-plugin": "^0.44.0",
@@ -159,6 +162,7 @@
     "npm-run-all2": "^8.0.4",
     "tinyglobby": "^0.2.14",
     "tsdown": "^0.13.3",
+    "tsx": "^4.20.3",
     "typescript": "^5.9.2",
     "uncase": "^0.1.0",
     "vitest": "^3.2.4"

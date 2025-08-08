@@ -1,4 +1,5 @@
 import { writeFile } from 'node:fs/promises'
+import { consola } from 'consola'
 import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
 import { builtinRules } from 'eslint/use-at-your-own-risk'
 import {
@@ -109,4 +110,11 @@ export type ConfigNames = ${configNames.map(i => `'${i}'`).join(' | ')}
 `,
     ].join('\n'),
   )
+}
+
+try {
+  await generateTypes()
+  consola.success('Types generated successfully')
+} catch (err) {
+  consola.error(err)
 }
