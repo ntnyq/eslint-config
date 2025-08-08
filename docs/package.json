@@ -12,7 +12,7 @@
     "@shikijs/vitepress-twoslash": "^3.9.2",
     "@vueuse/core": "^13.6.0",
     "unocss": "^66.4.2",
-    "unplugin-vue-components": "^28.8.0",
+    "unplugin-vue-components": "^29.0.0",
     "vite": "^7.1.1",
     "vitepress": "^2.0.0-alpha.9",
     "vitepress-plugin-group-icons": "^1.6.1",
