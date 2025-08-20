@@ -395,11 +395,16 @@ export const configVue = (
         ],
         'vue/prop-name-casing': ['error', 'camelCase'],
         'vue/this-in-template': ['error', 'never'],
+        'vue/v-bind-style': [
+          'error',
+          'shorthand',
+          {
+            sameNameShorthand: 'always',
+          },
+        ],
 
         ...disabledRules,
-
         ...extensionRules,
-
         ...unCategorizedRules,
 
         // Overrides rules
