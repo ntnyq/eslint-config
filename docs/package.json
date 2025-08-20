@@ -8,14 +8,14 @@
     "dev": "vitepress dev ."
   },
   "devDependencies": {
-    "@shikijs/transformers": "^3.9.2",
-    "@shikijs/vitepress-twoslash": "^3.9.2",
-    "@vueuse/core": "^13.6.0",
+    "@shikijs/transformers": "^3.11.0",
+    "@shikijs/vitepress-twoslash": "^3.11.0",
+    "@vueuse/core": "^13.7.0",
     "unocss": "^66.4.2",
     "unplugin-vue-components": "^29.0.0",
-    "vite": "^7.1.1",
-    "vitepress": "^2.0.0-alpha.10",
-    "vitepress-plugin-group-icons": "^1.6.2",
+    "vite": "^7.1.3",
+    "vitepress": "^2.0.0-alpha.11",
+    "vitepress-plugin-group-icons": "^1.6.3",
     "vue": "^3.5.18"
   }
 }
