@@ -47,6 +47,7 @@
     "lib:dev": "tsdown --watch",
     "lint": "eslint --cache",
     "prepare": "husky",
+    "prepublishOnly": "npm run build",
     "release": "run-s release:check release:version",
     "release:check": "run-s build lint test typecheck",
     "release:version": "bumpp",
