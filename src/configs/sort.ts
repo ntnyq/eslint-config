@@ -263,7 +263,6 @@ export const configSort = (
               'module',
               'unpkg',
               'jsdelivr',
-              // workaround for `type: "module"` with TS `moduleResolution: "node16"`
               'types',
               'typesVersions',
               'bin',
