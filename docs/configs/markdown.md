@@ -13,13 +13,13 @@ sidebarDepth: 0
 
 ### extraFileExtensions
 
-额外的文件扩展名。
+Additional file extensions.
 
 - **Type**: `string[]`
 
 ### overrides
 
-ESLint rule entries。
+ESLint rule entries.
 
 - **Type**: `Rules`
 

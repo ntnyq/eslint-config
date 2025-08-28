@@ -13,13 +13,13 @@ sidebarDepth: 0
 
 ### prettier
 
-是否禁用 prettier 相关规则。
+Disable prettier related rules.
 
 - **Type**: `boolean`
 
 ### overrides
 
-ESLint rule entries。
+ESLint rule entries.
 
 - **Type**: `Rules`
 

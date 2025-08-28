@@ -13,7 +13,7 @@ sidebarDepth: 0
 
 ### overrides
 
-ESLint rule entries。
+ESLint rule entries.
 
 - **Type**: `Rules`
 

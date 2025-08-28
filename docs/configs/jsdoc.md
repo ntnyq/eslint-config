@@ -3,7 +3,7 @@ pageClass: page-config
 sidebarDepth: 0
 ---
 
-# JsDoc
+# JSDoc
 
 ## 🔌 Plugins
 
@@ -13,13 +13,13 @@ sidebarDepth: 0
 
 ### typescript
 
-是否启用 TypeScript 相关规则。
+Enable TypeScript related rules.
 
 - **Type**: `boolean`
 
 ### overrides
 
-ESLint rule entries。
+ESLint rule entries.
 
 - **Type**: `Rules`
 
