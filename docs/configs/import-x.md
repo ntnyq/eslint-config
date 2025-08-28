@@ -13,13 +13,13 @@ sidebarDepth: 0
 
 ### preferTypeScriptResolver
 
-是否优先使用 TypeScript 解析器。
+Prefer TypeScript resolver.
 
 - **Type**: `boolean` (default: true)
 
 ### overrides
 
-ESLint rule entries。
+ESLint rule entries.
 
 - **Type**: `Rules`
 

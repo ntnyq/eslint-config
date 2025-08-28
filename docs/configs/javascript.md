@@ -14,13 +14,13 @@ sidebarDepth: 0
 
 ### strict
 
-是否启用严格检查。
+Enable strict checking.
 
 - **Type**: `boolean` (default: false)
 
 ### overrides
 
-ESLint rule entries。
+ESLint rule entries.
 
 - **Type**: `Rules`
 

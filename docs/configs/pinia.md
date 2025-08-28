@@ -13,13 +13,13 @@ sidebarDepth: 0
 
 ### files
 
-Pinia store 文件匹配。
+Pinia store file match.
 
 - **Type**: `string[]`
 
 ### overrides
 
-ESLint rule entries。
+ESLint rule entries.
 
 - **Type**: `Rules`
 

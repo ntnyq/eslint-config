@@ -9,7 +9,7 @@ sidebarDepth: 0
 
 ### ignores
 
-全局忽略文件。
+Globally ignored files.
 
 - **Type**: `string[]`
 
