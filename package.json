@@ -1,7 +1,7 @@
 {
   "name": "@ntnyq/eslint-config",
   "type": "module",
-  "version": "5.4.1",
+  "version": "5.4.2",
   "packageManager": "pnpm@10.15.1",
   "description": "An opinionated ESLint config preset of ntnyq",
   "keywords": [
@@ -111,11 +111,7 @@
     "@eslint/js": "^9.34.0",
     "@eslint/markdown": "^7.2.0",
     "@unocss/eslint-plugin": "^66.5.0",
-<<<<<<< HEAD
     "@vitest/eslint-plugin": "^1.3.8",
-=======
-    "@vitest/eslint-plugin": "^1.3.7",
->>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
     "eslint-config-flat-gitignore": "^2.1.0",
     "eslint-flat-config-utils": "^2.1.1",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -127,11 +123,7 @@
     "eslint-plugin-depend": "^1.2.0",
     "eslint-plugin-github-action": "^0.0.16",
     "eslint-plugin-import-x": "^4.16.1",
-<<<<<<< HEAD
     "eslint-plugin-jsdoc": "^54.3.1",
-=======
-    "eslint-plugin-jsdoc": "^54.3.0",
->>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
     "eslint-plugin-jsonc": "^2.20.1",
     "eslint-plugin-n": "^17.21.3",
     "eslint-plugin-no-only-tests": "^3.3.0",
