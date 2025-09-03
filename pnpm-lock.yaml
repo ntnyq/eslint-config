@@ -30,7 +30,11 @@ importers:
         version: 7.2.0
       '@html-eslint/eslint-plugin':
         specifier: ^0.46.0
+<<<<<<< HEAD
         version: 0.46.2(eslint@9.34.0(jiti@2.5.1))(jiti@2.5.1)
+=======
+        version: 0.46.1(eslint@9.34.0(jiti@2.5.1))
+>>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
       '@html-eslint/parser':
         specifier: ^0.46.0
         version: 0.46.2(jiti@2.5.1)
@@ -38,8 +42,13 @@ importers:
         specifier: ^66.5.0
         version: 66.5.0(eslint@9.34.0(jiti@2.5.1))(typescript@5.9.2)
       '@vitest/eslint-plugin':
+<<<<<<< HEAD
         specifier: ^1.3.8
         version: 1.3.8(eslint@9.34.0(jiti@2.5.1))(typescript@5.9.2)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.3.0)(jiti@2.5.1)(tsx@4.20.5)(yaml@2.8.1))
+=======
+        specifier: ^1.3.7
+        version: 1.3.7(eslint@9.34.0(jiti@2.5.1))(typescript@5.9.2)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.3.0)(jiti@2.5.1)(tsx@4.20.5)(yaml@2.8.1))
+>>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
       astro-eslint-parser:
         specifier: ^1.2.2
         version: 1.2.2
@@ -86,8 +95,13 @@ importers:
         specifier: ^4.16.1
         version: 4.16.1(@typescript-eslint/utils@8.42.0(eslint@9.34.0(jiti@2.5.1))(typescript@5.9.2))(eslint@9.34.0(jiti@2.5.1))
       eslint-plugin-jsdoc:
+<<<<<<< HEAD
         specifier: ^54.3.1
         version: 54.3.1(eslint@9.34.0(jiti@2.5.1))
+=======
+        specifier: ^54.3.0
+        version: 54.3.0(eslint@9.34.0(jiti@2.5.1))
+>>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
       eslint-plugin-jsonc:
         specifier: ^2.20.1
         version: 2.20.1(eslint@9.34.0(jiti@2.5.1))
@@ -117,7 +131,11 @@ importers:
         version: 2.10.0(eslint@9.34.0(jiti@2.5.1))
       eslint-plugin-svelte:
         specifier: ^3.11.0
+<<<<<<< HEAD
         version: 3.12.1(eslint@9.34.0(jiti@2.5.1))(svelte@5.38.6)
+=======
+        version: 3.11.0(eslint@9.34.0(jiti@2.5.1))(svelte@5.38.6)
+>>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
       eslint-plugin-svgo:
         specifier: ^0.11.1
         version: 0.11.1(eslint@9.34.0(jiti@2.5.1))
@@ -567,8 +585,13 @@ packages:
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
 
+<<<<<<< HEAD
   '@html-eslint/eslint-plugin@0.46.2':
     resolution: {integrity: sha512-aVn+qo7Akpc/FiJSIg0GbZnlh7Por0xVlxg8lv777xfgRrnvi9JSDir7jJHjYG1LxUyWQwYktnzXwkdquQBXAg==}
+=======
+  '@html-eslint/eslint-plugin@0.46.1':
+    resolution: {integrity: sha512-aqQh8B4gcAjs5i+/zye4lLRaMbVBgdg/GxNazyZjQceTwCebI2NZ5kkpRDr7YhDKOn9qGgT/NiIj6xQVZOSruw==}
+>>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.0.0 || ^9.0.0
@@ -1212,8 +1235,13 @@ packages:
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0
       vue: ^3.2.25
 
+<<<<<<< HEAD
   '@vitest/eslint-plugin@1.3.8':
     resolution: {integrity: sha512-+M0eRDo/UiIF4xZZbZBBAR2Resx0ihdLRNpYevkrDJ6F3xHuEXSAAJGt6Ahabd0eJC4mQKvLA1JY1qBM058Cag==}
+=======
+  '@vitest/eslint-plugin@1.3.7':
+    resolution: {integrity: sha512-q6UIrP+wLNRSBs2YnaOFE6Y8UjCqBSVCGGE6FgzNjN5gl1vwzjAvnInvmpbu+t3BF9BYwGpUJPko8yqwUqcyWg==}
+>>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
     peerDependencies:
       eslint: '>= 8.57.0'
       typescript: '>= 5.0.0'
@@ -1677,8 +1705,13 @@ packages:
   duplexer@0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
 
+<<<<<<< HEAD
   electron-to-chromium@1.5.214:
     resolution: {integrity: sha512-TpvUNdha+X3ybfU78NoQatKvQEm1oq3lf2QbnmCEdw+Bd9RuIAY+hJTvq1avzHM0f7EJfnH3vbCnbzKzisc/9Q==}
+=======
+  electron-to-chromium@1.5.213:
+    resolution: {integrity: sha512-xr9eRzSLNa4neDO0xVFrkXu3vyIzG4Ay08dApecw42Z1NbmCt+keEpXdvlYGVe0wtvY5dhW0Ay0lY0IOfsCg0Q==}
+>>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
 
   empathic@2.0.0:
     resolution: {integrity: sha512-i6UzDscO/XfAcNYD75CfICkmfLedpyPDdozrLMmQc5ORaQcdMoc21OnlEylMIqI7U8eniKrPMxxtj8k0vhmJhA==}
@@ -1850,8 +1883,13 @@ packages:
       eslint-import-resolver-node:
         optional: true
 
+<<<<<<< HEAD
   eslint-plugin-jsdoc@54.3.1:
     resolution: {integrity: sha512-6KlEwRCaQfSi1Wsis4cxsqDfOuQDPG56ozSPCkG+N9aISTQpahbo2n0YZs6c7CIVXQzVdYSxuvQ6w31rfeiMhw==}
+=======
+  eslint-plugin-jsdoc@54.3.0:
+    resolution: {integrity: sha512-G1f3iztVfkmsazoodrvtC71ihdnoZuUhgSXNH1smIGuCWpCFYuFQcv7jAslqQUyVPyGO4lymHsBdRc56bQa79A==}
+>>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
     engines: {node: '>=20.11.0'}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
@@ -3381,14 +3419,18 @@ snapshots:
   '@babel/template@7.27.2':
     dependencies:
       '@babel/code-frame': 7.27.1
-      '@babel/parser': 7.28.3
+      '@babel/parser': 7.27.7
       '@babel/types': 7.28.2
 
   '@babel/traverse@7.27.7':
     dependencies:
       '@babel/code-frame': 7.27.1
       '@babel/generator': 7.28.3
+<<<<<<< HEAD
       '@babel/parser': 7.28.3
+=======
+      '@babel/parser': 7.27.7
+>>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
       '@babel/template': 7.27.2
       '@babel/types': 7.28.2
       debug: 4.4.1
@@ -3610,7 +3652,11 @@ snapshots:
 
   '@floating-ui/utils@0.2.10': {}
 
+<<<<<<< HEAD
   '@html-eslint/eslint-plugin@0.46.2(eslint@9.34.0(jiti@2.5.1))(jiti@2.5.1)':
+=======
+  '@html-eslint/eslint-plugin@0.46.1(eslint@9.34.0(jiti@2.5.1))':
+>>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
     dependencies:
       '@eslint/plugin-kit': 0.3.5
       '@html-eslint/parser': 0.46.2(jiti@2.5.1)
@@ -4321,7 +4367,11 @@ snapshots:
       vite: 7.1.4(@types/node@24.3.0)(jiti@2.5.1)(tsx@4.20.5)(yaml@2.8.1)
       vue: 3.5.21(typescript@5.9.2)
 
+<<<<<<< HEAD
   '@vitest/eslint-plugin@1.3.8(eslint@9.34.0(jiti@2.5.1))(typescript@5.9.2)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.3.0)(jiti@2.5.1)(tsx@4.20.5)(yaml@2.8.1))':
+=======
+  '@vitest/eslint-plugin@1.3.7(eslint@9.34.0(jiti@2.5.1))(typescript@5.9.2)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.3.0)(jiti@2.5.1)(tsx@4.20.5)(yaml@2.8.1))':
+>>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
     dependencies:
       '@typescript-eslint/scope-manager': 8.42.0
       '@typescript-eslint/utils': 8.42.0(eslint@9.34.0(jiti@2.5.1))(typescript@5.9.2)
@@ -4583,7 +4633,11 @@ snapshots:
   browserslist@4.25.4:
     dependencies:
       caniuse-lite: 1.0.30001739
+<<<<<<< HEAD
       electron-to-chromium: 1.5.214
+=======
+      electron-to-chromium: 1.5.213
+>>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.25.4)
 
@@ -4793,7 +4847,11 @@ snapshots:
 
   duplexer@0.1.2: {}
 
+<<<<<<< HEAD
   electron-to-chromium@1.5.214: {}
+=======
+  electron-to-chromium@1.5.213: {}
+>>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
 
   empathic@2.0.0: {}
 
@@ -4987,7 +5045,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+<<<<<<< HEAD
   eslint-plugin-jsdoc@54.3.1(eslint@9.34.0(jiti@2.5.1)):
+=======
+  eslint-plugin-jsdoc@54.3.0(eslint@9.34.0(jiti@2.5.1)):
+>>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
     dependencies:
       '@es-joy/jsdoccomment': 0.53.0
       are-docs-informative: 0.0.2
@@ -5088,7 +5150,11 @@ snapshots:
       regexp-ast-analysis: 0.7.1
       scslre: 0.3.0
 
+<<<<<<< HEAD
   eslint-plugin-svelte@3.12.1(eslint@9.34.0(jiti@2.5.1))(svelte@5.38.6):
+=======
+  eslint-plugin-svelte@3.11.0(eslint@9.34.0(jiti@2.5.1))(svelte@5.38.6):
+>>>>>>> c03bfd8 (fix(deps): bump all deps to latest)
     dependencies:
       '@eslint-community/eslint-utils': 4.8.0(eslint@9.34.0(jiti@2.5.1))
       '@jridgewell/sourcemap-codec': 1.5.5
