@@ -6,30 +6,6 @@ import type { OptionsOverrides, TypedConfigItem } from '../types'
  */
 export type ConfigUnicornOptions = OptionsOverrides
 
-const disabledRules: TypedConfigItem['rules'] = {
-  /**
-   * Prefer `eslint-plugin-regexp` instead
-   */
-  'unicorn/better-regex': 'off',
-  'unicorn/explicit-length-check': 'off',
-  'unicorn/no-array-callback-reference': 'off',
-  /**
-   * TODO: enable this rule when use vite v7 in prod
-   *
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toReversed#browser_compatibility
-   */
-  'unicorn/no-array-reverse': 'off',
-  /**
-   * @see https://caniuse.com/?search=globalThis
-   */
-  'unicorn/prefer-global-this': 'off',
-  'unicorn/prefer-top-level-await': 'off',
-  /**
-   * TODO: next major version
-   */
-  'unicorn/require-module-specifiers': 'off',
-}
-
 /**
  * Config for powerful rules
  *
@@ -47,6 +23,12 @@ export const configUnicorn = (
       unicorn: pluginUnicorn,
     },
     rules: {
+      'unicorn/explicit-length-check': 'off',
+      /**
+       * @see https://caniuse.com/?search=globalThis
+       */
+      'unicorn/prefer-global-this': 'off',
+      'unicorn/prefer-top-level-await': 'off',
       'unicorn/consistent-assert': 'error',
       'unicorn/consistent-existence-index-check': 'error',
       'unicorn/error-message': 'error',
@@ -97,8 +79,16 @@ export const configUnicorn = (
       'unicorn/number-literal-case': 'error',
       'unicorn/prefer-number-properties': 'error',
       /**
+       * @pg BigInt
+       */
+      'unicorn/prefer-bigint-literals': 'error',
+      /**
        * @pg RegExp
        */
+      /**
+       * Prefer `eslint-plugin-regexp` instead
+       */
+      'unicorn/better-regex': 'off',
       'unicorn/prefer-regexp-test': 'error',
       /**
        * @pg Date
@@ -117,6 +107,7 @@ export const configUnicorn = (
        */
       'unicorn/no-invalid-remove-event-listener': 'error',
       'unicorn/prefer-add-event-listener': 'error',
+      'unicorn/prefer-classlist-toggle': 'error',
       'unicorn/prefer-dom-node-append': 'error',
       'unicorn/prefer-dom-node-dataset': 'error',
       'unicorn/prefer-dom-node-remove': 'error',
@@ -126,6 +117,14 @@ export const configUnicorn = (
       /**
        * @pg Array
        */
+      'unicorn/no-array-callback-reference': 'off',
+      /**
+       * TODO: chrome 110, baseline 2023 required
+       *
+       * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toReversed#browser_compatibility
+       */
+      'unicorn/no-array-reverse': 'off',
+      'unicorn/no-array-sort': 'off',
       'unicorn/no-array-method-this-argument': 'error',
       'unicorn/no-new-array': 'error',
       'unicorn/no-unnecessary-array-flat-depth': 'error',
@@ -142,8 +141,12 @@ export const configUnicorn = (
        */
       'unicorn/prefer-set-has': 'error',
       'unicorn/prefer-set-size': 'error',
-
-      ...disabledRules,
+      /**
+       * @pg Module
+       */
+      // TODO: next major version
+      'unicorn/require-module-specifiers': 'off',
+      'unicorn/require-module-attributes': 'error',
 
       // Overrides rules
       ...options.overrides,
