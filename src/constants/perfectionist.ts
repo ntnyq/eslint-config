@@ -176,7 +176,7 @@ const sortImportsTypes: string[] = [
   'type-index',
 
   /**
-   * Imports that don’t fit into any other group
+   * Imports that don’t fit into any other groups
    */
   'unknown',
 ]

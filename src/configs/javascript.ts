@@ -70,7 +70,6 @@ export const configJavaScript = (
       'require-await': 'off',
       // disabled in favor of `perfectionist/sort-named-imports`
       'sort-imports': 'off',
-      // standard v17.0.0
       'accessor-pairs': [
         'error',
         { enforceForClassMembers: true, setWithoutGet: true },
@@ -228,6 +227,12 @@ export const configJavaScript = (
       'prefer-rest-params': 'error',
       'prefer-spread': 'error',
       'prefer-template': 'error',
+      'preserve-caught-error': [
+        'error',
+        {
+          requireCatchParameter: true,
+        },
+      ],
       'symbol-description': 'error',
       'unicode-bom': ['error', 'never'],
       'use-isnan': [
