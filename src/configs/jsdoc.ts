@@ -114,6 +114,21 @@ export const configJsdoc = (
       'jsdoc/no-multi-asterisks': 'error',
       'jsdoc/require-asterisk-prefix': 'error',
       'jsdoc/require-hyphen-before-param-description': 'error',
+      'jsdoc/type-formatting': [
+        'error',
+        {
+          arrayBrackets: 'square',
+          enableFixer: true,
+          genericDot: false,
+          objectFieldIndent: '',
+          objectFieldQuote: null,
+          objectFieldSeparator: 'comma',
+          propertyQuotes: null,
+          stringQuotes: 'single',
+          typeBracketSpacing: '',
+          unionSpacing: '',
+        },
+      ],
 
       // TypeScript rules overrides
       ...(options.typescript ? typescriptRules : javscriptRules),

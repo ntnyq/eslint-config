@@ -2,7 +2,7 @@
   "name": "@ntnyq/eslint-config",
   "type": "module",
   "version": "5.5.0",
-  "packageManager": "pnpm@10.15.1",
+  "packageManager": "pnpm@10.16.0",
   "description": "An opinionated ESLint config preset of ntnyq",
   "keywords": [
     "eslint",
@@ -148,7 +148,7 @@
   },
   "devDependencies": {
     "@ntnyq/prettier-config": "^3.0.1",
-    "@types/node": "^24.3.1",
+    "@types/node": "^24.3.3",
     "@typescript-eslint/utils": "^8.43.0",
     "bumpp": "^10.2.3",
     "consola": "^3.4.2",
@@ -160,7 +160,7 @@
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.6.2",
     "tinyglobby": "^0.2.15",
-    "tsdown": "^0.15.0",
+    "tsdown": "^0.15.1",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2",
     "uncase": "^0.2.0",
