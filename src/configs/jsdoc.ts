@@ -53,6 +53,8 @@ export const configJsdoc = (
       // Disabled rules
       'jsdoc/tag-lines': 'off', // Use `jsdoc/sort-tags`
       'jsdoc/text-escaping': 'off', // No need
+
+      // Warning only rules
       'jsdoc/check-access': 'warn',
       'jsdoc/implements-on-classes': 'warn',
       'jsdoc/require-param-name': 'warn',
@@ -62,6 +64,15 @@ export const configJsdoc = (
       'jsdoc/require-returns-check': 'warn',
       'jsdoc/require-returns-description': 'warn',
       'jsdoc/require-yields-check': 'warn',
+      /**
+       * @pg
+       * TODO: enable in v8
+       */
+      'jsdoc/require-next-type': 'warn',
+      'jsdoc/require-throws-type': 'warn',
+      'jsdoc/require-yields-type': 'warn',
+
+      // Enabled rules
       'jsdoc/check-alignment': 'error',
       'jsdoc/check-line-alignment': 'error',
       'jsdoc/check-param-names': 'error',
