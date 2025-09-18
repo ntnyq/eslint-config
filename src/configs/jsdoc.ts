@@ -50,11 +50,15 @@ export const configJsdoc = (
       jsdoc: pluginJsdoc,
     },
     rules: {
-      // Disabled rules
+      /**
+       * @pg Disabled rules
+       */
       'jsdoc/tag-lines': 'off', // Use `jsdoc/sort-tags`
-      'jsdoc/text-escaping': 'off', // No need
+      'jsdoc/text-escaping': 'off', // No need for this
 
-      // Warning only rules
+      /**
+       * @pg Warning only rules
+       */
       'jsdoc/check-access': 'warn',
       'jsdoc/implements-on-classes': 'warn',
       'jsdoc/require-param-name': 'warn',
@@ -66,13 +70,14 @@ export const configJsdoc = (
       'jsdoc/require-yields-check': 'warn',
       /**
        * @pg
-       * TODO: enable in v8
        */
       'jsdoc/require-next-type': 'warn',
       'jsdoc/require-throws-type': 'warn',
       'jsdoc/require-yields-type': 'warn',
 
-      // Enabled rules
+      /**
+       * @pg Enabled rules
+       */
       'jsdoc/check-alignment': 'error',
       'jsdoc/check-line-alignment': 'error',
       'jsdoc/check-param-names': 'error',
@@ -101,7 +106,9 @@ export const configJsdoc = (
         },
       ],
       'jsdoc/check-types': 'error',
-      // Fixable rules
+      /**
+       * @pg Fixable rules
+       */
       'jsdoc/empty-tags': 'error',
       'jsdoc/multiline-blocks': 'error',
       'jsdoc/no-bad-blocks': [
@@ -123,6 +130,8 @@ export const configJsdoc = (
       'jsdoc/no-blank-blocks': 'error',
       'jsdoc/no-defaults': 'error',
       'jsdoc/no-multi-asterisks': 'error',
+      'jsdoc/reject-any-type': 'error',
+      'jsdoc/reject-function-type': 'error',
       'jsdoc/require-asterisk-prefix': 'error',
       'jsdoc/require-hyphen-before-param-description': 'error',
       'jsdoc/type-formatting': [
@@ -134,7 +143,6 @@ export const configJsdoc = (
           objectFieldIndent: '',
           objectFieldQuote: null,
           objectFieldSeparator: 'comma',
-          propertyQuotes: null,
           stringQuotes: 'single',
           typeBracketSpacing: '',
           unionSpacing: '',
