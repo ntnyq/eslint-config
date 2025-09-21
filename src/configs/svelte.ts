@@ -102,7 +102,6 @@ export const configSvelte = async (
         'svelte/no-dupe-else-if-blocks': 'error',
         'svelte/no-dupe-style-properties': 'error',
         'svelte/no-dupe-use-directives': 'error',
-        'svelte/no-dynamic-slot-name': 'error',
         'svelte/no-export-load-in-svelte-module-in-kit-pages': 'error',
         'svelte/no-inner-declarations': 'error',
         'svelte/no-not-function-handler': 'error',
