@@ -13,11 +13,25 @@ export type ConfigDependOptions = OptionsFiles
      * @default true
      */
     packageJson?: boolean
-
     /**
      * Allowed dependencies
+     *
+     * @default []
      */
     allowed?: string[]
+    /**
+     * Use customized modules to ban
+     *
+     * @default []
+     */
+    modules?: string[]
+    /**
+     * Preset list
+     * @see {@link https://github.com/es-tooling/eslint-plugin-depend/blob/main/docs/rules/ban-dependencies.md#presets}
+     *
+     * @default ['native', 'microutilities', 'preferred']
+     */
+    presets?: Array<'native' | 'microutilities' | 'preferred'>
   }
 
 /**
@@ -35,9 +49,24 @@ export const configDepend = (
   const {
     files = [GLOB_SRC],
     allowed = [],
-    // check package.json file
+    modules = [],
     packageJson: enableCheckPackageJson = true,
+    presets = ['native', 'microutilities', 'preferred'],
   } = options
+
+  const rules: TypedConfigItem['rules'] = {
+    'depend/ban-dependencies': [
+      'error',
+      {
+        allowed,
+        modules,
+        presets,
+      },
+    ],
+
+    // Overrides rules
+    ...options.overrides,
+  }
 
   const configs: TypedConfigItem[] = [
     {
@@ -46,17 +75,7 @@ export const configDepend = (
       plugins: {
         depend: pluginDepend,
       },
-      rules: {
-        'depend/ban-dependencies': [
-          'error',
-          {
-            allowed,
-          },
-        ],
-
-        // Overrides rules
-        ...options.overrides,
-      },
+      rules,
     },
   ]
 
@@ -70,17 +89,7 @@ export const configDepend = (
       languageOptions: {
         parser: parserJsonc,
       },
-      rules: {
-        'depend/ban-dependencies': [
-          'error',
-          {
-            allowed,
-          },
-        ],
-
-        // Overrides rules
-        ...options.overrides,
-      },
+      rules,
     })
   }
 
