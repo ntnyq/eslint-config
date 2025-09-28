@@ -53,6 +53,7 @@ export const configJsdoc = (
       /**
        * @pg Disabled rules
        */
+      'jsdoc/prefer-import-tag': 'off', // Not useful
       'jsdoc/require-tags': 'off', // Too strict
       'jsdoc/tag-lines': 'off', // Use `jsdoc/sort-tags`
       'jsdoc/text-escaping': 'off', // No need for this
@@ -68,6 +69,7 @@ export const configJsdoc = (
       'jsdoc/require-property-name': 'warn',
       'jsdoc/require-returns-check': 'warn',
       'jsdoc/require-returns-description': 'warn',
+      'jsdoc/require-template-description': 'warn',
       'jsdoc/require-yields-check': 'warn',
 
       /**
