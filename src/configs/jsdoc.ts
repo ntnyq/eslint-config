@@ -81,6 +81,9 @@ export const configJsdoc = (
       'jsdoc/require-throws-type': 'warn',
       'jsdoc/require-yields-description': 'warn',
       'jsdoc/require-yields-type': 'warn',
+      'jsdoc/ts-method-signature-style': 'warn',
+      'jsdoc/ts-no-empty-object-type': 'warn',
+      'jsdoc/ts-no-unnecessary-template-expression': 'warn',
 
       /**
        * @pg Enabled rules
