@@ -258,7 +258,11 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
 export const configVue = (
   options: ConfigVueOptions = {},
 ): TypedConfigItem[] => {
-  const { files = [GLOB_VUE], extraFileExtensions = [] } = options
+  const {
+    files = [GLOB_VUE],
+    ecmaVersion = 'latest',
+    extraFileExtensions = [],
+  } = options
   const sfcBlocks: false | VueBlocksOptions =
     options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {})
 
@@ -297,7 +301,7 @@ export const configVue = (
       languageOptions: {
         parser: parserVue,
         parserOptions: {
-          ecmaVersion: 'latest',
+          ecmaVersion,
           extraFileExtensions,
           parser: parserTypeScript,
           sourceType: 'module',

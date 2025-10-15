@@ -27,7 +27,7 @@ import type {
  */
 export type ConfigTypeScriptOptions = OptionsFiles
   & OptionsOverrides
-  & Pick<OptionsShareable, 'extraFileExtensions'> & {
+  & Pick<OptionsShareable, 'extraFileExtensions' | 'ecmaVersion'> & {
     /**
      * Glob patterns for files that should be type aware.
      * @default ['**\/*.{ts,tsx}']
@@ -125,6 +125,7 @@ export const configTypeScript = (
   const enableTypeAwareLint = !!options?.tsconfigPath
   const {
     allowDefaultProject = [],
+    ecmaVersion = 'latest',
     extraFileExtensions = [],
     filesTypeAware = [GLOB_TS, GLOB_TSX],
     ignoresTypeAware = [GLOB_ASTRO, `${GLOB_MARKDOWN}/**`],
@@ -145,6 +146,7 @@ export const configTypeScript = (
     ignores: string[] = [],
   ) {
     const typescriptParserOptions: TSESLintParserOptions = {
+      ecmaVersion,
       extraFileExtensions,
       sourceType: 'module',
       ...(enableTypeAware

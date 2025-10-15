@@ -1,3 +1,4 @@
+import type { Linter } from 'eslint'
 import type { ESLintConfig, TypedConfigItem } from './eslint'
 
 /**
@@ -27,6 +28,12 @@ export interface OptionsOverrides<
  * Options for shareable cross plugins
  */
 export interface OptionsShareable {
+  /**
+   * The ECMAScript version of the code being linted
+   * @default 'latest'
+   */
+  ecmaVersion?: Linter.EcmaVersion
+
   /**
    * @see {@link https://typescript-eslint.io/packages/parser/#extrafileextensions}
    */

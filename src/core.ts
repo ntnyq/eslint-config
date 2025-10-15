@@ -113,7 +113,7 @@ export function defineESLintConfig(
     eslintPlugin: enableESLintPlugin = false,
   } = options
   const configs: Awaitable<TypedConfigItem | TypedConfigItem[]>[] = []
-  const { extraFileExtensions = [] } = shareable
+  const { ecmaVersion = 'latest', extraFileExtensions = [] } = shareable
 
   if (enableVue) {
     extraFileExtensions.push('.vue')
@@ -142,6 +142,7 @@ export function defineESLintConfig(
       overrides: getOverrides(options, 'eslintComments'),
     }),
     configJavaScript({
+      ecmaVersion,
       ...resolveSubOptions(options, 'javascript'),
       overrides: getOverrides(options, 'javascript'),
     }),
@@ -213,6 +214,7 @@ export function defineESLintConfig(
   if (enableTypeScript) {
     configs.push(
       configTypeScript({
+        ecmaVersion,
         ...resolveSubOptions(options, 'typescript'),
         overrides: getOverrides(options, 'typescript'),
         extraFileExtensions,
@@ -223,6 +225,7 @@ export function defineESLintConfig(
   if (enableVue) {
     configs.push(
       configVue({
+        ecmaVersion,
         ...resolveSubOptions(options, 'vue'),
         typescript: !!enableTypeScript,
         overrides: getOverrides(options, 'vue'),
