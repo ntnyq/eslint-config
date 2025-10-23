@@ -5,6 +5,11 @@ import type {
   TypedConfigItem,
 } from '../types'
 
+const SPECIAL_CHAR = {
+  emptyString: '',
+  singleSpace: ' ',
+}
+
 /**
  * Options type of {@link configJsdoc}
  */
@@ -125,13 +130,13 @@ export const configJsdoc = (
         'error',
         {
           ignore: [
-            // built-in default
+            // typescript directive comments
             'ts-check',
             'ts-expect-error',
             'ts-ignore',
             'ts-nocheck',
 
-            // useful
+            // vite directive comments
             'vite-ignore',
           ],
         },
@@ -150,12 +155,17 @@ export const configJsdoc = (
           arrayBrackets: 'square',
           enableFixer: true,
           genericDot: false,
-          objectFieldIndent: '',
+          keyValuePostColonSpacing: SPECIAL_CHAR.singleSpace,
+          keyValuePostKeySpacing: SPECIAL_CHAR.emptyString,
+          keyValuePostOptionalSpacing: SPECIAL_CHAR.emptyString,
+          keyValuePostVariadicSpacing: SPECIAL_CHAR.emptyString,
+          objectFieldIndent: SPECIAL_CHAR.emptyString,
           objectFieldQuote: null,
           objectFieldSeparator: 'comma',
           stringQuotes: 'single',
-          typeBracketSpacing: '',
-          unionSpacing: '',
+          typeBracketSpacing: SPECIAL_CHAR.emptyString,
+          // Determines the spacing to add to unions (`|`).
+          unionSpacing: SPECIAL_CHAR.singleSpace,
         },
       ],
 
