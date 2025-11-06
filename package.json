@@ -2,7 +2,7 @@
   "name": "@ntnyq/eslint-config",
   "type": "module",
   "version": "5.7.0",
-  "packageManager": "pnpm@10.20.0",
+  "packageManager": "pnpm@10.21.0",
   "description": "An opinionated ESLint config preset of ntnyq",
   "keywords": [
     "eslint",
@@ -23,12 +23,12 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
     }
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "files": [
     "dist"
   ],
@@ -109,9 +109,9 @@
     "@clack/prompts": "^0.11.0",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
     "@eslint/js": "^9.39.1",
-    "@eslint/markdown": "^7.5.0",
-    "@unocss/eslint-plugin": "^66.5.4",
-    "@vitest/eslint-plugin": "^1.4.0",
+    "@eslint/markdown": "^7.5.1",
+    "@unocss/eslint-plugin": "^66.5.5",
+    "@vitest/eslint-plugin": "^1.4.2",
     "eslint-config-flat-gitignore": "^2.1.0",
     "eslint-flat-config-utils": "^2.1.4",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -161,11 +161,11 @@
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.6.2",
     "tinyglobby": "^0.2.15",
-    "tsdown": "^0.15.12",
+    "tsdown": "^0.16.1",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "uncase": "^0.2.0",
-    "vitest": "^4.0.6"
+    "vitest": "^4.0.8"
   },
   "engines": {
     "node": "^20.11.0 || >=21.1.0"
