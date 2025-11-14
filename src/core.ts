@@ -73,6 +73,8 @@ export function defineESLintConfig(
      */
     shareable = {},
 
+    ignores: userIgnores = [],
+
     /**
      * Conditional by deps
      */
@@ -132,7 +134,7 @@ export function defineESLintConfig(
   }
 
   configs.push(
-    configIgnores(options.ignores),
+    configIgnores(userIgnores),
     configJSX(),
     configNode({
       overrides: getOverrides(options, 'node'),
