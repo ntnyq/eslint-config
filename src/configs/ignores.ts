@@ -3,8 +3,11 @@ import type { TypedConfigItem } from '../types'
 
 /**
  * Options type for {@link configIgnores}
+ *
+ * Passing an array to extend the built-in ignores
+ * Passing a function to modify the built-in ignores
  */
-export type ConfigIgnoresOptions = string[]
+export type ConfigIgnoresOptions = string[] | ((ignores: string[]) => string[])
 
 /**
  * Config for ignore files from linting
@@ -16,14 +19,19 @@ export type ConfigIgnoresOptions = string[]
  */
 export const configIgnores = (
   customIgnores: ConfigIgnoresOptions = [],
-): TypedConfigItem[] => [
-  {
-    name: 'ntnyq/ignores',
-    ignores: [
-      ...GLOB_EXCLUDE,
+): TypedConfigItem[] => {
+  let ignores: string[] = [...GLOB_EXCLUDE]
 
-      // Overrides built-in ignores
-      ...customIgnores,
-    ],
-  },
-]
+  if (typeof customIgnores === 'function') {
+    ignores = customIgnores(ignores)
+  } else {
+    ignores.push(...customIgnores)
+  }
+
+  return [
+    {
+      name: 'ntnyq/ignores',
+      ignores,
+    },
+  ]
+}
