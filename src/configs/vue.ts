@@ -203,6 +203,7 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
       checkMultiRootNodes: true,
     },
   ],
+  'vue/no-duplicate-class-names': 'error',
   'vue/no-empty-component-block': 'error',
   'vue/no-irregular-whitespace': 'error',
   'vue/no-multiple-objects-in-class': 'error',
