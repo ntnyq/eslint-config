@@ -14,9 +14,17 @@ sidebarDepth: 0
 
 ### strict
 
-Enable strict checking.
+Enable strict checking for JavaScript files.
 
-- **Type**: `boolean` (default: false)
+- **Type**: `boolean`
+- **Default**: `false`
+
+### ecmaVersion
+
+The ECMAScript version of the code being linted.
+
+- **Type**: `Linter.EcmaVersion`
+- **Default**: `'latest'`
 
 ### overrides
 

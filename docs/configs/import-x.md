@@ -11,11 +11,19 @@ sidebarDepth: 0
 
 ## Options
 
+### typescript
+
+Enable TypeScript support.
+
+- **Type**: `boolean`
+- **Default**: `false`
+
 ### preferTypeScriptResolver
 
-Prefer TypeScript resolver.
+Use [eslint-import-resolver-typescript](https://github.com/import-js/eslint-import-resolver-typescript) if `typescript` is installed.
 
-- **Type**: `boolean` (default: true)
+- **Type**: `boolean`
+- **Default**: `true`
 
 ### overrides
 

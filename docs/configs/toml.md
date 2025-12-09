@@ -13,9 +13,10 @@ sidebarDepth: 0
 
 ### files
 
-TOML file match.
+Glob patterns for TOML files.
 
 - **Type**: `string[]`
+- **Default**: `['**/*.toml']`
 
 ### overrides
 

@@ -7,11 +7,14 @@ sidebarDepth: 0
 
 ## Options
 
-### ignores
+Passing an array to extend the built-in ignores, or passing a function to modify the built-in ignores.
 
-Globally ignored files.
+### customIgnores
 
-- **Type**: `string[]`
+Custom ignore patterns.
+
+- **Type**: `string[] | ((ignores: string[]) => string[])`
+- **Default**: `[]`
 
 ## :mag: Implementation
 

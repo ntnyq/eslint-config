@@ -82,7 +82,7 @@ export const configSort = (
               'files',
               'include',
               'exclude',
-              // vue.volar
+              // VSCode extension: Vue.volar
               'vueCompilerOptions',
               // Unknown fields
               {

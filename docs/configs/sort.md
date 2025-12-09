@@ -7,23 +7,52 @@ sidebarDepth: 0
 
 ## Options
 
-### additionalJsonFiles
+### packageJson
 
-Additional JSON files to sort all properties alphabetically.
+Enable package.json sorting.
 
-- **Type**: `string[]`
+- **Type**: `boolean`
+- **Default**: `true`
 
-### additionalYamlFiles
+### tsconfig
 
-Additional YAML files to sort all properties alphabetically.
+Enable tsconfig.json sorting.
 
-- **Type**: `string[]`
+- **Type**: `boolean`
+- **Default**: `true`
+
+### pnpmWorkspace
+
+Enable pnpm-workspace.yaml sorting.
+
+- **Type**: `boolean`
+- **Default**: `true`
+
+### jsonSchema
+
+Enable JSON schema sorting.
+
+- **Type**: `boolean`
+- **Default**: `true`
 
 ### i18nLocale
 
 Enable i18n locale sorting.
 
-- **Type**: `boolean` (default: true)
+- **Type**: `boolean`
+- **Default**: `true`
+
+### additionalJsonFiles
+
+JSON files to sort all properties alphabetically.
+
+- **Type**: `string[]`
+
+### additionalYamlFiles
+
+YAML files to sort all properties alphabetically.
+
+- **Type**: `string[]`
 
 ## :mag: Implementation
 

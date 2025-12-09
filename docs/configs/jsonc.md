@@ -11,9 +11,16 @@ sidebarDepth: 0
 
 ## Options
 
+### files
+
+Glob patterns for files to be linted.
+
+- **Type**: `string[]`
+- **Default**: `['**/*.json', '**/*.json5', '**/*.jsonc']`
+
 ### prettier
 
-Disable prettier related rules.
+Whether disable prettier related rules.
 
 - **Type**: `boolean`
 

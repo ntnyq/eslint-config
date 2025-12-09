@@ -13,15 +13,17 @@ sidebarDepth: 0
 
 ### files
 
-SVG file match.
+Glob patterns for SVG files.
 
 - **Type**: `string[]`
+- **Default**: `['**/*.svg']`
 
 ### ignores
 
 Ignored files.
 
 - **Type**: `string[]`
+- **Default**: `[]`
 
 ### overrides
 

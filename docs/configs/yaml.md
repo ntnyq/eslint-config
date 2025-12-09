@@ -11,9 +11,16 @@ sidebarDepth: 0
 
 ## Options
 
+### files
+
+Glob patterns for YAML files.
+
+- **Type**: `string[]`
+- **Default**: `['**/*.{yml,yaml}']`
+
 ### prettier
 
-Disable prettier related rules.
+Whether disable prettier related rules.
 
 - **Type**: `boolean`
 

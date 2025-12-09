@@ -13,9 +13,10 @@ sidebarDepth: 0
 
 ### files
 
-Pinia store file match.
+Glob patterns for Pinia store files.
 
 - **Type**: `string[]`
+- **Default**: `['**/stores/**/*.{js,ts}']`
 
 ### overrides
 

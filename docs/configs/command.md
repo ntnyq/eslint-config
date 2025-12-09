@@ -11,11 +11,19 @@ sidebarDepth: 0
 
 ## Options
 
-### overrides
+This config accepts all options from [eslint-plugin-command](https://github.com/antfu/eslint-plugin-command#options), including:
 
-ESLint rule entries.
+### commands
 
-- **Type**: `Rules`
+Custom commands to add.
+
+- **Type**: `CommandConfig[]`
+
+### name
+
+Name of the configuration.
+
+- **Type**: `string`
 
 ## :mag: Implementation
 

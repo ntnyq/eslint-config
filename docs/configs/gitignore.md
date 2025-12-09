@@ -11,11 +11,14 @@ sidebarDepth: 0
 
 ## Options
 
+This config accepts all options from [eslint-config-flat-gitignore](https://github.com/antfu/eslint-config-flat-gitignore#options) except `strict`, plus:
+
 ### strict
 
-找不到 gitignore 文件时是否抛错。
+Throw an error if gitignore file not found.
 
-- **Type**: `boolean` (default: false)
+- **Type**: `boolean`
+- **Default**: `false`
 
 ## :mag: Implementation
 

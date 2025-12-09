@@ -12,21 +12,31 @@ sidebarDepth: 0
 
 ## Options
 
+### files
+
+Glob patterns for test files.
+
+- **Type**: `string[]`
+- **Default**: `['**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}']`
+
 ### vitest
 
-Enable vitest related rules.
+Enable vitest plugin rules.
 
 - **Type**: `boolean`
+- **Default**: `true` if vitest in deps
 
 ### overridesVitestRules
 
-Override vitest rules.
+Overrides built-in vitest rules.
 
 - **Type**: `Rules`
 
 ### overrides
 
 ESLint rule entries.
+
+- **Type**: `Rules`
 
 - **Type**: `Rules`
 

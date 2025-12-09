@@ -11,6 +11,13 @@ sidebarDepth: 0
 
 ## Options
 
+### files
+
+Glob patterns for code block files.
+
+- **Type**: `string[]`
+- **Default**: `['**/*.md/**']`
+
 ### extraFileExtensions
 
 Additional file extensions.

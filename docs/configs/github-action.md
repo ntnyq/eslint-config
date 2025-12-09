@@ -13,9 +13,10 @@ sidebarDepth: 0
 
 ### files
 
-GitHub Action 文件匹配。
+Glob patterns for GitHub Action files.
 
 - **Type**: `string[]`
+- **Default**: `['.github/workflows/*.{yml,yaml}']`
 
 ### overrides
 

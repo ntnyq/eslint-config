@@ -11,6 +11,12 @@ sidebarDepth: 0
 
 ## Options
 
+### preset
+
+Use a built-in preset.
+
+- **Type**: `'all' | 'recommended' | 'unopinionated'`
+
 ### overrides
 
 ESLint rule entries.
