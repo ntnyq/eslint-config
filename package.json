@@ -2,7 +2,7 @@
   "name": "@ntnyq/eslint-config",
   "type": "module",
   "version": "5.8.0",
-  "packageManager": "pnpm@10.25.0",
+  "packageManager": "pnpm@10.26.0",
   "description": "An opinionated ESLint config preset of ntnyq",
   "keywords": [
     "eslint",
@@ -52,7 +52,7 @@
     "release:check": "run-s build lint test typecheck",
     "release:version": "bumpp",
     "test": "vitest",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsgo --noEmit",
     "types:generate": "tsx scripts/generateType.ts"
   },
   "peerDependencies": {
@@ -142,15 +142,16 @@
     "jsonc-eslint-parser": "^2.4.2",
     "local-pkg": "^1.1.2",
     "toml-eslint-parser": "^0.10.1",
-    "typescript-eslint": "^8.49.0",
+    "typescript-eslint": "^8.50.0",
     "vue-eslint-parser": "^10.2.0",
     "yaml-eslint-parser": "^1.3.2"
   },
   "devDependencies": {
     "@ntnyq/prettier-config": "^3.0.1",
-    "@types/node": "^24.10.4",
-    "@typescript-eslint/types": "^8.49.0",
-    "@typescript-eslint/utils": "^8.49.0",
+    "@types/node": "^25.0.2",
+    "@typescript-eslint/types": "^8.50.0",
+    "@typescript-eslint/utils": "^8.50.0",
+    "@typescript/native-preview": "7.0.0-dev.20251214.1",
     "bumpp": "^10.3.2",
     "consola": "^3.4.2",
     "eslint": "^9.39.2",
@@ -161,7 +162,7 @@
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.7.4",
     "tinyglobby": "^0.2.15",
-    "tsdown": "^0.17.4",
+    "tsdown": "^0.18.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "uncase": "^0.2.0",

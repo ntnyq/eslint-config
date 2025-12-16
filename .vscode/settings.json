@@ -59,6 +59,7 @@
     "tauri",
     "tsdown",
     "tseslint",
+    "tsgo",
     "unplugin",
     "unrs",
     "vitepress",
