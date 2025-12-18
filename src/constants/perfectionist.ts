@@ -211,6 +211,20 @@ const sortNamedImportsGroups: string[] = [
 ]
 
 /**
+ * Shared option `groups` for rule `sort-import-attributes`
+ *
+ * @see {@link https://perfectionist.dev/rules/sort-import-attributes}
+ */
+const sortImportAttributesGroups: string[] = ['unknown']
+
+/**
+ * Shared option `groups` for rule `sort-export-attributes`
+ *
+ * @see {@link https://perfectionist.dev/rules/sort-export-attributes}
+ */
+const sortExportAttributesGroups: string[] = ['unknown']
+
+/**
  * Shared option `groups` for rule `sort-classes`
  *
  * // TODO: implement this
@@ -226,7 +240,9 @@ export const PERFECTIONIST = Object.freeze({
   partialRuleOptions,
   pluginSettings,
   sortClassesGroups,
+  sortExportAttributesGroups,
   sortExportsGroups,
+  sortImportAttributesGroups,
   sortImportsTypes,
   sortInterfacesOrObjectTypesGroups,
   sortIntersectionTypesOrUnionTypesGroups,

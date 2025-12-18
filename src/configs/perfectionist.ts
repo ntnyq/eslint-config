@@ -119,12 +119,26 @@ export const configPerfectionist = (
   } as const
 
   const commonRules: TypedConfigItem['rules'] = {
+    'perfectionist/sort-export-attributes': [
+      'error',
+      {
+        ...sharedOptionsWithNewlinesBetween,
+        groups: PERFECTIONIST.sortExportAttributesGroups,
+      },
+    ],
     'perfectionist/sort-exports': [
       'error',
       {
         ...sharedOptionsWithNewlinesBetween,
         groups: PERFECTIONIST.sortExportsGroups,
         type: 'line-length',
+      },
+    ],
+    'perfectionist/sort-import-attributes': [
+      'error',
+      {
+        ...sharedOptionsWithNewlinesBetween,
+        groups: PERFECTIONIST.sortImportAttributesGroups,
       },
     ],
     'perfectionist/sort-imports': [
@@ -256,17 +270,22 @@ export const configPerfectionist = (
     ],
   }
 
+  // Common plugin and settings configuration
+  const sharedConfig = {
+    plugins: {
+      perfectionist: pluginPerfectionist,
+    },
+    settings: {
+      perfectionist: PERFECTIONIST.pluginSettings,
+    },
+  } as const
+
   const configs: TypedConfigItem[] = [
     {
       name: options.all
         ? 'ntnyq/perfectionist/all'
         : 'ntnyq/perfectionist/common',
-      plugins: {
-        perfectionist: pluginPerfectionist,
-      },
-      settings: {
-        perfectionist: PERFECTIONIST.pluginSettings,
-      },
+      ...sharedConfig,
       rules: {
         ...commonRules,
 
@@ -295,18 +314,10 @@ export const configPerfectionist = (
     configs.push({
       name: 'ntnyq/perfectionist/enums',
       files: filesEnums,
-      plugins: {
-        perfectionist: pluginPerfectionist,
-      },
-      settings: {
-        perfectionist: PERFECTIONIST.pluginSettings,
-      },
+      ...sharedConfig,
       rules: {
         ...sharedRules,
-
         ...sortEnumsRules,
-
-        // Overrides rules
         ...options.overridesEnumsRules,
       },
     })
@@ -316,18 +327,10 @@ export const configPerfectionist = (
     configs.push({
       name: 'ntnyq/perfectionist/types',
       files: filesTypes,
-      plugins: {
-        perfectionist: pluginPerfectionist,
-      },
-      settings: {
-        perfectionist: PERFECTIONIST.pluginSettings,
-      },
+      ...sharedConfig,
       rules: {
         ...sharedRules,
-
         ...sortTypesRules,
-
-        // Overrides rules
         ...options.overridesTypesRules,
       },
     })
@@ -337,18 +340,10 @@ export const configPerfectionist = (
     configs.push({
       name: 'ntnyq/perfectionist/constants',
       files: filesConstants,
-      plugins: {
-        perfectionist: pluginPerfectionist,
-      },
-      settings: {
-        perfectionist: PERFECTIONIST.pluginSettings,
-      },
+      ...sharedConfig,
       rules: {
         ...sharedRules,
-
         ...sortConstantsRules,
-
-        // Overrides rules
         ...options.overridesConstantsRules,
       },
     })
