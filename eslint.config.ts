@@ -2,11 +2,11 @@ import { defineESLintConfig, PERFECTIONIST, pluginPerfectionist } from './src'
 
 interface CustomGroupDefinition {
   groupName: string
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'unsorted'
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted'
   order?: 'asc' | 'desc'
-  newlinesInside?: 'always' | 'never'
-  selector?: string
-  modifiers?: string[]
+  newlinesInside?: number
+  selector?: 'member' | 'method' | 'property'
+  modifiers?: ('optional' | 'required' | 'multiline')[]
   elementNamePattern?:
     | string
     | string[]
@@ -64,7 +64,7 @@ export default defineESLintConfig(
             ...ESLINT_RULE_SEVERITY.map<CustomGroupDefinition>(severity => ({
               elementValuePattern: severity,
               groupName: `rule-severity-${severity}`,
-              newlinesInside: 'never',
+              newlinesInside: 0,
               order: 'asc',
               type: 'alphabetical',
             })),
