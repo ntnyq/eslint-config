@@ -145,7 +145,7 @@ export const configPerfectionist = (
       'error',
       {
         ...sharedOptionsWithNewlinesBetween,
-        groups: PERFECTIONIST.sortImportsTypes,
+        groups: PERFECTIONIST.sortImportsGroups,
         internalPattern: ['^~/.+', '^@/.+', '^#.+'],
       },
     ],

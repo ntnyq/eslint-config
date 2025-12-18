@@ -123,14 +123,20 @@ const sortIntersectionTypesOrUnionTypesGroups: string[] = [
    * eg. null | undefined
    */
   'nullish',
+
+  /**
+   * types that don’t fit into any other groups
+   */
+  'unknown',
 ]
 
 /**
  * Shared option `groups` for rule `sort-imports`
  *
  * @see {@link https://perfectionist.dev/rules/sort-imports}
+ * TODO: support v5 added selectors and modifiers
  */
-const sortImportsTypes: string[] = [
+const sortImportsGroups: string[] = [
   // Side effect style imports (e.g. 'normalize.css')
   'side-effect-style',
 
@@ -185,6 +191,7 @@ const sortImportsTypes: string[] = [
  * Shared option `groups` for rule `sort-exports`
  *
  * @see {@link https://perfectionist.dev/rules/sort-exports}
+ * TODO: support v5 added modifiers
  */
 const sortExportsGroups: string[] = ['value-export', 'type-export', 'unknown']
 
@@ -243,7 +250,7 @@ export const PERFECTIONIST = Object.freeze({
   sortExportAttributesGroups,
   sortExportsGroups,
   sortImportAttributesGroups,
-  sortImportsTypes,
+  sortImportsGroups,
   sortInterfacesOrObjectTypesGroups,
   sortIntersectionTypesOrUnionTypesGroups,
   sortNamedExportsGroups,
