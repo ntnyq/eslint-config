@@ -11,11 +11,11 @@
     "@shikijs/transformers": "^3.20.0",
     "@shikijs/vitepress-twoslash": "^3.20.0",
     "@vueuse/core": "^14.1.0",
-    "unocss": "^66.5.10",
+    "unocss": "^66.5.11",
     "unplugin-vue-components": "^30.0.0",
     "vite": "npm:rolldown-vite@latest",
     "vitepress": "^2.0.0-alpha.15",
     "vitepress-plugin-group-icons": "^1.6.5",
-    "vue": "^3.5.25"
+    "vue": "^3.5.26"
   }
 }

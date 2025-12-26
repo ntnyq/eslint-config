@@ -2,7 +2,7 @@
   "name": "@ntnyq/eslint-config",
   "type": "module",
   "version": "5.8.0",
-  "packageManager": "pnpm@10.26.0",
+  "packageManager": "pnpm@10.26.2",
   "description": "An opinionated ESLint config preset of ntnyq",
   "keywords": [
     "eslint",
@@ -110,8 +110,8 @@
     "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
     "@eslint/js": "^9.39.2",
     "@eslint/markdown": "^7.5.1",
-    "@unocss/eslint-plugin": "^66.5.10",
-    "@vitest/eslint-plugin": "^1.5.2",
+    "@unocss/eslint-plugin": "^66.5.11",
+    "@vitest/eslint-plugin": "^1.6.4",
     "eslint-config-flat-gitignore": "^2.1.0",
     "eslint-flat-config-utils": "^2.1.4",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -121,7 +121,7 @@
     "eslint-plugin-command": "^3.4.0",
     "eslint-plugin-de-morgan": "^2.0.0",
     "eslint-plugin-depend": "^1.4.0",
-    "eslint-plugin-github-action": "^0.0.16",
+    "eslint-plugin-github-action": "^0.1.0",
     "eslint-plugin-import-x": "^4.16.1",
     "eslint-plugin-jsdoc": "^61.5.0",
     "eslint-plugin-jsonc": "^2.21.0",
@@ -142,15 +142,15 @@
     "jsonc-eslint-parser": "^2.4.2",
     "local-pkg": "^1.1.2",
     "toml-eslint-parser": "^0.10.1",
-    "typescript-eslint": "^8.50.0",
+    "typescript-eslint": "^8.50.1",
     "vue-eslint-parser": "^10.2.0",
     "yaml-eslint-parser": "^1.3.2"
   },
   "devDependencies": {
     "@ntnyq/prettier-config": "^3.0.1",
-    "@types/node": "^25.0.2",
-    "@typescript-eslint/types": "^8.50.0",
-    "@typescript-eslint/utils": "^8.50.0",
+    "@types/node": "^25.0.3",
+    "@typescript-eslint/types": "^8.50.1",
+    "@typescript-eslint/utils": "^8.50.1",
     "@typescript/native-preview": "7.0.0-dev.20251214.1",
     "bumpp": "^10.3.2",
     "consola": "^3.4.2",
@@ -162,11 +162,11 @@
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.7.4",
     "tinyglobby": "^0.2.15",
-    "tsdown": "^0.18.0",
+    "tsdown": "^0.18.3",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "uncase": "^0.2.0",
-    "vitest": "^4.0.15"
+    "vitest": "^4.0.16"
   },
   "engines": {
     "node": "^20.11.0 || >=21.1.0"
