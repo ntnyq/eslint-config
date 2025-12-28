@@ -11,7 +11,7 @@
     "@shikijs/transformers": "^3.20.0",
     "@shikijs/vitepress-twoslash": "^3.20.0",
     "@vueuse/core": "^14.1.0",
-    "unocss": "^66.5.11",
+    "unocss": "^66.5.12",
     "unplugin-vue-components": "^30.0.0",
     "vite": "npm:rolldown-vite@latest",
     "vitepress": "^2.0.0-alpha.15",
