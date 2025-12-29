@@ -151,7 +151,7 @@
     "@types/node": "^25.0.3",
     "@typescript-eslint/types": "^8.50.1",
     "@typescript-eslint/utils": "^8.50.1",
-    "@typescript/native-preview": "7.0.0-dev.20251220.1",
+    "@typescript/native-preview": "7.0.0-dev.20251221.1",
     "bumpp": "^10.3.2",
     "consola": "^3.4.2",
     "eslint": "^9.39.2",
