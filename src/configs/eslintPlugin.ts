@@ -27,7 +27,7 @@ export const configESLintPlugin = async (
     {
       ...pluginESLintPlugin.configs.all,
       name: 'ntnyq/eslint-plugin',
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+
       rules: {
         ...pluginESLintPlugin.configs.all.rules,
 
