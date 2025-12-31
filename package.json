@@ -169,7 +169,7 @@
     "vitest": "^4.0.16"
   },
   "engines": {
-    "node": "^20.11.0 || >=21.1.0"
+    "node": "^20.19.0 || ^22.13.0 || >=24"
   },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,md,vue,svg,yml,yaml,toml,json}": "eslint --fix",
