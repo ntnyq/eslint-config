@@ -1,4 +1,4 @@
-import { pluginComments } from '../eslint'
+import { pluginESLintComments } from '../eslint'
 import type { OptionsOverrides, TypedConfigItem } from '../types'
 
 /**
@@ -20,10 +20,10 @@ export const configESLintComments = (
   {
     name: 'ntnyq/eslint-comments',
     plugins: {
-      '@eslint-community/eslint-comments': pluginComments,
+      '@eslint-community/eslint-comments': pluginESLintComments,
     },
     rules: {
-      ...pluginComments.configs.recommended.rules,
+      ...pluginESLintComments.configs.recommended.rules,
       '@eslint-community/eslint-comments/disable-enable-pair': [
         'error',
         { allowWholeFile: true },
