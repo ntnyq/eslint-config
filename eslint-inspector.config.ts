@@ -4,6 +4,7 @@ export default defineESLintConfig({
   astro: true,
   eslintPlugin: true,
   html: true,
+  oxfmt: true,
   pnpm: true,
   svelte: true,
   svgo: true,

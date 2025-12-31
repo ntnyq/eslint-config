@@ -270,6 +270,7 @@ export interface ConfigOptions {
   astro?: boolean | ConfigAstroOptions
   html?: boolean | ConfigHtmlOptions
   pnpm?: boolean | ConfigPnpmOptions
+  oxfmt?: boolean | ConfigOxfmtOptions
   svelte?: boolean | ConfigSvelteOptions
   svgo?: boolean | ConfigSVGOOptions
   eslintPlugin?: boolean | ConfigESLintPluginOptions
