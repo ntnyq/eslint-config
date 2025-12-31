@@ -15,6 +15,7 @@ const configs = await defineESLintConfig({
   unocss: true,
   pinia: true,
   vue: true,
+  oxfmt: true,
   specials: {
     shadcnVue: true,
   },

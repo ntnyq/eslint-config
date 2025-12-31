@@ -23,6 +23,7 @@ import {
   configMarkdown,
   configNode,
   configNtnyq,
+  configOxfmt,
   configPerfectionist,
   configPinia,
   configPnpm,
@@ -112,6 +113,7 @@ export function defineESLintConfig(
     html: enableHTML = false,
     astro: enableAstro = false,
     svelte: enableSvelte = false,
+    oxfmt: enableOxfmt = false,
     eslintPlugin: enableESLintPlugin = false,
   } = options
   const configs: Awaitable<TypedConfigItem | TypedConfigItem[]>[] = []
@@ -386,6 +388,12 @@ export function defineESLintConfig(
         overrides: getOverrides(options, 'prettier'),
       })
     : []
+  const oxfmtConfigs: TypedConfigItem[] = enableOxfmt
+    ? configOxfmt({
+        ...resolveSubOptions(options, 'oxfmt'),
+        overrides: getOverrides(options, 'oxfmt'),
+      })
+    : []
 
   const composer: FlatConfigComposer<TypedConfigItem, ConfigNames> =
     new FlatConfigComposer<TypedConfigItem, ConfigNames>(
@@ -394,7 +402,8 @@ export function defineESLintConfig(
       // User custom configs
       ...userConfigs,
 
-      // Keep prettier and specials at last
+      // Keep formatters and specials at last
+      ...oxfmtConfigs,
       ...prettierConfigs,
     )
 
