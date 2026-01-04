@@ -104,7 +104,7 @@ importers:
         specifier: ^0.0.3
         version: 0.0.3(eslint@9.39.2(jiti@2.6.1))
       eslint-plugin-perfectionist:
-        specifier: ^5.1.0
+        specifier: ^5.2.0
         version: 5.3.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       eslint-plugin-pinia:
         specifier: ^0.4.2
