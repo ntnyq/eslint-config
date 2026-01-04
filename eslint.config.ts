@@ -4,9 +4,9 @@ interface CustomGroupDefinition {
   groupName: string
   type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted'
   order?: 'asc' | 'desc'
-  newlinesInside?: number
+  newlinesInside?: number | 'ignore'
   selector?: 'member' | 'method' | 'property'
-  modifiers?: ('optional' | 'multiline' | 'required')[]
+  modifiers?: 'multiline'[]
   elementNamePattern?:
     | string
     | string[]
