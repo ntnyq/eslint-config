@@ -2,7 +2,7 @@ import { defineESLintConfig, PERFECTIONIST, pluginPerfectionist } from './src'
 
 interface CustomGroupDefinition {
   groupName: string
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'unsorted'
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted'
   order?: 'asc' | 'desc'
   newlinesInside?: number
   selector?: 'member' | 'method' | 'property'
