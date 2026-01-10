@@ -63,7 +63,7 @@ export interface ConfigOptions {
   node?: ConfigNodeOptions
 
   /**
-   * Configs bellow can be disabled
+   * Configs below can be disabled
    * @pg
    */
   antfu?: boolean | ConfigAntfuOptions
