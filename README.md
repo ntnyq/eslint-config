@@ -8,23 +8,24 @@
 [![LICENSE](https://img.shields.io/github/license/ntnyq/eslint-config.svg)](https://github.com/ntnyq/eslint-config/blob/main/LICENSE)
 
 > [!IMPORTANT]
-> Feel free to create and maintain your own fork if you think this is too much opinionated.
+> Feel free to create and maintain your own fork if you think this is too opinionated.
 
-## Requirement
+## Requirements
 
-- NodeJS ^20.19.0 || ^22.13.0 || >=24
+- Node.js ^20.19.0 || ^22.13.0 || >=24
 - ESLint v9.20.0+
 
 > [!TIP]
-> For NodeJS v18 support, please use [v4](https://github.com/ntnyq/eslint-config/tree/v4)
-> For NodeJS support before 20.19.0, please use [v5](https://github.com/ntnyq/eslint-config/tree/v5)
+> For Node.js v18 support, please use [v4](https://github.com/ntnyq/eslint-config/tree/v4).
+>
+> For Node.js versions below 20.19.0, please use [v5](https://github.com/ntnyq/eslint-config/tree/v5).
 
 ## Features
 
-- Designed to work alongside with [Prettier](https://prettier.io) and [TypeScript](https://www.typescriptlang.org/)
-- Opinionable: single quote, no semi, trailing comma, etc
+- Designed to work alongside [Prettier](https://prettier.io) and [TypeScript](https://www.typescriptlang.org/)
+- Opinionated: single quote, no semi, trailing comma, etc
 - Respect `.gitignore` via [eslint-config-flat-gitignore](https://github.com/antfu/eslint-config-flat-gitignore)
-- Out-of-box support for TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG and etc
+- Out-of-the-box support for TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG, etc
 - Strict but provides useful rules to guard your codebase
 - Custom ESLint commands for [eslint-plugin-command](https://github.com/antfu/eslint-plugin-command)
 - [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files) for ESLint v9.20.0+
@@ -49,7 +50,7 @@ bun add eslint typescript @ntnyq/eslint-config -D
 
 ## Usage
 
-Highly recommended using **`eslint.config.mjs`** as the config file :
+Highly recommend using **`eslint.config.mjs`** as the config file:
 
 ```js
 // @ts-check
@@ -82,7 +83,7 @@ export default defineESLintConfig(
 )
 ```
 
-Add scripts `lint` in `package.json`:
+Add a `lint` script to `package.json`:
 
 ```json
 {
@@ -94,7 +95,7 @@ Add scripts `lint` in `package.json`:
 ```
 
 <details>
-<summary>💼 Intergrated with Prettier, VSCode, husky and nano-staged</summary>
+<summary>💼 Integrated with Prettier, VS Code, husky and nano-staged</summary>
 
 <br>
 
@@ -102,7 +103,7 @@ Add scripts `lint` in `package.json`:
 
 > Feel free to use your own prettier config.
 
-Install `prettier` and setup your prettier config:
+Install `prettier` and set up your Prettier config:
 
 ```shell
 npm i prettier @ntnyq/prettier-config -D
@@ -147,7 +148,7 @@ export default defineConfig({
 })
 ```
 
-## VSCode Config
+## VSCode config
 
 ```json
 {
@@ -213,7 +214,7 @@ Please check [eslint-config-inspector](https://eslint-config-inspector.ntnyq.com
 
 ## Advanced config
 
-Check for detail in:
+For details, see:
 
 - [./src/types/config.ts](https://github.com/ntnyq/eslint-config/blob/main/src/types/config.ts)
 - [./src/core.ts](https://github.com/ntnyq/eslint-config/blob/main/src/core.ts)
@@ -229,7 +230,6 @@ export interface ConfigOptions {
 
   /**
    * Configs enabled by default
-   * @pg
    */
   command?: ConfigCommandOptions
   eslintComments?: ConfigESLintCommentsOptions
@@ -238,7 +238,7 @@ export interface ConfigOptions {
   node?: ConfigNodeOptions
 
   /**
-   * Configs bellow can be disabled
+   * Configs below can be disabled
    */
   antfu?: boolean | ConfigAntfuOptions
   deMorgan?: boolean | ConfigDeMorganOptions
@@ -265,7 +265,7 @@ export interface ConfigOptions {
   yml?: boolean | ConfigYmlOptions
 
   /**
-   * Configs bellow are disabled by default
+   * Configs below are disabled by default
    */
   astro?: boolean | ConfigAstroOptions
   html?: boolean | ConfigHtmlOptions
@@ -279,19 +279,19 @@ export interface ConfigOptions {
 
 ## Versioning policy
 
-This project aims to follows [Semantic Versioning](https://semver.org/) for releases.
+This project aims to follow [Semantic Versioning](https://semver.org/) for releases.
 
-### Changes considered as Breaking Changes
+### Changes treated as Breaking Changes
 
 - Node.js version requirement changes
 - Huge refactors that might break the config
 - Plugins made major changes that might break the config
 - Changes that might affect most of the codebases
 
-### Changes considered as Non-Breaking Changes
+### Changes treated as Non-Breaking Changes
 
 - Enable/disable rules and plugins (that might become stricter)
-- Rules options changes
+- Rule option changes
 - Version bumps of dependencies
 
 ## Credits
