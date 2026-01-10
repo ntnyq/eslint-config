@@ -46,6 +46,7 @@
     "noinline",
     "npmrc",
     "nuxt",
+    "oxfmt",
     "pinia",
     "pnpm",
     "rehype",

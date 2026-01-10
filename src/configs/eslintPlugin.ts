@@ -27,6 +27,7 @@ export const configESLintPlugin = async (
     {
       ...pluginESLintPlugin.configs.all,
       name: 'ntnyq/eslint-plugin',
+
       rules: {
         ...pluginESLintPlugin.configs.all.rules,
 

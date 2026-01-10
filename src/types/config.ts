@@ -22,6 +22,7 @@ import type {
   ConfigMarkdownOptions,
   ConfigNodeOptions,
   ConfigNtnyqOptions,
+  ConfigOxfmtOptions,
   ConfigPerfectionistOptions,
   ConfigPiniaOptions,
   ConfigPnpmOptions,
@@ -62,7 +63,7 @@ export interface ConfigOptions {
   node?: ConfigNodeOptions
 
   /**
-   * Configs bellow can be disabled
+   * Configs below can be disabled
    * @pg
    */
   antfu?: boolean | ConfigAntfuOptions
@@ -78,6 +79,7 @@ export interface ConfigOptions {
   jsonc?: boolean | ConfigJsoncOptions
   markdown?: boolean | ConfigMarkdownOptions
   ntnyq?: boolean | ConfigNtnyqOptions
+  oxfmt?: boolean | ConfigOxfmtOptions
   perfectionist?: boolean | ConfigPerfectionistOptions
   pinia?: boolean | ConfigPiniaOptions
   pnpm?: boolean | ConfigPnpmOptions

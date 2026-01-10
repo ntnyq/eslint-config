@@ -106,7 +106,13 @@ export const configUnicorn = (
          * @pg Number
          */
         'unicorn/no-zero-fractions': 'error',
-        'unicorn/number-literal-case': 'error',
+        'unicorn/number-literal-case': [
+          'error',
+          {
+            // compatibility with prettier
+            hexadecimalValue: 'lowercase',
+          },
+        ],
         'unicorn/prefer-number-properties': 'error',
         /**
          * @pg BigInt
