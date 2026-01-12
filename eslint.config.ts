@@ -39,6 +39,7 @@ const ESLINT_RULE_SEVERITY = ['off', 'warn', 'error']
 
 export default defineESLintConfig(
   {
+    oxfmt: false,
     svgo: true,
     test: true,
     unocss: true,
