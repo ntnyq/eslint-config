@@ -31,3 +31,9 @@ export const hasVue: ExistChecker = () =>
       resolve(process.cwd(), 'docs'),
     ],
   })
+
+/**
+ * Formatters
+ */
+export const hasOxfmt: ExistChecker = () => isPackageExists('oxfmt')
+export const hasPrettier: ExistChecker = () => isPackageExists('prettier')

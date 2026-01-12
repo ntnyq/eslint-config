@@ -14,7 +14,7 @@ export interface ConfigOxfmtOptions
   extends OptionsOverrides, OptionsFiles, OptionsIgnores {}
 
 /**
- * Config for use oxfmt
+ * Config for using oxfmt
  *
  * @see {@link https://github.com/ntnyq/eslint-plugin-oxfmt}
  *

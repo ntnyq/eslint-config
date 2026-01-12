@@ -43,7 +43,9 @@ import {
 } from './configs'
 import {
   getOverrides,
+  hasOxfmt,
   hasPinia,
+  hasPrettier,
   hasTypeScript,
   hasUnoCSS,
   hasVitest,
@@ -84,6 +86,8 @@ export function defineESLintConfig(
     test: enableTest = hasVitest(),
     unocss: enableUnoCSS = hasUnoCSS(),
     typescript: enableTypeScript = hasTypeScript(),
+    oxfmt: enableOxfmt = hasOxfmt(),
+    prettier: enablePrettier = hasPrettier(),
 
     /**
      * Enabled by default
@@ -98,7 +102,6 @@ export function defineESLintConfig(
     regexp: enableRegexp = true,
     unicorn: enableUnicorn = true,
     deMorgan: enableDeMorgan = true,
-    prettier: enablePrettier = true,
     markdown: enableMarkdown = true,
     gitignore: enableGitIgnore = true,
     jsdoc: enableJsdoc = true,
@@ -113,7 +116,6 @@ export function defineESLintConfig(
     html: enableHTML = false,
     astro: enableAstro = false,
     svelte: enableSvelte = false,
-    oxfmt: enableOxfmt = false,
     eslintPlugin: enableESLintPlugin = false,
   } = options
   const configs: Awaitable<TypedConfigItem | TypedConfigItem[]>[] = []
@@ -382,16 +384,16 @@ export function defineESLintConfig(
     configs.push(configSpecials(resolveSubOptions(options, 'specials')))
   }
 
-  const prettierConfigs: TypedConfigItem[] = enablePrettier
-    ? configPrettier({
-        ...resolveSubOptions(options, 'prettier'),
-        overrides: getOverrides(options, 'prettier'),
-      })
-    : []
   const oxfmtConfigs: TypedConfigItem[] = enableOxfmt
     ? configOxfmt({
         ...resolveSubOptions(options, 'oxfmt'),
         overrides: getOverrides(options, 'oxfmt'),
+      })
+    : []
+  const prettierConfigs: TypedConfigItem[] = enablePrettier
+    ? configPrettier({
+        ...resolveSubOptions(options, 'prettier'),
+        overrides: getOverrides(options, 'prettier'),
       })
     : []
 
