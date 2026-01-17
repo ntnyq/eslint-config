@@ -1,6 +1,6 @@
 # @ntnyq/eslint-config
 
-> ESLint config for JavaScript, TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG and etc.
+> 🎨 ESLint config for JavaScript, TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG and etc.
 
 [![CI](https://github.com/ntnyq/eslint-config/workflows/CI/badge.svg)](https://github.com/ntnyq/eslint-config/actions)
 [![NPM VERSION](https://img.shields.io/npm/v/@ntnyq/eslint-config/latest.svg)](https://www.npmjs.com/package/@ntnyq/eslint-config/v/latest)
@@ -10,7 +10,7 @@
 > [!IMPORTANT]
 > Feel free to create and maintain your own fork if you think this is too opinionated.
 
-## Requirements
+## 📋 Requirements
 
 - Node.js ^20.19.0 || ^22.13.0 || >=24
 - ESLint ^9.38.0
@@ -20,17 +20,17 @@
 >
 > For Node.js versions below 20.19.0, please use [v5](https://github.com/ntnyq/eslint-config/tree/v5).
 
-## Features
+## ✨ Features
 
-- Designed to work alongside [Prettier](https://prettier.io) and [TypeScript](https://www.typescriptlang.org/)
-- Opinionated: single quote, no semi, trailing comma, etc
-- Respect `.gitignore` via [eslint-config-flat-gitignore](https://github.com/antfu/eslint-config-flat-gitignore)
-- Out-of-the-box support for TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG, etc
-- Strict but provides useful rules to guard your codebase
-- Custom ESLint commands for [eslint-plugin-command](https://github.com/antfu/eslint-plugin-command)
-- [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files) for ESLint v9.20.0+
+- ✅ Designed to work alongside [Prettier](https://prettier.io) and [TypeScript](https://www.typescriptlang.org/)
+- 🎯 Opinionated: single quote, no semi, trailing comma, etc
+- 🪄 Respect `.gitignore` via [eslint-config-flat-gitignore](https://github.com/antfu/eslint-config-flat-gitignore)
+- 📦 Out-of-the-box support for TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG, Astro, Svelte, etc
+- 🛡️ Strict but provides useful rules to guard your codebase
+- 🔧 Custom ESLint commands for [eslint-plugin-command](https://github.com/antfu/eslint-plugin-command)
+- 🎪 [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files) for ESLint v9.20.0+
 
-## Install
+## 📦 Install
 
 ```shell
 npm i eslint typescript @ntnyq/eslint-config -D
@@ -48,7 +48,7 @@ pnpm add eslint typescript @ntnyq/eslint-config -D
 bun add eslint typescript @ntnyq/eslint-config -D
 ```
 
-## Usage
+## 🚀 Usage
 
 Highly recommend using **`eslint.config.mjs`** as the config file:
 
@@ -95,11 +95,11 @@ Add a `lint` script to `package.json`:
 ```
 
 <details>
-<summary>💼 Integrated with Prettier, VS Code, husky and nano-staged</summary>
+<summary>💼 Integration: Prettier, VS Code, husky and nano-staged</summary>
 
 <br>
 
-## Prettier config
+## 🎨 Prettier config
 
 > Feel free to use your own prettier config.
 
@@ -148,7 +148,7 @@ export default defineConfig({
 })
 ```
 
-## VSCode config
+## 💻 VSCode config
 
 ```json
 {
@@ -178,7 +178,7 @@ export default defineConfig({
 }
 ```
 
-## Lint changed files only
+## 🎯 Lint changed files only
 
 ### 1. Add dependencies
 
@@ -208,18 +208,25 @@ echo "nano-staged" > .husky/pre-commit
 
 </details>
 
-## View what rules are enabled
+## 🔍 View what rules are enabled
 
 Please check [eslint-config-inspector](https://eslint-config-inspector.ntnyq.com/) powered by [@eslint/config-inspector](https://github.com/eslint/config-inspector).
 
-## Advanced config
+## ⚙️ Advanced config
 
 For details, see:
 
 - [./src/types/config.ts](https://github.com/ntnyq/eslint-config/blob/main/src/types/config.ts)
 - [./src/core.ts](https://github.com/ntnyq/eslint-config/blob/main/src/core.ts)
 
-### Config interface
+## ⚙️ Advanced config
+
+For details, see:
+
+- [./src/types/config.ts](https://github.com/ntnyq/eslint-config/blob/main/src/types/config.ts)
+- [./src/core.ts](https://github.com/ntnyq/eslint-config/blob/main/src/core.ts)
+
+### 📝 Config interface
 
 ```ts
 export interface ConfigOptions {
@@ -277,28 +284,28 @@ export interface ConfigOptions {
 }
 ```
 
-## Versioning policy
+## 📌 Versioning policy
 
 This project aims to follow [Semantic Versioning](https://semver.org/) for releases.
 
-### Changes treated as Breaking Changes
+### 🔴 Changes treated as Breaking Changes
 
 - Node.js version requirement changes
 - Huge refactors that might break the config
 - Plugins made major changes that might break the config
 - Changes that might affect most of the codebases
 
-### Changes treated as Non-Breaking Changes
+### 🟢 Changes treated as Non-Breaking Changes
 
 - Enable/disable rules and plugins (that might become stricter)
 - Rule option changes
 - Version bumps of dependencies
 
-## Credits
+## 🙏 Credits
 
 - [@sxzz/eslint-config](https://github.com/sxzz/eslint-config)
 - [@antfu/eslint-config](https://github.com/antfu/eslint-config)
 
-## License
+## 📄 License
 
 [MIT](./LICENSE) License © 2023-PRESENT [ntnyq](https://github.com/ntnyq)
