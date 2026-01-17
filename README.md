@@ -13,7 +13,7 @@
 ## Requirements
 
 - Node.js ^20.19.0 || ^22.13.0 || >=24
-- ESLint v9.20.0+
+- ESLint ^9.38.0
 
 > [!TIP]
 > For Node.js v18 support, please use [v4](https://github.com/ntnyq/eslint-config/tree/v4).
