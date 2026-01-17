@@ -1,3 +1,5 @@
+import type { NonEmptyArray } from '../types'
+
 /**
  * Shared perfectionist plugin settings
  */
@@ -191,6 +193,7 @@ const sortImportsGroups: string[] = [
  * Shared option `groups` for rule `sort-exports`
  *
  * @see {@link https://perfectionist.dev/rules/sort-exports}
+ * TODO: support v5 added selectors and modifiers
  */
 const sortExportsGroups: string[] = ['value-export', 'type-export', 'unknown']
 
@@ -234,9 +237,31 @@ const sortExportAttributesGroups: string[] = ['unknown']
  * Shared option `groups` for rule `sort-classes`
  *
  * @see {@link https://perfectionist.dev/rules/sort-classes}
- * TODO: implement this
  */
-const sortClassesGroups: string[] = ['unknown']
+const sortClassesGroups: (string | NonEmptyArray<string>)[] = [
+  ['static-property', 'static-accessor-property'],
+  ['static-get-method', 'static-set-method'],
+  ['protected-static-property', 'protected-static-accessor-property'],
+  ['protected-static-get-method', 'protected-static-set-method'],
+  ['private-static-property', 'private-static-accessor-property'],
+  ['private-static-get-method', 'private-static-set-method'],
+  'static-block',
+  ['property', 'accessor-property'],
+  ['get-method', 'set-method'],
+  ['protected-property', 'protected-accessor-property'],
+  ['protected-get-method', 'protected-set-method'],
+  ['private-property', 'private-accessor-property'],
+  ['private-get-method', 'private-set-method'],
+  'constructor',
+  ['static-method', 'static-function-property'],
+  ['protected-static-method', 'protected-static-function-property'],
+  ['private-static-method', 'private-static-function-property'],
+  ['method', 'function-property'],
+  ['protected-method', 'protected-function-property'],
+  ['private-method', 'private-function-property'],
+  'unknown',
+  'index-signature',
+]
 
 /**
  * Shared constants about eslint-plugin-perfectionist

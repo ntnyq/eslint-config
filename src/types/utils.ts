@@ -13,6 +13,11 @@ export type Arrayable<T> = T | T[]
 export type Awaitable<T> = Promise<T> | T
 
 /**
+ * Non-empty array
+ */
+export type NonEmptyArray<T> = [T, ...T[]]
+
+/**
  * Make types human readable
  */
 export type InteropModuleDefault<T> = T extends { default: infer U } ? U : T
