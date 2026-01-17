@@ -206,6 +206,7 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
   'vue/no-duplicate-class-names': 'error',
   'vue/no-empty-component-block': 'error',
   'vue/no-irregular-whitespace': 'error',
+  'vue/no-literals-in-template': 'error',
   'vue/no-multiple-objects-in-class': 'error',
   'vue/no-negated-v-if-condition': 'error',
   'vue/no-ref-object-reactivity-loss': 'error',

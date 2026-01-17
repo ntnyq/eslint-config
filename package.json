@@ -136,7 +136,7 @@
     "eslint-plugin-svgo": "^0.11.3",
     "eslint-plugin-toml": "^1.0.0",
     "eslint-plugin-unicorn": "^62.0.0",
-    "eslint-plugin-vue": "^10.6.2",
+    "eslint-plugin-vue": "^10.7.0",
     "eslint-plugin-yml": "^1.19.1",
     "eslint-processor-vue-blocks": "^2.0.0",
     "globals": "^17.0.0",
