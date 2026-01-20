@@ -48,6 +48,11 @@ import type { OptionsShareable } from './options'
  */
 export interface ConfigOptions {
   /**
+   * @private
+   */
+  __DEV__?: boolean
+
+  /**
    * Shareable options
    */
   shareable?: OptionsShareable

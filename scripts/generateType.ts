@@ -22,6 +22,7 @@ const configs = await defineESLintConfig({
   typescript: {
     tsconfigPath: './tsconfig.json',
   },
+  __DEV__: true,
 }).prepend({
   plugins: {
     '': {

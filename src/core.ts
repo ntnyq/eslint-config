@@ -121,6 +121,9 @@ export function defineESLintConfig(
   const configs: Awaitable<TypedConfigItem | TypedConfigItem[]>[] = []
   const { ecmaVersion = 'latest', extraFileExtensions = [] } = shareable
 
+  // If either formatter config is enabled
+  // const enableFormatter = enableOxfmt || enablePrettier
+
   if (enableVue) {
     extraFileExtensions.push('.vue')
   }
@@ -384,18 +387,25 @@ export function defineESLintConfig(
     configs.push(configSpecials(resolveSubOptions(options, 'specials')))
   }
 
-  const oxfmtConfigs: TypedConfigItem[] = enableOxfmt
-    ? configOxfmt({
-        ...resolveSubOptions(options, 'oxfmt'),
-        overrides: getOverrides(options, 'oxfmt'),
-      })
-    : []
-  const prettierConfigs: TypedConfigItem[] = enablePrettier
-    ? configPrettier({
-        ...resolveSubOptions(options, 'prettier'),
-        overrides: getOverrides(options, 'prettier'),
-      })
-    : []
+  const formatterConfigs: TypedConfigItem[] = []
+  const prettierConfigs = configPrettier({
+    ...resolveSubOptions(options, 'prettier'),
+    overrides: getOverrides(options, 'prettier'),
+  })
+  const oxfmtConfigs = configOxfmt({
+    ...resolveSubOptions(options, 'oxfmt'),
+    overrides: getOverrides(options, 'oxfmt'),
+  })
+
+  if (options.__DEV__) {
+    formatterConfigs.push(...prettierConfigs, ...oxfmtConfigs)
+  } else {
+    if (enablePrettier) {
+      formatterConfigs.push(...prettierConfigs)
+    } else if (enableOxfmt) {
+      formatterConfigs.push(...oxfmtConfigs)
+    }
+  }
 
   const composer: FlatConfigComposer<TypedConfigItem, ConfigNames> =
     new FlatConfigComposer<TypedConfigItem, ConfigNames>(
@@ -404,9 +414,8 @@ export function defineESLintConfig(
       // User custom configs
       ...userConfigs,
 
-      // Keep formatters and specials at last
-      ...oxfmtConfigs,
-      ...prettierConfigs,
+      // Keep formatter configs at last
+      ...formatterConfigs,
     )
 
   return composer
