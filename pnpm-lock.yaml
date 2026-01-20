@@ -261,7 +261,7 @@ importers:
         specifier: ^1.7.1
         version: 1.7.1(vite@8.0.0-beta.8(@types/node@25.0.9)(esbuild@0.27.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2))
       vue:
-        specifier: ^3.5.26
+        specifier: ^3.5.27
         version: 3.5.27(typescript@5.9.3)
 
 packages:

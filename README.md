@@ -4,6 +4,7 @@
 
 [![CI](https://github.com/ntnyq/eslint-config/workflows/CI/badge.svg)](https://github.com/ntnyq/eslint-config/actions)
 [![NPM VERSION](https://img.shields.io/npm/v/@ntnyq/eslint-config/latest.svg)](https://www.npmjs.com/package/@ntnyq/eslint-config/v/latest)
+[![NPM NEXT VERSION](https://img.shields.io/npm/v/@ntnyq/eslint-config/next.svg)](https://www.npmjs.com/package/@ntnyq/eslint-config/v/next)
 [![NPM DOWNLOADS](https://img.shields.io/npm/dy/@ntnyq/eslint-config)](https://www.npmjs.com/package/@ntnyq/eslint-config)
 [![LICENSE](https://img.shields.io/github/license/ntnyq/eslint-config.svg)](https://github.com/ntnyq/eslint-config/blob/main/LICENSE)
 
@@ -28,7 +29,7 @@
 - 📦 Out-of-the-box support for TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG, Astro, Svelte, etc
 - 🛡️ Strict but provides useful rules to guard your codebase
 - 🔧 Custom ESLint commands for [eslint-plugin-command](https://github.com/antfu/eslint-plugin-command)
-- 🎪 [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files) for ESLint v9.20.0+
+- 🎪 [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files) for ESLint v9.38.0+
 
 ## 📦 Install
 

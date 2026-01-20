@@ -34,7 +34,7 @@
   ],
   "publishConfig": {
     "access": "public",
-    "tag": "latest"
+    "tag": "next"
   },
   "scripts": {
     "build": "run-s types:generate lib:build",
