@@ -114,6 +114,8 @@ export const GLOB_EXCLUDE: string[] = [
   '**/components.d.ts',
   // unplugin-vue-router
   '**/typed-router.d.ts',
+  // vue-router v5
+  '**/routes.d.ts',
 
   // vite-plugin-uni-pages
   '**/uni-pages.d.ts',
