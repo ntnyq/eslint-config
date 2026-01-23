@@ -72,6 +72,14 @@ const typeAwareRules: TypedConfigItem['rules'] = {
   'no-throw-literal': 'off',
   'require-await': 'off',
   '@typescript-eslint/await-thenable': 'error',
+  '@typescript-eslint/consistent-type-imports': [
+    'error',
+    {
+      disallowTypeAnnotations: false,
+      fixStyle: 'separate-type-imports',
+      prefer: 'type-imports',
+    },
+  ],
   '@typescript-eslint/dot-notation': ['error', { allowKeywords: true }],
   '@typescript-eslint/no-duplicate-type-constituents': 'error',
   '@typescript-eslint/no-floating-promises': 'error',
@@ -232,14 +240,6 @@ export const configTypeScript = (
           {
             assertionStyle: 'as',
             objectLiteralTypeAssertions: 'allow-as-parameter',
-          },
-        ],
-        '@typescript-eslint/consistent-type-imports': [
-          'error',
-          {
-            disallowTypeAnnotations: false,
-            fixStyle: 'separate-type-imports',
-            prefer: 'type-imports',
           },
         ],
         '@typescript-eslint/default-param-last': 'error',
