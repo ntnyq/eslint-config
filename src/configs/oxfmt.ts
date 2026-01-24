@@ -1,5 +1,5 @@
 import { parserPlain, pluginOxfmt } from '../eslint'
-import { GLOB_SRC } from '../globs'
+import { GLOB_SRC, GLOB_SRC_EXTENSIONS } from '../globs'
 import type {
   OptionsFiles,
   OptionsIgnores,
@@ -11,7 +11,9 @@ import type {
  * Options type of {@link configOxfmt}
  */
 export interface ConfigOxfmtOptions
-  extends OptionsOverrides, OptionsFiles, OptionsIgnores {}
+  extends OptionsOverrides, OptionsFiles, OptionsIgnores {
+  filesExtensions?: string[]
+}
 
 /**
  * Config for using oxfmt
@@ -23,15 +25,32 @@ export interface ConfigOxfmtOptions
 export const configOxfmt = (
   options: ConfigOxfmtOptions = {},
 ): TypedConfigItem[] => {
-  const { files = [GLOB_SRC], ignores = [] } = options
+  const {
+    files = [GLOB_SRC],
+    ignores = [],
+    filesExtensions = GLOB_SRC_EXTENSIONS,
+  } = options
   return [
     {
-      name: 'ntnyq/oxfmt',
-      files,
-      ignores,
+      name: 'ntnyq/oxfmt/setup',
       plugins: {
         oxfmt: pluginOxfmt,
       },
+    },
+    {
+      name: 'ntnyq/oxfmt/basic',
+      files,
+      ignores,
+      rules: {
+        'oxfmt/oxfmt': 'error',
+
+        ...options.overrides,
+      },
+    },
+    {
+      name: 'ntnyq/oxfmt/extensions',
+      files: filesExtensions,
+      ignores: [GLOB_SRC],
       languageOptions: {
         parser: parserPlain,
       },

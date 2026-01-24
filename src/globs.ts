@@ -66,8 +66,7 @@ export const GLOB_MARKDOWN: string = '**/*.md'
 export const GLOB_MARKDOWN_CODE: string = `${GLOB_MARKDOWN}/${GLOB_SRC}`
 export const GLOB_MARKDOWN_NESTED: string = `${GLOB_MARKDOWN}/*.md`
 
-export const GLOB_ALL_SRC: string[] = [
-  GLOB_SRC,
+export const GLOB_SRC_EXTENSIONS: string[] = [
   GLOB_STYLE,
   GLOB_JSON,
   GLOB_JSON5,
@@ -77,6 +76,7 @@ export const GLOB_ALL_SRC: string[] = [
   GLOB_HTML,
   GLOB_MARKDOWN,
 ]
+export const GLOB_ALL_SRC: string[] = [GLOB_SRC, ...GLOB_SRC_EXTENSIONS]
 
 export const GLOB_PINIA_STORE: string = `**/store?(s)/*.${GLOB_SRC_EXT}`
 export const GLOB_GITHUB_ACTION: string = '**/.github/workflows/*.y?(a)ml'
