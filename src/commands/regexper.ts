@@ -31,10 +31,10 @@ export const regexper: Command = defineCommand({
     }
 
     const indexStart =
-      ctx.comment.range[0]
-      + ctx.matches.index!
-      + spaceBefore.length
-      + 2 /** comment prefix */
+      ctx.comment.range[0] +
+      ctx.matches.index! +
+      spaceBefore.length +
+      2 /** comment prefix */
     const indexEnd = indexStart + commandStr.length + existingUrl.length
 
     ctx.report({

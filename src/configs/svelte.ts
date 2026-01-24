@@ -11,9 +11,9 @@ import type {
 /**
  * Options type of {@link configSvelte}
  */
-export type ConfigSvelteOptions = OptionsFiles
-  & OptionsOverrides
-  & OptionsShareable
+export type ConfigSvelteOptions = OptionsFiles &
+  OptionsOverrides &
+  OptionsShareable
 
 /**
  * Config for svelte files

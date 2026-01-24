@@ -41,6 +41,8 @@
     "dev": "run-s types:generate lib:dev",
     "docs:build": "pnpm -C docs run build",
     "docs:dev": "pnpm -C docs run dev",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
     "inspector:build": "run-s build inspector:generate",
     "inspector:generate": "pnpm dlx @eslint/config-inspector build --config eslint-inspector.config.ts",
     "lib:build": "tsdown",
@@ -49,7 +51,7 @@
     "prepare": "husky",
     "prepublishOnly": "npm run build",
     "release": "run-s release:check release:version",
-    "release:check": "run-s build lint test typecheck",
+    "release:check": "run-s build format:check lint test typecheck",
     "release:version": "bumpp",
     "test": "vitest",
     "typecheck": "tsgo --noEmit",
@@ -148,7 +150,6 @@
     "yaml-eslint-parser": "^2.0.0"
   },
   "devDependencies": {
-    "@ntnyq/prettier-config": "^3.0.1",
     "@types/node": "^25.0.10",
     "@typescript-eslint/types": "^8.53.1",
     "@typescript-eslint/utils": "^8.53.1",
@@ -175,6 +176,6 @@
   },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,md,vue,svg,yml,yaml,toml,json}": "eslint --fix",
-    "*.{css,scss,html}": "prettier -uw"
+    "*": "oxfmt --no-error-on-unmatched-pattern"
   }
 }

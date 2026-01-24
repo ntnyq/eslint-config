@@ -20,9 +20,9 @@ import type {
 /**
  * Options type of {@link configMarkdown}
  */
-export type ConfigMarkdownOptions = OptionsFiles
-  & OptionsOverrides
-  & Pick<OptionsShareable, 'extraFileExtensions'>
+export type ConfigMarkdownOptions = OptionsFiles &
+  OptionsOverrides &
+  Pick<OptionsShareable, 'extraFileExtensions'>
 
 /**
  * Config for markdown files

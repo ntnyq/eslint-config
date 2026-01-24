@@ -1,5 +1,5 @@
 import { parserPlain, pluginOxfmt } from '../eslint'
-import { GLOB_SRC, GLOB_SRC_EXTENSIONS } from '../globs'
+import { GLOB_SRC, GLOB_SRC_EXTENSIONS, GLOB_VUE } from '../globs'
 import type {
   OptionsFiles,
   OptionsIgnores,
@@ -26,7 +26,7 @@ export const configOxfmt = (
   options: ConfigOxfmtOptions = {},
 ): TypedConfigItem[] => {
   const {
-    files = [GLOB_SRC],
+    files = [GLOB_SRC, GLOB_VUE],
     ignores = [],
     filesExtensions = GLOB_SRC_EXTENSIONS,
   } = options
@@ -50,7 +50,7 @@ export const configOxfmt = (
     {
       name: 'ntnyq/oxfmt/extensions',
       files: filesExtensions,
-      ignores: [GLOB_SRC],
+      ignores: [GLOB_SRC, GLOB_VUE],
       languageOptions: {
         parser: parserPlain,
       },

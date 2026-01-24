@@ -18,10 +18,10 @@ export async function ensurePackages(
   packages: (string | undefined)[],
 ): Promise<void> {
   if (
-    process.env.CI
-    || !process.stdout.isTTY
-    || isInGitHooksOrRunBySpecifyPackages()
-    || !isCwdInScope
+    process.env.CI ||
+    !process.stdout.isTTY ||
+    isInGitHooksOrRunBySpecifyPackages() ||
+    !isCwdInScope
   ) {
     return
   }

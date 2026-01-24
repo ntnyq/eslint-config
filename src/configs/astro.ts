@@ -11,9 +11,9 @@ import type {
 /**
  * Options type of {@link configAstro}
  */
-export type ConfigAstroOptions = OptionsFiles
-  & OptionsOverrides
-  & OptionsShareable
+export type ConfigAstroOptions = OptionsFiles &
+  OptionsOverrides &
+  OptionsShareable
 
 /**
  * Config for astro files

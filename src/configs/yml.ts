@@ -5,8 +5,8 @@ import type { OptionsFiles, OptionsOverrides, TypedConfigItem } from '../types'
 /**
  * Options type of {@link configYml}
  */
-export type ConfigYmlOptions = OptionsOverrides
-  & OptionsFiles & {
+export type ConfigYmlOptions = OptionsOverrides &
+  OptionsFiles & {
     /**
      * Whether disable prettier related rules
      */

@@ -6,8 +6,8 @@ import type { OptionsFiles, OptionsOverrides, TypedConfigItem } from '../types'
 /**
  * Options type of {@link configTest}
  */
-export type ConfigTestOptions = OptionsFiles
-  & OptionsOverrides & {
+export type ConfigTestOptions = OptionsFiles &
+  OptionsOverrides & {
     /**
      * Overrides built-in vitest rules
      */

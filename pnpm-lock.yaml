@@ -170,9 +170,6 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0
     devDependencies:
-      '@ntnyq/prettier-config':
-        specifier: ^3.0.1
-        version: 3.0.1
       '@types/node':
         specifier: ^25.0.10
         version: 25.0.10
@@ -707,9 +704,6 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
-
-  '@ntnyq/prettier-config@3.0.1':
-    resolution: {integrity: sha512-Mi8pvBu6Z0HsC6vFQQ9ucmEiot4GJ3AbwfU8J626m5oll9mgF5InO+pdGnFVtr9e82YHUHA67MihHLYT7CDhHw==}
 
   '@ntnyq/utils@0.10.0':
     resolution: {integrity: sha512-yMXmOByHnqddPcX4p2e175Q/KNk0G/llvbuQ9R5SQTD8ORNIT9XQK5kn7zLjzP5eCfYJJ1juzu6xLlFpk4H4AQ==}
@@ -4076,8 +4070,6 @@ snapshots:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.20.1
-
-  '@ntnyq/prettier-config@3.0.1': {}
 
   '@ntnyq/utils@0.10.0': {}
 

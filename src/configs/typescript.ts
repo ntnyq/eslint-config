@@ -25,9 +25,9 @@ import type {
 /**
  * Options type of {@link configTypeScript}
  */
-export type ConfigTypeScriptOptions = OptionsFiles
-  & OptionsOverrides
-  & Pick<OptionsShareable, 'extraFileExtensions' | 'ecmaVersion'> & {
+export type ConfigTypeScriptOptions = OptionsFiles &
+  OptionsOverrides &
+  Pick<OptionsShareable, 'extraFileExtensions' | 'ecmaVersion'> & {
     /**
      * Glob patterns for files that should be type aware.
      * @default ['**\/*.{ts,tsx}']

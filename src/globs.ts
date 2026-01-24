@@ -70,13 +70,16 @@ export const GLOB_SRC_EXTENSIONS: string[] = [
   GLOB_STYLE,
   GLOB_JSON,
   GLOB_JSON5,
-  GLOB_VUE,
   GLOB_YAML,
   GLOB_TOML,
   GLOB_HTML,
   GLOB_MARKDOWN,
 ]
-export const GLOB_ALL_SRC: string[] = [GLOB_SRC, ...GLOB_SRC_EXTENSIONS]
+export const GLOB_ALL_SRC: string[] = [
+  GLOB_SRC,
+  GLOB_VUE,
+  ...GLOB_SRC_EXTENSIONS,
+]
 
 export const GLOB_PINIA_STORE: string = `**/store?(s)/*.${GLOB_SRC_EXT}`
 export const GLOB_GITHUB_ACTION: string = '**/.github/workflows/*.y?(a)ml'

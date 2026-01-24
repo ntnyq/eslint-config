@@ -13,8 +13,8 @@ const SPECIAL_CHAR = {
 /**
  * Options type of {@link configJsdoc}
  */
-export type ConfigJsdocOptions = Pick<OptionsShareable, 'typescript'>
-  & OptionsOverrides
+export type ConfigJsdocOptions = Pick<OptionsShareable, 'typescript'> &
+  OptionsOverrides
 
 /**
  * JavaScript specific rules

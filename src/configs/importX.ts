@@ -9,8 +9,8 @@ import type {
 /**
  * Options type of {@link configImportX}
  */
-export type ConfigImportXOptions = Pick<OptionsShareable, 'typescript'>
-  & OptionsOverrides & {
+export type ConfigImportXOptions = Pick<OptionsShareable, 'typescript'> &
+  OptionsOverrides & {
     /**
      * Use [eslint-import-resolver-typescript](https://github.com/import-js/eslint-import-resolver-typescript) if `typescript` is installed
      *

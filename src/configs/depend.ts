@@ -5,8 +5,8 @@ import type { OptionsFiles, OptionsOverrides, TypedConfigItem } from '../types'
 /**
  * Options type of {@link configDepend}
  */
-export type ConfigDependOptions = OptionsFiles
-  & OptionsOverrides & {
+export type ConfigDependOptions = OptionsFiles &
+  OptionsOverrides & {
     /**
      * Check deps in package.json
      *

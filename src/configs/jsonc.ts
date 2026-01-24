@@ -5,8 +5,8 @@ import type { OptionsFiles, OptionsOverrides, TypedConfigItem } from '../types'
 /**
  * Options type of {@link configJsonc}
  */
-export type ConfigJsoncOptions = OptionsOverrides
-  & OptionsFiles & {
+export type ConfigJsoncOptions = OptionsOverrides &
+  OptionsFiles & {
     /**
      * Whether disable prettier related rules
      */

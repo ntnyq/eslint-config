@@ -19,9 +19,9 @@ import type {
 /**
  * Options type of {@link configVue}
  */
-export type ConfigVueOptions = OptionsFiles
-  & OptionsOverrides
-  & OptionsShareable & {
+export type ConfigVueOptions = OptionsFiles &
+  OptionsOverrides &
+  OptionsShareable & {
     /**
      * Create virtual files for Vue SFC blocks to enable linting.
      *
