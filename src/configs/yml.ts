@@ -1,17 +1,18 @@
 import { parserYaml, pluginYml } from '../eslint'
 import { GLOB_YAML } from '../globs'
-import type { OptionsFiles, OptionsOverrides, TypedConfigItem } from '../types'
+import type {
+  OptionsFiles,
+  OptionsFormatter,
+  OptionsOverrides,
+  TypedConfigItem,
+} from '../types'
 
 /**
  * Options type of {@link configYml}
  */
 export type ConfigYmlOptions = OptionsOverrides &
-  OptionsFiles & {
-    /**
-     * Whether disable prettier related rules
-     */
-    prettier?: boolean
-  }
+  OptionsFiles &
+  OptionsFormatter
 
 /**
  * @see {@link https://github.com/ota-meshi/eslint-plugin-yml/blob/master/src/configs/base.ts}
@@ -75,7 +76,7 @@ export const configYml = (
 
         ...disabledCoreRules,
 
-        ...(options.prettier
+        ...(options.usingFormatter
           ? {
               'yml/block-mapping-colon-indicator-newline': 'off',
               'yml/block-mapping-question-indicator-newline': 'off',

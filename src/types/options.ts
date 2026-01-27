@@ -25,6 +25,16 @@ export interface OptionsOverrides<
 }
 
 /**
+ * Options for formatter configs
+ */
+export interface OptionsFormatter {
+  /**
+   * Whether using formatter config
+   */
+  usingFormatter?: boolean
+}
+
+/**
  * Options for shareable cross plugins
  */
 export interface OptionsShareable {

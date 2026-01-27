@@ -122,7 +122,7 @@ export function defineESLintConfig(
   const { ecmaVersion = 'latest', extraFileExtensions = [] } = shareable
 
   // If either formatter config is enabled
-  // const enableFormatter = enableOxfmt || enablePrettier
+  const usingFormatter = enablePrettier || enableOxfmt
 
   if (enableVue) {
     extraFileExtensions.push('.vue')
@@ -246,7 +246,7 @@ export function defineESLintConfig(
   if (enableYML) {
     configs.push(
       configYml({
-        prettier: !!enablePrettier,
+        usingFormatter: !!usingFormatter,
         ...resolveSubOptions(options, 'yml'),
         overrides: getOverrides(options, 'yml'),
       }),
@@ -265,7 +265,7 @@ export function defineESLintConfig(
   if (enableJSONC) {
     configs.push(
       configJsonc({
-        prettier: !!enablePrettier,
+        usingFormatter: !!usingFormatter,
         ...resolveSubOptions(options, 'jsonc'),
         overrides: getOverrides(options, 'jsonc'),
       }),

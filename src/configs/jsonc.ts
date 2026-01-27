@@ -1,17 +1,18 @@
 import { parserJsonc, pluginJsonc } from '../eslint'
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs'
-import type { OptionsFiles, OptionsOverrides, TypedConfigItem } from '../types'
+import type {
+  OptionsFiles,
+  OptionsFormatter,
+  OptionsOverrides,
+  TypedConfigItem,
+} from '../types'
 
 /**
  * Options type of {@link configJsonc}
  */
 export type ConfigJsoncOptions = OptionsOverrides &
-  OptionsFiles & {
-    /**
-     * Whether disable prettier related rules
-     */
-    prettier?: boolean
-  }
+  OptionsFiles &
+  OptionsFormatter
 
 /**
  * @see {@link https://github.com/ota-meshi/eslint-plugin-jsonc/blob/master/lib/configs/base.ts}
@@ -102,7 +103,7 @@ export const configJsonc = (
 
         ...disabledCoreRules,
 
-        ...(options.prettier
+        ...(options.usingFormatter
           ? {
               'jsonc/array-bracket-newline': 'off',
               'jsonc/array-bracket-spacing': 'off',
