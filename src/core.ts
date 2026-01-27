@@ -235,6 +235,7 @@ export function defineESLintConfig(
     configs.push(
       configVue({
         ecmaVersion,
+        usingFormatter: !!usingFormatter,
         ...resolveSubOptions(options, 'vue'),
         typescript: !!enableTypeScript,
         overrides: getOverrides(options, 'vue'),

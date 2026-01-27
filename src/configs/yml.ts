@@ -76,6 +76,7 @@ export const configYml = (
 
         ...disabledCoreRules,
 
+        // Disable formatting rules if using a formatter
         ...(options.usingFormatter
           ? {
               'yml/block-mapping-colon-indicator-newline': 'off',

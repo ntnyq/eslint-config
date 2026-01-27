@@ -103,6 +103,7 @@ export const configJsonc = (
 
         ...disabledCoreRules,
 
+        // Disable formatting rules if using a formatter
         ...(options.usingFormatter
           ? {
               'jsonc/array-bracket-newline': 'off',
