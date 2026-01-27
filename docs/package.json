@@ -13,7 +13,7 @@
     "@vueuse/core": "^14.1.0",
     "unocss": "^66.6.0",
     "unplugin-vue-components": "^31.0.0",
-    "vite": "^8.0.0-beta.9",
+    "vite": "^8.0.0-beta.10",
     "vitepress": "^2.0.0-alpha.15",
     "vitepress-plugin-group-icons": "^1.7.1",
     "vue": "^3.5.27"
