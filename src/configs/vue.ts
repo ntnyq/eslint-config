@@ -43,6 +43,7 @@ const sharedRules: TypedConfigItem['rules'] = {
 
 const disabledRules: TypedConfigItem['rules'] = {
   'vue/multi-word-component-names': 'off',
+  'vue/no-literals-in-template': 'off',
   'vue/no-setup-props-reactivity-loss': 'off',
   'vue/no-v-html': 'off',
   'vue/no-v-text-v-html-on-component': 'off',
@@ -208,7 +209,6 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
   'vue/no-duplicate-class-names': 'error',
   'vue/no-empty-component-block': 'error',
   'vue/no-irregular-whitespace': 'error',
-  'vue/no-literals-in-template': 'error',
   'vue/no-multiple-objects-in-class': 'error',
   'vue/no-negated-v-if-condition': 'error',
   'vue/no-ref-object-reactivity-loss': 'error',
@@ -410,10 +410,11 @@ export const configVue = (
             sameNameShorthand: 'always',
           },
         ],
-
-        ...disabledRules,
         ...extensionRules,
         ...unCategorizedRules,
+
+        // Keep disabled rules at the end for easy overriding
+        ...disabledRules,
 
         // Disable formatting rules if using a formatter
         ...(options.usingFormatter

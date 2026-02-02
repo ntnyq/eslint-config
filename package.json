@@ -58,8 +58,8 @@
     "types:generate": "tsx scripts/generateType.ts"
   },
   "peerDependencies": {
-    "@html-eslint/eslint-plugin": "^0.53.0",
-    "@html-eslint/parser": "^0.53.0",
+    "@html-eslint/eslint-plugin": "^0.54.0",
+    "@html-eslint/parser": "^0.54.0",
     "astro-eslint-parser": "^1.2.2",
     "eslint": "^9.38.0",
     "eslint-plugin-astro": "^1.5.0",
@@ -68,7 +68,7 @@
     "eslint-plugin-pnpm": "^1.5.0",
     "eslint-plugin-svelte": "^3.14.0",
     "eslint-plugin-unused-imports": "^4.3.0",
-    "svelte": "^5.48.0",
+    "svelte": "^5.49.1",
     "svelte-eslint-parser": "^1.4.1"
   },
   "peerDependenciesMeta": {
@@ -150,7 +150,7 @@
     "yaml-eslint-parser": "^2.0.0"
   },
   "devDependencies": {
-    "@types/node": "^25.1.0",
+    "@types/node": "^25.2.0",
     "@typescript-eslint/types": "^8.54.0",
     "@typescript-eslint/utils": "^8.54.0",
     "@typescript/native-preview": "^7.0.0-dev.20260201.1",
@@ -175,7 +175,7 @@
     "node": "^20.19.0 || ^22.13.0 || >=24"
   },
   "nano-staged": {
-    "*.{js,ts,mjs,cjs,md,vue,svg,yml,yaml,toml,json}": "eslint --fix",
+    "*.{js,ts,mjs,md,vue,svg,yml,yaml,toml,json}": "eslint --fix",
     "*": "oxfmt --no-error-on-unmatched-pattern"
   }
 }

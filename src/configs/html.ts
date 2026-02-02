@@ -41,7 +41,7 @@ export const configHtml = async (
         '@html-eslint/element-newline': [
           'error',
           {
-            inline: [`$inline`],
+            inline: ['$inline'],
           },
         ],
         '@html-eslint/indent': 'error',
