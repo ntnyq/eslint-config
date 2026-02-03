@@ -18,9 +18,9 @@ Glob patterns for YAML files.
 - **Type**: `string[]`
 - **Default**: `['**/*.{yml,yaml}']`
 
-### prettier
+### usingFormatter
 
-Whether disable prettier related rules.
+Whether using formatter config.
 
 - **Type**: `boolean`
 

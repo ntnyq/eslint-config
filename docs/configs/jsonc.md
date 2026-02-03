@@ -18,9 +18,9 @@ Glob patterns for files to be linted.
 - **Type**: `string[]`
 - **Default**: `['**/*.json', '**/*.json5', '**/*.jsonc']`
 
-### prettier
+### usingFormatter
 
-Whether disable prettier related rules.
+Whether using formatter config.
 
 - **Type**: `boolean`
 

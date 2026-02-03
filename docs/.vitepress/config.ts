@@ -53,7 +53,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'x', link: 'https://twitter.com/ntnyq' },
+      { icon: 'x', link: 'https://x.com/ntnyq' },
       { icon: 'npm', link: `https://www.npmjs.com/package/${PACKAGE_NAME}` },
       { icon: 'github', link: `https://github.com/${REPO_SLUG}` },
     ],
@@ -70,6 +70,10 @@ export default defineConfig({
       {
         link: '/configs',
         text: 'Configs',
+      },
+      {
+        text: 'Resources',
+        items: [{ text: 'FAQ', link: '/faq' }],
       },
       {
         text: `v${version}`,
@@ -97,6 +101,18 @@ export default defineConfig({
         base: '/configs',
         items: sidebarConfigs(),
       },
+      '/faq': {
+        items: [
+          {
+            text: 'FAQ',
+            link: '/faq',
+          },
+          {
+            text: 'Back to Guide',
+            link: '/guide/',
+          },
+        ],
+      },
     },
   },
 
@@ -119,8 +135,28 @@ export default defineConfig({
 function sidebarGuide(): DefaultTheme.SidebarItem[] {
   return [
     {
+      text: 'Introduction',
+      items: [
+        { text: 'Getting Started', link: '/' },
+        { text: 'Features', link: '/#features' },
+      ],
+    },
+    {
       text: 'Guide',
-      items: [],
+      items: [
+        { text: 'Installation & Usage', link: '/' },
+        { text: 'Custom Configuration', link: '/custom' },
+      ],
+    },
+    {
+      text: 'Resources',
+      items: [
+        { text: 'Configs', link: '/configs/' },
+        {
+          text: 'Config Inspector',
+          link: 'https://eslint-config-inspector.ntnyq.com',
+        },
+      ],
     },
   ]
 }

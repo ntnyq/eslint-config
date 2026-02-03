@@ -38,8 +38,6 @@ ESLint rule entries.
 
 - **Type**: `Rules`
 
-- **Type**: `Rules`
-
 ## :mag: Implementation
 
 - [Config source](https://github.com/ntnyq/eslint-config/blob/main/src/configs/test.ts)

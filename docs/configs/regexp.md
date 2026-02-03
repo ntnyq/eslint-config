@@ -15,7 +15,7 @@ sidebarDepth: 0
 
 Rule severity.
 
-- **Type**: `'error' | 'warn' | 'off'`
+- **Type**: `'error' | 'warn'`
 - **Default**: `'error'`
 
 ### overrides

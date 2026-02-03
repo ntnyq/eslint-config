@@ -23,7 +23,7 @@
 
 ## ✨ Features
 
-- ✅ Designed to work alongside [Prettier](https://prettier.io) and [TypeScript](https://www.typescriptlang.org/)
+- ✅ Designed to work alongside formatter e.g: [Prettier](https://prettier.io) or [oxfmt](https://oxc.rs/docs/guide/usage/formatter)
 - 🎯 Opinionated: single quote, no semi, trailing comma, etc
 - 🪄 Respect `.gitignore` via [eslint-config-flat-gitignore](https://github.com/antfu/eslint-config-flat-gitignore)
 - 📦 Out-of-the-box support for TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG, Astro, Svelte, etc
