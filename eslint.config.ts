@@ -48,6 +48,9 @@ export default defineESLintConfig(
     typescript: {
       allowDefaultProject: [],
       tsconfigPath: './tsconfig.json',
+      overridesTypeAwareRules: {
+        '@typescript-eslint/consistent-generic-constructors': 'off',
+      },
     },
   },
   {

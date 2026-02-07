@@ -5,6 +5,7 @@ import { nextTick, provide } from 'vue'
 
 const { isDark } = useData()
 
+// eslint-disable-next-line no-useless-assignment
 const DefaultThemeLayout = DefaultTheme.Layout
 
 function supportViewTransition() {
@@ -14,11 +15,13 @@ function supportViewTransition() {
   )
 }
 
-provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
+provide('toggle-appearance', async (event: MouseEvent) => {
   if (!supportViewTransition()) {
     isDark.value = !isDark.value
     return
   }
+
+  const { clientX: x, clientY: y } = event
 
   const clipPath = [
     `circle(0px at ${x}px ${y}px)`,

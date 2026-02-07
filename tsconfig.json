@@ -22,6 +22,7 @@
     "./docs/**/*.ts",
     "./docs/**/*.vue",
     "./docs/.vitepress/**/*.ts",
+    "./docs/.vitepress/**/*.vue",
     "./*.config.ts"
   ]
 }
