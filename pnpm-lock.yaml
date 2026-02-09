@@ -101,8 +101,8 @@ importers:
         specifier: ^0.12.0
         version: 0.12.0(eslint@10.0.0(jiti@2.6.1))(typescript@5.9.3)
       eslint-plugin-oxfmt:
-        specifier: ^0.0.12
-        version: 0.0.12(eslint@10.0.0(jiti@2.6.1))(oxfmt@0.28.0)
+        specifier: ^0.0.13
+        version: 0.0.13(eslint@10.0.0(jiti@2.6.1))(oxfmt@0.28.0)
       eslint-plugin-perfectionist:
         specifier: ^5.5.0
         version: 5.5.0(eslint@10.0.0(jiti@2.6.1))(typescript@5.9.3)
@@ -2087,8 +2087,8 @@ packages:
     peerDependencies:
       eslint: ^9.5.0
 
-  eslint-plugin-oxfmt@0.0.12:
-    resolution: {integrity: sha512-whQhDmypkWYD2K8dh0zSlYRl6KkIJyBUL4ych2UWxi05fsDPX+Zyi2SqSHTGbvcWcO9QZRynKH7MTozRmNIMDw==}
+  eslint-plugin-oxfmt@0.0.13:
+    resolution: {integrity: sha512-QiAgZkAmV2UD8VZmLEjHmtymDgbCovIb6AundmKE+zThVWSi1LOe06H6lEaKHHS5F6SobdK4WVLtVGtpImAx2Q==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
       eslint: ^9.5.0
@@ -2640,8 +2640,8 @@ packages:
   linkify-it@5.0.0:
     resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
 
-  load-oxfmt-config@0.1.0:
-    resolution: {integrity: sha512-d26uYE2UjY8sWKDKOLhc8XX4TI645qGzNFK5LbW+NBuB47xOqE6i8WGHAV8oxKKEjp96EGtFJmFS3wtSMFXkzw==}
+  load-oxfmt-config@0.1.1:
+    resolution: {integrity: sha512-4BjDBHL45WHb3zBQCC7dnLRZdUI1/nIEzPVhc1kTSFHg6jmpjleorwwisrthyO9GliHlB04WaB8+KCFoj9VwyQ==}
     peerDependencies:
       oxfmt: 0.x
 
@@ -5513,11 +5513,11 @@ snapshots:
       - supports-color
       - typescript
 
-  eslint-plugin-oxfmt@0.0.12(eslint@10.0.0(jiti@2.6.1))(oxfmt@0.28.0):
+  eslint-plugin-oxfmt@0.0.13(eslint@10.0.0(jiti@2.6.1))(oxfmt@0.28.0):
     dependencies:
       eslint: 10.0.0(jiti@2.6.1)
       generate-differences: 0.1.1
-      load-oxfmt-config: 0.1.0(oxfmt@0.28.0)
+      load-oxfmt-config: 0.1.1(oxfmt@0.28.0)
       oxfmt: 0.28.0
       picomatch: 4.0.3
       synckit: 0.11.12
@@ -6091,7 +6091,7 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
-  load-oxfmt-config@0.1.0(oxfmt@0.28.0):
+  load-oxfmt-config@0.1.1(oxfmt@0.28.0):
     dependencies:
       jsonc-parser: 3.3.1
       oxfmt: 0.28.0
