@@ -137,7 +137,7 @@
     "eslint-plugin-regexp": "^3.0.0",
     "eslint-plugin-svgo": "^0.11.3",
     "eslint-plugin-toml": "^1.0.4",
-    "eslint-plugin-unicorn": "^62.0.0",
+    "eslint-plugin-unicorn": "^63.0.0",
     "eslint-plugin-vue": "^10.7.0",
     "eslint-plugin-yml": "^3.1.2",
     "eslint-processor-vue-blocks": "^2.0.0",
