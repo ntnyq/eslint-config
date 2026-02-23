@@ -5,7 +5,6 @@ import { nextTick, provide } from 'vue'
 
 const { isDark } = useData()
 
-// eslint-disable-next-line no-useless-assignment
 const DefaultThemeLayout = DefaultTheme.Layout
 
 function supportViewTransition() {
