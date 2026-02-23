@@ -1,5 +1,5 @@
 {
-  "$schema": "https://unpkg.com/oxfmt/configuration_schema.json",
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "arrowParens": "avoid",
   "bracketSameLine": false,
   "bracketSpacing": true,
