@@ -237,13 +237,13 @@ Create `.oxfmtrc.json`:
 
 ```json
 {
-  "$schema": "https://unpkg.com/oxfmt/configuration_schema.json",
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "arrowParens": "avoid",
   "bracketSameLine": false,
   "bracketSpacing": true,
   "embeddedLanguageFormatting": "auto",
   "endOfLine": "lf",
-  "experimentalSortPackageJson": false,
+  "sortPackageJson": false,
   "htmlWhitespaceSensitivity": "css",
   "ignorePatterns": [
     "**/node_modules/**",
@@ -331,7 +331,7 @@ Add to `package.json`:
   },
   "nano-staged": {
     "*.{js,ts,cjs,mjs,jsx,tsx,vue,md,svg,yml,yaml,toml,json}": "eslint --fix",
-    "*": "oxc --no-error-on-unmatched-pattern"
+    "*": "oxfmt --no-error-on-unmatched-pattern"
   }
 }
 ```
