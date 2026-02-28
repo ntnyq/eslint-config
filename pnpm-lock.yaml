@@ -98,8 +98,8 @@ importers:
         specifier: ^3.3.0
         version: 3.3.0
       eslint-plugin-ntnyq:
-        specifier: ^0.12.0
-        version: 0.12.0(eslint@10.0.2(jiti@2.6.1))(typescript@5.9.3)
+        specifier: ^0.13.0
+        version: 0.13.0(eslint@10.0.2(jiti@2.6.1))(typescript@5.9.3)
       eslint-plugin-oxfmt:
         specifier: ^0.1.1
         version: 0.1.1(eslint@10.0.2(jiti@2.6.1))(oxfmt@0.35.0)
@@ -720,10 +720,6 @@ packages:
   '@ntnyq/utils@0.11.0':
     resolution: {integrity: sha512-JonYz8vI++zteRImfED7WXdk5oB8I9HyrCP5YDsrhKZ1Rls0DGnFNSIR5ZurpT1wmqtSNU/hV77sfH/ieNn3oA==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
-
-  '@ntnyq/utils@0.9.2':
-    resolution: {integrity: sha512-hQGd//GjqL1AXE99/w9+7ol0Kddl9dyODTR3xprMGGftcHozLIgqMYAzVtmjQsRwFxRPMp+/jLCohoabPG1Lhg==}
-    engines: {node: '>=18.18.0'}
 
   '@ota-meshi/ast-token-store@0.3.0':
     resolution: {integrity: sha512-XRO0zi2NIUKq2lUk3T1ecFSld1fMWRKE6naRFGkgkdeosx7IslyUKNv5Dcb5PJTja9tHJoFu0v/7yEpAkrkrTg==}
@@ -2276,10 +2272,10 @@ packages:
     resolution: {integrity: sha512-brcKcxGnISN2CcVhXJ/kEQlNa0MEfGRtwKtWA16SkqXHKitaKIMrfemJKLKX1YqDU5C/5JY3PvZXd5jEW04e0Q==}
     engines: {node: '>=5.0.0'}
 
-  eslint-plugin-ntnyq@0.12.0:
-    resolution: {integrity: sha512-xQVrU6biPaDva3kfsKB4N/CMhBECPu88qXKwyGH8jRusQXx0KjJEBku7R/onLeHe7MYIrHEB2aQTQQnid0fXSg==}
+  eslint-plugin-ntnyq@0.13.0:
+    resolution: {integrity: sha512-Xz9VL6mTuEjHlxCEZ2HTLws4AKSqXsVXoK5PbdWdlA1WcBekPQbOBT3A9vxgfxRNgyjEJkEdLOsU0uv9k+RMFQ==}
     peerDependencies:
-      eslint: ^9.5.0
+      eslint: ^9.5.0 || ^10.0.0
 
   eslint-plugin-oxfmt@0.1.1:
     resolution: {integrity: sha512-hmCwkC4r16trnfKwEyF5eaD3kHrsS/GMWD8uYHR7DXe8wZWnT3jzIcHF2TBnzchBNdGanMX/wrWcYM8qZjpvhg==}
@@ -4360,8 +4356,6 @@ snapshots:
 
   '@ntnyq/utils@0.11.0': {}
 
-  '@ntnyq/utils@0.9.2': {}
-
   '@ota-meshi/ast-token-store@0.3.0': {}
 
   '@oxc-project/runtime@0.115.0': {}
@@ -5828,9 +5822,9 @@ snapshots:
 
   eslint-plugin-no-only-tests@3.3.0: {}
 
-  eslint-plugin-ntnyq@0.12.0(eslint@10.0.2(jiti@2.6.1))(typescript@5.9.3):
+  eslint-plugin-ntnyq@0.13.0(eslint@10.0.2(jiti@2.6.1))(typescript@5.9.3):
     dependencies:
-      '@ntnyq/utils': 0.9.2
+      '@ntnyq/utils': 0.11.0
       '@typescript-eslint/parser': 8.56.1(eslint@10.0.2(jiti@2.6.1))(typescript@5.9.3)
       '@typescript-eslint/utils': 8.56.1(eslint@10.0.2(jiti@2.6.1))(typescript@5.9.3)
       eslint: 10.0.2(jiti@2.6.1)
