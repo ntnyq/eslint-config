@@ -10,7 +10,6 @@ import type {
   ConfigDependOptions,
   ConfigESLintCommentsOptions,
   ConfigESLintPluginOptions,
-  ConfigFormatOptions,
   ConfigGitHubActionOptions,
   ConfigGitIgnoreOptions,
   ConfigHtmlOptions,
@@ -107,6 +106,5 @@ export interface ConfigOptions {
  * Not enabled for now, maybe later
  */
 export interface ConfigOptionsInternal {
-  format?: boolean | ConfigFormatOptions
   unusedImports?: boolean | ConfigUnusedImportsOptions
 }
