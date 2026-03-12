@@ -5,7 +5,7 @@ export default defineConfig({
   entry: ['src/index.ts'],
   platform: 'node',
   deps: {
-    onlyAllowBundle: false,
+    neverBundle: ['prettier'],
   },
   dts: {
     tsgo: true,
