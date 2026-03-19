@@ -22,6 +22,7 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
       - run: pnpm run build
+      - run: pnpm run format
       - run: pnpm run lint --fix
 
       - uses: autofix-ci/action@v1.3.3
