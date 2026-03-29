@@ -73,6 +73,7 @@ export const configUnicorn = (
         'unicorn/no-typeof-undefined': 'error',
         'unicorn/no-unnecessary-await': 'error',
         'unicorn/no-useless-collection-argument': 'error',
+        'unicorn/no-useless-iterator-to-array': 'error',
         'unicorn/prefer-class-fields': 'error',
         'unicorn/prefer-import-meta-properties': 'error',
         'unicorn/prefer-includes': 'error',
@@ -88,6 +89,7 @@ export const configUnicorn = (
         'unicorn/prefer-response-static-json': 'error',
         'unicorn/prefer-structured-clone': 'error',
         'unicorn/switch-case-braces': ['error', 'avoid'],
+        'unicorn/switch-case-break-position': 'error',
         /**
          * @pg Error
          */
@@ -134,6 +136,7 @@ export const configUnicorn = (
         /**
          * @pg String
          */
+        'unicorn/consistent-template-literal-escape': 'error',
         'unicorn/prefer-code-point': 'error',
         'unicorn/prefer-string-slice': 'error',
         'unicorn/prefer-string-starts-ends-with': 'error',
