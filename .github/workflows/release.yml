@@ -28,4 +28,4 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
       - run: npm install -g npm@latest
-      - run: pnpm publish --no-git-checks --tag next
+      - run: pnpm publish --no-git-checks
