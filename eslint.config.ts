@@ -1,5 +1,10 @@
 import { defineESLintConfig, PERFECTIONIST, pluginPerfectionist } from './src'
 
+interface ElementMatchPattern {
+  pattern: string
+  flags?: string
+}
+
 interface CustomGroupDefinition {
   groupName: string
   type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted'
@@ -10,13 +15,13 @@ interface CustomGroupDefinition {
   elementNamePattern?:
     | string
     | string[]
-    | { pattern: string; flags?: string }
-    | { pattern: string; flags?: string }[]
+    | ElementMatchPattern
+    | ElementMatchPattern[]
   elementValuePattern?:
     | string
     | string[]
-    | { pattern: string; flags?: string }
-    | { pattern: string; flags?: string }[]
+    | ElementMatchPattern
+    | ElementMatchPattern[]
 }
 
 const ESLINT_CONFIG_GROUP: CustomGroupDefinition[] = [
