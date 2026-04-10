@@ -154,4 +154,10 @@ export const GLOB_EXCLUDE: string[] = [
   // tauri
   '**/src-tauri/gen',
   '**/src-tauri/target',
+
+  // Ai related
+  '**/*.context',
+  '**/*.claude',
+  '**/*.agents',
+  '**/.*/skills',
 ]

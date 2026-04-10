@@ -6,7 +6,8 @@ type ExistChecker = () => boolean
 
 export const hasPinia: ExistChecker = () => isPackageExists('pinia')
 export const hasVitest: ExistChecker = () => isPackageExists('vitest')
-export const hasTypeScript: ExistChecker = () => isPackageExists('typescript')
+export const hasTypeScript: ExistChecker = () =>
+  isPackageExists('typescript') || isPackageExists('@typescript/native-preview')
 
 export const hasShadcnVue: ExistChecker = () =>
   (isPackageExists('radix-vue') || isPackageExists('reka-ui')) &&
