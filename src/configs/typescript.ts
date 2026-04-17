@@ -14,7 +14,6 @@ import {
 } from '../globs'
 import type {
   ESLintConfig,
-  ESLintParser,
   OptionsFiles,
   OptionsOverrides,
   OptionsShareable,
@@ -165,7 +164,7 @@ export const configTypeScript = (
       files,
       ignores: [...ignores],
       languageOptions: {
-        parser: parserTypeScript as ESLintParser,
+        parser: parserTypeScript,
         parserOptions: typescriptParserOptions,
       },
     }
