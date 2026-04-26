@@ -4,6 +4,3 @@ packages:
 onlyBuiltDependencies:
   - esbuild
   - unrs-resolver
-
-patchedDependencies:
-  eslint-plugin-vue: patches/eslint-plugin-vue.patch
