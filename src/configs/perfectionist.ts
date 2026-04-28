@@ -239,7 +239,7 @@ export const configPerfectionist = (
       'error',
       {
         ...sharedOptionsWithNewlinesBetween,
-        groups: ['literal', 'spread'],
+        groups: ['literal'],
       },
     ],
     'perfectionist/sort-classes': [
@@ -265,6 +265,7 @@ export const configPerfectionist = (
     'perfectionist/sort-variable-declarations': [
       'error',
       {
+        groups: ['initialized', 'uninitialized'],
         partitionByComment,
       },
     ],
