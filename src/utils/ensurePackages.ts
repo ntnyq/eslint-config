@@ -34,19 +34,26 @@ export async function ensurePackages(
     return
   }
 
-  const { confirm } = await import('@clack/prompts')
+  const { confirm, isCancel } = await import('@clack/prompts')
 
   const confirmInstall: boolean | symbol = await confirm({
     message: `${nonExistingPackages.length === 1 ? 'Package is' : 'Packages are'} required for this config: ${nonExistingPackages.join(', ')}. Do you want to install them?`,
   })
 
-  if (confirmInstall) {
-    try {
-      const { installPackage } = await import('@antfu/install-pkg')
+  if (isCancel(confirmInstall) || confirmInstall !== true) {
+    return
+  }
 
-      await installPackage(nonExistingPackages, { dev: true })
-    } catch (err) {
-      console.log(err)
-    }
+  try {
+    const { installPackage } = await import('@antfu/install-pkg')
+
+    await installPackage(nonExistingPackages, { dev: true })
+  } catch (err) {
+    throw new Error(
+      `Failed to install required packages: ${nonExistingPackages.join(', ')}`,
+      {
+        cause: err,
+      },
+    )
   }
 }

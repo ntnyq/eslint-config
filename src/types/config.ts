@@ -71,13 +71,10 @@ export interface ConfigOptions {
    * @pg
    */
   antfu?: boolean | ConfigAntfuOptions
-  astro?: boolean | ConfigAstroOptions
   deMorgan?: boolean | ConfigDeMorganOptions
   depend?: boolean | ConfigDependOptions
-  eslintPlugin?: boolean | ConfigESLintPluginOptions
   githubAction?: boolean | ConfigGitHubActionOptions
   gitignore?: boolean | ConfigGitIgnoreOptions
-  html?: boolean | ConfigHtmlOptions
   importX?: boolean | ConfigImportXOptions
   jsdoc?: boolean | ConfigJsdocOptions
   jsonc?: boolean | ConfigJsoncOptions
@@ -86,13 +83,10 @@ export interface ConfigOptions {
   oxfmt?: boolean | ConfigOxfmtOptions
   perfectionist?: boolean | ConfigPerfectionistOptions
   pinia?: boolean | ConfigPiniaOptions
-  pnpm?: boolean | ConfigPnpmOptions
   prettier?: boolean | ConfigPrettierOptions
   regexp?: boolean | ConfigRegexpOptions
   sort?: boolean | ConfigSortOptions
   specials?: boolean | ConfigSpecialsOptions
-  svelte?: boolean | ConfigSvelteOptions
-  svgo?: boolean | ConfigSVGOOptions
   test?: boolean | ConfigTestOptions
   toml?: boolean | ConfigTomlOptions
   typescript?: boolean | ConfigTypeScriptOptions
@@ -100,11 +94,16 @@ export interface ConfigOptions {
   unocss?: boolean | ConfigUnoCSSOptions
   vue?: boolean | ConfigVueOptions
   yml?: boolean | ConfigYmlOptions
-}
 
-/**
- * Not enabled for now, maybe later
- */
-export interface ConfigOptionsInternal {
+  /**
+   * Configs below are disabled by default
+   * @pg
+   */
+  astro?: boolean | ConfigAstroOptions
+  eslintPlugin?: boolean | ConfigESLintPluginOptions
+  html?: boolean | ConfigHtmlOptions
+  pnpm?: boolean | ConfigPnpmOptions
+  svelte?: boolean | ConfigSvelteOptions
+  svgo?: boolean | ConfigSVGOOptions
   unusedImports?: boolean | ConfigUnusedImportsOptions
 }

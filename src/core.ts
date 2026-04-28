@@ -38,6 +38,7 @@ import {
   configTypeScript,
   configUnicorn,
   configUnoCSS,
+  configUnusedImports,
   configVue,
   configYml,
 } from './configs'
@@ -117,9 +118,14 @@ export function defineESLintConfig(
     astro: enableAstro = false,
     svelte: enableSvelte = false,
     eslintPlugin: enableESLintPlugin = false,
+    unusedImports: enableUnusedImports = false,
   } = options
   const configs: Awaitable<TypedConfigItem | TypedConfigItem[]>[] = []
-  const { ecmaVersion = 'latest', extraFileExtensions = [] } = shareable
+  const {
+    ecmaVersion = 'latest',
+    extraFileExtensions: shareableExtraFileExtensions = [],
+  } = shareable
+  const extraFileExtensions: string[] = [...shareableExtraFileExtensions]
 
   // If either formatter config is enabled
   const usingFormatter = enablePrettier || enableOxfmt
@@ -373,6 +379,14 @@ export function defineESLintConfig(
 
   if (enableSVGO) {
     configs.push(configSVGO(resolveSubOptions(options, 'svgo')))
+  }
+
+  if (enableUnusedImports) {
+    configs.push(
+      configUnusedImports({
+        overrides: getOverrides(options, 'unusedImports'),
+      }),
+    )
   }
 
   if (enableHTML) {
