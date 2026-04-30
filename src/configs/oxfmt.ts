@@ -1,5 +1,16 @@
 import { parserPlain, pluginOxfmt } from '../eslint'
-import { GLOB_SRC, GLOB_SRC_EXTENSIONS, GLOB_VUE } from '../globs'
+import {
+  GLOB_HTML,
+  GLOB_JSON,
+  GLOB_JSON5,
+  GLOB_JSONC,
+  GLOB_MARKDOWN,
+  GLOB_SRC,
+  GLOB_STYLE,
+  GLOB_TOML,
+  GLOB_VUE,
+  GLOB_YAML,
+} from '../globs'
 import type {
   OptionsFiles,
   OptionsIgnores,
@@ -26,37 +37,44 @@ export const configOxfmt = (
   options: ConfigOxfmtOptions = {},
 ): TypedConfigItem[] => {
   const {
-    files = [GLOB_SRC, GLOB_VUE],
-    ignores = [],
-    filesExtensions = GLOB_SRC_EXTENSIONS,
+    files: filesWithoutParser = [
+      GLOB_SRC,
+      GLOB_VUE,
+      GLOB_JSON,
+      GLOB_JSON5,
+      GLOB_JSONC,
+      GLOB_YAML,
+      GLOB_TOML,
+      GLOB_MARKDOWN,
+    ],
+    ignores: ignoresWithoutParser = [],
+    filesExtensions: filesWithParser = [GLOB_STYLE, GLOB_HTML],
   } = options
   return [
     {
-      name: 'ntnyq/oxfmt/setup',
+      name: 'ntnyq/oxfmt/without-parser',
+      files: filesWithoutParser,
+      ignores: ignoresWithoutParser,
       plugins: {
         oxfmt: pluginOxfmt,
       },
-    },
-    {
-      name: 'ntnyq/oxfmt/basic',
-      files,
-      ignores,
       rules: {
         'oxfmt/oxfmt': 'error',
-
         ...options.overrides,
       },
     },
     {
-      name: 'ntnyq/oxfmt/extensions',
-      files: filesExtensions,
-      ignores: [GLOB_SRC, GLOB_VUE],
+      name: 'ntnyq/oxfmt/with-parser',
+      files: filesWithParser,
+      ignores: filesWithoutParser.flat(),
+      plugins: {
+        oxfmt: pluginOxfmt,
+      },
       languageOptions: {
         parser: parserPlain,
       },
       rules: {
         'oxfmt/oxfmt': 'error',
-
         ...options.overrides,
       },
     },
