@@ -1,6 +1,6 @@
 # @ntnyq/eslint-config
 
-> 🎨 ESLint config for JavaScript, TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG and etc.
+> 🎨 ESLint config for JavaScript, TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG, and more.
 
 [![CI](https://github.com/ntnyq/eslint-config/workflows/CI/badge.svg)](https://github.com/ntnyq/eslint-config/actions)
 [![NPM VERSION](https://img.shields.io/npm/v/@ntnyq/eslint-config/latest.svg)](https://www.npmjs.com/package/@ntnyq/eslint-config/v/latest)
@@ -24,7 +24,7 @@
 
 ## ✨ Features
 
-- ✅ Designed to work alongside formatter e.g: [Prettier](https://prettier.io) or [oxfmt](https://oxc.rs/docs/guide/usage/formatter)
+- ✅ Designed to work alongside formatters, e.g. [Prettier](https://prettier.io) or [oxfmt](https://oxc.rs/docs/guide/usage/formatter)
 - 🎯 Opinionated: single quote, no semi, trailing comma, etc
 - 🪄 Respect `.gitignore` via [eslint-config-flat-gitignore](https://github.com/antfu/eslint-config-flat-gitignore)
 - 📦 Out-of-the-box support for TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG, Astro, Svelte, etc
@@ -150,7 +150,7 @@ export default defineConfig({
 })
 ```
 
-## 💻 VSCode config
+## 💻 VS Code config
 
 ```json
 {
@@ -221,13 +221,6 @@ For details, see:
 - [./src/types/config.ts](https://github.com/ntnyq/eslint-config/blob/main/src/types/config.ts)
 - [./src/core.ts](https://github.com/ntnyq/eslint-config/blob/main/src/core.ts)
 
-## ⚙️ Advanced config
-
-For details, see:
-
-- [./src/types/config.ts](https://github.com/ntnyq/eslint-config/blob/main/src/types/config.ts)
-- [./src/core.ts](https://github.com/ntnyq/eslint-config/blob/main/src/core.ts)
-
 ### 📝 Config interface
 
 ```ts
@@ -283,6 +276,7 @@ export interface ConfigOptions {
   svelte?: boolean | ConfigSvelteOptions
   svgo?: boolean | ConfigSVGOOptions
   eslintPlugin?: boolean | ConfigESLintPluginOptions
+  unusedImports?: boolean | ConfigUnusedImportsOptions
 }
 ```
 

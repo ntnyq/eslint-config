@@ -21,8 +21,7 @@ docs/
 │   └── custom.md        # Custom configuration
 ├── public/              # Static assets
 ├── index.md             # Homepage
-├── faq.md               # FAQ page
-└── migration.md         # Migration guide
+└── faq.md               # FAQ page
 ```
 
 ## 🚀 Development
@@ -33,7 +32,7 @@ Start the dev server:
 pnpm docs:dev
 ```
 
-Then visit http://localhost:5173
+Then visit <http://localhost:5173>.
 
 ## 🏗️ Build
 

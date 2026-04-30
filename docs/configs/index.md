@@ -1,6 +1,6 @@
 # Configs
 
-`@ntnyq/eslint-config` provides a collection of composable ESLint configurations for different file types and use cases. All configs are automatically enabled based on your project structure, or you can enable/disable them manually.
+`@ntnyq/eslint-config` provides a collection of composable ESLint configurations for different file types and use cases. Many configs are enabled automatically based on your project structure, and you can enable or disable them manually.
 
 ## Config Status
 
@@ -8,39 +8,43 @@
 
 These configs are enabled automatically when relevant files are detected in your project:
 
-| Config                               | Description                  | Auto-detect               |
-| ------------------------------------ | ---------------------------- | ------------------------- |
-| [JavaScript](./javascript)           | Base JavaScript rules        | Always                    |
-| [TypeScript](./typescript)           | TypeScript support and rules | `*.ts`, `*.tsx` files     |
-| [Vue](./vue)                         | Vue 3 SFC linting            | `*.vue` files             |
-| [JSON/JSONC](./jsonc)                | JSON/JSONC linting           | `*.json`, `*.jsonc` files |
-| [Markdown](./markdown)               | Markdown linting             | `*.md` files              |
-| [YAML](./yaml)                       | YAML linting                 | `*.yaml`, `*.yml` files   |
-| [TOML](./toml)                       | TOML linting                 | `*.toml` files            |
-| [Gitignore](./gitignore)             | Respect .gitignore patterns  | `.gitignore` exists       |
-| [Ignores](./ignores)                 | Common ignore patterns       | Always                    |
-| [Node](./node)                       | Node.js rules                | Always                    |
-| [Import X](./import-x)               | Import/export linting        | Always                    |
-| [Unicorn](./unicorn)                 | Quality/style rules          | Always                    |
-| [Perfectionist](./perfectionist)     | Sorting and formatting       | Always                    |
-| [Antfu](./antfu)                     | Anthony Fu's custom rules    | Always                    |
-| [ESLint Comments](./eslint-comments) | ESLint directive comments    | Always                    |
-| [Command](./command)                 | Magic ESLint commands        | Always                    |
+| Config                               | Description                  | Auto-detect                |
+| ------------------------------------ | ---------------------------- | -------------------------- |
+| [JavaScript](./javascript)           | Base JavaScript rules        | Always                     |
+| [TypeScript](./typescript)           | TypeScript support and rules | `*.ts`, `*.tsx` files      |
+| [Vue](./vue)                         | Vue 3 SFC linting            | `*.vue` files              |
+| [JSON/JSONC](./jsonc)                | JSON/JSONC linting           | `*.json`, `*.jsonc` files  |
+| [Markdown](./markdown)               | Markdown linting             | `*.md` files               |
+| [YAML](./yml)                        | YAML linting                 | `*.yaml`, `*.yml` files    |
+| [TOML](./toml)                       | TOML linting                 | `*.toml` files             |
+| [Gitignore](./gitignore)             | Respect .gitignore patterns  | `.gitignore` exists        |
+| [Ignores](./ignores)                 | Common ignore patterns       | Always                     |
+| [Node](./node)                       | Node.js rules                | Always                     |
+| [Import X](./import-x)               | Import/export linting        | Always                     |
+| [Unicorn](./unicorn)                 | Quality/style rules          | Always                     |
+| [Perfectionist](./perfectionist)     | Sorting and formatting       | Always                     |
+| [Antfu](./antfu)                     | Anthony Fu's custom rules    | Always                     |
+| [ESLint Comments](./eslint-comments) | ESLint directive comments    | Always                     |
+| [Command](./command)                 | Magic ESLint commands        | Always                     |
+| [Test](./test)                       | Test framework rules         | `vitest` in dependencies   |
+| [UnoCSS](./unocss)                   | UnoCSS class linting         | `unocss` in dependencies   |
+| [Prettier](./prettier)               | Prettier compatibility       | `prettier` in dependencies |
+| [Oxfmt](./oxfmt)                     | Oxfmt compatibility          | `oxfmt` in dependencies    |
 
 ### Disabled by Default
 
 These configs must be explicitly enabled in your configuration:
 
-| Config                           | Description                         | Enable with            |
-| -------------------------------- | ----------------------------------- | ---------------------- |
-| [Astro](./astro)                 | Astro component linting             | `astro: true`          |
-| [Svelte](./svelte)               | Svelte component linting            | `svelte: true`         |
-| [SVGO](./svgo)                   | SVG optimization linting            | `svgo: true`           |
-| [HTML](./html)                   | HTML file linting                   | `html: true`           |
-| [Pinia](./pinia)                 | Pinia store rules                   | `pinia: true`          |
-| [PNPM](./pnpm)                   | PNPM workspace linting              | `pnpm: true`           |
-| [Test](./test)                   | Test framework rules                | Auto-detect test files |
-| [ESLint Plugin](./eslint-plugin) | Rules for ESLint plugin development | `eslintPlugin: true`   |
+| Config                             | Description                         | Enable with           |
+| ---------------------------------- | ----------------------------------- | --------------------- |
+| [Astro](./astro)                   | Astro component linting             | `astro: true`         |
+| [Svelte](./svelte)                 | Svelte component linting            | `svelte: true`        |
+| [SVGO](./svgo)                     | SVG optimization linting            | `svgo: true`          |
+| [HTML](./html)                     | HTML file linting                   | `html: true`          |
+| [Pinia](./pinia)                   | Pinia store rules                   | `pinia: true`         |
+| [PNPM](./pnpm)                     | PNPM workspace linting              | `pnpm: true`          |
+| [ESLint Plugin](./eslint-plugin)   | Rules for ESLint plugin development | `eslintPlugin: true`  |
+| [Unused Imports](./unused-imports) | Remove unused imports/vars          | `unusedImports: true` |
 
 ## Usage
 
@@ -127,6 +131,7 @@ export interface ConfigOptions {
   typescript?: boolean | ConfigTypeScriptOptions
   unicorn?: boolean | ConfigUnicornOptions
   unocss?: boolean | ConfigUnoCSSOptions
+  unusedImports?: boolean | ConfigUnusedImportsOptions
   vue?: boolean | ConfigVueOptions
   yml?: boolean | ConfigYmlOptions
 

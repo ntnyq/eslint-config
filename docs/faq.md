@@ -151,9 +151,10 @@ Yes! This is an ESLint config that works with any build tool. Just run ESLint vi
 
 Yes! Test framework rules are automatically enabled for test files. The config detects:
 
-- `*.test.{js,ts,jsx,tsx}`
-- `*.spec.{js,ts,jsx,tsx}`
-- Files in `__tests__` directories
+- `*.test.{js,ts,jsx,tsx,mjs,cjs,mts,cts}`
+- `*.spec.{js,ts,jsx,tsx,mjs,cjs,mts,cts}`
+- `*.bench.{js,ts,jsx,tsx,mjs,cjs,mts,cts}` and `*.benchmark.{js,ts,jsx,tsx,mjs,cjs,mts,cts}`
+- Type test files like `*.test-d.ts` and `*.spec-d.ts`
 
 You can also manually enable test configs:
 

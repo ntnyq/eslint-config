@@ -19,7 +19,7 @@ For Node.js versions below 20.19.0, please use [v5](https://github.com/ntnyq/esl
 
 ## Features
 
-- ✅ Designed to work alongside formatter e.g: [Prettier](https://prettier.io) or [oxfmt](https://oxc.rs/docs/guide/usage/formatter)
+- ✅ Designed to work alongside formatters, e.g. [Prettier](https://prettier.io) or [oxfmt](https://oxc.rs/docs/guide/usage/formatter)
 - 🎯 Opinionated: single quote, no semi, trailing comma, etc
 - 🪄 Respect `.gitignore` via [eslint-config-flat-gitignore](https://github.com/antfu/eslint-config-flat-gitignore)
 - 📦 Out-of-the-box support for TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG, Astro, Svelte, etc
