@@ -1,9 +1,6 @@
 import { pluginJsdoc } from '../eslint'
-import type {
-  OptionsOverrides,
-  OptionsShareable,
-  TypedConfigItem,
-} from '../types'
+import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX } from '../globs'
+import type { OptionsOverrides, TypedConfigItem } from '../types'
 
 const SPECIAL_CHAR = {
   emptyString: '',
@@ -13,30 +10,7 @@ const SPECIAL_CHAR = {
 /**
  * Options type of {@link configJsdoc}
  */
-export type ConfigJsdocOptions = Pick<OptionsShareable, 'typescript'> &
-  OptionsOverrides
-
-/**
- * JavaScript specific rules
- */
-const javscriptRules: TypedConfigItem['rules'] = {
-  'jsdoc/no-types': 'off',
-  'jsdoc/no-undefined-types': 'error',
-  'jsdoc/require-param-type': 'error',
-  'jsdoc/require-property-type': 'error',
-  'jsdoc/require-returns-type': 'error',
-}
-
-/**
- * TypeScript specific rules
- */
-const typescriptRules: TypedConfigItem['rules'] = {
-  'jsdoc/no-undefined-types': 'off',
-  'jsdoc/require-param-type': 'off',
-  'jsdoc/require-property-type': 'off',
-  'jsdoc/require-returns-type': 'off',
-  'jsdoc/no-types': 'error',
-}
+export type ConfigJsdocOptions = OptionsOverrides
 
 /**
  * Config for jsdoc
@@ -48,132 +22,155 @@ const typescriptRules: TypedConfigItem['rules'] = {
  */
 export const configJsdoc = (
   options: ConfigJsdocOptions = {},
-): TypedConfigItem[] => [
-  {
-    name: 'ntnyq/jsdoc',
-    plugins: {
-      jsdoc: pluginJsdoc,
-    },
-    rules: {
-      /**
-       * @pg Disabled rules
-       */
-      'jsdoc/prefer-import-tag': 'off', // Not useful
-      'jsdoc/require-tags': 'off', // Too strict
-      'jsdoc/tag-lines': 'off', // Use `jsdoc/sort-tags`
-      'jsdoc/text-escaping': 'off', // No need for this
+): TypedConfigItem[] => {
+  return [
+    {
+      name: 'ntnyq/jsdoc/base',
+      plugins: {
+        jsdoc: pluginJsdoc,
+      },
+      rules: {
+        /**
+         * @pg Disabled rules
+         */
+        'jsdoc/prefer-import-tag': 'off', // Not useful
+        'jsdoc/require-tags': 'off', // Too strict
+        'jsdoc/tag-lines': 'off', // Use `jsdoc/sort-tags`
+        'jsdoc/text-escaping': 'off', // No need for this
 
-      /**
-       * @pg Warning only rules
-       */
-      'jsdoc/check-access': 'warn',
-      'jsdoc/implements-on-classes': 'warn',
-      'jsdoc/require-param-name': 'warn',
-      'jsdoc/require-property': 'warn',
-      'jsdoc/require-property-description': 'warn',
-      'jsdoc/require-property-name': 'warn',
-      'jsdoc/require-returns-check': 'warn',
-      'jsdoc/require-returns-description': 'warn',
-      'jsdoc/require-template-description': 'warn',
-      'jsdoc/require-yields-check': 'warn',
+        /**
+         * @pg Warning only rules
+         */
+        'jsdoc/check-access': 'warn',
+        'jsdoc/implements-on-classes': 'warn',
+        'jsdoc/require-param-name': 'warn',
+        'jsdoc/require-property': 'warn',
+        'jsdoc/require-property-description': 'warn',
+        'jsdoc/require-property-name': 'warn',
+        'jsdoc/require-returns-check': 'warn',
+        'jsdoc/require-returns-description': 'warn',
+        'jsdoc/require-template-description': 'warn',
+        'jsdoc/require-yields-check': 'warn',
 
-      /**
-       * @pg Maybe next release
-       */
-      'jsdoc/require-next-description': 'warn',
-      'jsdoc/require-next-type': 'warn',
-      'jsdoc/require-throws-description': 'warn',
-      'jsdoc/require-throws-type': 'warn',
-      'jsdoc/require-yields-description': 'warn',
-      'jsdoc/require-yields-type': 'warn',
-      'jsdoc/ts-method-signature-style': 'warn',
-      'jsdoc/ts-no-empty-object-type': 'warn',
-      'jsdoc/ts-no-unnecessary-template-expression': 'warn',
+        /**
+         * @pg Maybe next release
+         */
+        'jsdoc/require-next-description': 'warn',
+        'jsdoc/require-next-type': 'warn',
+        'jsdoc/require-throws-description': 'warn',
+        'jsdoc/require-throws-type': 'warn',
+        'jsdoc/require-yields-description': 'warn',
+        'jsdoc/require-yields-type': 'warn',
+        'jsdoc/ts-method-signature-style': 'warn',
+        'jsdoc/ts-no-empty-object-type': 'warn',
+        'jsdoc/ts-no-unnecessary-template-expression': 'warn',
 
-      /**
-       * @pg Enabled rules
-       */
-      'jsdoc/check-alignment': 'error',
-      'jsdoc/check-line-alignment': 'error',
-      'jsdoc/check-param-names': 'error',
-      'jsdoc/check-property-names': 'error',
-      'jsdoc/check-tag-names': [
-        'error',
-        {
-          definedTags: [
-            // magic-comments
-            'vite-ignore',
-            'unocss-include',
+        /**
+         * @pg Enabled rules
+         */
+        'jsdoc/check-alignment': 'error',
+        'jsdoc/check-line-alignment': 'error',
+        'jsdoc/check-param-names': 'error',
+        'jsdoc/check-property-names': 'error',
+        'jsdoc/check-tag-names': [
+          'error',
+          {
+            definedTags: [
+              // magic-comments
+              'vite-ignore',
+              'unocss-include',
 
-            // defined perfectionist group
-            'pg',
-            'perfectionist-group',
+              // defined perfectionist group
+              'pg',
+              'perfectionist-group',
 
-            // eslint-plugin-command (block comment only)
-            'regex101',
+              // eslint-plugin-command (block comment only)
+              'regex101',
 
-            // non-standard, but common used
-            'compatibility',
-            'category',
-            'experimental',
-            'internal',
-          ],
-        },
-      ],
-      'jsdoc/check-types': 'error',
-      /**
-       * @pg Fixable rules
-       */
-      'jsdoc/empty-tags': 'error',
-      'jsdoc/multiline-blocks': 'error',
-      'jsdoc/no-bad-blocks': [
-        'error',
-        {
-          ignore: [
-            // typescript directive comments
-            'ts-check',
-            'ts-expect-error',
-            'ts-ignore',
-            'ts-nocheck',
+              // non-standard, but common used
+              'compatibility',
+              'category',
+              'experimental',
+              'internal',
+            ],
+          },
+        ],
+        'jsdoc/check-types': 'error',
+        /**
+         * @pg Fixable rules
+         */
+        'jsdoc/empty-tags': 'error',
+        'jsdoc/multiline-blocks': 'error',
+        'jsdoc/no-bad-blocks': [
+          'error',
+          {
+            ignore: [
+              // typescript directive comments
+              'ts-check',
+              'ts-expect-error',
+              'ts-ignore',
+              'ts-nocheck',
 
-            // vite directive comments
-            'vite-ignore',
-          ],
-        },
-      ],
-      'jsdoc/no-blank-block-descriptions': 'error',
-      'jsdoc/no-blank-blocks': 'error',
-      'jsdoc/no-defaults': 'error',
-      'jsdoc/no-multi-asterisks': 'error',
-      'jsdoc/reject-any-type': 'error',
-      'jsdoc/reject-function-type': 'error',
-      'jsdoc/require-asterisk-prefix': 'error',
-      'jsdoc/require-hyphen-before-param-description': 'error',
-      'jsdoc/type-formatting': [
-        'error',
-        {
-          arrayBrackets: 'square',
-          enableFixer: true,
-          genericDot: false,
-          keyValuePostColonSpacing: SPECIAL_CHAR.singleSpace,
-          keyValuePostKeySpacing: SPECIAL_CHAR.emptyString,
-          keyValuePostOptionalSpacing: SPECIAL_CHAR.emptyString,
-          keyValuePostVariadicSpacing: SPECIAL_CHAR.emptyString,
-          objectFieldIndent: SPECIAL_CHAR.emptyString,
-          objectFieldQuote: null,
-          objectFieldSeparator: 'comma',
-          stringQuotes: 'single',
-          typeBracketSpacing: SPECIAL_CHAR.emptyString,
-          // Determines the spacing to add to unions (`|`).
-          unionSpacing: SPECIAL_CHAR.singleSpace,
-        },
-      ],
+              // vite directive comments
+              'vite-ignore',
+            ],
+          },
+        ],
+        'jsdoc/no-blank-block-descriptions': 'error',
+        'jsdoc/no-blank-blocks': 'error',
+        'jsdoc/no-defaults': 'error',
+        'jsdoc/no-multi-asterisks': 'error',
+        'jsdoc/reject-any-type': 'error',
+        'jsdoc/reject-function-type': 'error',
+        'jsdoc/require-asterisk-prefix': 'error',
+        'jsdoc/require-hyphen-before-param-description': 'error',
+        'jsdoc/type-formatting': [
+          'error',
+          {
+            arrayBrackets: 'square',
+            enableFixer: true,
+            genericDot: false,
+            keyValuePostColonSpacing: SPECIAL_CHAR.singleSpace,
+            keyValuePostKeySpacing: SPECIAL_CHAR.emptyString,
+            keyValuePostOptionalSpacing: SPECIAL_CHAR.emptyString,
+            keyValuePostVariadicSpacing: SPECIAL_CHAR.emptyString,
+            objectFieldIndent: SPECIAL_CHAR.emptyString,
+            objectFieldQuote: null,
+            objectFieldSeparator: 'comma',
+            stringQuotes: 'single',
+            typeBracketSpacing: SPECIAL_CHAR.emptyString,
+            // Determines the spacing to add to unions (`|`).
+            unionSpacing: SPECIAL_CHAR.singleSpace,
+          },
+        ],
+      },
 
-      // TypeScript rules overrides
-      ...(options.typescript ? typescriptRules : javscriptRules),
-
-      // Overrides rules
       ...options.overrides,
     },
-  },
-]
+    {
+      name: 'ntnyq/jsdoc/js-rules',
+      files: [GLOB_JS, GLOB_JSX],
+      rules: {
+        'jsdoc/no-types': 'off',
+        'jsdoc/no-undefined-types': 'error',
+        'jsdoc/require-param-type': 'error',
+        'jsdoc/require-property-type': 'error',
+        'jsdoc/require-returns-type': 'error',
+
+        ...options.overrides,
+      },
+    },
+    {
+      name: 'ntnyq/jsdoc/ts-rules',
+      files: [GLOB_TS, GLOB_TSX],
+      rules: {
+        'jsdoc/no-undefined-types': 'off',
+        'jsdoc/require-param-type': 'off',
+        'jsdoc/require-property-type': 'off',
+        'jsdoc/require-returns-type': 'off',
+        'jsdoc/no-types': 'error',
+        ...options.overrides,
+      },
+    },
+  ]
+}

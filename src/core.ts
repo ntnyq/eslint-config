@@ -176,7 +176,6 @@ export function defineESLintConfig(
   if (enableJsdoc) {
     configs.push(
       configJsdoc({
-        typescript: !!enableTypeScript,
         overrides: getOverrides(options, 'jsdoc'),
         ...resolveSubOptions(options, 'jsdoc'),
       }),
