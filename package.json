@@ -112,7 +112,7 @@
     "@unocss/eslint-plugin": "^66.6.8",
     "@vitest/eslint-plugin": "^1.6.17",
     "eslint-config-flat-gitignore": "^2.3.0",
-    "eslint-flat-config-utils": "3.0.2",
+    "eslint-flat-config-utils": "3.2.0",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-merge-processors": "^2.0.0",
     "eslint-parser-plain": "^0.1.1",
