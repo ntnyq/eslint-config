@@ -7,6 +7,9 @@ const CHECKED_RUNNER_PACKAGES: string[] = [
   'tsx',
 ]
 
+/**
+ * Detect whether current execution is triggered by git hook tooling.
+ */
 export function isInGitHooksOrRunBySpecifyPackages(): boolean {
   return !!(
     process.env.GIT_PARAMS ||

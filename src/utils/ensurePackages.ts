@@ -8,12 +8,23 @@ import { isInGitHooksOrRunBySpecifyPackages } from './isInGitHooksOrRunBySpecify
 
 const isCwdInScope: boolean = isPackageExists('@ntnyq/eslint-config')
 
+/**
+ * Check whether a package can be resolved from this config package scope.
+ */
 function isPackageInScope(name: string): boolean {
   return isPackageExists(name, {
     paths: [import.meta.dirname],
   })
 }
 
+/**
+ * Ensure required packages are installed for optional config features.
+ *
+ * Skips installation prompts in CI, non-TTY environments, git hooks, and
+ * when the current project is outside the config usage scope.
+ *
+ * @param packages - Package names to verify and optionally install.
+ */
 export async function ensurePackages(
   packages: (string | undefined)[],
 ): Promise<void> {

@@ -2,7 +2,7 @@
   "name": "@ntnyq/eslint-config",
   "type": "module",
   "version": "6.1.3",
-  "packageManager": "pnpm@11.1.0",
+  "packageManager": "pnpm@11.1.2",
   "description": "An opinionated ESLint config preset of ntnyq",
   "keywords": [
     "eslint",
@@ -104,7 +104,7 @@
   },
   "dependencies": {
     "@antfu/install-pkg": "^1.1.0",
-    "@clack/prompts": "^1.3.0",
+    "@clack/prompts": "^1.4.0",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.7.1",
     "@eslint/js": "^10.0.1",
     "@eslint/markdown": "^8.0.1",
@@ -147,10 +147,10 @@
     "yaml-eslint-parser": "^2.0.0"
   },
   "devDependencies": {
-    "@types/node": "^25.7.0",
+    "@types/node": "^25.8.0",
     "@typescript-eslint/types": "^8.59.3",
     "@typescript-eslint/utils": "^8.59.3",
-    "@typescript/native-preview": "^7.0.0-dev.20260511.1",
+    "@typescript/native-preview": "^7.0.0-dev.20260514.1",
     "bumpp": "^11.1.0",
     "consola": "^3.4.2",
     "eslint": "^10.3.0",
@@ -163,7 +163,7 @@
     "prettier": "^3.8.3",
     "tinyglobby": "^0.2.16",
     "tsdown": "^0.22.0",
-    "tsx": "^4.21.0",
+    "tsx": "^4.22.0",
     "typescript": "^6.0.3",
     "uncase": "^0.2.0",
     "vitest": "^4.1.6"
