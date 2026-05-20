@@ -2,5 +2,5 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "pnpm run inspector:build",
-  "outputDirectory": ".eslint-config-inspector"
+  "outputDirectory": "dist/__eslint-config-inspector"
 }
