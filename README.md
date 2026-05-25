@@ -4,17 +4,16 @@
 
 [![CI](https://github.com/ntnyq/eslint-config/workflows/CI/badge.svg)](https://github.com/ntnyq/eslint-config/actions)
 [![NPM VERSION](https://img.shields.io/npm/v/@ntnyq/eslint-config/latest.svg)](https://www.npmjs.com/package/@ntnyq/eslint-config/v/latest)
+[![NPM NEXT VERSION](https://img.shields.io/npm/v/@ntnyq/eslint-config/next.svg)](https://www.npmjs.com/package/@ntnyq/eslint-config/v/next)
 [![NPM DOWNLOADS](https://img.shields.io/npm/dy/@ntnyq/eslint-config)](https://www.npmjs.com/package/@ntnyq/eslint-config)
 [![LICENSE](https://img.shields.io/github/license/ntnyq/eslint-config.svg)](https://github.com/ntnyq/eslint-config/blob/main/LICENSE)
-
-<!-- [![NPM NEXT VERSION](https://img.shields.io/npm/v/@ntnyq/eslint-config/next.svg)](https://www.npmjs.com/package/@ntnyq/eslint-config/v/next) -->
 
 > [!IMPORTANT]
 > Feel free to create and maintain your own fork if you think this is too opinionated.
 
 ## 📋 Requirements
 
-- Node.js ^20.19.0 || ^22.13.0 || >=24
+- Node.js ^22.13.0 || >=24
 - ESLint ^9.38.0
 
 > [!TIP]
