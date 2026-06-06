@@ -238,7 +238,7 @@ const unCategorizedRules: TypedConfigItem['rules'] = {
   'vue/require-macro-variable-name': [
     'error',
     {
-      defineEmits: 'emits',
+      defineEmits: 'emit',
       defineProps: 'props',
       defineSlots: 'slots',
       useAttrs: 'attrs',
