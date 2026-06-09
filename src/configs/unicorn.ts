@@ -123,10 +123,6 @@ export const configUnicorn = (
         /**
          * @pg RegExp
          */
-        /**
-         * Prefer `eslint-plugin-regexp` instead
-         */
-        'unicorn/better-regex': 'off',
         'unicorn/prefer-regexp-test': 'error',
         /**
          * @pg Date
@@ -144,11 +140,11 @@ export const configUnicorn = (
         /**
          * @pg DOM
          */
+        'unicorn/dom-node-dataset': 'error',
         'unicorn/no-invalid-remove-event-listener': 'error',
         'unicorn/prefer-add-event-listener': 'error',
         'unicorn/prefer-classlist-toggle': 'error',
         'unicorn/prefer-dom-node-append': 'error',
-        'unicorn/prefer-dom-node-dataset': 'error',
         'unicorn/prefer-dom-node-remove': 'error',
         'unicorn/prefer-dom-node-text-content': 'error',
         'unicorn/prefer-modern-dom-apis': 'error',
