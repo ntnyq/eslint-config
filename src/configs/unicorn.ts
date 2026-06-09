@@ -7,13 +7,18 @@ import type { OptionsOverrides, TypedConfigItem } from '../types'
 const PLUGIN_UNICORN_PRESET = ['all', 'recommended', 'unopinionated'] as const
 
 /**
+ * Type of built-in presets of `eslint-plugin-unicorn`
+ */
+type UnicornPreset = (typeof PLUGIN_UNICORN_PRESET)[number]
+
+/**
  * Options type of {@link configUnicorn}
  */
 export type ConfigUnicornOptions = OptionsOverrides & {
   /**
    * Use a built-in preset
    */
-  preset?: (typeof PLUGIN_UNICORN_PRESET)[number]
+  preset?: UnicornPreset
 }
 
 /**
@@ -58,20 +63,27 @@ export const configUnicorn = (
         'unicorn/prefer-top-level-await': 'off',
         'unicorn/consistent-assert': 'error',
         'unicorn/consistent-existence-index-check': 'error',
+        'unicorn/consistent-json-file-read': 'error',
         'unicorn/error-message': 'error',
         'unicorn/escape-case': 'error',
         'unicorn/new-for-builtins': 'error',
         'unicorn/no-accessor-recursion': 'error',
+        'unicorn/no-blob-to-file': 'error',
+        'unicorn/no-canvas-to-image': 'error',
         'unicorn/no-console-spaces': 'error',
         'unicorn/no-for-loop': 'error',
         'unicorn/no-hex-escape': 'error',
         'unicorn/no-immediate-mutation': 'error',
         'unicorn/no-instanceof-builtins': 'error',
+        'unicorn/no-invalid-file-input-accept': 'error',
+        'unicorn/no-late-current-target-access': 'error',
         'unicorn/no-lonely-if': 'error',
         'unicorn/no-new-buffer': 'error',
         'unicorn/no-static-only-class': 'error',
+        'unicorn/no-this-outside-of-class': 'error',
         'unicorn/no-typeof-undefined': 'error',
         'unicorn/no-unnecessary-await': 'error',
+        'unicorn/no-unnecessary-nested-ternary': 'error',
         'unicorn/no-useless-collection-argument': 'error',
         'unicorn/no-useless-iterator-to-array': 'error',
         'unicorn/prefer-class-fields': 'error',
@@ -115,6 +127,7 @@ export const configUnicorn = (
             hexadecimalValue: 'lowercase',
           },
         ],
+        'unicorn/prefer-math-abs': 'error',
         'unicorn/prefer-number-properties': 'error',
         /**
          * @pg BigInt
@@ -134,13 +147,17 @@ export const configUnicorn = (
          */
         'unicorn/consistent-template-literal-escape': 'error',
         'unicorn/prefer-code-point': 'error',
+        'unicorn/prefer-string-pad-start-end': 'error',
+        'unicorn/prefer-string-repeat': 'error',
         'unicorn/prefer-string-slice': 'error',
         'unicorn/prefer-string-starts-ends-with': 'error',
         'unicorn/prefer-string-trim-start-end': 'error',
         /**
          * @pg DOM
          */
+        'unicorn/better-dom-traversing': 'error',
         'unicorn/dom-node-dataset': 'error',
+        'unicorn/no-incorrect-query-selector': 'error',
         'unicorn/no-invalid-remove-event-listener': 'error',
         'unicorn/prefer-add-event-listener': 'error',
         'unicorn/prefer-classlist-toggle': 'error',
@@ -160,28 +177,34 @@ export const configUnicorn = (
          */
         'unicorn/no-array-reverse': 'off',
         'unicorn/no-array-sort': 'off',
+        'unicorn/no-array-fill-with-reference-type': 'error',
+        'unicorn/no-array-from-fill': 'error',
         'unicorn/no-array-method-this-argument': 'error',
+        'unicorn/no-confusing-array-splice': 'error',
         'unicorn/no-new-array': 'error',
         'unicorn/no-unnecessary-array-flat-depth': 'error',
         'unicorn/no-unnecessary-array-splice-count': 'error',
         'unicorn/no-unnecessary-slice-end': 'error',
+        'unicorn/no-unused-array-method-return': 'error',
         'unicorn/prefer-array-find': 'error',
         'unicorn/prefer-array-flat-map': 'error',
         'unicorn/prefer-array-index-of': 'error',
         'unicorn/prefer-array-some': 'error',
+        'unicorn/prefer-includes-over-repeated-comparisons': 'error',
         'unicorn/prefer-single-call': 'error',
         'unicorn/require-array-join-separator': 'error',
         /**
          * @pg Set
          */
+        'unicorn/no-duplicate-set-values': 'error',
         'unicorn/prefer-set-has': 'error',
         'unicorn/prefer-set-size': 'error',
         /**
          * @pg Module
          */
-        // TODO: next major version
-        'unicorn/require-module-specifiers': 'off',
+        'unicorn/no-exports-in-scripts': 'error',
         'unicorn/require-module-attributes': 'error',
+        'unicorn/require-module-specifiers': 'error',
 
         // Overrides rules
         ...options.overrides,
