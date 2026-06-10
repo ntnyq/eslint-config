@@ -163,10 +163,10 @@ VS Code minimal settings:
 {
   "eslint.enable": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  "source.organizeImports": "never",
-  "source.sortImports": "never"
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never",
+    "source.sortImports": "never"
+  }
 }
 ```
 

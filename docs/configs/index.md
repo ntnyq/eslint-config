@@ -17,7 +17,7 @@ This preset is modular. You can keep defaults, disable specific modules, or enab
 | [Vue](./vue)                         | Vue SFC lint rules       | Auto (Vue installed)        |
 | [JSON/JSONC](./jsonc)                | JSON and JSONC           | Default On                  |
 | [Markdown](./markdown)               | Markdown and code blocks | Default On                  |
-| [YAML](./yml)                        | YAML files               | Default On                  |
+| [YAML](./yaml)                       | YAML files               | Default On                  |
 | [TOML](./toml)                       | TOML files               | Default On                  |
 | [Gitignore](./gitignore)             | Respect `.gitignore`     | Default On                  |
 | [Ignores](./ignores)                 | Baseline ignores         | Default On                  |

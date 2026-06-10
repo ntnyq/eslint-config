@@ -30,25 +30,19 @@
 
 ## Install
 
-::: code-group
-
-```shell [pnpm]
+```shell
+# pnpm
 pnpm add -D eslint typescript @ntnyq/eslint-config
-```
 
-```shell [npm]
+# npm
 npm i -D eslint typescript @ntnyq/eslint-config
-```
 
-```shell [yarn]
+# yarn
 yarn add -D eslint typescript @ntnyq/eslint-config
-```
 
-```shell [bun]
+# bun
 bun add -D eslint typescript @ntnyq/eslint-config
 ```
-
-:::
 
 ## 60-Second Quick Start
 
@@ -213,10 +207,10 @@ export default defineConfig()
 {
   "eslint.enable": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  "source.organizeImports": "never",
-  "source.sortImports": "never"
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never",
+    "source.sortImports": "never"
+  }
 }
 ```
 
@@ -235,7 +229,7 @@ Enable them explicitly in `defineESLintConfig({ ... })` when needed.
 ## Inspect Final Rules
 
 - Online inspector: [eslint-config-inspector.ntnyq.com](https://eslint-config-inspector.ntnyq.com/)
-- Local inspect: `npx eslint --inspect-config`
+- Local inspect: `npx eslint --inspect-config path/to/file.ts`
 
 ## Advanced API
 

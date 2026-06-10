@@ -47,7 +47,9 @@ import { defineESLintConfig } from '@ntnyq/eslint-config'
 
 export default defineESLintConfig({
   oxfmt: {
-    severity: 'warn',
+    overrides: {
+      'oxfmt/oxfmt': 'warn',
+    },
   },
 })
 ```

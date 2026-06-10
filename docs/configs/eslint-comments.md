@@ -19,7 +19,7 @@ ESLint rule entries.
 
 ## Frontend Scenario Example
 
-Use this config in a typical frontend project by enabling it directly or adding a focused override:
+Use this config in a typical frontend project by customizing it with a focused override:
 
 ```js
 import { defineESLintConfig } from '@ntnyq/eslint-config'
@@ -27,7 +27,7 @@ import { defineESLintConfig } from '@ntnyq/eslint-config'
 export default defineESLintConfig({
   eslintComments: {
     overrides: {
-      'eslint-comments/no-unlimited-disable': 'off',
+      '@eslint-community/eslint-comments/no-unlimited-disable': 'off',
     },
   },
 })

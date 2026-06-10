@@ -22,7 +22,7 @@ Throw an error if gitignore file not found.
 
 ## Frontend Scenario Example
 
-Use this config in a typical frontend project by enabling it directly or adding a focused override:
+Use this config in a typical frontend project by disabling it directly or adding a focused override:
 
 ```js
 import { defineESLintConfig } from '@ntnyq/eslint-config'

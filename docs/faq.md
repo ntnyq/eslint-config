@@ -19,7 +19,7 @@ Use one formatter strategy per project:
 - Prettier stack: `prettier` (+ optional `@ntnyq/prettier-config`)
 - Oxfmt stack: `oxfmt`
 
-If both are installed, behavior follows config composition order. Keeping only one formatter is the safest setup.
+If both are installed, Prettier is used by default. To use oxfmt instead, disable Prettier in config (for example: `prettier: false`). Keeping only one formatter is the safest setup.
 
 ## Configuration
 
@@ -94,10 +94,10 @@ Install ESLint extension and use:
 {
   "eslint.enable": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  "source.organizeImports": "never",
-  "source.sortImports": "never"
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never",
+    "source.sortImports": "never"
+  }
 }
 ```
 
@@ -140,7 +140,7 @@ export default defineESLintConfig(
 
 ### How can I inspect the final merged config?
 
-- `npx eslint --inspect-config`
+- `npx eslint --inspect-config path/to/file.ts`
 - [Config Inspector](https://eslint-config-inspector.ntnyq.com/)
 
 ### Rules are not applied to a file. Why?

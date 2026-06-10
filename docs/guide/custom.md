@@ -156,8 +156,8 @@ import { defineESLintConfig } from '@ntnyq/eslint-config'
 export default defineESLintConfig({
   shareable: {
     ecmaVersion: 'latest',
-    indent: 2,
-    quotes: 'single',
+    extraFileExtensions: ['.mdx'],
+    typescript: true,
   },
 })
 ```
@@ -165,7 +165,7 @@ export default defineESLintConfig({
 ## Debugging Resolved Config
 
 ```shell
-npx eslint --inspect-config
+npx eslint --inspect-config path/to/file.ts
 ```
 
 Or use [Config Inspector](https://eslint-config-inspector.ntnyq.com/).
