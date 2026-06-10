@@ -54,6 +54,18 @@ YAML files to sort all properties alphabetically.
 
 - **Type**: `string[]`
 
+## Frontend Scenario Example
+
+Use this config in a typical frontend project by enabling it directly or adding a focused override:
+
+```js
+import { defineESLintConfig } from '@ntnyq/eslint-config'
+
+export default defineESLintConfig({
+  sort: true,
+})
+```
+
 ## :mag: Implementation
 
 - [Config source](https://github.com/ntnyq/eslint-config/blob/main/src/configs/sort.ts)

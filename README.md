@@ -1,6 +1,6 @@
 # @ntnyq/eslint-config
 
-> 🎨 ESLint config for JavaScript, TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG, and more.
+> ESLint flat config preset for modern frontend projects (TypeScript, Vue, JSON, Markdown, YAML, TOML, and more).
 
 [![CI](https://github.com/ntnyq/eslint-config/workflows/CI/badge.svg)](https://github.com/ntnyq/eslint-config/actions)
 [![NPM VERSION](https://img.shields.io/npm/v/@ntnyq/eslint-config/latest.svg)](https://www.npmjs.com/package/@ntnyq/eslint-config/v/latest)
@@ -8,120 +8,194 @@
 [![NPM DOWNLOADS](https://img.shields.io/npm/dy/@ntnyq/eslint-config)](https://www.npmjs.com/package/@ntnyq/eslint-config)
 [![LICENSE](https://img.shields.io/github/license/ntnyq/eslint-config.svg)](https://github.com/ntnyq/eslint-config/blob/main/LICENSE)
 
-> [!IMPORTANT]
-> Feel free to create and maintain your own fork if you think this is too opinionated.
-
-## 📋 Requirements
+## Requirements
 
 - Node.js ^22.13.0 || >=24
-- ESLint ^9.38.0
+- ESLint ^9.38.0 (or ^10)
 
 > [!TIP]
-> For Node.js v18 support, please use [v4](https://github.com/ntnyq/eslint-config/tree/v4).
+> Need legacy runtime support?
 >
-> For Node.js versions below 20.19.0, please use [v5](https://github.com/ntnyq/eslint-config/tree/v5).
->
-> For Node.js version below 22.13.0, please use [v6](https://github.com/ntnyq/eslint-config/tree/v6).
+> - Node.js v18: use [v4](https://github.com/ntnyq/eslint-config/tree/v4)
+> - Node.js < 20.19.0: use [v5](https://github.com/ntnyq/eslint-config/tree/v5)
+> - Node.js < 22.13.0: use [v6](https://github.com/ntnyq/eslint-config/tree/v6)
 
-## ✨ Features
+## Why Frontend Teams Use It
 
-- ✅ Designed to work alongside formatters, e.g. [Prettier](https://prettier.io) or [oxfmt](https://oxc.rs/docs/guide/usage/formatter)
-- 🎯 Opinionated: single quote, no semi, trailing comma, etc
-- 🪄 Respect `.gitignore` via [eslint-config-flat-gitignore](https://github.com/antfu/eslint-config-flat-gitignore)
-- 📦 Out-of-the-box support for TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG, Astro, Svelte, etc
-- 🛡️ Strict but provides useful rules to guard your codebase
-- 🔧 Custom ESLint commands for [eslint-plugin-command](https://github.com/antfu/eslint-plugin-command)
-- 🎪 [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files) for ESLint v9.38.0+
+- Works out of the box with ESLint flat config.
+- Auto-detects and enables configs by your dependencies and file types.
+- Covers common frontend files: TS, Vue SFC, JSON, Markdown, YAML, TOML.
+- Keeps formatting tool friendly (Prettier or oxfmt).
+- Supports scaling from single apps to monorepos.
 
-## 📦 Install
+## Install
 
-```shell
-npm i eslint typescript @ntnyq/eslint-config -D
+::: code-group
+
+```shell [pnpm]
+pnpm add -D eslint typescript @ntnyq/eslint-config
 ```
 
-```shell
-yarn add eslint typescript @ntnyq/eslint-config -D
+```shell [npm]
+npm i -D eslint typescript @ntnyq/eslint-config
 ```
 
-```shell
-pnpm add eslint typescript @ntnyq/eslint-config -D
+```shell [yarn]
+yarn add -D eslint typescript @ntnyq/eslint-config
 ```
 
-```shell
-bun add eslint typescript @ntnyq/eslint-config -D
+```shell [bun]
+bun add -D eslint typescript @ntnyq/eslint-config
 ```
 
-## 🚀 Usage
+:::
 
-Highly recommend using **`eslint.config.mjs`** as the config file:
+## 60-Second Quick Start
+
+1. Create `eslint.config.mjs` in project root.
+2. Add npm scripts.
+3. Run lint.
 
 ```js
+// eslint.config.mjs
 // @ts-check
 
 import { defineESLintConfig } from '@ntnyq/eslint-config'
 
-export default defineESLintConfig(
-  // Options here
-  {
-    // Enable a config
-    svgo: true,
-    // Disable a config
-    jsdoc: false,
-    vue: {
-      // Overrides built-in rules
-      overrides: {
-        'vue/slot-name-casing': 'off',
-      },
-    },
+export default defineESLintConfig()
+```
+
+```json
+{
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  }
+}
+```
+
+```shell
+pnpm lint
+```
+
+## Common Frontend Setups
+
+### Vite + Vue 3 + TypeScript
+
+```js
+// eslint.config.mjs
+import { defineESLintConfig } from '@ntnyq/eslint-config'
+
+export default defineESLintConfig({
+  vue: true,
+  typescript: {
+    tsconfigPath: './tsconfig.app.json',
   },
-  // Optional user configs here
+})
+```
+
+### Vite + React + TypeScript
+
+```js
+// eslint.config.mjs
+import { defineESLintConfig } from '@ntnyq/eslint-config'
+
+export default defineESLintConfig({
+  vue: false,
+  typescript: {
+    tsconfigPath: './tsconfig.json',
+  },
+})
+```
+
+### Monorepo (apps + packages)
+
+```js
+// eslint.config.mjs
+import { defineESLintConfig } from '@ntnyq/eslint-config'
+
+export default defineESLintConfig(
+  {
+    typescript: true,
+    vue: true,
+  },
   [
     {
-      files: ['**/utils/*.ts'],
+      files: ['apps/web/**'],
       rules: {
-        'antfu/top-level-function': 'error',
+        'no-console': 'warn',
+      },
+    },
+    {
+      files: ['packages/**'],
+      rules: {
+        'no-console': 'off',
       },
     },
   ],
 )
 ```
 
-Add a `lint` script to `package.json`:
+## Configuration Patterns
 
-```json
-{
-  "scripts": {
-    "lint": "eslint",
-    "lint:fix": "eslint --fix"
-  }
-}
+### Enable or disable modules
+
+```js
+import { defineESLintConfig } from '@ntnyq/eslint-config'
+
+export default defineESLintConfig({
+  svgo: true,
+  astro: true,
+  jsdoc: false,
+  unicorn: false,
+})
 ```
 
-<details>
-<summary>💼 Integration: Prettier, VS Code, husky and nano-staged</summary>
+### Override built-in rules
 
-<br>
+```js
+import { defineESLintConfig } from '@ntnyq/eslint-config'
 
-## 🎨 Prettier config
-
-> Feel free to use your own prettier config.
-
-Install `prettier` and set up your Prettier config:
-
-```shell
-npm i prettier @ntnyq/prettier-config -D
+export default defineESLintConfig({
+  vue: {
+    overrides: {
+      'vue/slot-name-casing': 'off',
+    },
+  },
+  typescript: {
+    overrides: {
+      '@typescript-eslint/no-unused-vars': 'warn',
+    },
+  },
+})
 ```
 
-```shell
-yarn add prettier @ntnyq/prettier-config -D
+### Add project-specific flat config blocks
+
+```js
+import { defineESLintConfig } from '@ntnyq/eslint-config'
+
+export default defineESLintConfig({}, [
+  {
+    files: ['**/scripts/**'],
+    rules: {
+      'no-console': 'off',
+    },
+  },
+])
 ```
 
-```shell
-pnpm add prettier @ntnyq/prettier-config -D
-```
+## Formatter Integration
+
+Use one formatter strategy in a project:
+
+- Prettier path: install `prettier` and optional `@ntnyq/prettier-config`
+- Oxfmt path: install `oxfmt`
+
+### Prettier example
 
 ```shell
-bun add prettier @ntnyq/prettier-config -D
+pnpm add -D prettier @ntnyq/prettier-config
 ```
 
 ```js
@@ -130,179 +204,56 @@ bun add prettier @ntnyq/prettier-config -D
 
 import { defineConfig } from '@ntnyq/prettier-config'
 
-export default defineConfig({
-  // Custom options if needed
-  printWidth: 100,
-  trailingComma: 'none',
-  overrides: [
-    {
-      files: ['**/*.html'],
-      options: {
-        singleAttributePerLine: false,
-      },
-    },
-    {
-      files: ['**/*.{css,scss,less}'],
-      options: {
-        singleQuote: false,
-      },
-    },
-  ],
-})
+export default defineConfig()
 ```
 
-## 💻 VS Code config
+### VS Code example
 
 ```json
 {
   "eslint.enable": true,
-  "prettier.enable": true,
-  "editor.formatOnSave": true,
-  "prettier.configPath": "./prettier.config.mjs",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.organizeImports": "never",
-    "source.sortImports": "never"
+    "source.fixAll.eslint": "explicit"
   },
-  "eslint.validate": [
-    "vue",
-    "yaml",
-    "toml",
-    "json",
-    "jsonc",
-    "json5",
-    "markdown",
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact"
-  ]
+  "source.organizeImports": "never",
+  "source.sortImports": "never"
 }
 ```
 
-## 🎯 Lint changed files only
+## Optional Configs (Disabled by Default)
 
-### 1. Add dependencies
+- `astro`
+- `eslintPlugin`
+- `html`
+- `pnpm`
+- `svelte`
+- `svgo`
+- `unusedImports`
 
-```shell
-pnpm add husky nano-staged -D
-```
+Enable them explicitly in `defineESLintConfig({ ... })` when needed.
 
-### 2. Config in `package.json`
+## Inspect Final Rules
 
-```json
-{
-  "scripts": {
-    "prepare": "husky"
-  },
-  "nano-staged": {
-    "*.{js,ts,cjs,mjs,jsx,tsx,vue,md,svg,yml,yaml,toml,json}": "eslint --fix",
-    "*.{css,scss,html}": "prettier -uw"
-  }
-}
-```
+- Online inspector: [eslint-config-inspector.ntnyq.com](https://eslint-config-inspector.ntnyq.com/)
+- Local inspect: `npx eslint --inspect-config`
 
-### 3. Add a Git hook
+## Advanced API
 
-```shell
-echo "nano-staged" > .husky/pre-commit
-```
+- [Config options type](./src/types/config.ts)
+- [Factory implementation](./src/core.ts)
 
-</details>
+## Versioning Policy
 
-## 🔍 View what rules are enabled
+This project follows Semantic Versioning with opinionated lint rules:
 
-Please check [eslint-config-inspector](https://eslint-config-inspector.ntnyq.com/) powered by [@eslint/config-inspector](https://github.com/eslint/config-inspector).
+- Treated as breaking: Node.js engine changes, major plugin incompatibility, broad refactors.
+- Treated as non-breaking: enabling/disabling rules, rule option tuning, dependency bumps.
 
-## ⚙️ Advanced config
-
-For details, see:
-
-- [./src/types/config.ts](https://github.com/ntnyq/eslint-config/blob/main/src/types/config.ts)
-- [./src/core.ts](https://github.com/ntnyq/eslint-config/blob/main/src/core.ts)
-
-### 📝 Config interface
-
-```ts
-export interface ConfigOptions {
-  /**
-   * Shareable options
-   */
-  shareable?: OptionsShareable
-
-  /**
-   * Configs enabled by default
-   */
-  command?: ConfigCommandOptions
-  eslintComments?: ConfigESLintCommentsOptions
-  ignores?: ConfigIgnoresOptions
-  javascript?: ConfigJavaScriptOptions
-  node?: ConfigNodeOptions
-
-  /**
-   * Configs below can be disabled
-   */
-  antfu?: boolean | ConfigAntfuOptions
-  deMorgan?: boolean | ConfigDeMorganOptions
-  depend?: boolean | ConfigDependOptions
-  githubAction?: boolean | ConfigGitHubActionOptions
-  gitignore?: boolean | ConfigGitIgnoreOptions
-  importX?: boolean | ConfigImportXOptions
-  jsdoc?: boolean | ConfigJsdocOptions
-  jsonc?: boolean | ConfigJsoncOptions
-  markdown?: boolean | ConfigMarkdownOptions
-  ntnyq?: boolean | ConfigNtnyqOptions
-  perfectionist?: boolean | ConfigPerfectionistOptions
-  pinia?: boolean | ConfigPiniaOptions
-  prettier?: boolean | ConfigPrettierOptions
-  regexp?: boolean | ConfigRegexpOptions
-  sort?: boolean | ConfigSortOptions
-  specials?: boolean | ConfigSpecialsOptions
-  test?: boolean | ConfigTestOptions
-  toml?: boolean | ConfigTomlOptions
-  typescript?: boolean | ConfigTypeScriptOptions
-  unicorn?: boolean | ConfigUnicornOptions
-  unocss?: boolean | ConfigUnoCSSOptions
-  vue?: boolean | ConfigVueOptions
-  yml?: boolean | ConfigYmlOptions
-
-  /**
-   * Configs below are disabled by default
-   */
-  astro?: boolean | ConfigAstroOptions
-  html?: boolean | ConfigHtmlOptions
-  pnpm?: boolean | ConfigPnpmOptions
-  oxfmt?: boolean | ConfigOxfmtOptions
-  svelte?: boolean | ConfigSvelteOptions
-  svgo?: boolean | ConfigSVGOOptions
-  eslintPlugin?: boolean | ConfigESLintPluginOptions
-  unusedImports?: boolean | ConfigUnusedImportsOptions
-}
-```
-
-## 📌 Versioning policy
-
-This project aims to follow [Semantic Versioning](https://semver.org/) for releases.
-
-### 🔴 Changes treated as Breaking Changes
-
-- Node.js version requirement changes
-- Huge refactors that might break the config
-- Plugins made major changes that might break the config
-- Changes that might affect most of the codebases
-
-### 🟢 Changes treated as Non-Breaking Changes
-
-- Enable/disable rules and plugins (that might become stricter)
-- Rule option changes
-- Version bumps of dependencies
-
-## 🙏 Credits
+## Credits
 
 - [@sxzz/eslint-config](https://github.com/sxzz/eslint-config)
 - [@antfu/eslint-config](https://github.com/antfu/eslint-config)
 
-## 📄 License
+## License
 
 [MIT](./LICENSE) License © 2023-PRESENT [ntnyq](https://github.com/ntnyq)
