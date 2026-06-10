@@ -53,6 +53,6 @@ export type ConfigNames = ${configNames.map(i => `'${i}'`).join(' | ')}
 try {
   await generateTypes()
   consola.success('Types generated successfully')
-} catch (err) {
-  consola.error(err)
+} catch (error) {
+  consola.error(error)
 }

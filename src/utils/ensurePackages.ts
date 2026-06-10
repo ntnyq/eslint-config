@@ -59,11 +59,11 @@ export async function ensurePackages(
     const { installPackage } = await import('@antfu/install-pkg')
 
     await installPackage(nonExistingPackages, { dev: true })
-  } catch (err) {
+  } catch (error) {
     throw new Error(
       `Failed to install required packages: ${nonExistingPackages.join(', ')}`,
       {
-        cause: err,
+        cause: error,
       },
     )
   }

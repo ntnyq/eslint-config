@@ -87,7 +87,7 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0(eslint@10.4.1(jiti@2.7.0))
       eslint-plugin-n:
-        specifier: ^18.0.1
+        specifier: ^18.1.0
         version: 18.1.0(eslint@10.4.1(jiti@2.7.0))(typescript@6.0.3)
       eslint-plugin-no-only-tests:
         specifier: ^3.4.0
@@ -156,7 +156,7 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3
       typescript-eslint:
-        specifier: ^8.60.1
+        specifier: ^8.61.0
         version: 8.61.0(eslint@10.4.1(jiti@2.7.0))(typescript@6.0.3)
       vue-eslint-parser:
         specifier: ^10.4.1
@@ -169,13 +169,13 @@ importers:
         specifier: ^25.9.2
         version: 25.9.2
       '@typescript-eslint/types':
-        specifier: ^8.60.1
+        specifier: ^8.61.0
         version: 8.61.0
       '@typescript-eslint/utils':
-        specifier: ^8.60.1
+        specifier: ^8.61.0
         version: 8.61.0(eslint@10.4.1(jiti@2.7.0))(typescript@6.0.3)
       '@typescript/native-preview':
-        specifier: ^7.0.0-dev.20260607.1
+        specifier: ^7.0.0-dev.20260608.1
         version: 7.0.0-dev.20260608.1
       bumpp:
         specifier: ^11.1.0

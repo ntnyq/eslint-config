@@ -108,7 +108,7 @@ export const configUnicorn = (
         'unicorn/catch-error-name': [
           'error',
           {
-            name: 'err',
+            name: 'error',
             ignore: ['^_.'],
           },
         ],
