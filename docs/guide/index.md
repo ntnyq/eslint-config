@@ -8,13 +8,15 @@ This guide will help you set up and configure ESLint with this opinionated prese
 
 Before you start, make sure you have the following versions installed:
 
-- **Node.js**: `^20.19.0 || ^22.13.0 || >=24`
-- **ESLint**: `^9.38.0`
+- Node.js ^22.13.0 || >=24
+- ESLint ^9.38.0
 
 ::: tip
 For Node.js v18 support, please use [v4](https://github.com/ntnyq/eslint-config/tree/v4).
 
 For Node.js versions below 20.19.0, please use [v5](https://github.com/ntnyq/eslint-config/tree/v5).
+
+For Node.js version below 22.13.0, please use [v6](https://github.com/ntnyq/eslint-config/tree/v6).
 :::
 
 ## Features

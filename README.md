@@ -20,6 +20,8 @@
 > For Node.js v18 support, please use [v4](https://github.com/ntnyq/eslint-config/tree/v4).
 >
 > For Node.js versions below 20.19.0, please use [v5](https://github.com/ntnyq/eslint-config/tree/v5).
+>
+> For Node.js version below 22.13.0, please use [v6](https://github.com/ntnyq/eslint-config/tree/v6).
 
 ## ✨ Features
 
