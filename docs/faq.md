@@ -1,28 +1,29 @@
 # FAQ
 
-Frequently asked questions about `@ntnyq/eslint-config`.
+Frequently asked questions for frontend developers using `@ntnyq/eslint-config`.
 
-## General
+## Setup
 
-### Why use this config instead of creating my own?
+### Can I use this in JavaScript-only projects?
 
-This config provides:
+Yes. Keep `typescript` dependency installed (recommended by this preset), and TS rules are only applied where relevant.
 
-- Battle-tested rules from real-world projects
-- Automatic file type detection and configuration
-- Regular updates for new ESLint/plugin releases
-- Opinionated but sensible defaults
-- Easy customization when needed
+### Do I need Vue to use this config?
 
-### Can I use this with JavaScript projects (without TypeScript)?
+No. Vue-related rules are only auto-enabled when Vue exists in dependencies, and you can always force `vue: false`.
 
-Yes! TypeScript is only required as a dev dependency. The config works perfectly with pure JavaScript projects. TypeScript configs will only activate when `.ts` files are detected.
+### Which formatter should I use?
+
+Use one formatter strategy per project:
+
+- Prettier stack: `prettier` (+ optional `@ntnyq/prettier-config`)
+- Oxfmt stack: `oxfmt`
+
+If both are installed, Prettier is used by default. To use oxfmt instead, disable Prettier in config (for example: `prettier: false`). Keeping only one formatter is the safest setup.
 
 ## Configuration
 
-### How do I disable a specific rule?
-
-You can override rules in your config:
+### How do I disable a rule?
 
 ```js
 import { defineESLintConfig } from '@ntnyq/eslint-config'
@@ -36,21 +37,22 @@ export default defineESLintConfig({
 })
 ```
 
-Or add custom configs:
+### How do I add custom rules for specific folders?
 
 ```js
+import { defineESLintConfig } from '@ntnyq/eslint-config'
+
 export default defineESLintConfig({}, [
   {
+    files: ['apps/web/**'],
     rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
+      'no-console': 'warn',
     },
   },
 ])
 ```
 
-### How do I enable type-aware TypeScript rules?
-
-Set the `tsconfigPath` option:
+### How do I enable type-aware rules?
 
 ```js
 import { defineESLintConfig } from '@ntnyq/eslint-config'
@@ -62,16 +64,54 @@ export default defineESLintConfig({
 })
 ```
 
-### Can I use this in a monorepo?
+## Performance
 
-Yes! The config works great in monorepos. You can:
+### ESLint is slow. What should I do?
 
-1. Use a single config at the root
-2. Create per-package configs with different options
-3. Use file-based overrides for different workspace packages
+1. Reduce type-aware scope via `filesTypeAware`.
+2. Exclude generated files with `ignores`.
+3. Use cache mode: `eslint --cache`.
 
 ```js
-// Root eslint.config.mjs
+import { defineESLintConfig } from '@ntnyq/eslint-config'
+
+export default defineESLintConfig({
+  typescript: {
+    filesTypeAware: ['src/**/*.{ts,tsx,vue}'],
+    ignoresTypeAware: ['**/*.md/**', '**/*.stories.ts'],
+  },
+  ignores: ['**/dist/**', '**/coverage/**'],
+})
+```
+
+## Tooling
+
+### How do I use it with VS Code?
+
+Install ESLint extension and use:
+
+```json
+{
+  "eslint.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never",
+    "source.sortImports": "never"
+  }
+}
+```
+
+### Does this work with Vite, Next.js, or Nuxt?
+
+Yes. This package is an ESLint flat config preset and is bundler/framework agnostic.
+
+## Monorepo
+
+### Can I use one root config for all apps?
+
+Yes. Keep one root config and add per-directory overrides in the second argument:
+
+```js
 import { defineESLintConfig } from '@ntnyq/eslint-config'
 
 export default defineESLintConfig(
@@ -81,237 +121,37 @@ export default defineESLintConfig(
   },
   [
     {
-      files: ['packages/backend/**'],
+      files: ['apps/web/**'],
       rules: {
-        'no-console': 'off', // Allow console in backend
+        'no-console': 'warn',
       },
     },
     {
-      files: ['packages/frontend/**'],
+      files: ['packages/**'],
       rules: {
-        'no-console': 'error', // Disallow console in frontend
+        'no-console': 'off',
       },
     },
   ],
 )
 ```
 
-### How do I add custom file patterns?
+## Debugging
 
-Use the `files` option for each config:
+### How can I inspect the final merged config?
 
-```js
-import { defineESLintConfig } from '@ntnyq/eslint-config'
+- `npx eslint --inspect-config path/to/file.ts`
+- [Config Inspector](https://eslint-config-inspector.ntnyq.com/)
 
-export default defineESLintConfig({
-  vue: {
-    files: ['**/*.vue', '**/*.nvue'],
-  },
-  typescript: {
-    files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts'],
-  },
-})
-```
-
-## Integration
-
-### Does this work with Prettier?
-
-Yes! This config is designed to work with Prettier. It:
-
-- Disables formatting rules that conflict with Prettier
-- Provides integration through `eslint-config-prettier`
-- Recommends using `@ntnyq/prettier-config` for consistency
-
-### How do I use this with VS Code?
-
-Install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and add to `.vscode/settings.json`:
-
-```json
-{
-  "eslint.enable": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  }
-}
-```
-
-See the [Guide](/guide/#vs-code) for complete VS Code setup.
-
-### Can I use this with Vite/Webpack/Rollup?
-
-Yes! This is an ESLint config that works with any build tool. Just run ESLint via:
-
-- CLI: `eslint`
-- npm script: `npm run lint`
-- Editor integration
-- Git hooks
-
-### Does this work with Vitest/Jest?
-
-Yes! Test framework rules are automatically enabled for test files. The config detects:
-
-- `*.test.{js,ts,jsx,tsx,mjs,cjs,mts,cts}`
-- `*.spec.{js,ts,jsx,tsx,mjs,cjs,mts,cts}`
-- `*.bench.{js,ts,jsx,tsx,mjs,cjs,mts,cts}` and `*.benchmark.{js,ts,jsx,tsx,mjs,cjs,mts,cts}`
-- Type test files like `*.test-d.ts` and `*.spec-d.ts`
-
-You can also manually enable test configs:
-
-```js
-import { defineESLintConfig } from '@ntnyq/eslint-config'
-
-export default defineESLintConfig({
-  test: {
-    files: ['**/*.test.ts', '**/__tests__/**'],
-  },
-})
-```
-
-## Troubleshooting
-
-### ESLint is slow in my project
-
-Try these solutions:
-
-1. **Disable type-aware rules** if not needed:
-
-   ```js
-   import { defineESLintConfig } from '@ntnyq/eslint-config'
-
-   export default defineESLintConfig({
-     typescript: {
-       tsconfigPath: undefined, // or remove this line
-     },
-   })
-   ```
-
-2. **Ignore large directories**:
-
-   ```js
-   import { defineESLintConfig } from '@ntnyq/eslint-config'
-
-   export default defineESLintConfig({
-     ignores: ['**/dist/**', '**/node_modules/**'],
-   })
-   ```
-
-3. **Use `.eslintcache`**:
-   ```json
-   {
-     "scripts": {
-       "lint": "eslint --cache"
-     }
-   }
-   ```
-
-### Rules are conflicting with Prettier
-
-Make sure Prettier runs **after** ESLint:
-
-```json
-{
-  "nano-staged": {
-    "*.{js,ts,vue}": ["eslint --fix", "prettier -w"]
-  }
-}
-```
-
-Or use separate scripts:
-
-```json
-{
-  "scripts": {
-    "lint": "eslint",
-    "format": "prettier -w ."
-  }
-}
-```
-
-### Import errors in TypeScript
-
-Ensure TypeScript is properly configured:
-
-1. Check `tsconfig.json` exists
-2. Set `tsconfigPath` in config:
-
-   ```js
-   import { defineESLintConfig } from '@ntnyq/eslint-config'
-
-   export default defineESLintConfig({
-     typescript: {
-       tsconfigPath: './tsconfig.json',
-     },
-   })
-   ```
-
-### Vue template errors
-
-For Vue 3 projects, ensure:
-
-```js
-import { defineESLintConfig } from '@ntnyq/eslint-config'
-
-export default defineESLintConfig({
-  vue: {
-    typescript: true, // If using <script lang="ts">
-    sfcBlocks: true, // Enable SFC block processing
-  },
-})
-```
-
-### Rules not applying to specific files
+### Rules are not applied to a file. Why?
 
 Check:
 
-1. Files aren't in `.gitignore` (unless `gitignore: false`)
-2. File extensions match config patterns
-3. No conflicting `ignores` patterns
-
-Use `--debug` flag to see why files are ignored:
-
-```shell
-npx eslint --debug src/file.ts
-```
-
-## Migration
-
-### From ESLint 8 to ESLint 9
-
-This config requires ESLint 9. To migrate:
-
-1. Update ESLint:
-
-   ```shell
-   npm install eslint@^9 -D
-   ```
-
-2. Replace `.eslintrc.*` with `eslint.config.mjs`
-
-3. Update plugins and configs for flat config compatibility
-
-See the [ESLint migration guide](https://eslint.org/docs/latest/use/migrate-to-9.0.0).
-
-### From v5 to v6
-
-Major changes in v6:
-
-- Node.js 20.19.0+ required
-- ESLint 9.38.0+ required
-- Updated plugin versions
-- New config options
-
-Check the [release notes](https://github.com/ntnyq/eslint-config/releases) for breaking changes.
+1. File is not excluded by `.gitignore` or `ignores`.
+2. File extension matches module `files` patterns.
+3. No later config block overrides the same rule.
 
 ## Support
 
-### Where can I report issues?
-
-- GitHub Issues: [ntnyq/eslint-config](https://github.com/ntnyq/eslint-config/issues)
+- Issues: [ntnyq/eslint-config issues](https://github.com/ntnyq/eslint-config/issues)
 - Discussions: [GitHub Discussions](https://github.com/ntnyq/eslint-config/discussions)
-
-### How do I stay updated?
-
-- Watch the [GitHub repository](https://github.com/ntnyq/eslint-config)
-- Follow [@ntnyq](https://twitter.com/ntnyq) on Twitter
-- Check [release notes](https://github.com/ntnyq/eslint-config/releases) regularly

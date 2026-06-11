@@ -1,72 +1,73 @@
 # Configs
 
-`@ntnyq/eslint-config` provides a collection of composable ESLint configurations for different file types and use cases. Many configs are enabled automatically based on your project structure, and you can enable or disable them manually.
+This preset is modular. You can keep defaults, disable specific modules, or enable optional ones.
 
-## Config Status
+## How to Read This Page
 
-### Enabled by Default
+- "Auto" means enabled by dependency/file detection.
+- "Default On" means enabled unless you set it to `false`.
+- "Optional" means disabled until you enable it explicitly.
 
-These configs are enabled automatically when relevant files are detected in your project:
+## Auto or Default-On Modules
 
-| Config                               | Description                  | Auto-detect                |
-| ------------------------------------ | ---------------------------- | -------------------------- |
-| [JavaScript](./javascript)           | Base JavaScript rules        | Always                     |
-| [TypeScript](./typescript)           | TypeScript support and rules | `*.ts`, `*.tsx` files      |
-| [Vue](./vue)                         | Vue 3 SFC linting            | `*.vue` files              |
-| [JSON/JSONC](./jsonc)                | JSON/JSONC linting           | `*.json`, `*.jsonc` files  |
-| [Markdown](./markdown)               | Markdown linting             | `*.md` files               |
-| [YAML](./yml)                        | YAML linting                 | `*.yaml`, `*.yml` files    |
-| [TOML](./toml)                       | TOML linting                 | `*.toml` files             |
-| [Gitignore](./gitignore)             | Respect .gitignore patterns  | `.gitignore` exists        |
-| [Ignores](./ignores)                 | Common ignore patterns       | Always                     |
-| [Node](./node)                       | Node.js rules                | Always                     |
-| [Import X](./import-x)               | Import/export linting        | Always                     |
-| [Unicorn](./unicorn)                 | Quality/style rules          | Always                     |
-| [Perfectionist](./perfectionist)     | Sorting and formatting       | Always                     |
-| [Antfu](./antfu)                     | Anthony Fu's custom rules    | Always                     |
-| [ESLint Comments](./eslint-comments) | ESLint directive comments    | Always                     |
-| [Command](./command)                 | Magic ESLint commands        | Always                     |
-| [Test](./test)                       | Test framework rules         | `vitest` in dependencies   |
-| [UnoCSS](./unocss)                   | UnoCSS class linting         | `unocss` in dependencies   |
-| [Prettier](./prettier)               | Prettier compatibility       | `prettier` in dependencies |
-| [Oxfmt](./oxfmt)                     | Oxfmt compatibility          | `oxfmt` in dependencies    |
+| Config                               | Purpose                  | Activation                  |
+| ------------------------------------ | ------------------------ | --------------------------- |
+| [JavaScript](./javascript)           | Base JS rules            | Default On                  |
+| [TypeScript](./typescript)           | TS lint rules            | Auto (TypeScript installed) |
+| [Vue](./vue)                         | Vue SFC lint rules       | Auto (Vue installed)        |
+| [JSON/JSONC](./jsonc)                | JSON and JSONC           | Default On                  |
+| [Markdown](./markdown)               | Markdown and code blocks | Default On                  |
+| [YAML](./yaml)                       | YAML files               | Default On                  |
+| [TOML](./toml)                       | TOML files               | Default On                  |
+| [Gitignore](./gitignore)             | Respect `.gitignore`     | Default On                  |
+| [Ignores](./ignores)                 | Baseline ignores         | Default On                  |
+| [Node](./node)                       | Node rules               | Default On                  |
+| [Import X](./import-x)               | Import/export safety     | Default On                  |
+| [Unicorn](./unicorn)                 | Code quality rules       | Default On                  |
+| [Perfectionist](./perfectionist)     | Sorting rules            | Default On                  |
+| [Antfu](./antfu)                     | Antfu plugin rules       | Default On                  |
+| [ESLint Comments](./eslint-comments) | Lint directive comments  | Default On                  |
+| [Command](./command)                 | Command comments         | Default On                  |
+| [Test](./test)                       | Test file rules          | Auto (Vitest installed)     |
+| [UnoCSS](./unocss)                   | Utility class linting    | Auto (UnoCSS installed)     |
+| [Prettier](./prettier)               | Prettier bridge          | Auto (Prettier installed)   |
+| [Oxfmt](./oxfmt)                     | Oxfmt bridge             | Auto (oxfmt installed)      |
 
-### Disabled by Default
+## Optional Modules (Default Off)
 
-These configs must be explicitly enabled in your configuration:
+| Config                             | Purpose                  | Enable                |
+| ---------------------------------- | ------------------------ | --------------------- |
+| [Astro](./astro)                   | Astro files              | `astro: true`         |
+| [Svelte](./svelte)                 | Svelte files             | `svelte: true`        |
+| [SVGO](./svgo)                     | SVG linting              | `svgo: true`          |
+| [HTML](./html)                     | HTML linting             | `html: true`          |
+| [Pinia](./pinia)                   | Pinia rules              | `pinia: true`         |
+| [PNPM](./pnpm)                     | Workspace package checks | `pnpm: true`          |
+| [ESLint Plugin](./eslint-plugin)   | For plugin authors       | `eslintPlugin: true`  |
+| [Unused Imports](./unused-imports) | Cleanup helpers          | `unusedImports: true` |
 
-| Config                             | Description                         | Enable with           |
-| ---------------------------------- | ----------------------------------- | --------------------- |
-| [Astro](./astro)                   | Astro component linting             | `astro: true`         |
-| [Svelte](./svelte)                 | Svelte component linting            | `svelte: true`        |
-| [SVGO](./svgo)                     | SVG optimization linting            | `svgo: true`          |
-| [HTML](./html)                     | HTML file linting                   | `html: true`          |
-| [Pinia](./pinia)                   | Pinia store rules                   | `pinia: true`         |
-| [PNPM](./pnpm)                     | PNPM workspace linting              | `pnpm: true`          |
-| [ESLint Plugin](./eslint-plugin)   | Rules for ESLint plugin development | `eslintPlugin: true`  |
-| [Unused Imports](./unused-imports) | Remove unused imports/vars          | `unusedImports: true` |
+## Minimal Usage
 
-## Usage
+```js
+import { defineESLintConfig } from '@ntnyq/eslint-config'
 
-### Enable/Disable Configs
+export default defineESLintConfig()
+```
+
+## Enable and Disable Modules
 
 ```js
 import { defineESLintConfig } from '@ntnyq/eslint-config'
 
 export default defineESLintConfig({
-  // Enable optional configs
-  svgo: true,
   astro: true,
-
-  // Disable default configs
+  svgo: true,
   jsdoc: false,
   unicorn: false,
 })
 ```
 
-### Configure Options
-
-Each config can accept options:
+## Per-Module Options
 
 ```js
 import { defineESLintConfig } from '@ntnyq/eslint-config'
@@ -79,7 +80,6 @@ export default defineESLintConfig({
     },
   },
   vue: {
-    sfcBlocks: true,
     overrides: {
       'vue/multi-word-component-names': 'off',
     },
@@ -87,83 +87,16 @@ export default defineESLintConfig({
 })
 ```
 
-## Config Interface
-
-The complete TypeScript interface for configuration options:
-
-```ts
-export interface ConfigOptions {
-  /**
-   * Shareable options
-   */
-  shareable?: OptionsShareable
-
-  /**
-   * Configs enabled by default
-   */
-  command?: ConfigCommandOptions
-  eslintComments?: ConfigESLintCommentsOptions
-  ignores?: ConfigIgnoresOptions
-  javascript?: ConfigJavaScriptOptions
-  node?: ConfigNodeOptions
-
-  /**
-   * Configs below can be disabled
-   */
-  antfu?: boolean | ConfigAntfuOptions
-  deMorgan?: boolean | ConfigDeMorganOptions
-  depend?: boolean | ConfigDependOptions
-  githubAction?: boolean | ConfigGitHubActionOptions
-  gitignore?: boolean | ConfigGitIgnoreOptions
-  importX?: boolean | ConfigImportXOptions
-  jsdoc?: boolean | ConfigJsdocOptions
-  jsonc?: boolean | ConfigJsoncOptions
-  markdown?: boolean | ConfigMarkdownOptions
-  ntnyq?: boolean | ConfigNtnyqOptions
-  perfectionist?: boolean | ConfigPerfectionistOptions
-  pinia?: boolean | ConfigPiniaOptions
-  prettier?: boolean | ConfigPrettierOptions
-  regexp?: boolean | ConfigRegexpOptions
-  sort?: boolean | ConfigSortOptions
-  specials?: boolean | ConfigSpecialsOptions
-  test?: boolean | ConfigTestOptions
-  toml?: boolean | ConfigTomlOptions
-  typescript?: boolean | ConfigTypeScriptOptions
-  unicorn?: boolean | ConfigUnicornOptions
-  unocss?: boolean | ConfigUnoCSSOptions
-  unusedImports?: boolean | ConfigUnusedImportsOptions
-  vue?: boolean | ConfigVueOptions
-  yml?: boolean | ConfigYmlOptions
-
-  /**
-   * Configs below are disabled by default
-   */
-  astro?: boolean | ConfigAstroOptions
-  html?: boolean | ConfigHtmlOptions
-  pnpm?: boolean | ConfigPnpmOptions
-  oxfmt?: boolean | ConfigOxfmtOptions
-  svelte?: boolean | ConfigSvelteOptions
-  svgo?: boolean | ConfigSVGOOptions
-  eslintPlugin?: boolean | ConfigESLintPluginOptions
-}
-```
-
-For detailed type definitions, see:
+## Full Type Interface
 
 - [src/types/config.ts](https://github.com/ntnyq/eslint-config/blob/main/src/types/config.ts)
 - [src/core.ts](https://github.com/ntnyq/eslint-config/blob/main/src/core.ts)
 
-## Config Details
+## Next Step
 
-Click on each config name in the sidebar to see:
+Open any config page from the sidebar to see:
 
 - Plugins used
-- Available options
-- Default configuration
-- Implementation source
-
-## See Also
-
-- [Guide](/guide/) - Getting started guide
-- [Custom Configuration](/guide/custom) - Advanced customization
-- [ESLint Config Inspector](https://eslint-config-inspector.ntnyq.com/) - Visual rule browser
+- Option definitions
+- Example overrides
+- Source implementation link

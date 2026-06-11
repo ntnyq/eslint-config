@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: ESLint Config
-  text: An opinionated ESLint config preset
-  tagline: Battle-tested, TypeScript & Vue ready, works with Prettier
+  text: Opinionated ESLint preset for frontend teams
+  tagline: Flat config, practical defaults, TypeScript and Vue ready
   image:
     light: /logo.svg
     dark: /logo.svg
@@ -13,7 +13,7 @@ hero:
       text: Get Started
       link: /guide/
     - theme: alt
-      text: View Configs
+      text: Config Matrix
       link: /configs/
     - theme: alt
       text: Inspector
@@ -22,62 +22,48 @@ hero:
 
 features:
   - icon: ⚡️
-    title: Zero Config
-    details: Works out of the box with sensible defaults. Just install and start linting.
+    title: Fast Start
+    details: Install, add eslint.config.mjs, run lint. Works in minutes.
 
-  - icon: 🎯
-    title: Opinionated
-    details: Single quote, no semicolons, trailing commas. Battle-tested preferences from real projects.
+  - icon: 🧩
+    title: Modular Preset
+    details: Keep defaults, disable noisy modules, or enable optional stacks like Astro and SVGO.
 
-  - icon: 📦
-    title: All-in-One
-    details: Support for TypeScript, Vue, JSON, Markdown, YAML, TOML, SVG, Astro, Svelte, and more.
+  - icon: 🧠
+    title: Smart Detection
+    details: Automatically turns on configs by dependencies and file types.
 
-  - icon: 🔧
-    title: Customizable
-    details: Easy to override rules and add custom configurations for your specific needs.
-
-  - icon: 🪄
-    title: Auto-detect
-    details: Automatically applies the right configs based on your project structure.
+  - icon: 🛠️
+    title: Frontend Coverage
+    details: TypeScript, Vue SFC, JSON, Markdown, YAML, TOML, and test files.
 
   - icon: 🎨
-    title: Formatter Ready
-    details: Designed to work seamlessly with formatters like prettier or oxfmt. No conflicts, just clean code.
+    title: Formatter Friendly
+    details: Works with either Prettier or oxfmt for clean and predictable workflows.
 
-  - icon: 🛡️
-    title: Strict but Sensible
-    details: Catches real bugs while staying pragmatic. Guards your codebase effectively.
-
-  - icon: 🚀
-    title: ESLint 9 + Flat Config
-    details: Built on the latest ESLint with modern flat config for better performance.
-
-  - icon: 💡
-    title: Command Shortcuts
-    details: Use magic ESLint commands to quickly disable rules or add ignores inline.
+  - icon: 🏢
+    title: Monorepo Ready
+    details: Add folder-based overrides for apps and packages in a single root config.
 ---
 
 ## Quick Start
 
-Install the package:
-
 ::: code-group
 
-```shell [npm]
-npm i eslint typescript @ntnyq/eslint-config -D
+```shell [pnpm]
+pnpm add -D eslint typescript @ntnyq/eslint-config
 ```
 
-```shell [pnpm]
-pnpm add eslint typescript @ntnyq/eslint-config -D
+```shell [npm]
+npm i -D eslint typescript @ntnyq/eslint-config
 ```
 
 ```shell [yarn]
-yarn add eslint typescript @ntnyq/eslint-config -D
+yarn add -D eslint typescript @ntnyq/eslint-config
 ```
 
 ```shell [bun]
-bun add eslint typescript @ntnyq/eslint-config -D
+bun add -D eslint typescript @ntnyq/eslint-config
 ```
 
 :::
@@ -92,48 +78,32 @@ import { defineESLintConfig } from '@ntnyq/eslint-config'
 export default defineESLintConfig()
 ```
 
-Add lint scripts:
+Add scripts:
 
 ```json
 {
   "scripts": {
-    "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   }
 }
 ```
 
-That's it! 🎉
+## Recommended Reading Path
 
-## What's Included?
+1. [Guide](/guide/): install, quick start, and first customizations.
+2. [Configs](/configs/): find which modules are auto, default-on, or optional.
+3. [Custom Configuration](/guide/custom): monorepo and advanced override patterns.
+4. [FAQ](/faq): performance, VS Code, and troubleshooting.
 
-- **JavaScript & TypeScript**: Full support with strict typing rules
-- **Vue 3**: SFC linting with composition API support
-- **Frameworks**: Astro, Svelte (opt-in)
-- **Data Formats**: JSON, JSONC, YAML, TOML
-- **Markdown**: Lint code blocks and prose
-- **SVG**: SVGO optimization rules
-- **Node.js**: Best practices for Node.js projects
-- **Tests**: Vitest, Jest support
-- **Import/Export**: Smart import sorting and organization
+## Useful Links
 
-## Resources
-
-- 📖 [Documentation](./guide/)
-- ⚙️ [All Configs](./configs/)
-- 🔍 [Config Inspector](https://eslint-config-inspector.ntnyq.com)
-- ❓ [FAQ](./faq)
-- 📦 [npm Package](https://www.npmjs.com/package/@ntnyq/eslint-config)
-- 📋 [GitHub Repository](https://github.com/ntnyq/eslint-config)
-- 📝 [Changelog](https://github.com/ntnyq/eslint-config/releases)
+- [Config Inspector](https://eslint-config-inspector.ntnyq.com/)
+- [npm package](https://www.npmjs.com/package/@ntnyq/eslint-config)
+- [GitHub repository](https://github.com/ntnyq/eslint-config)
+- [Release notes](https://github.com/ntnyq/eslint-config/releases)
 
 ## Credits
 
-This config is inspired by and built upon amazing work from:
-
-- [@antfu/eslint-config](https://github.com/antfu/eslint-config) by [Anthony Fu](https://github.com/antfu)
-- [@sxzz/eslint-config](https://github.com/sxzz/eslint-config) by [三咲智子](https://github.com/sxzz)
-
-## License
-
-[MIT](https://github.com/ntnyq/eslint-config/blob/main/LICENSE) License © 2023-PRESENT [ntnyq](https://github.com/ntnyq)
+- [@antfu/eslint-config](https://github.com/antfu/eslint-config)
+- [@sxzz/eslint-config](https://github.com/sxzz/eslint-config)

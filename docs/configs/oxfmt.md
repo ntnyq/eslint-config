@@ -38,6 +38,22 @@ ESLint rule entries.
 
 - **Type**: `Rules`
 
+## Frontend Scenario Example
+
+Use this config in a typical frontend project by enabling it directly or adding a focused override:
+
+```js
+import { defineESLintConfig } from '@ntnyq/eslint-config'
+
+export default defineESLintConfig({
+  oxfmt: {
+    overrides: {
+      'oxfmt/oxfmt': 'warn',
+    },
+  },
+})
+```
+
 ## :mag: Implementation
 
 - [Config source](https://github.com/ntnyq/eslint-config/blob/main/src/configs/oxfmt.ts)
