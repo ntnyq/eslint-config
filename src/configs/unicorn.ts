@@ -83,8 +83,12 @@ export const configUnicorn = (
         'unicorn/no-this-outside-of-class': 'error',
         'unicorn/no-typeof-undefined': 'error',
         'unicorn/no-unnecessary-await': 'error',
+        'unicorn/no-unnecessary-global-this': 'error',
         'unicorn/no-unnecessary-nested-ternary': 'error',
+        'unicorn/no-unsafe-property-key': 'error',
+        'unicorn/no-useless-boolean-cast': 'error',
         'unicorn/no-useless-collection-argument': 'error',
+        'unicorn/no-useless-else': 'error',
         'unicorn/no-useless-iterator-to-array': 'error',
         'unicorn/prefer-class-fields': 'error',
         'unicorn/prefer-import-meta-properties': 'error',
@@ -99,6 +103,8 @@ export const configUnicorn = (
         'unicorn/prefer-prototype-methods': 'error',
         'unicorn/prefer-reflect-apply': 'error',
         'unicorn/prefer-response-static-json': 'error',
+        'unicorn/prefer-single-array-predicate': 'error',
+        'unicorn/prefer-single-object-destructuring': 'error',
         'unicorn/prefer-structured-clone': 'error',
         'unicorn/switch-case-braces': ['error', 'avoid'],
         'unicorn/switch-case-break-position': 'error',
@@ -128,6 +134,7 @@ export const configUnicorn = (
           },
         ],
         'unicorn/prefer-math-abs': 'error',
+        'unicorn/prefer-number-coercion': 'error',
         'unicorn/prefer-number-properties': 'error',
         /**
          * @pg BigInt
@@ -146,6 +153,7 @@ export const configUnicorn = (
          * @pg String
          */
         'unicorn/consistent-template-literal-escape': 'error',
+        'unicorn/no-unsafe-string-replacement': 'error',
         'unicorn/prefer-code-point': 'error',
         'unicorn/prefer-string-pad-start-end': 'error',
         'unicorn/prefer-string-repeat': 'error',
@@ -181,6 +189,8 @@ export const configUnicorn = (
         'unicorn/no-array-from-fill': 'error',
         'unicorn/no-array-method-this-argument': 'error',
         'unicorn/no-confusing-array-splice': 'error',
+        'unicorn/no-confusing-array-with': 'error',
+        'unicorn/no-duplicate-loops': 'error',
         'unicorn/no-new-array': 'error',
         'unicorn/no-unnecessary-array-flat-depth': 'error',
         'unicorn/no-unnecessary-array-splice-count': 'error',

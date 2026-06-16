@@ -56,6 +56,7 @@ describe('composer', () => {
     'renamePlugins',
   ])('should have method %s', method => {
     const config = defineESLintConfig()
+    // eslint-disable-next-line unicorn/no-unsafe-property-key
     expect(config[method as keyof typeof config]).toBeInstanceOf(Function)
   })
 

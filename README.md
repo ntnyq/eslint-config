@@ -11,7 +11,7 @@
 ## Requirements
 
 - Node.js ^22.13.0 || >=24
-- ESLint ^9.38.0 (or ^10)
+- ESLint ^10.4.0
 
 > [!TIP]
 > Need legacy runtime support?
