@@ -87,7 +87,9 @@ export const configUnicorn = (
         'unicorn/no-unnecessary-nested-ternary': 'error',
         'unicorn/no-unsafe-property-key': 'error',
         'unicorn/no-useless-boolean-cast': 'error',
+        'unicorn/no-useless-coercion': 'error',
         'unicorn/no-useless-collection-argument': 'error',
+        'unicorn/no-useless-continue': 'error',
         'unicorn/no-useless-else': 'error',
         'unicorn/no-useless-iterator-to-array': 'error',
         'unicorn/prefer-class-fields': 'error',
@@ -209,6 +211,15 @@ export const configUnicorn = (
         'unicorn/no-duplicate-set-values': 'error',
         'unicorn/prefer-set-has': 'error',
         'unicorn/prefer-set-size': 'error',
+        /**
+         * @pg Map
+         */
+        'unicorn/prefer-has-check': 'error',
+        'unicorn/prefer-object-from-entries': 'error',
+        /**
+         * @pg Class
+         */
+        'unicorn/no-useless-override': 'error',
         /**
          * @pg Module
          */

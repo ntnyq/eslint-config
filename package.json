@@ -16,7 +16,10 @@
     "email": "ntnyq13@gmail.com"
   },
   "homepage": "https://eslint-config.ntnyq.com",
-  "repository": "ntnyq/eslint-config",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntnyq/eslint-config.git"
+  },
   "bugs": {
     "url": "https://github.com/ntnyq/eslint-config/issues"
   },
@@ -122,7 +125,7 @@
     "eslint-plugin-depend": "^1.5.0",
     "eslint-plugin-github-action": "^0.3.0",
     "eslint-plugin-import-x": "^4.16.2",
-    "eslint-plugin-jsdoc": "^63.0.2",
+    "eslint-plugin-jsdoc": "^63.0.4",
     "eslint-plugin-jsonc": "^3.2.0",
     "eslint-plugin-n": "^18.1.0",
     "eslint-plugin-no-only-tests": "^3.4.0",
@@ -134,7 +137,7 @@
     "eslint-plugin-regexp": "^3.1.0",
     "eslint-plugin-svgo": "^0.12.0",
     "eslint-plugin-toml": "^1.4.0",
-    "eslint-plugin-unicorn": "^66.0.0",
+    "eslint-plugin-unicorn": "^67.0.0",
     "eslint-plugin-vue": "^10.9.2",
     "eslint-plugin-yml": "^3.4.0",
     "eslint-processor-vue-blocks": "^2.0.0",
@@ -150,7 +153,7 @@
     "@types/node": "^25.9.3",
     "@typescript-eslint/types": "^8.61.1",
     "@typescript-eslint/utils": "^8.61.1",
-    "@typescript/native-preview": "^7.0.0-dev.20260615.1",
+    "@typescript/native-preview": "^7.0.0-dev.20260616.1",
     "bumpp": "^11.1.0",
     "consola": "^3.4.2",
     "eslint": "^10.5.0",
@@ -162,7 +165,7 @@
     "oxfmt": "^0.55.0",
     "prettier": "^3.8.4",
     "tinyglobby": "^0.2.17",
-    "tsdown": "^0.22.2",
+    "tsdown": "^0.22.3",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3",
     "uncase": "^0.2.0",
