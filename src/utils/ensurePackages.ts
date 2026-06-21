@@ -51,7 +51,7 @@ export async function ensurePackages(
     message: `${nonExistingPackages.length === 1 ? 'Package is' : 'Packages are'} required for this config: ${nonExistingPackages.join(', ')}. Do you want to install them?`,
   })
 
-  if (isCancel(confirmInstall) || confirmInstall !== true) {
+  if (isCancel(confirmInstall) || !confirmInstall) {
     return
   }
 
