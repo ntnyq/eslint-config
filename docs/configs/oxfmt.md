@@ -16,7 +16,7 @@ sidebarDepth: 0
 Glob patterns for files to be linted.
 
 - **Type**: `string[]`
-- **Default**: `[GLOB_SRC, GLOB_VUE]`
+- **Default**: `[GLOB_SRC, GLOB_VUE, GLOB_JSON, GLOB_JSON5, GLOB_JSONC, GLOB_YAML, GLOB_TOML, GLOB_MARKDOWN]`
 
 ### ignores
 
@@ -30,7 +30,7 @@ Glob patterns for files to ignore.
 File extensions to format.
 
 - **Type**: `string[]`
-- **Default**: `GLOB_SRC_EXTENSIONS`
+- **Default**: `[GLOB_STYLE, GLOB_HTML]`
 
 ### overrides
 
