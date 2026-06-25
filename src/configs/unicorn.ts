@@ -96,6 +96,7 @@ export const configUnicorn = (
         'unicorn/no-useless-continue': 'error',
         'unicorn/no-useless-else': 'error',
         'unicorn/no-useless-iterator-to-array': 'error',
+        'unicorn/prefer-abort-signal-timeout': 'error',
         'unicorn/prefer-class-fields': 'error',
         'unicorn/prefer-import-meta-properties': 'error',
         'unicorn/prefer-includes': 'error',
@@ -105,6 +106,7 @@ export const configUnicorn = (
         'unicorn/prefer-modern-math-apis': 'error',
         'unicorn/prefer-negative-index': 'error',
         'unicorn/prefer-node-protocol': 'error',
+        'unicorn/prefer-observer-apis': 'error',
         'unicorn/prefer-optional-catch-binding': 'error',
         'unicorn/prefer-prototype-methods': 'error',
         'unicorn/prefer-reflect-apply': 'error',
@@ -112,6 +114,7 @@ export const configUnicorn = (
         'unicorn/prefer-single-array-predicate': 'error',
         'unicorn/prefer-single-object-destructuring': 'error',
         'unicorn/prefer-structured-clone': 'error',
+        'unicorn/prefer-url-search-parameters': 'error',
         'unicorn/switch-case-braces': ['error', 'avoid'],
         'unicorn/switch-case-break-position': 'error',
         /**
@@ -180,6 +183,7 @@ export const configUnicorn = (
         'unicorn/prefer-dom-node-text-content': 'error',
         'unicorn/prefer-modern-dom-apis': 'error',
         'unicorn/prefer-query-selector': 'error',
+        'unicorn/prefer-toggle-attribute': 'error',
         /**
          * @pg Array
          */
