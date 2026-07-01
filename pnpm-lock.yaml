@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  eslint-typegen@2.3.1: 867deed64f53739ef35ec5273cf8ee3481b48548385ab63c435fe3bcc22c3989
+
 importers:
 
   .:
@@ -188,7 +191,7 @@ importers:
         version: 10.6.0(jiti@2.7.0)
       eslint-typegen:
         specifier: ^2.3.1
-        version: 2.3.1(eslint@10.6.0(jiti@2.7.0))
+        version: 2.3.1(patch_hash=867deed64f53739ef35ec5273cf8ee3481b48548385ab63c435fe3bcc22c3989)(eslint@10.6.0(jiti@2.7.0))
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -6036,7 +6039,7 @@ snapshots:
       esrecurse: 4.3.0
       estraverse: 5.3.0
 
-  eslint-typegen@2.3.1(eslint@10.6.0(jiti@2.7.0)):
+  eslint-typegen@2.3.1(patch_hash=867deed64f53739ef35ec5273cf8ee3481b48548385ab63c435fe3bcc22c3989)(eslint@10.6.0(jiti@2.7.0)):
     dependencies:
       eslint: 10.6.0(jiti@2.7.0)
       json-schema-to-typescript-lite: 15.0.0
