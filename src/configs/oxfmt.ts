@@ -60,6 +60,7 @@ export const configOxfmt = (
       },
       rules: {
         'oxfmt/oxfmt': 'error',
+
         ...options.overrides,
       },
     },
@@ -75,6 +76,7 @@ export const configOxfmt = (
       },
       rules: {
         'oxfmt/oxfmt': 'error',
+
         ...options.overrides,
       },
     },

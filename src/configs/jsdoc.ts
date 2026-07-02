@@ -58,9 +58,7 @@ export const configJsdoc = (
         'jsdoc/require-next-description': 'warn',
         'jsdoc/require-next-type': 'warn',
         'jsdoc/require-throws-description': 'warn',
-        'jsdoc/require-throws-type': 'warn',
         'jsdoc/require-yields-description': 'warn',
-        'jsdoc/require-yields-type': 'warn',
         'jsdoc/ts-method-signature-style': 'warn',
         'jsdoc/ts-no-empty-object-type': 'warn',
         'jsdoc/ts-no-unnecessary-template-expression': 'warn',
@@ -143,9 +141,9 @@ export const configJsdoc = (
             unionSpacing: SPECIAL_CHAR.singleSpace,
           },
         ],
-      },
 
-      ...options.overrides,
+        ...options.overrides,
+      },
     },
     {
       name: 'ntnyq/jsdoc/js-rules',
@@ -156,6 +154,8 @@ export const configJsdoc = (
         'jsdoc/require-param-type': 'error',
         'jsdoc/require-property-type': 'error',
         'jsdoc/require-returns-type': 'error',
+        'jsdoc/require-throws-type': 'error',
+        'jsdoc/require-yields-type': 'error',
 
         ...options.overrides,
       },
@@ -168,7 +168,10 @@ export const configJsdoc = (
         'jsdoc/require-param-type': 'off',
         'jsdoc/require-property-type': 'off',
         'jsdoc/require-returns-type': 'off',
+        'jsdoc/require-throws-type': 'off',
+        'jsdoc/require-yields-type': 'off',
         'jsdoc/no-types': 'error',
+
         ...options.overrides,
       },
     },
