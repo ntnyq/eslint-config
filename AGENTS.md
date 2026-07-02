@@ -1,77 +1,33 @@
-# Agent Guide
+# Repository Guidelines
 
-This repository publishes an ESLint flat config package. Keep changes small, type-safe, and aligned with existing config patterns.
+## Project Structure & Module Organization
 
-## Quick Start
+This package publishes `@ntnyq/eslint-config`, an ESLint flat config preset. Core source lives in `src/`: `core.ts` composes configs, `configs/` contains one config module per feature, `eslint/` wraps plugins/parsers/processors, `utils/` holds shared helpers, and `types/` defines public option types. Tests are in `tests/`, scripts in `scripts/`, generated build output in `dist/`, and VitePress documentation in `docs/`.
 
-- Runtime: Node.js ^22.13.0 or >=24
-- Package manager: pnpm (packageManager is pnpm@11.7.0)
-- Install: pnpm install
-- Main validation loop: pnpm lint && pnpm test && pnpm build
+## Build, Test, and Development Commands
 
-## High-Value Commands
+- `pnpm install` installs dependencies with the pinned pnpm version.
+- `pnpm dev` regenerates types and runs `tsdown` in watch mode.
+- `pnpm build` runs `types:generate` and builds the library.
+- `pnpm test` runs the Vitest suite.
+- `pnpm lint` runs ESLint with cache.
+- `pnpm format:check` verifies formatting with `oxfmt`.
+- `pnpm typecheck` runs `tsgo --noEmit`.
+- `pnpm release:check` runs the full pre-release validation loop.
+- `pnpm docs:dev` starts the docs site locally.
 
-- pnpm dev: Generate types and run tsdown in watch mode
-- pnpm build: Generate types and build dist output
-- pnpm test: Run vitest suite
-- pnpm typecheck: Run tsgo --noEmit
-- pnpm types:generate: Regenerate src/types/typegen.d.ts
-- pnpm docs:dev: Run VitePress docs locally
-- pnpm docs:build: Build VitePress docs
+## Coding Style & Naming Conventions
 
-## Project Map
+Use TypeScript ESM, two-space indentation, single quotes, and no semicolons, matching existing files. Let `oxfmt` and ESLint enforce style; avoid manual formatting churn. Name config factories `configXxx`, option types `ConfigXxxOptions`, and environment predicates `hasXxx`. Prefer existing helpers in `src/utils/` and keep optional-plugin behavior aligned with `peerDependenciesMeta`.
 
-- src/core.ts: Entry point with defineESLintConfig and config composition order
-- src/configs/: Individual config modules (one feature per file)
-- src/types/config.ts: Public options types
-- src/utils/: Option resolution, environment detection, and helper logic
-- src/globs.ts: Shared glob constants used across configs
-- scripts/generateType.ts: Generates src/types/typegen.d.ts
-- tests/index.test.ts: Core behavior tests and mocking patterns
-- docs/: VitePress docs; docs/configs contains per-config pages
+## Testing Guidelines
 
-## Change Rules
+Vitest is the test framework. Put tests under `tests/` using `*.test.ts`, group behavior with `describe`, and prefer focused assertions over snapshots. When changing config composition, option resolution, package installation prompts, or generated types, add or update tests and run `pnpm test`. Use `pnpm release:check` before broad or release-facing changes.
 
-- Do not manually edit src/types/typegen.d.ts. Regenerate with pnpm types:generate.
-- Keep docs and implementation aligned when changing config behavior.
-- Follow existing naming patterns:
-  - config functions: configXxx
-  - option types: ConfigXxxOptions
-  - env checks: hasXxx
-- Avoid mutating shared option objects or arrays in place.
-- Prefer extending existing helpers in src/utils before introducing new patterns.
+## Commit & Pull Request Guidelines
 
-## Common Workflows
+Git history uses Conventional Commits, such as `feat: bump eslint-plugin-unicorn to v70`, `fix: patch eslint-typegen to fix types conflicts`, and `chore: release v7.0.0-beta.8`. Keep commits scoped and imperative. Pull requests should explain the change, link related issues when available, note docs updates, and include validation results such as `pnpm lint`, `pnpm test`, and `pnpm build`.
 
-### Add a new config module
+## Agent-Specific Instructions
 
-1. Add src/configs/newFeature.ts exporting configNewFeature and ConfigNewFeatureOptions.
-2. Export it from src/configs/index.ts.
-3. Wire it into src/core.ts with proper option resolution and ordering.
-4. Extend public options in src/types/config.ts.
-5. Add or update docs page in docs/configs/.
-6. Run pnpm types:generate, pnpm lint, pnpm test, pnpm build.
-
-### Update an existing config
-
-1. Update rules and options in the target src/configs file.
-2. Preserve override behavior and existing option merge patterns.
-3. Update matching docs page under docs/configs/.
-4. Run pnpm lint and pnpm test (plus pnpm build if behavior changed broadly).
-
-## Link-First References
-
-- Repository usage and API overview: [README](./README.md)
-- Docs entry: [docs/index.md](./docs/index.md)
-- Config docs index: [docs/configs/index.md](./docs/configs/index.md)
-- User guide: [docs/guide/index.md](./docs/guide/index.md)
-- FAQ: [docs/faq.md](./docs/faq.md)
-- Commands plugin docs: [src/commands/README.md](./src/commands/README.md)
-
-## Practical Guardrails For Agents
-
-- Prefer minimal diffs over refactors.
-- Do not introduce new dependencies unless required.
-- Keep optional-plugin behavior consistent with peerDependenciesMeta.
-- For docs command examples, always provide a target file path for inspect-config usage.
-- If touched files affect published output, ensure dist build still succeeds.
+For shell commands in this repository, prefix commands with `rtk` as configured in `~/.codex/RTK.md` (for example, `rtk pnpm test`) except `pnpm typecheck` command. Do not manually edit generated type output; run `pnpm types:generate` instead. Keep docs in `docs/configs/` synchronized with config behavior changes.

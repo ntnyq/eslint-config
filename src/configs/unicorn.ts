@@ -55,66 +55,51 @@ export const configUnicorn = (
         unicorn: pluginUnicorn,
       },
       rules: {
+        /**
+         * @pg Compatibility
+         */
         'unicorn/explicit-length-check': 'off',
         /**
          * @see https://caniuse.com/?search=globalThis
          */
         'unicorn/prefer-global-this': 'off',
         'unicorn/prefer-top-level-await': 'off',
+        /**
+         * @pg Assertion
+         */
         'unicorn/consistent-assert': 'error',
-        'unicorn/consistent-conditional-object-spread': ['error', 'ternary'],
-        'unicorn/consistent-existence-index-check': 'error',
-        'unicorn/consistent-json-file-read': 'error',
-        'unicorn/error-message': 'error',
-        'unicorn/escape-case': 'error',
+        /**
+         * @pg Built-in
+         */
         'unicorn/new-for-builtins': 'error',
-        'unicorn/no-accessor-recursion': 'error',
-        'unicorn/no-blob-to-file': 'error',
-        'unicorn/no-canvas-to-image': 'error',
         'unicorn/no-console-spaces': 'error',
+        'unicorn/no-instanceof-builtins': 'error',
+        'unicorn/no-new-buffer': 'error',
+        'unicorn/no-typeof-undefined': 'error',
+        'unicorn/no-unnecessary-global-this': 'error',
+        /**
+         * @pg Class
+         */
+        'unicorn/no-accessor-recursion': 'error',
+        'unicorn/no-static-only-class': 'error',
+        'unicorn/no-this-outside-of-class': 'error',
+        'unicorn/no-useless-override': 'error',
+        'unicorn/prefer-class-fields': 'error',
+        /**
+         * @pg Control Flow
+         */
         'unicorn/no-constant-zero-expression': 'error',
         'unicorn/no-double-comparison': 'error',
         'unicorn/no-for-loop': 'error',
-        'unicorn/no-hex-escape': 'error',
-        'unicorn/no-immediate-mutation': 'error',
-        'unicorn/no-instanceof-builtins': 'error',
-        'unicorn/no-invalid-file-input-accept': 'error',
-        'unicorn/no-late-current-target-access': 'error',
         'unicorn/no-lonely-if': 'error',
-        'unicorn/no-new-buffer': 'error',
-        'unicorn/no-static-only-class': 'error',
-        'unicorn/no-this-outside-of-class': 'error',
-        'unicorn/no-typeof-undefined': 'error',
-        'unicorn/no-unnecessary-await': 'error',
         'unicorn/no-unnecessary-boolean-comparison': 'error',
-        'unicorn/no-unnecessary-global-this': 'error',
         'unicorn/no-unnecessary-nested-ternary': 'error',
-        'unicorn/no-unsafe-property-key': 'error',
         'unicorn/no-useless-boolean-cast': 'error',
         'unicorn/no-useless-coercion': 'error',
         'unicorn/no-useless-collection-argument': 'error',
         'unicorn/no-useless-continue': 'error',
         'unicorn/no-useless-else': 'error',
-        'unicorn/no-useless-iterator-to-array': 'error',
-        'unicorn/prefer-abort-signal-timeout': 'error',
-        'unicorn/prefer-class-fields': 'error',
-        'unicorn/prefer-import-meta-properties': 'error',
-        'unicorn/prefer-includes': 'error',
-        'unicorn/prefer-keyboard-event-key': 'error',
-        'unicorn/prefer-math-min-max': 'error',
-        'unicorn/prefer-math-trunc': 'error',
-        'unicorn/prefer-modern-math-apis': 'error',
-        'unicorn/prefer-negative-index': 'error',
-        'unicorn/prefer-node-protocol': 'error',
-        'unicorn/prefer-observer-apis': 'error',
-        'unicorn/prefer-optional-catch-binding': 'error',
-        'unicorn/prefer-prototype-methods': 'error',
-        'unicorn/prefer-reflect-apply': 'error',
-        'unicorn/prefer-response-static-json': 'error',
-        'unicorn/prefer-single-array-predicate': 'error',
-        'unicorn/prefer-single-object-destructuring': 'error',
-        'unicorn/prefer-structured-clone': 'error',
-        'unicorn/prefer-url-search-parameters': 'error',
+        'unicorn/prefer-block-statement-over-iife': 'error',
         'unicorn/switch-case-braces': ['error', 'avoid'],
         'unicorn/switch-case-break-position': 'error',
         /**
@@ -128,9 +113,35 @@ export const configUnicorn = (
           },
         ],
         'unicorn/custom-error-definition': 'error',
+        'unicorn/error-message': 'error',
         'unicorn/no-useless-error-capture-stack-trace': 'error',
+        'unicorn/prefer-optional-catch-binding': 'error',
         'unicorn/prefer-type-error': 'error',
         'unicorn/throw-new-error': 'error',
+        /**
+         * @pg Promise
+         */
+        'unicorn/no-async-promise-finally': 'error',
+        'unicorn/no-unnecessary-await': 'error',
+        'unicorn/no-unsafe-promise-all-settled-values': 'error',
+        /**
+         * @pg Function
+         */
+        'unicorn/no-immediate-mutation': 'error',
+        'unicorn/prefer-prototype-methods': 'error',
+        'unicorn/prefer-reflect-apply': 'error',
+        /**
+         * @pg Web APIs
+         */
+        'unicorn/no-blob-to-file': 'error',
+        'unicorn/no-canvas-to-image': 'error',
+        'unicorn/no-unnecessary-fetch-options': 'error',
+        'unicorn/prefer-abort-signal-any': 'error',
+        'unicorn/prefer-abort-signal-timeout': 'error',
+        'unicorn/prefer-keyboard-event-key': 'error',
+        'unicorn/prefer-observer-apis': 'error',
+        'unicorn/prefer-response-static-json': 'error',
+        'unicorn/prefer-url-search-parameters': 'error',
         /**
          * @pg Number
          */
@@ -143,6 +154,10 @@ export const configUnicorn = (
           },
         ],
         'unicorn/prefer-math-abs': 'error',
+        'unicorn/prefer-math-min-max': 'error',
+        'unicorn/prefer-math-trunc': 'error',
+        'unicorn/prefer-modern-math-apis': 'error',
+        'unicorn/prefer-negative-index': 'error',
         'unicorn/prefer-number-coercion': 'error',
         'unicorn/prefer-number-properties': 'error',
         /**
@@ -162,6 +177,8 @@ export const configUnicorn = (
          * @pg String
          */
         'unicorn/consistent-template-literal-escape': 'error',
+        'unicorn/escape-case': 'error',
+        'unicorn/no-hex-escape': 'error',
         'unicorn/no-unsafe-string-replacement': 'error',
         'unicorn/prefer-code-point': 'error',
         'unicorn/prefer-string-pad-start-end': 'error',
@@ -175,7 +192,9 @@ export const configUnicorn = (
         'unicorn/better-dom-traversing': 'error',
         'unicorn/dom-node-dataset': 'error',
         'unicorn/no-incorrect-query-selector': 'error',
+        'unicorn/no-invalid-file-input-accept': 'error',
         'unicorn/no-invalid-remove-event-listener': 'error',
+        'unicorn/no-late-current-target-access': 'error',
         'unicorn/prefer-add-event-listener': 'error',
         'unicorn/prefer-classlist-toggle': 'error',
         'unicorn/prefer-dom-node-append': 'error',
@@ -208,11 +227,18 @@ export const configUnicorn = (
         'unicorn/no-unused-array-method-return': 'error',
         'unicorn/prefer-array-find': 'error',
         'unicorn/prefer-array-flat-map': 'error',
+        'unicorn/prefer-array-from-range': 'error',
         'unicorn/prefer-array-index-of': 'error',
         'unicorn/prefer-array-some': 'error',
+        'unicorn/prefer-includes': 'error',
         'unicorn/prefer-includes-over-repeated-comparisons': 'error',
+        'unicorn/prefer-single-array-predicate': 'error',
         'unicorn/prefer-single-call': 'error',
         'unicorn/require-array-join-separator': 'error',
+        /**
+         * @pg Iterator
+         */
+        'unicorn/no-useless-iterator-to-array': 'error',
         /**
          * @pg Set
          */
@@ -223,15 +249,25 @@ export const configUnicorn = (
          * @pg Map
          */
         'unicorn/prefer-has-check': 'error',
-        'unicorn/prefer-object-from-entries': 'error',
         /**
-         * @pg Class
+         * @pg Object
          */
-        'unicorn/no-useless-override': 'error',
+        'unicorn/consistent-conditional-object-spread': ['error', 'ternary'],
+        'unicorn/consistent-existence-index-check': 'error',
+        'unicorn/no-unsafe-property-key': 'error',
+        'unicorn/prefer-object-from-entries': 'error',
+        'unicorn/prefer-single-object-destructuring': 'error',
+        /**
+         * @pg Data
+         */
+        'unicorn/consistent-json-file-read': 'error',
+        'unicorn/prefer-structured-clone': 'error',
         /**
          * @pg Module
          */
         'unicorn/no-exports-in-scripts': 'error',
+        'unicorn/prefer-import-meta-properties': 'error',
+        'unicorn/prefer-node-protocol': 'error',
         'unicorn/require-module-attributes': 'error',
         'unicorn/require-module-specifiers': 'error',
 
