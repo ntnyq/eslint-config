@@ -146,7 +146,7 @@ export const configJsdoc = (
       },
     },
     {
-      name: 'ntnyq/jsdoc/js-rules',
+      name: 'ntnyq/jsdoc/javascript',
       files: [GLOB_JS, GLOB_JSX],
       rules: {
         'jsdoc/no-types': 'off',
@@ -161,7 +161,7 @@ export const configJsdoc = (
       },
     },
     {
-      name: 'ntnyq/jsdoc/ts-rules',
+      name: 'ntnyq/jsdoc/typescript',
       files: [GLOB_TS, GLOB_TSX],
       rules: {
         'jsdoc/no-undefined-types': 'off',

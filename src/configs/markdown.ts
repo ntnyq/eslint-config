@@ -75,7 +75,7 @@ export const configMarkdown = (
     },
 
     {
-      name: 'ntnyq/markdown/disabled',
+      name: 'ntnyq/markdown/code-blocks',
       files: [
         ...files,
         // more nested extensions to disable

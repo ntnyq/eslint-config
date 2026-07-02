@@ -37,7 +37,7 @@ export const configOxfmt = (
   options: ConfigOxfmtOptions = {},
 ): TypedConfigItem[] => {
   const {
-    files: filesWithoutParser = [
+    files: nativeFiles = [
       GLOB_SRC,
       GLOB_VUE,
       GLOB_JSON,
@@ -48,12 +48,12 @@ export const configOxfmt = (
       GLOB_MARKDOWN,
     ],
     ignores: ignoresWithoutParser = [],
-    filesExtensions: filesWithParser = [GLOB_STYLE, GLOB_HTML],
+    filesExtensions: plainParserFiles = [GLOB_STYLE, GLOB_HTML],
   } = options
   return [
     {
-      name: 'ntnyq/oxfmt/without-parser',
-      files: filesWithoutParser,
+      name: 'ntnyq/oxfmt/native-files',
+      files: nativeFiles,
       ignores: ignoresWithoutParser,
       plugins: {
         oxfmt: pluginOxfmt,
@@ -65,9 +65,9 @@ export const configOxfmt = (
       },
     },
     {
-      name: 'ntnyq/oxfmt/with-parser',
-      files: filesWithParser,
-      ignores: filesWithoutParser.flat(),
+      name: 'ntnyq/oxfmt/plain-parser-files',
+      files: plainParserFiles,
+      ignores: nativeFiles.flat(),
       plugins: {
         oxfmt: pluginOxfmt,
       },

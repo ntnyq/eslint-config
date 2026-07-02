@@ -63,10 +63,10 @@ export const configJavaScript = (
   return [
     {
       ...jsConfig.configs.recommended,
-      name: 'ntnyq/js/recommended',
+      name: 'ntnyq/javascript/recommended',
     },
     {
-      name: 'ntnyq/js/core',
+      name: 'ntnyq/javascript/core',
       languageOptions: {
         ecmaVersion,
         sourceType: 'module',

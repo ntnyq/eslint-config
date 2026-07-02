@@ -160,7 +160,7 @@ export const configTypeScript = (
       ...parserOptions,
     }
     const parserConfig: TypedConfigItem = {
-      name: `ntnyq/ts/${enableTypeAware ? 'parser-type-aware' : 'parser'}`,
+      name: `ntnyq/typescript/${enableTypeAware ? 'parser-type-aware' : 'parser'}`,
       files,
       ignores: [...ignores],
       languageOptions: {
@@ -173,7 +173,7 @@ export const configTypeScript = (
 
   return [
     {
-      name: 'ntnyq/ts/setup',
+      name: 'ntnyq/typescript/setup',
       plugins: {
         '@typescript-eslint': pluginTypeScript,
         antfu: pluginAntfu,
@@ -188,7 +188,7 @@ export const configTypeScript = (
       : [createParserConfig(false, files)]),
 
     {
-      name: 'ntnyq/ts/rules',
+      name: 'ntnyq/typescript/rules',
       files,
       rules: {
         ...recommendedRules,
@@ -299,7 +299,7 @@ export const configTypeScript = (
     ...(enableTypeAwareLint
       ? ([
           {
-            name: 'ntnyq/ts/rules/type-aware',
+            name: 'ntnyq/typescript/rules/type-aware',
             files: [...filesTypeAware],
             ignores: [...ignoresTypeAware],
             rules: {
@@ -313,7 +313,7 @@ export const configTypeScript = (
       : []),
 
     {
-      name: 'ntnyq/ts/types',
+      name: 'ntnyq/typescript/types',
       files: [...GLOB_TYPES],
       rules: {
         '@typescript-eslint/no-use-before-define': 'off',
