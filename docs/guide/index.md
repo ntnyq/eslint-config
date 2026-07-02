@@ -4,7 +4,7 @@ This guide focuses on practical setup for frontend teams using `@ntnyq/eslint-co
 
 ## Requirements
 
-- Node.js ^22.13.0 || >=24
+- Node.js ^22.13.0 || >=24.11.0
 - ESLint ^9.38.0 (or ^10)
 
 ## Quick Start

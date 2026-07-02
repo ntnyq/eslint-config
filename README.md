@@ -10,7 +10,7 @@
 
 ## Requirements
 
-- Node.js ^22.13.0 || >=24
+- Node.js ^22.13.0 || >=24.11.0
 - ESLint ^10.4.0
 
 > [!TIP]
