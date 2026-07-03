@@ -193,9 +193,16 @@ const sortImportsGroups: string[] = [
  * Shared option `groups` for rule `sort-exports`
  *
  * @see {@link https://perfectionist.dev/rules/sort-exports}
- * TODO: support v5 added selectors and modifiers
  */
-const sortExportsGroups: string[] = ['value-export', 'type-export', 'unknown']
+const sortExportsGroups: string[] = [
+  'wildcard-export',
+  'named-export',
+  'singleline-export',
+  'multiline-export',
+  'value-export',
+  'type-export',
+  'unknown',
+]
 
 /**
  * Shared option `groups` for rule `sort-named-exports`
