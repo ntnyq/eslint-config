@@ -122,9 +122,11 @@ export default defineConfig({
     },
 
     codeTransformers: [
+      // @ts-expect-error types
       transformerRenderWhitespace({
         position: 'all',
       }),
+      // @ts-expect-error types
       transformerTwoslash({
         explicitTrigger: /\btwoslash\b/,
       }),
