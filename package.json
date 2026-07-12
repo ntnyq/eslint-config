@@ -63,10 +63,10 @@
   "peerDependencies": {
     "@html-eslint/eslint-plugin": "^0.64.0",
     "@html-eslint/parser": "^0.64.0",
-    "astro-eslint-parser": "^1.4.0",
+    "astro-eslint-parser": "^3.0.0",
     "eslint": "^10.4.0",
-    "eslint-plugin-astro": "^1.7.0",
-    "eslint-plugin-eslint-plugin": "^7.4.1",
+    "eslint-plugin-astro": "^3.0.0",
+    "eslint-plugin-eslint-plugin": "^7.4.2",
     "eslint-plugin-pnpm": "^1.6.1",
     "eslint-plugin-svelte": "^3.20.0",
     "eslint-plugin-unused-imports": "^4.4.1",

@@ -35,7 +35,6 @@ export const configAstro = async (
 
   const {
     files = [GLOB_ASTRO],
-
     extraFileExtensions = [],
     // typescript = false,
   } = options
@@ -66,7 +65,6 @@ export const configAstro = async (
         'astro/no-deprecated-astro-resolve': 'error',
         'astro/no-deprecated-getentrybyslug': 'error',
         'astro/no-unused-define-vars-in-style': 'error',
-        'astro/valid-compile': 'error',
 
         ...options.overrides,
       },
