@@ -194,6 +194,7 @@ export function defineESLintConfig(
   if (enableUnicorn) {
     configs.push(
       configUnicorn({
+        ...resolveSubOptions(options, 'unicorn'),
         overrides: getOverrides(options, 'unicorn'),
       }),
     )

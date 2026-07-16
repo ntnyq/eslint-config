@@ -122,8 +122,10 @@ export const configUnicorn = (
          * @pg Promise
          */
         'unicorn/no-async-promise-finally': 'error',
+        'unicorn/no-multiple-promise-resolver-calls': 'error',
         'unicorn/no-unnecessary-await': 'error',
         'unicorn/no-unsafe-promise-all-settled-values': 'error',
+        'unicorn/prefer-then-catch': 'error',
         /**
          * @pg Function
          */
@@ -135,6 +137,7 @@ export const configUnicorn = (
          */
         'unicorn/no-blob-to-file': 'error',
         'unicorn/no-canvas-to-image': 'error',
+        'unicorn/no-transition-all': 'error',
         'unicorn/no-unnecessary-fetch-options': 'error',
         'unicorn/prefer-abort-signal-any': 'error',
         'unicorn/prefer-abort-signal-timeout': 'error',
@@ -179,6 +182,7 @@ export const configUnicorn = (
         'unicorn/consistent-template-literal-escape': 'error',
         'unicorn/escape-case': 'error',
         'unicorn/no-hex-escape': 'error',
+        'unicorn/no-unnecessary-string-trim': 'error',
         'unicorn/no-unsafe-string-replacement': 'error',
         'unicorn/prefer-code-point': 'error',
         'unicorn/prefer-string-pad-start-end': 'error',
@@ -266,6 +270,7 @@ export const configUnicorn = (
          * @pg Module
          */
         'unicorn/no-exports-in-scripts': 'error',
+        'unicorn/no-useless-re-export': 'error',
         'unicorn/prefer-import-meta-properties': 'error',
         'unicorn/prefer-node-protocol': 'error',
         'unicorn/require-module-attributes': 'error',

@@ -77,6 +77,35 @@ describe('composer', () => {
     expect(extraFileExtensions).toEqual(['.mdx'])
     expect(options.shareable.extraFileExtensions).toEqual(['.mdx'])
   })
+
+  it('should enable the curated unicorn rules', async () => {
+    const configs = await defineESLintConfig()
+    const config = configs.find(item => item.name === 'ntnyq/unicorn')
+
+    expect(config?.rules).toMatchObject({
+      'unicorn/no-multiple-promise-resolver-calls': 'error',
+      'unicorn/no-transition-all': 'error',
+      'unicorn/no-unnecessary-string-trim': 'error',
+      'unicorn/no-useless-re-export': 'error',
+      'unicorn/prefer-then-catch': 'error',
+    })
+  })
+
+  it('should forward unicorn preset options', async () => {
+    const configs = await defineESLintConfig({
+      unicorn: {
+        preset: 'recommended',
+      },
+    })
+    const config = configs.find(
+      item => item.name === 'ntnyq/unicorn/recommended',
+    )
+
+    expect(config?.rules).toMatchObject({
+      'unicorn/no-multiple-promise-resolver-calls': 'error',
+      'unicorn/prefer-then-catch': 'error',
+    })
+  })
 })
 
 describe('ensurePackages', () => {
