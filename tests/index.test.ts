@@ -45,7 +45,7 @@ describe('composer', () => {
     expect(config).toBeInstanceOf(FlatConfigComposer)
   })
 
-  it.each([
+  const COMPOSER_METHODS = [
     'clone',
     'remove',
     'append',
@@ -54,10 +54,11 @@ describe('composer', () => {
     'override',
     'overrideRules',
     'renamePlugins',
-  ])('should have method %s', method => {
-    const config = defineESLintConfig()
+  ] as const
 
-    expect(config[method as keyof typeof config]).toBeInstanceOf(Function)
+  it.each(COMPOSER_METHODS)('should have method %s', method => {
+    const config = defineESLintConfig()
+    expect(typeof config[method]).toBe('function')
   })
 
   it('should not mutate shareable extraFileExtensions', async () => {
