@@ -86,7 +86,7 @@ export function defineESLintConfig(
     pinia: enablePinia = hasPinia(),
     test: enableTest = hasVitest(),
     unocss: enableUnoCSS = hasUnoCSS(),
-    typescript: enableTypeScript = hasTypeScript(),
+    typescript: enableTypeScript = shareable.typescript ?? hasTypeScript(),
     oxfmt: enableOxfmt = hasOxfmt(),
     prettier: enablePrettier = hasPrettier(),
 
@@ -242,8 +242,8 @@ export function defineESLintConfig(
       configVue({
         ecmaVersion,
         usingFormatter: !!usingFormatter,
-        ...resolveSubOptions(options, 'vue'),
         typescript: !!enableTypeScript,
+        ...resolveSubOptions(options, 'vue'),
         overrides: getOverrides(options, 'vue'),
         extraFileExtensions,
       }),
@@ -282,8 +282,9 @@ export function defineESLintConfig(
   if (enableAstro) {
     configs.push(
       configAstro({
-        ...resolveSubOptions(options, 'astro'),
+        ecmaVersion,
         typescript: !!enableTypeScript,
+        ...resolveSubOptions(options, 'astro'),
         overrides: getOverrides(options, 'astro'),
         extraFileExtensions,
       }),
@@ -293,8 +294,9 @@ export function defineESLintConfig(
   if (enableSvelte) {
     configs.push(
       configSvelte({
-        ...resolveSubOptions(options, 'svelte'),
+        ecmaVersion,
         typescript: !!enableTypeScript,
+        ...resolveSubOptions(options, 'svelte'),
         overrides: getOverrides(options, 'svelte'),
         extraFileExtensions,
       }),

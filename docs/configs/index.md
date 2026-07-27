@@ -29,6 +29,7 @@ This preset is modular. You can keep defaults, disable specific modules, or enab
 | [ESLint Comments](./eslint-comments) | Lint directive comments  | Default On                  |
 | [Command](./command)                 | Command comments         | Default On                  |
 | [Test](./test)                       | Test file rules          | Auto (Vitest installed)     |
+| [Pinia](./pinia)                     | Pinia rules              | Auto (Pinia installed)      |
 | [UnoCSS](./unocss)                   | Utility class linting    | Auto (UnoCSS installed)     |
 | [Prettier](./prettier)               | Prettier bridge          | Auto (Prettier installed)   |
 | [Oxfmt](./oxfmt)                     | Oxfmt bridge             | Auto (oxfmt installed)      |
@@ -41,7 +42,6 @@ This preset is modular. You can keep defaults, disable specific modules, or enab
 | [Svelte](./svelte)                 | Svelte files             | `svelte: true`        |
 | [SVGO](./svgo)                     | SVG linting              | `svgo: true`          |
 | [HTML](./html)                     | HTML linting             | `html: true`          |
-| [Pinia](./pinia)                   | Pinia rules              | `pinia: true`         |
 | [PNPM](./pnpm)                     | Workspace package checks | `pnpm: true`          |
 | [ESLint Plugin](./eslint-plugin)   | For plugin authors       | `eslintPlugin: true`  |
 | [Unused Imports](./unused-imports) | Cleanup helpers          | `unusedImports: true` |

@@ -5,7 +5,7 @@ This guide focuses on practical setup for frontend teams using `@ntnyq/eslint-co
 ## Requirements
 
 - Node.js ^22.13.0 || >=24.11.0
-- ESLint ^9.38.0 (or ^10)
+- ESLint ^10.4.0
 
 ## Quick Start
 
@@ -65,7 +65,9 @@ pnpm lint
 - `vue` enabled when Vue dependency exists
 - `typescript` enabled when TypeScript dependency exists
 - `test` enabled when Vitest dependency exists
+- `pinia` enabled when Pinia dependency exists
 - `prettier` enabled when Prettier dependency exists
+- `oxfmt` enabled when oxfmt dependency exists
 - `unocss` enabled when UnoCSS dependency exists
 
 You can always force behavior manually.

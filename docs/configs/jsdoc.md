@@ -11,12 +11,6 @@ sidebarDepth: 0
 
 ## Options
 
-### typescript
-
-Enable TypeScript related rules.
-
-- **Type**: `boolean`
-
 ### overrides
 
 ESLint rule entries.

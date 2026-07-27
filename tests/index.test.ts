@@ -79,6 +79,101 @@ describe('composer', () => {
     expect(options.shareable.extraFileExtensions).toEqual(['.mdx'])
   })
 
+  it('should honor the shareable TypeScript setting', async () => {
+    const disabledConfigs = await defineESLintConfig({
+      shareable: {
+        typescript: false,
+      },
+    })
+    const enabledConfigs = await defineESLintConfig({
+      shareable: {
+        typescript: false,
+      },
+      typescript: true,
+    })
+
+    expect(
+      disabledConfigs.some(item => item.name === 'ntnyq/typescript/setup'),
+    ).toBe(false)
+    expect(
+      enabledConfigs.some(item => item.name === 'ntnyq/typescript/setup'),
+    ).toBe(true)
+  })
+
+  it('should forward shareable parser options to framework configs', async () => {
+    const disabledConfigs = await defineESLintConfig({
+      astro: true,
+      oxfmt: false,
+      prettier: false,
+      shareable: {
+        ecmaVersion: 2020,
+        typescript: false,
+      },
+      svelte: true,
+      vue: true,
+    })
+    const enabledConfigs = await defineESLintConfig({
+      astro: {
+        typescript: true,
+      },
+      oxfmt: false,
+      prettier: false,
+      shareable: {
+        ecmaVersion: 2020,
+        typescript: false,
+      },
+      svelte: {
+        typescript: true,
+      },
+      vue: {
+        typescript: true,
+      },
+    })
+
+    for (const name of ['ntnyq/astro', 'ntnyq/svelte', 'ntnyq/vue/rules']) {
+      const disabledConfig = disabledConfigs.find(item => item.name === name)
+      const disabledParserOptions =
+        disabledConfig?.languageOptions?.parserOptions
+      const enabledConfig = enabledConfigs.find(item => item.name === name)
+      const enabledParserOptions = enabledConfig?.languageOptions?.parserOptions
+
+      expect(disabledParserOptions).toMatchObject({
+        ecmaVersion: 2020,
+      })
+      expect(disabledParserOptions).not.toHaveProperty('parser')
+      expect(enabledParserOptions).toHaveProperty('parser')
+    }
+  })
+
+  it('should apply oxfmt ignores to all formatter configs', async () => {
+    const ignoredFile = '**/vendor/**'
+    const configs = await defineESLintConfig({
+      oxfmt: {
+        ignores: [ignoredFile],
+      },
+      prettier: false,
+    })
+    const oxfmtConfigs = configs.filter(item =>
+      item.name?.startsWith('ntnyq/oxfmt/'),
+    )
+
+    expect(oxfmtConfigs).toHaveLength(2)
+    for (const config of oxfmtConfigs) {
+      expect(config.ignores).toContain(ignoredFile)
+    }
+  })
+
+  it('should not mutate gitignore options', async () => {
+    const gitignore = Object.freeze({})
+
+    await expect(
+      defineESLintConfig({
+        gitignore,
+      }),
+    ).resolves.toBeDefined()
+    expect(gitignore).toEqual({})
+  })
+
   it('should enable the curated unicorn rules', async () => {
     const configs = await defineESLintConfig()
     const config = configs.find(item => item.name === 'ntnyq/unicorn')

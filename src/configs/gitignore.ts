@@ -25,12 +25,13 @@ export type ConfigGitIgnoreOptions = Omit<FlatGitignoreOptions, 'strict'> & {
 export const configGitIgnore = (
   options: ConfigGitIgnoreOptions = {},
 ): TypedConfigItem[] => {
-  // Won't throw error if gitignore is missing
-  options.strict ??= false
-
   return [
     {
-      ...createGitIgnoreConfig(options),
+      ...createGitIgnoreConfig({
+        ...options,
+        // Won't throw error if gitignore is missing
+        strict: options.strict ?? false,
+      }),
       name: 'ntnyq/gitignore',
     },
   ]

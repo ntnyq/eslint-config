@@ -35,8 +35,9 @@ export const configAstro = async (
 
   const {
     files = [GLOB_ASTRO],
+    ecmaVersion = 'latest',
     extraFileExtensions = [],
-    // typescript = false,
+    typescript = false,
   } = options
   return [
     {
@@ -53,8 +54,13 @@ export const configAstro = async (
           ...pluginAstro.environments.astro.globals,
         },
         parserOptions: {
+          ecmaVersion,
           extraFileExtensions,
-          parser: parserTypeScript,
+          ...(typescript
+            ? {
+                parser: parserTypeScript,
+              }
+            : {}),
         },
       },
       rules: {

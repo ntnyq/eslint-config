@@ -33,7 +33,12 @@ export const configSvelte = async (
     interopDefault(import('eslint-plugin-svelte')),
   ])
 
-  const { files = [GLOB_SVELTE], extraFileExtensions = [] } = options
+  const {
+    files = [GLOB_SVELTE],
+    ecmaVersion = 'latest',
+    extraFileExtensions = [],
+    typescript = false,
+  } = options
   return [
     {
       name: 'ntnyq/svelte',
@@ -46,8 +51,13 @@ export const configSvelte = async (
         parser: parserSvelte,
         sourceType: 'module',
         parserOptions: {
+          ecmaVersion,
           extraFileExtensions,
-          parser: parserTypeScript,
+          ...(typescript
+            ? {
+                parser: parserTypeScript,
+              }
+            : {}),
         },
       },
       rules: {

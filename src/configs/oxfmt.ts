@@ -67,7 +67,7 @@ export const configOxfmt = (
     {
       name: 'ntnyq/oxfmt/plain-parser-files',
       files: plainParserFiles,
-      ignores: nativeFiles.flat(),
+      ignores: [...nativeFiles.flat(), ...ignoresWithoutParser],
       plugins: {
         oxfmt: pluginOxfmt,
       },

@@ -55,4 +55,5 @@ try {
   consola.success('Types generated successfully')
 } catch (error) {
   consola.error(error)
+  throw error
 }

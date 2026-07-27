@@ -266,6 +266,7 @@ export const configVue = (
     files = [GLOB_VUE],
     ecmaVersion = 'latest',
     extraFileExtensions = [],
+    typescript = false,
   } = options
   const sfcBlocks: false | VueBlocksOptions =
     options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {})
@@ -293,7 +294,11 @@ export const configVue = (
     {
       name: 'ntnyq/vue/setup',
       plugins: {
-        '@typescript-eslint': pluginTypeScript,
+        ...(typescript
+          ? {
+              '@typescript-eslint': pluginTypeScript,
+            }
+          : {}),
         vue: pluginVue,
       },
     },
@@ -307,11 +312,15 @@ export const configVue = (
         parserOptions: {
           ecmaVersion,
           extraFileExtensions,
-          parser: parserTypeScript,
           sourceType: 'module',
           ecmaFeatures: {
             jsx: true,
           },
+          ...(typescript
+            ? {
+                parser: parserTypeScript,
+              }
+            : {}),
         },
       },
       rules: {
