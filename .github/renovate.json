@@ -1,5 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>ntnyq/configs//packages/renovate-config/default.json"],
+  "ignoreDeps": ["typescript"],
   "automerge": true
 }
