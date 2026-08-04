@@ -87,8 +87,8 @@ importers:
         specifier: ^63.3.3
         version: 63.3.3(eslint@10.8.0(jiti@2.7.0))
       eslint-plugin-jsonc:
-        specifier: ^3.4.0
-        version: 3.4.0(eslint@10.8.0(jiti@2.7.0))
+        specifier: ^3.4.1
+        version: 3.4.1(eslint@10.8.0(jiti@2.7.0))
       eslint-plugin-n:
         specifier: ^18.2.2
         version: 18.2.2(eslint@10.8.0(jiti@2.7.0))(typescript@6.0.3)
@@ -99,11 +99,11 @@ importers:
         specifier: ^0.14.0
         version: 0.14.0(eslint@10.8.0(jiti@2.7.0))(typescript@6.0.3)
       eslint-plugin-oxfmt:
-        specifier: ^0.16.0
-        version: 0.16.0(eslint@10.8.0(jiti@2.7.0))(oxfmt@0.62.0(svelte@5.56.8(@typescript-eslint/types@8.66.0)))(svelte@5.56.8(@typescript-eslint/types@8.66.0))
+        specifier: ^0.17.0
+        version: 0.17.0(eslint@10.8.0(jiti@2.7.0))(oxfmt@0.62.0(svelte@5.56.8(@typescript-eslint/types@8.66.0)))(svelte@5.56.8(@typescript-eslint/types@8.66.0))
       eslint-plugin-perfectionist:
-        specifier: ^5.10.0
-        version: 5.10.0(eslint@10.8.0(jiti@2.7.0))(typescript@6.0.3)
+        specifier: ^5.10.1
+        version: 5.10.1(eslint@10.8.0(jiti@2.7.0))(typescript@6.0.3)
       eslint-plugin-pinia:
         specifier: ^0.4.2
         version: 0.4.2(@typescript-eslint/utils@8.66.0(eslint@10.8.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.8.0(jiti@2.7.0))
@@ -135,8 +135,8 @@ importers:
         specifier: ^10.10.0
         version: 10.10.0(@typescript-eslint/parser@8.66.0(eslint@10.8.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.8.0(jiti@2.7.0))(vue-eslint-parser@10.4.1(eslint@10.8.0(jiti@2.7.0)))
       eslint-plugin-yml:
-        specifier: ^3.7.0
-        version: 3.7.0(eslint@10.8.0(jiti@2.7.0))
+        specifier: ^3.8.0
+        version: 3.8.0(eslint@10.8.0(jiti@2.7.0))
       eslint-processor-vue-blocks:
         specifier: ^2.0.0
         version: 2.0.0(@vue/compiler-sfc@3.5.40)(eslint@10.8.0(jiti@2.7.0))
@@ -2063,8 +2063,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  electron-to-chromium@1.5.399:
-    resolution: {integrity: sha512-lEcqhErbHjXRvd41rnWLpzbyU/IXfIYo7QwaFWmxGeLiLyY2TBCdHnWY88vB+p3ubnihRypDm66panXl7TylLA==}
+  electron-to-chromium@1.5.401:
+    resolution: {integrity: sha512-H6ViHN68nGYlChEvlIU67fn8O2/tpbWQPwck98yaJmh+08LSvHiydzDQ6oXNccLU3kNRVIRS9A4mA7CG+i6fLQ==}
 
   empathic@2.0.1:
     resolution: {integrity: sha512-YGRs8knHhKHVShLkFET/rWAU8kmHbOV5LwN938RHI0pljAJ1Gf6SzXsSmRaEzcXTtOOmVqJ5+WtQPL5uigY50Q==}
@@ -2237,8 +2237,8 @@ packages:
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
 
-  eslint-plugin-jsonc@3.4.0:
-    resolution: {integrity: sha512-0f6RztjDatnBKCkRFIYEX1fjlijts1YsmMbnprE5jsTbLeP2iQsaZB4sXIE3ZSAg+HABZpaZaEhnSEUCTvraTQ==}
+  eslint-plugin-jsonc@3.4.1:
+    resolution: {integrity: sha512-HHWkjAmVJ3QAffCkfo0XKl3CstLtgbIu5EGfFfVDLQT6vqPrxl4pFbUwFwY03nOlvyuDiiBixhHFrlbzn9u09Q==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
     peerDependencies:
       eslint: '>=9.38.0'
@@ -2265,19 +2265,19 @@ packages:
     peerDependencies:
       eslint: ^9.5.0 || ^10.0.0
 
-  eslint-plugin-oxfmt@0.16.0:
-    resolution: {integrity: sha512-3H745go44YOv1c+BS7ItkwF03+65aht7dWPSGqWzXT/4m9RhK9tj5GHxtNVJcF+cNqLgQH1bZzHI1GAdXkNCeQ==}
+  eslint-plugin-oxfmt@0.17.0:
+    resolution: {integrity: sha512-xJD+HroLU5eWrFtKbzREDUjBQRunX/J2BNv0Tr5MOM1wowDz3uqHHFBEEPB+qB0sA0juvvAqzx81F8t1sM4F/Q==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
       eslint: ^9.5.0 || ^10.0.0
-      oxfmt: '>=0.61.0'
+      oxfmt: '>=0.62.0'
       svelte: '*'
     peerDependenciesMeta:
       svelte:
         optional: true
 
-  eslint-plugin-perfectionist@5.10.0:
-    resolution: {integrity: sha512-HiqpDrUDbGrMC6iHQbemgDyHJ0366Vyz/qRWmxQcSAkmG25cXr8BdRgx8yAhOKhEfBXn8Rnf/mTCsV4EqUJSxg==}
+  eslint-plugin-perfectionist@5.10.1:
+    resolution: {integrity: sha512-Kprsp9Us0GqAesYaAIzUViw57xYp5WBqzXrcE0Mtww++E5fexWXYBipMuuD7yvyH4vvpBH0+oJ+OMAmZ0oYXkw==}
     engines: {node: ^20.0.0 || >=22.0.0}
     peerDependencies:
       eslint: ^8.45.0 || ^9.0.0 || ^10.0.0
@@ -2367,8 +2367,8 @@ packages:
       '@typescript-eslint/parser':
         optional: true
 
-  eslint-plugin-yml@3.7.0:
-    resolution: {integrity: sha512-cLkVHdBHyRifThJA3ufuEW+imPRO7rHBQXdWgthouY6qEapUw8/0zW6V8NcMEGWzuMykc/ITYl6AuhZLPzI+fw==}
+  eslint-plugin-yml@3.8.0:
+    resolution: {integrity: sha512-LC1mTQnjqhmmevGHsK+2daDe9FI87pZ9P2ey8vue8YSIqKxOYNWUsCMo/pW9o0ipT5KTkI4gktq/YSXk9NeFUQ==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24.0.0}
     peerDependencies:
       eslint: '>=9.38.0'
@@ -2803,11 +2803,11 @@ packages:
   linkify-it@5.0.2:
     resolution: {integrity: sha512-ONTm2jCMAVZjgQa/Fy1kScXsuOoF5NPTsoFBdE1KVIZ2vAh/r9+Bqo+0jINCBYnavTPQZz38QzFTme79ENoN3Q==}
 
-  load-oxfmt-config@0.17.0:
-    resolution: {integrity: sha512-fRGL0OngQ6vYpZ9h8Vt7ZbvTdPDx3xoKkec6yO0Auc0z5ol3uMk8xMkATgtPjO0NEOGdWidK9RQbI4aoVf/+sA==}
+  load-oxfmt-config@0.18.0:
+    resolution: {integrity: sha512-zGBwz/hmorMU//Aibg4liG5aMbdXG+0IADGOkjaw0GwEJKc/OyeNrVV4DMsKwajRklo+hi6EG0iNuljCMucPrg==}
     engines: {node: ^22.13.0 || >=24}
     peerDependencies:
-      oxfmt: '>=0.61.0'
+      oxfmt: '>=0.62.0'
 
   local-pkg@1.2.1:
     resolution: {integrity: sha512-++gUqRDEvcnN6Zhqrr+y/CkVEHhlrR96vZn3nZZPYzMcBUyBtTKzB9NadClFIsIVSsu+3i9tfk/erqy9kAmt7Q==}
@@ -3046,8 +3046,8 @@ packages:
   node-fetch-native@1.6.7:
     resolution: {integrity: sha512-g9yhqoedzIUm0nTnTqAQvueMPVOuIY16bqgAJJC8XOOubYFNwz6IER9qs0Gq2Xd0+CecCKFjtdDTMA4u4xG06Q==}
 
-  node-releases@2.0.51:
-    resolution: {integrity: sha512-wRNIrw4DmVLKQlbgOMdkMx27Wrpzes2hh5Jtbi2bjPd+4wJstWIqP5A+lscnqbm0xxmT5Bpg8Lec5ItEBwx6BQ==}
+  node-releases@2.0.52:
+    resolution: {integrity: sha512-MRlTqhAfoMx/4mhEbPo3Hi02g9LJZaJkka69V6h67Cb1gjrAG0jsTE4CZX1eptNx+VCAwJmfpnDIF4P0Nh1A7A==}
     engines: {node: '>=18'}
 
   npm-normalize-package-bin@6.0.0:
@@ -3654,8 +3654,8 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  verkit@0.3.1:
-    resolution: {integrity: sha512-w2Eo8LSIIoW7qxNBzT7/17k+bh8plXo7G3dHjEIDqPlnluhzaxr9JX8F28VSYEtDvc1/a3WBDih6xNUZseebXg==}
+  verkit@0.3.2:
+    resolution: {integrity: sha512-zj/ob3UsvJGN0whEAKFp53REA5X66hvffVqoCtVQAakJKnKlH+/PcOfMoFwIG/o4rElqLv/ycAFlx8ZlXUorCg==}
     engines: {node: '>=18.12.0'}
 
   vfile-message@4.0.3:
@@ -5237,8 +5237,8 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.11.12
       caniuse-lite: 1.0.30001806
-      electron-to-chromium: 1.5.399
-      node-releases: 2.0.51
+      electron-to-chromium: 1.5.401
+      node-releases: 2.0.52
       update-browserslist-db: 1.2.3(browserslist@4.28.7)
 
   builtin-modules@5.3.0: {}
@@ -5252,7 +5252,7 @@ snapshots:
       tinyexec: 1.3.0
       tinyglobby: 0.2.17
       unconfig: 7.5.0
-      verkit: 0.3.1
+      verkit: 0.3.2
       yaml: 2.9.0
 
   cac@7.0.0: {}
@@ -5396,7 +5396,7 @@ snapshots:
       minimatch: 10.2.6
       semver: 7.8.5
 
-  electron-to-chromium@1.5.399: {}
+  electron-to-chromium@1.5.401: {}
 
   empathic@2.0.1: {}
 
@@ -5597,7 +5597,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-jsonc@3.4.0(eslint@10.8.0(jiti@2.7.0)):
+  eslint-plugin-jsonc@3.4.1(eslint@10.8.0(jiti@2.7.0)):
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.8.0(jiti@2.7.0))
       '@eslint/core': 1.2.1
@@ -5638,19 +5638,19 @@ snapshots:
       - supports-color
       - typescript
 
-  eslint-plugin-oxfmt@0.16.0(eslint@10.8.0(jiti@2.7.0))(oxfmt@0.62.0(svelte@5.56.8(@typescript-eslint/types@8.66.0)))(svelte@5.56.8(@typescript-eslint/types@8.66.0)):
+  eslint-plugin-oxfmt@0.17.0(eslint@10.8.0(jiti@2.7.0))(oxfmt@0.62.0(svelte@5.56.8(@typescript-eslint/types@8.66.0)))(svelte@5.56.8(@typescript-eslint/types@8.66.0)):
     dependencies:
       eslint: 10.8.0(jiti@2.7.0)
       generate-differences: 0.1.1
       ignore: 7.0.6
-      load-oxfmt-config: 0.17.0(oxfmt@0.62.0(svelte@5.56.8(@typescript-eslint/types@8.66.0)))
+      load-oxfmt-config: 0.18.0(oxfmt@0.62.0(svelte@5.56.8(@typescript-eslint/types@8.66.0)))
       oxfmt: 0.62.0(svelte@5.56.8(@typescript-eslint/types@8.66.0))
       picomatch: 4.0.5
       synckit: 0.11.13
     optionalDependencies:
       svelte: 5.56.8(@typescript-eslint/types@8.66.0)
 
-  eslint-plugin-perfectionist@5.10.0(eslint@10.8.0(jiti@2.7.0))(typescript@6.0.3):
+  eslint-plugin-perfectionist@5.10.1(eslint@10.8.0(jiti@2.7.0))(typescript@6.0.3):
     dependencies:
       '@typescript-eslint/utils': 8.66.0(eslint@10.8.0(jiti@2.7.0))(typescript@6.0.3)
       eslint: 10.8.0(jiti@2.7.0)
@@ -5773,7 +5773,7 @@ snapshots:
     optionalDependencies:
       '@typescript-eslint/parser': 8.66.0(eslint@10.8.0(jiti@2.7.0))(typescript@6.0.3)
 
-  eslint-plugin-yml@3.7.0(eslint@10.8.0(jiti@2.7.0)):
+  eslint-plugin-yml@3.8.0(eslint@10.8.0(jiti@2.7.0)):
     dependencies:
       '@eslint/core': 1.2.1
       '@eslint/plugin-kit': 0.7.2
@@ -6166,7 +6166,7 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
-  load-oxfmt-config@0.17.0(oxfmt@0.62.0(svelte@5.56.8(@typescript-eslint/types@8.66.0))):
+  load-oxfmt-config@0.18.0(oxfmt@0.62.0(svelte@5.56.8(@typescript-eslint/types@8.66.0))):
     dependencies:
       '@ntnyq/utils': 0.21.0
       editorconfig: 3.0.2
@@ -6616,7 +6616,7 @@ snapshots:
 
   node-fetch-native@1.6.7: {}
 
-  node-releases@2.0.51: {}
+  node-releases@2.0.52: {}
 
   npm-normalize-package-bin@6.0.0: {}
 
@@ -7066,7 +7066,7 @@ snapshots:
       tinyglobby: 0.2.17
       tree-kill: 1.2.2
       unconfig-core: 7.5.0
-      verkit: 0.3.1
+      verkit: 0.3.2
     optionalDependencies:
       tsx: 4.23.5
       typescript: 6.0.3
@@ -7286,7 +7286,7 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  verkit@0.3.1: {}
+  verkit@0.3.2: {}
 
   vfile-message@4.0.3:
     dependencies:
