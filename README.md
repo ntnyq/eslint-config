@@ -10,7 +10,7 @@
 
 ## Requirements
 
-- Node.js ^22.13.0 || >=24.11.0
+- Node.js ^22.23.0 || >=24.15.0
 - ESLint ^10.4.0
 
 > [!TIP]
@@ -18,7 +18,7 @@
 >
 > - Node.js v18: use [v4](https://github.com/ntnyq/eslint-config/tree/v4)
 > - Node.js < 20.19.0: use [v5](https://github.com/ntnyq/eslint-config/tree/v5)
-> - Node.js < 22.13.0: use [v6](https://github.com/ntnyq/eslint-config/tree/v6)
+> - Node.js < 22.23.0: use [v6](https://github.com/ntnyq/eslint-config/tree/v6)
 
 ## Why Frontend Teams Use It
 
