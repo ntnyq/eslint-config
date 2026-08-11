@@ -181,7 +181,6 @@ export const configUnicorn = (
          */
         'unicorn/consistent-template-literal-escape': 'error',
         'unicorn/escape-case': 'error',
-        'unicorn/no-hex-escape': 'error',
         'unicorn/no-unnecessary-string-trim': 'error',
         'unicorn/no-unsafe-string-replacement': 'error',
         'unicorn/prefer-code-point': 'error',
@@ -190,6 +189,7 @@ export const configUnicorn = (
         'unicorn/prefer-string-slice': 'error',
         'unicorn/prefer-string-starts-ends-with': 'error',
         'unicorn/prefer-string-trim-start-end': 'error',
+        'unicorn/prefer-unicode-code-point-escapes': 'error',
         /**
          * @pg DOM
          */

@@ -47,7 +47,7 @@ export const configHtml = async (
         '@html-eslint/indent': 'error',
         '@html-eslint/no-duplicate-attrs': 'error',
         '@html-eslint/no-duplicate-id': 'error',
-        '@html-eslint/no-extra-spacing-attrs': 'error',
+        '@html-eslint/no-extra-spacing-tags': 'error',
         '@html-eslint/no-multiple-h1': 'error',
         '@html-eslint/no-obsolete-tags': 'error',
         '@html-eslint/quotes': 'error',
