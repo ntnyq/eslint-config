@@ -48,6 +48,9 @@ Configure generated shadcn-vue component files.
 - **Type**: `boolean | { files?: string[], overrides?: Rules }`
 - **Default**: `true` if shadcn-vue is in dependencies
 
+Set it to `true` to force the default shadcn-vue globs, `false` to disable the
+branch, or pass an object to customize its files and rules.
+
 ### userScripts
 
 Configure userscript files.

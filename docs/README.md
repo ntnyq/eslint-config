@@ -8,7 +8,7 @@ This directory contains the VitePress documentation for `@ntnyq/eslint-config`.
 docs/
 ├── .vitepress/          # VitePress configuration
 │   ├── config.ts        # Main config file
-│   ├── meta.ts          # Site metadata
+│   ├── meta.json        # Site metadata
 │   └── theme/           # Custom theme
 ├── configs/             # Config documentation pages
 │   ├── index.md         # Configs overview
@@ -32,7 +32,7 @@ Start the dev server:
 pnpm docs:dev
 ```
 
-Then visit <http://localhost:5173>.
+Then visit `http://localhost:5173`.
 
 ## 🏗️ Build
 
@@ -61,6 +61,9 @@ The output will be in `docs/.vitepress/dist`.
 ### Adding a New Config Doc
 
 Config documentation pages in `docs/configs/` are automatically added to the sidebar based on the filename.
+
+Add every new config page to the activation matrix in `docs/configs/index.md`.
+The documentation test verifies that the matrix and config pages stay in sync.
 
 Format:
 

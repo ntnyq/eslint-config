@@ -22,12 +22,20 @@ This preset is modular. You can keep defaults, disable specific modules, or enab
 | [Gitignore](./gitignore)             | Respect `.gitignore`     | Default On                  |
 | [Ignores](./ignores)                 | Baseline ignores         | Default On                  |
 | [Node](./node)                       | Node rules               | Default On                  |
+| [GitHub Action](./github-action)     | Workflow YAML rules      | Default On                  |
 | [Import X](./import-x)               | Import/export safety     | Default On                  |
+| [Depend](./depend)                   | Dependency policy        | Default On                  |
+| [Regexp](./regexp)                   | Regular expression rules | Default On                  |
+| [DeMorgan](./de-morgan)              | Boolean expression rules | Default On                  |
+| [JSDoc](./jsdoc)                     | Documentation comments   | Default On                  |
 | [Unicorn](./unicorn)                 | Code quality rules       | Default On                  |
 | [Perfectionist](./perfectionist)     | Sorting rules            | Default On                  |
+| [Sort](./sort)                       | Structured data sorting  | Default On                  |
 | [Antfu](./antfu)                     | Antfu plugin rules       | Default On                  |
+| [Ntnyq](./ntnyq)                     | Ntnyq plugin rules       | Default On                  |
 | [ESLint Comments](./eslint-comments) | Lint directive comments  | Default On                  |
 | [Command](./command)                 | Command comments         | Default On                  |
+| [Specials](./specials)               | Special-file rules       | Default On                  |
 | [Test](./test)                       | Test file rules          | Auto (Vitest installed)     |
 | [Pinia](./pinia)                     | Pinia rules              | Auto (Pinia installed)      |
 | [UnoCSS](./unocss)                   | Utility class linting    | Auto (UnoCSS installed)     |

@@ -1,31 +1,26 @@
+import path from 'node:path'
 import { transformerRenderWhitespace } from '@shikijs/transformers'
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import { globSync } from 'tinyglobby'
 import { pascalCase } from 'uncase'
 import { defineConfig } from 'vitepress'
 import { groupIconMdPlugin } from 'vitepress-plugin-group-icons'
-import { version } from '../../package.json'
-import { resolve } from '../../scripts/utils'
-import {
-  PACKAGE_NAME,
-  REPO_SLUG,
-  SITE_DESCRIPTION,
-  SITE_NAME,
-  SITE_URL,
-} from './meta'
+import packageJson from '../../package.json' with { type: 'json' }
+import meta from './meta.json' with { type: 'json' }
 import type { DefaultTheme } from 'vitepress/theme'
+
+const { version } = packageJson
+const { PACKAGE_NAME, REPO_SLUG, SITE_DESCRIPTION, SITE_NAME, SITE_URL } = meta
 
 export default defineConfig({
   title: SITE_NAME,
   description: SITE_DESCRIPTION,
   lastUpdated: true,
   cleanUrls: true,
-  ignoreDeadLinks: true,
-
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }],
-    ['meta', { name: 'theme-color', href: '#ffffff' }],
+    ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: SITE_NAME }],
     ['meta', { property: 'og:url', content: SITE_URL }],
@@ -40,6 +35,11 @@ export default defineConfig({
       options: {
         detailedView: true,
       },
+    },
+
+    outline: {
+      label: 'On this page',
+      level: [2, 3],
     },
 
     editLink: {
@@ -64,11 +64,11 @@ export default defineConfig({
         text: 'Home',
       },
       {
-        link: '/guide',
+        link: '/guide/',
         text: 'Guide',
       },
       {
-        link: '/configs',
+        link: '/configs/',
         text: 'Configs',
       },
       {
@@ -94,11 +94,9 @@ export default defineConfig({
 
     sidebar: {
       '/guide/': {
-        base: '/guide',
         items: sidebarGuide(),
       },
-      '/configs': {
-        base: '/configs',
+      '/configs/': {
         items: sidebarConfigs(),
       },
       '/faq': {
@@ -135,17 +133,10 @@ export default defineConfig({
 function sidebarGuide(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'Introduction',
-      items: [
-        { text: 'Getting Started', link: '/' },
-        { text: 'Features', link: '/#features' },
-      ],
-    },
-    {
       text: 'Guide',
       items: [
-        { text: 'Installation & Usage', link: '/' },
-        { text: 'Custom Configuration', link: '/custom' },
+        { text: 'Getting Started', link: '/guide/' },
+        { text: 'Custom Configuration', link: '/guide/custom' },
       ],
     },
     {
@@ -163,7 +154,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
 
 function sidebarConfigs(): DefaultTheme.SidebarItem[] {
   const files = globSync('*.md', {
-    cwd: resolve('docs/configs'),
+    cwd: path.resolve(import.meta.dirname, '../configs'),
     ignore: ['index.md', 'ignores.md'],
     onlyFiles: true,
   })
@@ -178,7 +169,7 @@ function sidebarConfigs(): DefaultTheme.SidebarItem[] {
         .map(file => file.replace('.md', ''))
         .map(file => ({
           text: pascalCase(file),
-          link: `/${file}`,
+          link: `/configs/${file}`,
         })),
     },
   ]
