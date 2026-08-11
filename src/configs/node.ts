@@ -30,6 +30,8 @@ export const configNode = (
       'node/no-path-concat': 'error',
       'node/prefer-global/buffer': ['error', 'never'],
       'node/prefer-global/process': ['error', 'never'],
+      'node/prefer-import/assert-strict': 'error',
+      'node/prefer-process-get-builtin-module': 'error',
       'node/process-exit-as-throw': 'error',
 
       // Overrides rules
