@@ -14,29 +14,27 @@ sidebarDepth: 0
 
 ### files
 
-Glob patterns for test files.
+Shared glob patterns for test files. A branch-level `files` value takes
+precedence.
 
 - **Type**: `string[]`
 - **Default**: `['**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}']`
 
+### base
+
+Configure base test rules. Set it to `false` to disable this branch, or pass an
+object to customize its files and rules.
+
+- **Type**: `boolean | { files?: string[], overrides?: Rules }`
+- **Default**: `true`
+
 ### vitest
 
-Enable vitest plugin rules.
+Configure Vitest plugin rules. Set it to `false` to disable this branch, or pass
+an object to customize its files and rules.
 
-- **Type**: `boolean`
-- **Default**: `true` if vitest in deps
-
-### overridesVitestRules
-
-Overrides built-in vitest rules.
-
-- **Type**: `Rules`
-
-### overrides
-
-ESLint rule entries.
-
-- **Type**: `Rules`
+- **Type**: `boolean | { files?: string[], overrides?: Rules }`
+- **Default**: `true` if Vitest is in dependencies
 
 ## Frontend Scenario Example
 
@@ -47,8 +45,16 @@ import { defineESLintConfig } from '@ntnyq/eslint-config'
 
 export default defineESLintConfig({
   test: {
-    overrides: {
-      'no-console': 'off',
+    base: {
+      overrides: {
+        'no-console': 'off',
+      },
+    },
+    vitest: {
+      files: ['tests/**/*.test.ts'],
+      overrides: {
+        'vitest/expect-expect': 'warn',
+      },
     },
   },
 })

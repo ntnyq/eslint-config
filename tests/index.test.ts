@@ -202,6 +202,139 @@ describe('composer', () => {
       'unicorn/prefer-then-catch': 'error',
     })
   })
+
+  it('should resolve nested pnpm branches', async () => {
+    const configs = await defineESLintConfig({
+      pnpm: {
+        json: {
+          files: ['custom-package.json'],
+          overrides: {
+            'pnpm/json-valid-catalog': 'warn',
+          },
+        },
+        yaml: false,
+      },
+    })
+    const jsonConfig = configs.find(
+      item => item.name === 'ntnyq/pnpm/package-json',
+    )
+
+    expect(jsonConfig).toMatchObject({
+      files: ['custom-package.json'],
+      rules: {
+        'pnpm/json-valid-catalog': 'warn',
+      },
+    })
+    expect(
+      configs.some(item => item.name === 'ntnyq/pnpm/pnpm-workspace-yaml'),
+    ).toBe(false)
+  })
+
+  it('should resolve nested test branches', async () => {
+    const configs = await defineESLintConfig({
+      test: {
+        base: {
+          overrides: {
+            'no-console': 'off',
+          },
+        },
+        files: ['**/*.check.ts'],
+        vitest: {
+          files: ['**/*.vitest.ts'],
+          overrides: {
+            'vitest/expect-expect': 'warn',
+          },
+        },
+      },
+    })
+    const baseConfig = configs.find(item => item.name === 'ntnyq/test/base')
+    const vitestConfig = configs.find(item => item.name === 'ntnyq/test/vitest')
+
+    expect(baseConfig).toMatchObject({
+      files: ['**/*.check.ts'],
+      rules: {
+        'no-console': 'off',
+      },
+    })
+    expect(vitestConfig).toMatchObject({
+      files: ['**/*.vitest.ts'],
+      rules: {
+        'vitest/expect-expect': 'warn',
+      },
+    })
+  })
+
+  it('should resolve nested perfectionist branches', async () => {
+    const configs = await defineESLintConfig({
+      perfectionist: {
+        common: {
+          overrides: {
+            'perfectionist/sort-imports': 'off',
+          },
+        },
+        constants: false,
+        enums: {
+          files: ['**/*.enum.ts'],
+          overrides: {
+            'perfectionist/sort-modules': 'warn',
+          },
+        },
+        types: false,
+      },
+    })
+    const commonConfig = configs.find(
+      item => item.name === 'ntnyq/perfectionist/common',
+    )
+    const enumsConfig = configs.find(
+      item => item.name === 'ntnyq/perfectionist/enums',
+    )
+
+    expect(commonConfig?.rules?.['perfectionist/sort-imports']).toBe('off')
+    expect(enumsConfig).toMatchObject({
+      files: ['**/*.enum.ts'],
+      rules: {
+        'perfectionist/sort-modules': 'warn',
+      },
+    })
+    expect(
+      configs.some(item => item.name === 'ntnyq/perfectionist/constants'),
+    ).toBe(false)
+    expect(
+      configs.some(item => item.name === 'ntnyq/perfectionist/types'),
+    ).toBe(false)
+  })
+
+  it('should resolve nested specials branches', async () => {
+    const configs = await defineESLintConfig({
+      specials: {
+        additionalConfigs: [{ name: 'custom/special' }],
+        bin: false,
+        cli: false,
+        configFiles: false,
+        scripts: {
+          files: ['**/*.script.ts'],
+          overrides: {
+            'no-console': 'error',
+          },
+        },
+        shadcnVue: false,
+        userScripts: false,
+      },
+    })
+    const specialsConfigs = configs.filter(item =>
+      item.name?.startsWith('ntnyq/specials/'),
+    )
+
+    expect(specialsConfigs).toHaveLength(1)
+    expect(specialsConfigs[0]).toMatchObject({
+      files: ['**/*.script.ts'],
+      name: 'ntnyq/specials/scripts',
+      rules: {
+        'no-console': 'error',
+      },
+    })
+    expect(configs.some(item => item.name === 'custom/special')).toBe(true)
+  })
 })
 
 describe('ensurePackages', () => {

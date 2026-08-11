@@ -27,7 +27,7 @@ import { defineESLintConfig } from '@ntnyq/eslint-config'
 export default defineESLintConfig({
   node: {
     overrides: {
-      'n/no-process-exit': 'off',
+      'node/no-process-exit': 'off',
     },
   },
 })

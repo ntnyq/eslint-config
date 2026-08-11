@@ -11,31 +11,23 @@ sidebarDepth: 0
 
 ## Options
 
-### filesJson
+### json
 
-Glob patterns for JSON files to be linted.
+Configure rules for `package.json` files. Set it to `false` to disable this
+branch, or pass an object to customize its files and rules.
 
-- **Type**: `string[]`
-- **Default**: `[GLOB_PACKAGE_JSON]`
+- **Type**: `boolean | { files?: string[], overrides?: Rules }`
+- **Default**: `true`
+- **Default files**: `[GLOB_PACKAGE_JSON]`
 
-### filesYaml
+### yaml
 
-Glob patterns for YAML files to be linted.
+Configure rules for `pnpm-workspace.yaml` files. Set it to `false` to disable
+this branch, or pass an object to customize its files and rules.
 
-- **Type**: `string[]`
-- **Default**: `[GLOB_PNPM_WORKSPACE_YAML]`
-
-### overridesJsonRules
-
-Overrides rules for JSON files.
-
-- **Type**: `Rules`
-
-### overridesYamlRules
-
-Overrides rules for YAML files.
-
-- **Type**: `Rules`
+- **Type**: `boolean | { files?: string[], overrides?: Rules }`
+- **Default**: `true`
+- **Default files**: `[GLOB_PNPM_WORKSPACE_YAML]`
 
 ## Frontend Scenario Example
 
@@ -45,7 +37,14 @@ Use this config in a typical frontend project by enabling it directly or adding 
 import { defineESLintConfig } from '@ntnyq/eslint-config'
 
 export default defineESLintConfig({
-  pnpm: true,
+  pnpm: {
+    json: {
+      overrides: {
+        'pnpm/json-valid-catalog': 'warn',
+      },
+    },
+    yaml: true,
+  },
 })
 ```
 

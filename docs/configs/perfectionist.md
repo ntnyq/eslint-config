@@ -20,44 +20,27 @@ Once enabled, all `types`, `enums` and `constants` related options will be ignor
 - **Type**: `boolean`
 - **Default**: `false`
 
-### sortTypes
+### common
 
-Enable sort `types`.
+Configure rules that apply to all source files.
 
-- **Type**: `boolean`
+- **Type**: `{ overrides?: Rules }`
+
+### constants
+
+Configure sorting for constants. Set it to `false` to disable this branch, or
+pass an object to customize its files and rules.
+
+- **Type**: `boolean | { files?: string[], overrides?: Rules }`
 - **Default**: `true`
 
-### sortEnums
+### enums
 
-Enable sort `enums`.
+Configure sorting for enums. Set it to `false` to disable this branch, or pass
+an object to customize its files and rules.
 
-- **Type**: `boolean`
+- **Type**: `boolean | { files?: string[], overrides?: Rules }`
 - **Default**: `true`
-
-### sortConstants
-
-Enable sort `constants`.
-
-- **Type**: `boolean`
-- **Default**: `true`
-
-### filesTypes
-
-Files for `types`, will override default values.
-
-- **Type**: `string[]`
-
-### filesEnums
-
-Files for `enums`, will override default values.
-
-- **Type**: `string[]`
-
-### filesConstants
-
-Files for `constants`, will override default values.
-
-- **Type**: `string[]`
 
 ### partitionByComment
 
@@ -67,39 +50,34 @@ Shared `partitionByComment` option.
 - **Default**: `['@pg', '@perfectionist-group']`
 - **See**: [partitionByComment](https://perfectionist.dev/rules/sort-imports#partitionbycomment)
 
-### overridesTypesRules
+### types
 
-Overrides rules for `types`.
+Configure sorting for types. Set it to `false` to disable this branch, or pass
+an object to customize its files and rules.
 
-- **Type**: `Rules`
-
-### overridesEnumsRules
-
-Overrides rules for `enums`.
-
-- **Type**: `Rules`
-
-### overridesConstantsRules
-
-Overrides rules for `constants`.
-
-- **Type**: `Rules`
-
-### overrides
-
-ESLint rule entries.
-
-- **Type**: `Rules`
+- **Type**: `boolean | { files?: string[], overrides?: Rules }`
+- **Default**: `true`
 
 ## Frontend Scenario Example
 
-Use this config in a typical frontend project by disabling it directly or adding a focused override:
+Use this config in a typical frontend project by customizing individual
+branches:
 
 ```js
 import { defineESLintConfig } from '@ntnyq/eslint-config'
 
 export default defineESLintConfig({
-  perfectionist: false,
+  perfectionist: {
+    common: {
+      overrides: {
+        'perfectionist/sort-imports': 'warn',
+      },
+    },
+    constants: false,
+    types: {
+      files: ['src/types/**/*.ts'],
+    },
+  },
 })
 ```
 

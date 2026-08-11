@@ -3,51 +3,57 @@ import { PERFECTIONIST } from '../constants'
 import { pluginImportX, pluginPerfectionist } from '../eslint'
 import { GLOB_SRC, GLOB_SRC_EXT } from '../globs'
 import { hasShadcnVue, resolveSubOptions } from '../utils'
-import type { TypedConfigItem } from '../types'
+import type { OptionsFiles, OptionsOverrides, TypedConfigItem } from '../types'
+
+/**
+ * Options for a special config branch
+ */
+export type ConfigSpecialsBranchOptions = OptionsFiles & OptionsOverrides
 
 /**
  * Options for {@link configSpecials}
  */
 export interface ConfigSpecialsOptions {
   /**
-   * Overrides cli rules
-   */
-  overridesCliRules?: TypedConfigItem['rules']
-
-  /**
-   * Overrides bin rules
-   */
-  overridesBinRules?: TypedConfigItem['rules']
-
-  /**
-   * Overrides config files rules
-   */
-  overridesConfigFileRules?: TypedConfigItem['rules']
-
-  /**
-   * Overrides scripts rules
-   */
-  overridesScriptsRules?: TypedConfigItem['rules']
-
-  /**
-   * Overrides user scripts rules
-   */
-  overridesUserScriptsRules?: TypedConfigItem['rules']
-
-  /**
    * More special case configs
    */
-  specialCaseConfigs?: TypedConfigItem[]
+  additionalConfigs?: TypedConfigItem[]
 
   /**
-   * ShadcnVue config
+   * Configure bin files
+   * @default true
    */
-  shadcnVue?:
-    | boolean
-    | {
-        files?: TypedConfigItem['files']
-        overridesRules?: TypedConfigItem['rules']
-      }
+  bin?: boolean | ConfigSpecialsBranchOptions
+
+  /**
+   * Configure cli files
+   * @default true
+   */
+  cli?: boolean | ConfigSpecialsBranchOptions
+
+  /**
+   * Configure config files
+   * @default true
+   */
+  configFiles?: boolean | ConfigSpecialsBranchOptions
+
+  /**
+   * Configure scripts files
+   * @default true
+   */
+  scripts?: boolean | ConfigSpecialsBranchOptions
+
+  /**
+   * Configure shadcn-vue files
+   * @default true if shadcn-vue in deps
+   */
+  shadcnVue?: boolean | ConfigSpecialsBranchOptions
+
+  /**
+   * Configure user scripts files
+   * @default true
+   */
+  userScripts?: boolean | ConfigSpecialsBranchOptions
 }
 
 /**
@@ -60,48 +66,76 @@ export const configSpecials = (
   options: ConfigSpecialsOptions = {},
 ): TypedConfigItem[] => {
   const {
-    // Enable shadcn-vue support
+    additionalConfigs,
+    bin: enableBin = true,
+    cli: enableCli = true,
+    configFiles: enableConfigFiles = true,
+    scripts: enableScripts = true,
     shadcnVue: enableShadcnVue = hasShadcnVue(),
+    userScripts: enableUserScripts = true,
   } = options
+  const binOptions = resolveSubOptions(options, 'bin')
+  const cliOptions = resolveSubOptions(options, 'cli')
+  const configFilesOptions = resolveSubOptions(options, 'configFiles')
+  const scriptsOptions = resolveSubOptions(options, 'scripts')
+  const shadcnVueOptions = resolveSubOptions(options, 'shadcnVue')
+  const userScriptsOptions = resolveSubOptions(options, 'userScripts')
 
-  const configs: TypedConfigItem[] = [
-    {
+  const configs: TypedConfigItem[] = []
+
+  if (enableScripts) {
+    configs.push({
       name: 'ntnyq/specials/scripts',
-      files: [`**/scripts/${GLOB_SRC}`],
+      files: scriptsOptions.files ?? [`**/scripts/${GLOB_SRC}`],
       rules: {
         '@typescript-eslint/explicit-function-return-type': 'off',
         'no-console': 'off',
 
         // Overrides rules
-        ...options.overridesScriptsRules,
+        ...scriptsOptions.overrides,
       },
-    },
-    {
+    })
+  }
+
+  if (enableCli) {
+    configs.push({
       name: 'ntnyq/specials/cli',
-      files: [`**/cli/${GLOB_SRC}`, `**/cli.${GLOB_SRC_EXT}`],
+      files: cliOptions.files ?? [
+        `**/cli/${GLOB_SRC}`,
+        `**/cli.${GLOB_SRC_EXT}`,
+      ],
       rules: {
         '@typescript-eslint/explicit-function-return-type': 'off',
         'no-console': 'off',
 
         // Overrides rules
-        ...options.overridesCliRules,
+        ...cliOptions.overrides,
       },
-    },
-    {
+    })
+  }
+
+  if (enableBin) {
+    configs.push({
       name: 'ntnyq/specials/bin',
-      files: [`**/bin/${GLOB_SRC}`, `**/bin.${GLOB_SRC_EXT}`],
+      files: binOptions.files ?? [
+        `**/bin/${GLOB_SRC}`,
+        `**/bin.${GLOB_SRC_EXT}`,
+      ],
       rules: {
         '@typescript-eslint/explicit-function-return-type': 'off',
         'antfu/no-import-dist': 'off',
         'no-console': 'off',
 
         // Overrides rules
-        ...options.overridesBinRules,
+        ...binOptions.overrides,
       },
-    },
-    {
+    })
+  }
+
+  if (enableUserScripts) {
+    configs.push({
       name: 'ntnyq/specials/userscript',
-      files: [`**/*.user.${GLOB_SRC_EXT}`],
+      files: userScriptsOptions.files ?? [`**/*.user.${GLOB_SRC_EXT}`],
       languageOptions: {
         globals: {
           ...globals.greasemonkey,
@@ -116,12 +150,15 @@ export const configSpecials = (
         ],
 
         // Overrides rules
-        ...options.overridesUserScriptsRules,
+        ...userScriptsOptions.overrides,
       },
-    },
-    {
+    })
+  }
+
+  if (enableConfigFiles) {
+    configs.push({
       name: 'ntnyq/specials/config-file',
-      files: [`**/*.config*.${GLOB_SRC_EXT}`],
+      files: configFilesOptions.files ?? [`**/*.config*.${GLOB_SRC_EXT}`],
       plugins: {
         'import-x': pluginImportX,
         perfectionist: pluginPerfectionist,
@@ -141,17 +178,16 @@ export const configSpecials = (
           },
         ],
 
-        ...options.overridesConfigFileRules,
+        // Overrides rules
+        ...configFilesOptions.overrides,
       },
-    },
-  ]
+    })
+  }
 
   if (enableShadcnVue) {
-    const shadcnOptions = resolveSubOptions(options, 'shadcnVue')
-
     configs.push({
       name: 'ntnyq/specials/shadcn-vue',
-      files: shadcnOptions.files || [
+      files: shadcnVueOptions.files ?? [
         '**/components/ui/**/*.ts',
         '**/components/ui/**/*.vue',
       ],
@@ -165,15 +201,15 @@ export const configSpecials = (
         'vue/prefer-use-template-ref': 'off',
 
         // Overrides rules
-        ...shadcnOptions.overridesRules,
+        ...shadcnVueOptions.overrides,
       },
     })
   }
 
   // More special case configs
   // So don't need to append configs to composer
-  if (options.specialCaseConfigs) {
-    configs.push(...options.specialCaseConfigs)
+  if (additionalConfigs) {
+    configs.push(...additionalConfigs)
   }
 
   return configs

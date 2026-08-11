@@ -1,25 +1,29 @@
 import { pluginNoOnlyTests, pluginVitest } from '../eslint'
 import { GLOB_TEST } from '../globs'
-import { hasVitest } from '../utils'
+import { hasVitest, resolveSubOptions } from '../utils'
 import type { OptionsFiles, OptionsOverrides, TypedConfigItem } from '../types'
+
+/**
+ * Options for a test config branch
+ */
+export type ConfigTestBranchOptions = OptionsFiles & OptionsOverrides
 
 /**
  * Options type of {@link configTest}
  */
-export type ConfigTestOptions = OptionsFiles &
-  OptionsOverrides & {
-    /**
-     * Overrides built-in vitest rules
-     */
-    overridesVitestRules?: TypedConfigItem['rules']
+export interface ConfigTestOptions extends OptionsFiles {
+  /**
+   * Configure base test rules
+   * @default true
+   */
+  base?: boolean | ConfigTestBranchOptions
 
-    /**
-     * enable vitest plugin rules
-     *
-     * @default true if vitest in deps
-     */
-    vitest?: boolean
-  }
+  /**
+   * Configure vitest plugin rules
+   * @default true if vitest in deps
+   */
+  vitest?: boolean | ConfigTestBranchOptions
+}
 
 /**
  * Config for test files
@@ -36,34 +40,41 @@ export const configTest = (
     // default test files
     files = [...GLOB_TEST],
 
+    base: enableBase = true,
     vitest: enableVitest = hasVitest(),
   } = options
+  const baseOptions = resolveSubOptions(options, 'base')
+  const vitestOptions = resolveSubOptions(options, 'vitest')
 
-  const configs: TypedConfigItem[] = [
-    {
-      name: 'ntnyq/test/setup',
-      plugins: {
-        'no-only-tests': pluginNoOnlyTests,
-      },
-    },
-    {
-      name: 'ntnyq/test/base',
-      files,
-      rules: {
-        'max-lines-per-function': 'off',
-        'no-unused-expressions': 'off',
-        'no-only-tests/no-only-tests': 'error',
+  const configs: TypedConfigItem[] = []
 
-        // Overrides rules
-        ...options.overrides,
+  if (enableBase) {
+    configs.push(
+      {
+        name: 'ntnyq/test/setup',
+        plugins: {
+          'no-only-tests': pluginNoOnlyTests,
+        },
       },
-    },
-  ]
+      {
+        name: 'ntnyq/test/base',
+        files: baseOptions.files ?? files,
+        rules: {
+          'max-lines-per-function': 'off',
+          'no-unused-expressions': 'off',
+          'no-only-tests/no-only-tests': 'error',
+
+          // Overrides rules
+          ...baseOptions.overrides,
+        },
+      },
+    )
+  }
 
   if (enableVitest) {
     configs.push({
       name: 'ntnyq/test/vitest',
-      files,
+      files: vitestOptions.files ?? files,
       plugins: {
         vitest: pluginVitest,
       },
@@ -95,7 +106,7 @@ export const configTest = (
         ],
 
         // Overrides rules
-        ...options.overridesVitestRules,
+        ...vitestOptions.overrides,
       },
     })
   }

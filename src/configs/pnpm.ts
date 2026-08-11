@@ -1,16 +1,28 @@
 import { parserJsonc, parserYaml } from '../eslint'
 import { GLOB_PACKAGE_JSON, GLOB_PNPM_WORKSPACE_YAML } from '../globs'
-import { ensurePackages, interopDefault } from '../utils'
-import type { TypedConfigItem } from '../types'
+import { ensurePackages, interopDefault, resolveSubOptions } from '../utils'
+import type { OptionsFiles, OptionsOverrides, TypedConfigItem } from '../types'
+
+/**
+ * Options for a pnpm config branch
+ */
+export type ConfigPnpmBranchOptions = OptionsFiles & OptionsOverrides
 
 /**
  * Options type of {@link configPnpm}
  */
-export type ConfigPnpmOptions = {
-  filesJson?: TypedConfigItem['files']
-  filesYaml?: TypedConfigItem['files']
-  overridesJsonRules?: TypedConfigItem['rules']
-  overridesYamlRules?: TypedConfigItem['rules']
+export interface ConfigPnpmOptions {
+  /**
+   * Configure package.json rules
+   * @default true
+   */
+  json?: boolean | ConfigPnpmBranchOptions
+
+  /**
+   * Configure pnpm-workspace.yaml rules
+   * @default true
+   */
+  yaml?: boolean | ConfigPnpmBranchOptions
 }
 
 /**
@@ -24,18 +36,23 @@ export type ConfigPnpmOptions = {
 export const configPnpm = async (
   options: ConfigPnpmOptions = {},
 ): Promise<TypedConfigItem[]> => {
+  const { json: enableJson = true, yaml: enableYaml = true } = options
+  const jsonOptions = resolveSubOptions(options, 'json')
+  const yamlOptions = resolveSubOptions(options, 'yaml')
+
+  if (!enableJson && !enableYaml) {
+    return []
+  }
+
   await ensurePackages(['eslint-plugin-pnpm'])
 
   const pluginPnpm = await interopDefault(import('eslint-plugin-pnpm'))
+  const configs: TypedConfigItem[] = []
 
-  const {
-    filesJson = [GLOB_PACKAGE_JSON],
-    filesYaml = [GLOB_PNPM_WORKSPACE_YAML],
-  } = options
-  return [
-    {
+  if (enableJson) {
+    configs.push({
       name: 'ntnyq/pnpm/package-json',
-      files: filesJson,
+      files: jsonOptions.files ?? [GLOB_PACKAGE_JSON],
       plugins: {
         pnpm: pluginPnpm,
       },
@@ -52,12 +69,15 @@ export const configPnpm = async (
         'pnpm/json-valid-catalog': 'error',
 
         // Overrides rules
-        ...options.overridesJsonRules,
+        ...jsonOptions.overrides,
       },
-    },
-    {
+    })
+  }
+
+  if (enableYaml) {
+    configs.push({
       name: 'ntnyq/pnpm/pnpm-workspace-yaml',
-      files: filesYaml,
+      files: yamlOptions.files ?? [GLOB_PNPM_WORKSPACE_YAML],
       plugins: {
         pnpm: pluginPnpm,
       },
@@ -69,8 +89,10 @@ export const configPnpm = async (
         'pnpm/yaml-no-unused-catalog-item': 'error',
 
         // Overrides rules
-        ...options.overridesYamlRules,
+        ...yamlOptions.overrides,
       },
-    },
-  ]
+    })
+  }
+
+  return configs
 }

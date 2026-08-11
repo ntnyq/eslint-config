@@ -7,41 +7,53 @@ sidebarDepth: 0
 
 ## Options
 
-### overridesCliRules
+### additionalConfigs
 
-Overrides CLI rules.
-
-- **Type**: `Rules`
-
-### overridesBinRules
-
-Overrides bin rules.
-
-- **Type**: `Rules`
-
-### overridesConfigFileRules
-
-Overrides config files rules.
-
-- **Type**: `Rules`
-
-### overridesScriptsRules
-
-Overrides scripts rules.
-
-- **Type**: `Rules`
-
-### overridesUserScriptsRules
-
-Overrides user scripts rules.
-
-- **Type**: `Rules`
-
-### specialCaseConfigs
-
-More special case configs.
+Additional special-case configs appended after the built-in branches.
 
 - **Type**: `TypedConfigItem[]`
+
+### bin
+
+Configure bin files.
+
+- **Type**: `boolean | { files?: string[], overrides?: Rules }`
+- **Default**: `true`
+
+### cli
+
+Configure CLI files.
+
+- **Type**: `boolean | { files?: string[], overrides?: Rules }`
+- **Default**: `true`
+
+### configFiles
+
+Configure config files.
+
+- **Type**: `boolean | { files?: string[], overrides?: Rules }`
+- **Default**: `true`
+
+### scripts
+
+Configure files under scripts directories.
+
+- **Type**: `boolean | { files?: string[], overrides?: Rules }`
+- **Default**: `true`
+
+### shadcnVue
+
+Configure generated shadcn-vue component files.
+
+- **Type**: `boolean | { files?: string[], overrides?: Rules }`
+- **Default**: `true` if shadcn-vue is in dependencies
+
+### userScripts
+
+Configure userscript files.
+
+- **Type**: `boolean | { files?: string[], overrides?: Rules }`
+- **Default**: `true`
 
 ## Frontend Scenario Example
 
@@ -51,7 +63,15 @@ Use this config in a typical frontend project by enabling it directly or adding 
 import { defineESLintConfig } from '@ntnyq/eslint-config'
 
 export default defineESLintConfig({
-  specials: true,
+  specials: {
+    cli: false,
+    scripts: {
+      files: ['tools/**/*.ts'],
+      overrides: {
+        'no-console': 'warn',
+      },
+    },
+  },
 })
 ```
 

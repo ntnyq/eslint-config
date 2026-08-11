@@ -1,7 +1,8 @@
 import { PERFECTIONIST } from '../constants'
 import { pluginPerfectionist } from '../eslint'
 import { GLOB_SRC, GLOB_SRC_EXT, GLOB_TYPES } from '../globs'
-import type { OptionsOverrides, TypedConfigItem } from '../types'
+import { resolveSubOptions } from '../utils'
+import type { OptionsFiles, OptionsOverrides, TypedConfigItem } from '../types'
 
 /**
  * Option `partitionByComment` type
@@ -18,9 +19,19 @@ export type PerfectionistPartitionByComment =
     }
 
 /**
+ * Options for the common perfectionist config
+ */
+export type ConfigPerfectionistCommonOptions = OptionsOverrides
+
+/**
+ * Options for a scoped perfectionist config branch
+ */
+export type ConfigPerfectionistBranchOptions = OptionsFiles & OptionsOverrides
+
+/**
  * Options type of {@link configPerfectionist}
  */
-export type ConfigPerfectionistOptions = OptionsOverrides & {
+export interface ConfigPerfectionistOptions {
   /**
    * Enable all perfectionist rule
    *
@@ -31,34 +42,21 @@ export type ConfigPerfectionistOptions = OptionsOverrides & {
   all?: boolean
 
   /**
-   * files for `constants`, will overrides default values
+   * Configure common rules
    */
-  filesConstants?: TypedConfigItem['files']
+  common?: ConfigPerfectionistCommonOptions
 
   /**
-   * files for `enums`, will overrides default values
+   * Configure sorting for constants
+   * @default true
    */
-  filesEnums?: TypedConfigItem['files']
+  constants?: boolean | ConfigPerfectionistBranchOptions
 
   /**
-   * files for `types`, will overrides default values
+   * Configure sorting for enums
+   * @default true
    */
-  filesTypes?: TypedConfigItem['files']
-
-  /**
-   * Overrides rules for `constants`
-   */
-  overridesConstantsRules?: TypedConfigItem['rules']
-
-  /**
-   * Overrides rules for `enums`
-   */
-  overridesEnumsRules?: TypedConfigItem['rules']
-
-  /**
-   * Overrides rules for `types`
-   */
-  overridesTypesRules?: TypedConfigItem['rules']
+  enums?: boolean | ConfigPerfectionistBranchOptions
 
   /**
    * Shared `partitionByComment` option
@@ -68,25 +66,10 @@ export type ConfigPerfectionistOptions = OptionsOverrides & {
   partitionByComment?: PerfectionistPartitionByComment
 
   /**
-   * Enable sort `constants`
-   *
+   * Configure sorting for types
    * @default true
    */
-  sortConstants?: boolean
-
-  /**
-   * Enable sort `enums`
-   *
-   * @default true
-   */
-  sortEnums?: boolean
-
-  /**
-   * Enable sort `types`
-   *
-   * @default true
-   */
-  sortTypes?: boolean
+  types?: boolean | ConfigPerfectionistBranchOptions
 }
 
 /**
@@ -101,17 +84,25 @@ export const configPerfectionist = (
   options: ConfigPerfectionistOptions = {},
 ): TypedConfigItem[] => {
   const {
-    filesEnums = [`**/enums/${GLOB_SRC}`, `**/enums.${GLOB_SRC_EXT}`],
-    filesTypes = [...GLOB_TYPES],
+    all: enableAll = false,
+    constants: enableSortConstants = true,
+    enums: enableSortEnums = true,
     partitionByComment = PERFECTIONIST.partialRuleOptions.partitionByComment,
-    sortConstants: enableSortConstants = true,
-    sortEnums: enableSortEnums = true,
-    sortTypes: enableSortTypes = true,
-    filesConstants = [
-      `**/constants/${GLOB_SRC}`,
-      `**/constants.${GLOB_SRC_EXT}`,
-    ],
+    types: enableSortTypes = true,
   } = options
+  const commonOptions = resolveSubOptions(options, 'common')
+  const constantsOptions = resolveSubOptions(options, 'constants')
+  const enumsOptions = resolveSubOptions(options, 'enums')
+  const typesOptions = resolveSubOptions(options, 'types')
+  const filesConstants = constantsOptions.files ?? [
+    `**/constants/${GLOB_SRC}`,
+    `**/constants.${GLOB_SRC_EXT}`,
+  ]
+  const filesEnums = enumsOptions.files ?? [
+    `**/enums/${GLOB_SRC}`,
+    `**/enums.${GLOB_SRC_EXT}`,
+  ]
+  const filesTypes = typesOptions.files ?? [...GLOB_TYPES]
 
   const sharedOptionsWithNewlinesBetween = {
     newlinesBetween: 'ignore',
@@ -283,13 +274,13 @@ export const configPerfectionist = (
 
   const configs: TypedConfigItem[] = [
     {
-      name: options.all
+      name: enableAll
         ? 'ntnyq/perfectionist/all'
         : 'ntnyq/perfectionist/common',
       ...sharedConfig,
       rules: {
         ...commonRules,
-        ...(options.all
+        ...(enableAll
           ? {
               ...sharedRules,
               ...sortEnumsRules,
@@ -298,13 +289,13 @@ export const configPerfectionist = (
               ...extraRules,
             }
           : {}),
-        ...options.overrides,
+        ...commonOptions.overrides,
       },
     },
   ]
 
   // return in advanced, ignore other options
-  if (options.all) {
+  if (enableAll) {
     return configs
   }
 
@@ -316,7 +307,7 @@ export const configPerfectionist = (
       rules: {
         ...sharedRules,
         ...sortEnumsRules,
-        ...options.overridesEnumsRules,
+        ...enumsOptions.overrides,
       },
     })
   }
@@ -329,7 +320,7 @@ export const configPerfectionist = (
       rules: {
         ...sharedRules,
         ...sortTypesRules,
-        ...options.overridesTypesRules,
+        ...typesOptions.overrides,
       },
     })
   }
@@ -342,7 +333,7 @@ export const configPerfectionist = (
       rules: {
         ...sharedRules,
         ...sortConstantsRules,
-        ...options.overridesConstantsRules,
+        ...constantsOptions.overrides,
       },
     })
   }

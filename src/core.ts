@@ -184,10 +184,7 @@ export function defineESLintConfig(
 
   if (enablePerfectionist) {
     configs.push(
-      configPerfectionist({
-        ...resolveSubOptions(options, 'perfectionist'),
-        overrides: getOverrides(options, 'perfectionist'),
-      }),
+      configPerfectionist(resolveSubOptions(options, 'perfectionist')),
     )
   }
 
@@ -308,12 +305,7 @@ export function defineESLintConfig(
   }
 
   if (enableTest) {
-    configs.push(
-      configTest({
-        ...resolveSubOptions(options, 'test'),
-        overrides: getOverrides(options, 'test'),
-      }),
-    )
+    configs.push(configTest(resolveSubOptions(options, 'test')))
   }
 
   if (enableUnoCSS) {
