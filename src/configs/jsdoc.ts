@@ -94,6 +94,7 @@ export const configJsdoc = (
           },
         ],
         'jsdoc/check-types': 'error',
+        'jsdoc/escape-inline-tags': 'error',
         /**
          * @pg Fixable rules
          */
