@@ -130,7 +130,7 @@
     "eslint-plugin-n": "^18.3.0",
     "eslint-plugin-no-only-tests": "^3.4.0",
     "eslint-plugin-ntnyq": "^0.14.0",
-    "eslint-plugin-oxfmt": "^0.17.0",
+    "eslint-plugin-oxfmt": "^0.18.0",
     "eslint-plugin-perfectionist": "^5.10.1",
     "eslint-plugin-pinia": "^0.4.2",
     "eslint-plugin-prettier": "^5.5.6",
