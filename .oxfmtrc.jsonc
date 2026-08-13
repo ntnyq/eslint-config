@@ -5,6 +5,7 @@
   "bracketSpacing": true,
   "embeddedLanguageFormatting": "auto",
   "endOfLine": "lf",
+  "experimentalOperatorPosition": "end",
   "sortPackageJson": false,
   "htmlWhitespaceSensitivity": "css",
   "ignorePatterns": [
