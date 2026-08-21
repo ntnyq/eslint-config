@@ -112,7 +112,7 @@
     "@eslint/js": "^10.0.1",
     "@eslint/markdown": "^8.0.3",
     "@ntnyq/utils": "^0.21.1",
-    "@unocss/eslint-plugin": "^66.7.5",
+    "@unocss/eslint-plugin": "^66.8.1",
     "@vitest/eslint-plugin": "^1.6.27",
     "eslint-config-flat-gitignore": "^2.3.0",
     "eslint-flat-config-utils": "^3.2.0",

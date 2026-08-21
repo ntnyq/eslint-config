@@ -8,7 +8,7 @@
 [![NPM DOWNLOADS](https://img.shields.io/npm/dy/@ntnyq/eslint-config)](https://www.npmjs.com/package/@ntnyq/eslint-config)
 [![LICENSE](https://img.shields.io/github/license/ntnyq/eslint-config.svg)](https://github.com/ntnyq/eslint-config/blob/main/LICENSE)
 
-## Requirements
+## 📋 Requirements
 
 - Node.js ^22.23.0 || >=24.15.0
 - ESLint ^10.4.0
@@ -20,15 +20,15 @@
 > - Node.js < 20.19.0: use [v5](https://github.com/ntnyq/eslint-config/tree/v5)
 > - Node.js < 22.23.0: use [v6](https://github.com/ntnyq/eslint-config/tree/v6)
 
-## Why Frontend Teams Use It
+## ✨ Features
 
-- Works out of the box with ESLint flat config.
-- Auto-detects and enables configs by your dependencies and file types.
-- Covers common frontend files: TS, Vue SFC, JSON, Markdown, YAML, TOML.
-- Keeps formatting tool friendly (Prettier or oxfmt).
-- Supports scaling from single apps to monorepos.
+- 🚀 Works out of the box with ESLint flat config.
+- 🔍 Auto-detects and enables configs by your dependencies and file types.
+- 🧩 Covers common frontend files: TS, Vue SFC, JSON, Markdown, YAML, TOML.
+- 🎨 Keeps formatting tool friendly (Prettier or oxfmt).
+- 📈 Supports scaling from single apps to monorepos.
 
-## Install
+## 📦 Install
 
 ```shell
 # pnpm
@@ -44,7 +44,7 @@ yarn add -D eslint typescript @ntnyq/eslint-config
 bun add -D eslint typescript @ntnyq/eslint-config
 ```
 
-## 60-Second Quick Start
+## ⚡ Quick start
 
 1. Create `eslint.config.mjs` in project root.
 2. Add npm scripts.
@@ -72,9 +72,9 @@ export default defineESLintConfig()
 pnpm lint
 ```
 
-## Common Frontend Setups
+## 🧰 Common Frontend Setups
 
-### Vite + Vue 3 + TypeScript
+### 💚 Vite + Vue 3 + TypeScript
 
 ```js
 // eslint.config.mjs
@@ -88,7 +88,7 @@ export default defineESLintConfig({
 })
 ```
 
-### Vite + React + TypeScript
+### ⚛️ Vite + React + TypeScript
 
 ```js
 // eslint.config.mjs
@@ -102,7 +102,7 @@ export default defineESLintConfig({
 })
 ```
 
-### Monorepo (apps + packages)
+### 🏗️ Monorepo (apps + packages)
 
 ```js
 // eslint.config.mjs
@@ -130,9 +130,9 @@ export default defineESLintConfig(
 )
 ```
 
-## Configuration Patterns
+## ⚙️ Configuration Patterns
 
-### Enable or disable modules
+### 🎛️ Enable or disable modules
 
 ```js
 import { defineESLintConfig } from '@ntnyq/eslint-config'
@@ -145,7 +145,7 @@ export default defineESLintConfig({
 })
 ```
 
-### Override built-in rules
+### 🛠️ Override built-in rules
 
 ```js
 import { defineESLintConfig } from '@ntnyq/eslint-config'
@@ -164,7 +164,7 @@ export default defineESLintConfig({
 })
 ```
 
-### Add project-specific flat config blocks
+### 🧱 Add project-specific flat config blocks
 
 ```js
 import { defineESLintConfig } from '@ntnyq/eslint-config'
@@ -179,14 +179,14 @@ export default defineESLintConfig({}, [
 ])
 ```
 
-## Formatter Integration
+## 🎨 Formatter Integration
 
 Use one formatter strategy in a project:
 
 - Prettier path: install `prettier` and optional `@ntnyq/prettier-config`
 - Oxfmt path: install `oxfmt`
 
-### Prettier example
+### 💅 Prettier example
 
 ```shell
 pnpm add -D prettier @ntnyq/prettier-config
@@ -201,7 +201,7 @@ import { defineConfig } from '@ntnyq/prettier-config'
 export default defineConfig()
 ```
 
-### VS Code example
+### 🧑‍💻 VS Code example
 
 ```json
 {
@@ -214,7 +214,7 @@ export default defineConfig()
 }
 ```
 
-## Optional Configs (Disabled by Default)
+## 🧩 Optional Configs (Disabled by Default)
 
 - `astro`
 - `eslintPlugin`
@@ -226,28 +226,28 @@ export default defineConfig()
 
 Enable them explicitly in `defineESLintConfig({ ... })` when needed.
 
-## Inspect Final Rules
+## 🔎 Inspect Final Rules
 
 - Online inspector: [eslint-config-inspector.ntnyq.com](https://eslint-config-inspector.ntnyq.com/)
 - Local inspect: `npx eslint --inspect-config path/to/file.ts`
 
-## Advanced API
+## 🧠 Advanced API
 
 - [Config options type](./src/types/config.ts)
 - [Factory implementation](./src/core.ts)
 
-## Versioning Policy
+## 🏷️ Versioning Policy
 
 This project follows Semantic Versioning with opinionated lint rules:
 
 - Treated as breaking: Node.js engine changes, major plugin incompatibility, broad refactors.
 - Treated as non-breaking: enabling/disabling rules, rule option tuning, dependency bumps.
 
-## Credits
+## 🙏 Credits
 
 - [@sxzz/eslint-config](https://github.com/sxzz/eslint-config)
 - [@antfu/eslint-config](https://github.com/antfu/eslint-config)
 
-## License
+## 📄 License
 
 [MIT](./LICENSE) License © 2023-PRESENT [ntnyq](https://github.com/ntnyq)
