@@ -25,6 +25,13 @@ export const configNtnyq = (
     rules: {
       'ntnyq/no-duplicate-exports': 'error',
       'ntnyq/prefer-newline-after-file-header': 'error',
+      'ntnyq/prefer-object-method-syntax': [
+        'error',
+        {
+          allowArrowFunctions: 'singleLineOnly',
+          fix: true,
+        },
+      ],
 
       // Overrides rules
       ...options.overrides,
