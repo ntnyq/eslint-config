@@ -15,6 +15,7 @@
     "**/dist/**",
     "**/fixtures/**",
     "**/.vscode/**",
+    "src/types/typegen.d.ts",
   ],
   "insertFinalNewline": true,
   "jsxSingleQuote": true,
