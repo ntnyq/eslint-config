@@ -8,6 +8,6 @@ export default defineConfig({
     neverBundle: ['prettier'],
   },
   dts: {
-    tsgo: true,
+    tsgo: {},
   },
 })
