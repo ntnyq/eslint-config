@@ -24,6 +24,7 @@ export const configNtnyq = (
     },
     rules: {
       'ntnyq/no-duplicate-exports': 'error',
+      'ntnyq/no-explicit-void-return-type': 'error',
       'ntnyq/prefer-newline-after-file-header': 'error',
       'ntnyq/prefer-object-method-syntax': [
         'error',

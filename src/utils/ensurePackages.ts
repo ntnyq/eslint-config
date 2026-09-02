@@ -25,9 +25,7 @@ function isPackageInScope(name: string): boolean {
  *
  * @param packages - Package names to verify and optionally install.
  */
-export async function ensurePackages(
-  packages: (string | undefined)[],
-): Promise<void> {
+export async function ensurePackages(packages: (string | undefined)[]) {
   if (
     process.env.CI ||
     !process.stdout.isTTY ||

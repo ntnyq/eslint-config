@@ -27,7 +27,7 @@ afterEach(() => {
   process.env.npm_lifecycle_script = originalEnv.npm_lifecycle_script
 })
 
-function enableInteractiveInstallFlow(): void {
+function enableInteractiveInstallFlow() {
   Object.defineProperty(process.stdout, 'isTTY', {
     configurable: true,
     value: true,
