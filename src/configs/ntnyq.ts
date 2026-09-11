@@ -30,6 +30,7 @@ export const configNtnyq = (
         'error',
         {
           allowArrowFunctions: 'singleLineOnly',
+          avoidQuotes: true,
           fix: true,
         },
       ],

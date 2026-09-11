@@ -151,6 +151,11 @@ export const GLOB_EXCLUDE: string[] = [
   '**/.yarnrc',
   '**/.husky',
 
+  // playwright
+  '**/test-results/**',
+  '**/playwright-report/**',
+  '**/.playwright-cli/**',
+
   // tauri
   '**/src-tauri/gen',
   '**/src-tauri/target',
