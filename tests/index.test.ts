@@ -179,11 +179,43 @@ describe('composer', () => {
     const config = configs.find(item => item.name === 'ntnyq/unicorn')
 
     expect(config?.rules).toMatchObject({
+      'unicorn/no-accidental-bitwise-operator': 'error',
+      'unicorn/no-async-iterator-callback': 'error',
+      'unicorn/no-boolean-sort-comparator': 'error',
+      'unicorn/no-chained-comparison': 'error',
+      'unicorn/no-duplicate-logical-operands': 'error',
       'unicorn/no-multiple-promise-resolver-calls': 'error',
       'unicorn/no-transition-all': 'error',
       'unicorn/no-unnecessary-string-trim': 'error',
+      'unicorn/no-unused-builtin-method-return': 'error',
+      'unicorn/no-unused-iterator-helper': 'error',
       'unicorn/no-useless-re-export': 'error',
+      'unicorn/no-useless-set-construction': 'error',
+      'unicorn/no-using-resource-escape': 'error',
+      'unicorn/prefer-combined-guards': 'error',
+      'unicorn/prefer-temporal-conversion': 'error',
       'unicorn/prefer-then-catch': 'error',
+    })
+    expect(config?.rules).not.toHaveProperty(
+      'unicorn/no-unused-array-method-return',
+    )
+  })
+
+  it('should allow overriding curated unicorn rules', async () => {
+    const configs = await defineESLintConfig({
+      unicorn: {
+        overrides: {
+          'unicorn/no-unused-builtin-method-return': 'off',
+          'unicorn/prefer-combined-guards': 'warn',
+        },
+      },
+    })
+    const config = configs.find(item => item.name === 'ntnyq/unicorn')
+
+    expect(config?.rules).toMatchObject({
+      'unicorn/no-unused-builtin-method-return': 'off',
+      'unicorn/no-unused-iterator-helper': 'error',
+      'unicorn/prefer-combined-guards': 'warn',
     })
   })
 

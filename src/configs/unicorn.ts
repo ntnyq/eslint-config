@@ -60,6 +60,10 @@ export const configUnicorn = (
          */
         'unicorn/explicit-length-check': 'off',
         /**
+         * Conditional mutations
+         */
+        'unicorn/no-immediate-mutation': 'off',
+        /**
          * @see https://caniuse.com/?search=globalThis
          */
         'unicorn/prefer-global-this': 'off',
@@ -77,6 +81,8 @@ export const configUnicorn = (
         'unicorn/no-new-buffer': 'error',
         'unicorn/no-typeof-undefined': 'error',
         'unicorn/no-unnecessary-global-this': 'error',
+        'unicorn/no-unused-builtin-method-return': 'error',
+        'unicorn/no-using-resource-escape': 'error',
         /**
          * @pg Class
          */
@@ -88,8 +94,11 @@ export const configUnicorn = (
         /**
          * @pg Control Flow
          */
+        'unicorn/no-accidental-bitwise-operator': 'error',
+        'unicorn/no-chained-comparison': 'error',
         'unicorn/no-constant-zero-expression': 'error',
         'unicorn/no-double-comparison': 'error',
+        'unicorn/no-duplicate-logical-operands': 'error',
         'unicorn/no-for-loop': 'error',
         'unicorn/no-lonely-if': 'error',
         'unicorn/no-unnecessary-boolean-comparison': 'error',
@@ -100,6 +109,7 @@ export const configUnicorn = (
         'unicorn/no-useless-continue': 'error',
         'unicorn/no-useless-else': 'error',
         'unicorn/prefer-block-statement-over-iife': 'error',
+        'unicorn/prefer-combined-guards': 'error',
         'unicorn/switch-case-braces': ['error', 'avoid'],
         'unicorn/switch-case-break-position': 'error',
         /**
@@ -129,7 +139,6 @@ export const configUnicorn = (
         /**
          * @pg Function
          */
-        'unicorn/no-immediate-mutation': 'error',
         'unicorn/prefer-prototype-methods': 'error',
         'unicorn/prefer-reflect-apply': 'error',
         /**
@@ -176,6 +185,7 @@ export const configUnicorn = (
          */
         'unicorn/consistent-date-clone': 'error',
         'unicorn/prefer-date-now': 'error',
+        'unicorn/prefer-temporal-conversion': 'error',
         /**
          * @pg String
          */
@@ -221,6 +231,7 @@ export const configUnicorn = (
         'unicorn/no-array-fill-with-reference-type': 'error',
         'unicorn/no-array-from-fill': 'error',
         'unicorn/no-array-method-this-argument': 'error',
+        'unicorn/no-boolean-sort-comparator': 'error',
         'unicorn/no-confusing-array-splice': 'error',
         'unicorn/no-confusing-array-with': 'error',
         'unicorn/no-duplicate-loops': 'error',
@@ -228,7 +239,6 @@ export const configUnicorn = (
         'unicorn/no-unnecessary-array-flat-depth': 'error',
         'unicorn/no-unnecessary-array-splice-count': 'error',
         'unicorn/no-unnecessary-slice-end': 'error',
-        'unicorn/no-unused-array-method-return': 'error',
         'unicorn/prefer-array-find': 'error',
         'unicorn/prefer-array-flat-map': 'error',
         'unicorn/prefer-array-from-range': 'error',
@@ -242,11 +252,14 @@ export const configUnicorn = (
         /**
          * @pg Iterator
          */
+        'unicorn/no-async-iterator-callback': 'error',
+        'unicorn/no-unused-iterator-helper': 'error',
         'unicorn/no-useless-iterator-to-array': 'error',
         /**
          * @pg Set
          */
         'unicorn/no-duplicate-set-values': 'error',
+        'unicorn/no-useless-set-construction': 'error',
         'unicorn/prefer-set-has': 'error',
         'unicorn/prefer-set-size': 'error',
         /**
