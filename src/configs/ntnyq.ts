@@ -25,6 +25,21 @@ export const configNtnyq = (
     rules: {
       'ntnyq/no-duplicate-exports': 'error',
       'ntnyq/no-explicit-void-return-type': 'error',
+      'ntnyq/no-restricted-bindings': [
+        'error',
+        {
+          restrictions: [
+            {
+              message:
+                'Use a domain name such as requestError; reserve error for catch parameters.',
+              names: ['error'],
+              except: ['catch-parameter'],
+              regions: ['script', 'vue-script', 'vue-script-setup'],
+              scope: 'top-level',
+            },
+          ],
+        },
+      ],
       'ntnyq/prefer-newline-after-file-header': 'error',
       'ntnyq/prefer-object-method-syntax': [
         'error',
