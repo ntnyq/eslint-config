@@ -20,6 +20,13 @@ export const GLOB_TYPES: string[] = [
   `**/types.ts`,
 ]
 
+export const GLOB_VUE: string = '**/*.vue'
+export const GLOB_PINIA_STORE: string = `**/store?(s)/*.${GLOB_SRC_EXT}`
+export const GLOB_VUE_COMPOSABLES: string[] = [
+  `**/composables/*.${GLOB_SRC_EXT}`,
+  `**/use*${GLOB_SRC_EXT}`,
+]
+
 export const GLOB_TYPE_TEST: string[] = [
   `**/*.test-d.${GLOB_SRC_EXT}`,
   `**/*.spec-d.${GLOB_SRC_EXT}`,
@@ -53,9 +60,9 @@ export const GLOB_TSCONFIG_JSON: string[] = [
 
 export const GLOB_YAML: string = '**/*.y?(a)ml'
 export const GLOB_PNPM_WORKSPACE_YAML: string = '**/pnpm-workspace.yaml'
+export const GLOB_GITHUB_ACTION: string = '**/.github/workflows/*.y?(a)ml'
 
 export const GLOB_SVG: string = '**/*.svg'
-export const GLOB_VUE: string = '**/*.vue'
 export const GLOB_SVELTE: string = '**/*.svelte?(.{js,ts})'
 export const GLOB_TOML: string = '**/*.toml'
 export const GLOB_HTML: string = '**/*.htm?(l)'
@@ -80,9 +87,6 @@ export const GLOB_ALL_SRC: string[] = [
   GLOB_VUE,
   ...GLOB_SRC_EXTENSIONS,
 ]
-
-export const GLOB_PINIA_STORE: string = `**/store?(s)/*.${GLOB_SRC_EXT}`
-export const GLOB_GITHUB_ACTION: string = '**/.github/workflows/*.y?(a)ml'
 
 export const GLOB_NODE_MODULES: string = '**/node_modules/**'
 export const GLOB_DIST: string = '**/dist/**'

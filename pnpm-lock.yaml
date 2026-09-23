@@ -260,8 +260,8 @@ importers:
         specifier: ^0.25.0
         version: 0.25.0(eslint@10.11.0(jiti@2.7.0))(oxfmt@0.70.0(svelte@5.57.1(@typescript-eslint/types@8.70.1)))(svelte@5.57.1(@typescript-eslint/types@8.70.1))
       eslint-plugin-perfectionist:
-        specifier: ^5.11.1
-        version: 5.11.1(@typescript/typescript6@6.0.2)(eslint@10.11.0(jiti@2.7.0))
+        specifier: ^5.12.0
+        version: 5.12.0(@typescript/typescript6@6.0.2)(eslint@10.11.0(jiti@2.7.0))
       eslint-plugin-pinia:
         specifier: ^0.4.2
         version: 0.4.2(@typescript-eslint/utils@8.70.1(@typescript/typescript6@6.0.2)(eslint@10.11.0(jiti@2.7.0)))(eslint@10.11.0(jiti@2.7.0))
@@ -292,6 +292,9 @@ importers:
       eslint-plugin-vue:
         specifier: ^10.11.0
         version: 10.11.0(@typescript-eslint/parser@8.70.1(@typescript/typescript6@6.0.2)(eslint@10.11.0(jiti@2.7.0)))(eslint@10.11.0(jiti@2.7.0))(vue-eslint-parser@10.4.1(eslint@10.11.0(jiti@2.7.0)))
+      eslint-plugin-vue-perfectionist:
+        specifier: ^0.2.0
+        version: 0.2.0(@typescript/typescript6@6.0.2)(eslint@10.11.0(jiti@2.7.0))(vue-eslint-parser@10.4.1(eslint@10.11.0(jiti@2.7.0)))
       eslint-plugin-yml:
         specifier: ^3.8.1
         version: 3.8.1(eslint@10.11.0(jiti@2.7.0))
@@ -844,8 +847,8 @@ packages:
   '@iconify-json/simple-icons@1.2.97':
     resolution: {integrity: sha512-Z6PmM6jvWVU7rmLzqbxCLJA7SeqCnK6lMHXtjyzHPLZebwuoojBEcHHycppahDzEeN9xujRkrV5J8QpOhMyNrg==}
 
-  '@iconify-json/vscode-icons@1.2.79':
-    resolution: {integrity: sha512-JxGn5iS6a9qyF/tE9F9B8cCjQ8sS7SuLgBw3zIfoDhl4JKlIYHtK0FKQuiV47U65E7Q0OYKw0uZ7SMuCrINBHA==}
+  '@iconify-json/vscode-icons@1.2.80':
+    resolution: {integrity: sha512-+LXhqJKz3a/7x5LlR7WPrihuUKEulctXaBAFsFmXLetuthscnfyZoe4c2kQ0PKsUUy4LRuquSuw4AzOAaW+hOQ==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -1547,8 +1550,8 @@ packages:
     resolution: {integrity: sha512-mbCddXd+jm7hfx7w2YU64/Av4/NqqeG3GoRZgxPcgoTxYjhrcfJRw9ULch71SS4G+Q3bOXFhRvPqjguN0Hyp5w==}
     hasBin: true
 
-  '@typescript/vfs@1.6.4':
-    resolution: {integrity: sha512-PJFXFS4ZJKiJ9Qiuix6Dz/OwEIqHD7Dme1UwZhTK11vR+5dqW2ACbdndWQexBzCx+CPuMe5WBYQWCsFyGlQLlQ==}
+  '@typescript/vfs@1.6.5':
+    resolution: {integrity: sha512-gobLHQLmvQGJInFk31NvgMd1uYzRXsd8qgnOssyLD055R2QPnw1ubRbBQ4+T+5qC7IQVuYXdvNDE2G7tMDVHgw==}
     peerDependencies:
       typescript: '*'
 
@@ -2327,8 +2330,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  electron-to-chromium@1.5.434:
-    resolution: {integrity: sha512-7EeFW9OLf1NN9NKQP9xdOE/XKqjxv7JDPP6AEAkHli11+Fae1OaLoNuAf13hQv1PPNtuES0pLQSPk2+fS3s8ww==}
+  electron-to-chromium@1.5.436:
+    resolution: {integrity: sha512-iG79/xCF3iThADicbgbES2+liFYmTvelo7jWcEfg6lQ+Adrh7zShrXSg2ZdEDLbKjJ298kGAKMnnzVWobp0L+g==}
 
   empathic@2.1.0:
     resolution: {integrity: sha512-AnfC1ATldl49/cvZdLPDjBfrRNwbDO05aibiOtzQu3qtlbJtomNLhF30HEtn/7iBz50dlMECqATo3fG0LrdEgw==}
@@ -2551,8 +2554,8 @@ packages:
       svelte:
         optional: true
 
-  eslint-plugin-perfectionist@5.11.1:
-    resolution: {integrity: sha512-xloHScnOpin9Jy3CegfzoBeY33ASk0spLyM2sJs0LyNHQjv9m0osUD2PYNT7NrJieZbUR2Ebn4A5Q0+0dOcv+A==}
+  eslint-plugin-perfectionist@5.12.0:
+    resolution: {integrity: sha512-1S1Vgb9b3AIxlJoVMbGKB5PwOCtA0PTvDIiGhIoT9CzZa5aZ6BhgGywIj3ONJ5vrH7gTDjgsLgJ1gPUbDI6UUQ==}
     engines: {node: ^20.0.0 || >=22.0.0}
     peerDependencies:
       eslint: ^8.45.0 || ^9.0.0 || ^10.0.0
@@ -2627,6 +2630,12 @@ packages:
     peerDependenciesMeta:
       '@typescript-eslint/eslint-plugin':
         optional: true
+
+  eslint-plugin-vue-perfectionist@0.2.0:
+    resolution: {integrity: sha512-nFbzRtjqFB37r+2EajQxT0CZkKg7qUslQj1h2u+8GJB3wbJnqpE+55qfv1x2U4VdNzfBiyW1LyOq2mhESdbldQ==}
+    peerDependencies:
+      eslint: ^9.10.0 || ^10.0.0
+      vue-eslint-parser: ^10.0.0
 
   eslint-plugin-vue@10.11.0:
     resolution: {integrity: sha512-fGt38SsaPCZ2FmA3bX/3vOW2qdsPNx0/9x+7Aab6NMX++PhynMtK4LWC4vzXgfQBCqpUAler18H38GA+NBAd0Q==}
@@ -2704,8 +2713,8 @@ packages:
     resolution: {integrity: sha512-Ap6G0WQwcU/LHsvLwON1fAQX9Zp0A2Y6Y/cJBl9r/JbW90Zyg4/zbG6zzKa2OTALELarYHmKu0GhpM5EO+7T0g==}
     engines: {node: '>=0.10'}
 
-  esrap@2.3.7:
-    resolution: {integrity: sha512-n2nf7fZR3c9yXf0BPEuHuXqT+KW0SJVj4cN5FMEkpCZ3scLjOQWpiccyCxVzCC2q1wubTghuEGzngJY/7Ah0Ow==}
+  esrap@2.3.9:
+    resolution: {integrity: sha512-wshgAMVu4xdUeXi07YDnzim4ddkg8rx2yDTW3WyvskWkDdCYa4+jUMLaHXEO1e1+dmrqhrwbGsgRjQqzGJkqJQ==}
     peerDependencies:
       '@typescript-eslint/types': ^8.2.0
     peerDependenciesMeta:
@@ -2900,8 +2909,8 @@ packages:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
     engines: {node: '>= 4'}
 
-  ignore@7.0.9:
-    resolution: {integrity: sha512-brTTsvFRt5C1gGHtPst/281UjPD5t9fBqbgoMPlVWy11ZLTPfu7HxK4ZYqO9H7o/yC9rSTCI85EaQ4OoY12qYw==}
+  ignore@7.0.10:
+    resolution: {integrity: sha512-HpbUakT7xp5miBUywCHf36ZEuAJNklBJDDsGpUIjMzOSmM8ELSfA9Sa/QDPeNeqeoN31u+UTCkL4klCOVvRm4Q==}
     engines: {node: '>= 4'}
 
   import-meta-resolve@4.2.0:
@@ -4354,7 +4363,7 @@ snapshots:
     dependencies:
       escape-string-regexp: 4.0.0
       eslint: 10.11.0(jiti@2.7.0)
-      ignore: 7.0.9
+      ignore: 7.0.10
 
   '@eslint-community/eslint-utils@4.10.1(eslint@10.11.0(jiti@2.7.0))':
     dependencies:
@@ -4504,7 +4513,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/vscode-icons@1.2.79':
+  '@iconify-json/vscode-icons@1.2.80':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -4872,7 +4881,7 @@ snapshots:
       '@typescript-eslint/utils': 8.70.1(@typescript/typescript6@6.0.2)(eslint@10.11.0(jiti@2.7.0))
       '@typescript-eslint/visitor-keys': 8.70.1
       eslint: 10.11.0(jiti@2.7.0)
-      ignore: 7.0.9
+      ignore: 7.0.10
       natural-compare: 1.4.0
       ts-api-utils: 2.5.0(@typescript/typescript6@6.0.2)
       typescript: '@typescript/typescript6@6.0.2'
@@ -5018,7 +5027,7 @@ snapshots:
     dependencies:
       '@typescript/old': typescript@6.0.3
 
-  '@typescript/vfs@1.6.4(@typescript/typescript6@6.0.2)':
+  '@typescript/vfs@1.6.5(@typescript/typescript6@6.0.2)':
     dependencies:
       debug: 4.4.3
       typescript: '@typescript/typescript6@6.0.2'
@@ -5549,7 +5558,7 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.11.25
       caniuse-lite: 1.0.30001810
-      electron-to-chromium: 1.5.434
+      electron-to-chromium: 1.5.436
       node-releases: 2.0.56
       update-browserslist-db: 1.3.3(browserslist@4.29.0)
 
@@ -5730,7 +5739,7 @@ snapshots:
       minimatch: 10.2.6
       semver: 7.8.5
 
-  electron-to-chromium@1.5.434: {}
+  electron-to-chromium@1.5.436: {}
 
   empathic@2.1.0: {}
 
@@ -5979,7 +5988,7 @@ snapshots:
     dependencies:
       eslint: 10.11.0(jiti@2.7.0)
       generate-differences: 0.1.1
-      ignore: 7.0.9
+      ignore: 7.0.10
       load-oxfmt-config: 0.25.0(oxfmt@0.70.0(svelte@5.57.1(@typescript-eslint/types@8.70.1)))
       oxfmt: 0.70.0(svelte@5.57.1(@typescript-eslint/types@8.70.1))
       picomatch: 4.0.7
@@ -5987,8 +5996,9 @@ snapshots:
     optionalDependencies:
       svelte: 5.57.1(@typescript-eslint/types@8.70.1)
 
-  eslint-plugin-perfectionist@5.11.1(@typescript/typescript6@6.0.2)(eslint@10.11.0(jiti@2.7.0)):
+  eslint-plugin-perfectionist@5.12.0(@typescript/typescript6@6.0.2)(eslint@10.11.0(jiti@2.7.0)):
     dependencies:
+      '@typescript-eslint/types': 8.70.1
       '@typescript-eslint/utils': 8.70.1(@typescript/typescript6@6.0.2)(eslint@10.11.0(jiti@2.7.0))
       eslint: 10.11.0(jiti@2.7.0)
       natural-orderby: 5.0.0
@@ -6100,6 +6110,17 @@ snapshots:
     optionalDependencies:
       '@typescript-eslint/eslint-plugin': 8.70.1(@typescript-eslint/parser@8.70.1(@typescript/typescript6@6.0.2)(eslint@10.11.0(jiti@2.7.0)))(@typescript/typescript6@6.0.2)(eslint@10.11.0(jiti@2.7.0))
 
+  eslint-plugin-vue-perfectionist@0.2.0(@typescript/typescript6@6.0.2)(eslint@10.11.0(jiti@2.7.0))(vue-eslint-parser@10.4.1(eslint@10.11.0(jiti@2.7.0))):
+    dependencies:
+      '@ntnyq/utils': 0.22.0
+      '@typescript-eslint/utils': 8.70.1(@typescript/typescript6@6.0.2)(eslint@10.11.0(jiti@2.7.0))
+      eslint: 10.11.0(jiti@2.7.0)
+      natural-orderby: 5.0.0
+      vue-eslint-parser: 10.4.1(eslint@10.11.0(jiti@2.7.0))
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+
   eslint-plugin-vue@10.11.0(@typescript-eslint/parser@8.70.1(@typescript/typescript6@6.0.2)(eslint@10.11.0(jiti@2.7.0)))(eslint@10.11.0(jiti@2.7.0))(vue-eslint-parser@10.4.1(eslint@10.11.0(jiti@2.7.0))):
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.11.0(jiti@2.7.0))
@@ -6209,7 +6230,7 @@ snapshots:
     dependencies:
       estraverse: 5.3.0
 
-  esrap@2.3.7(@typescript-eslint/types@8.70.1):
+  esrap@2.3.9(@typescript-eslint/types@8.70.1):
     dependencies:
       '@jridgewell/sourcemap-codec': 1.6.0
     optionalDependencies:
@@ -6373,7 +6394,7 @@ snapshots:
 
   ignore@5.3.2: {}
 
-  ignore@7.0.9: {}
+  ignore@7.0.10: {}
 
   import-meta-resolve@4.2.0: {}
 
@@ -6516,7 +6537,7 @@ snapshots:
     dependencies:
       '@ntnyq/utils': 0.23.0
       editorconfig: 3.0.2
-      ignore: 7.0.9
+      ignore: 7.0.10
       jiti: 2.7.0
       jsonc-parser: 3.3.1
       minimatch: 10.2.6
@@ -7322,7 +7343,7 @@ snapshots:
       clsx: 2.1.1
       devalue: 5.9.4
       esm-env: 1.2.2
-      esrap: 2.3.7(@typescript-eslint/types@8.70.1)
+      esrap: 2.3.9(@typescript-eslint/types@8.70.1)
       is-reference: 3.0.3
       locate-character: 3.0.0
       magic-string: 0.30.21
@@ -7427,7 +7448,7 @@ snapshots:
 
   twoslash@0.3.9(@typescript/typescript6@6.0.2):
     dependencies:
-      '@typescript/vfs': 1.6.4(@typescript/typescript6@6.0.2)
+      '@typescript/vfs': 1.6.5(@typescript/typescript6@6.0.2)
       twoslash-protocol: 0.3.9
       typescript: '@typescript/typescript6@6.0.2'
     transitivePeerDependencies:
@@ -7672,7 +7693,7 @@ snapshots:
   vitepress-plugin-group-icons@1.7.6(vite@8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)):
     dependencies:
       '@iconify-json/logos': 1.2.14
-      '@iconify-json/vscode-icons': 1.2.79
+      '@iconify-json/vscode-icons': 1.2.80
       '@iconify/utils': 3.1.7
     optionalDependencies:
       vite: 8.3.0(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)

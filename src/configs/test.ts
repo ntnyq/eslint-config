@@ -37,9 +37,7 @@ export const configTest = (
   options: ConfigTestOptions = {},
 ): TypedConfigItem[] => {
   const {
-    // default test files
     files = [...GLOB_TEST],
-
     base: enableBase = true,
     vitest: enableVitest = hasVitest(),
   } = options

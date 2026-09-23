@@ -160,7 +160,9 @@ export const configTypeScript = (
       ...parserOptions,
     }
     const parserConfig: TypedConfigItem = {
-      name: `ntnyq/typescript/${enableTypeAware ? 'parser-type-aware' : 'parser'}`,
+      name: `ntnyq/typescript/${
+        enableTypeAware ? 'parser-type-aware' : 'parser'
+      }`,
       files,
       ignores: [...ignores],
       languageOptions: {

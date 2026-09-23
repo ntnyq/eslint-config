@@ -14,7 +14,9 @@ const configs = await defineESLintConfig({
   test: true,
   unocss: true,
   pinia: true,
-  vue: true,
+  vue: {
+    vuePerfectionist: true,
+  },
   oxfmt: true,
   specials: {
     shadcnVue: true,

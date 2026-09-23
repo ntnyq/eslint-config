@@ -4,9 +4,11 @@ import {
   parserVue,
   pluginTypeScript,
   pluginVue,
+  pluginVuePerfectionist,
   processorVueBlocks,
 } from '../eslint'
-import { GLOB_VUE } from '../globs'
+import { GLOB_PINIA_STORE, GLOB_VUE, GLOB_VUE_COMPOSABLES } from '../globs'
+import { resolveSubOptions } from '../utils'
 import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
 import type {
   ESLintProcessor,
@@ -18,12 +20,23 @@ import type {
 } from '../types'
 
 /**
+ * Options for a Vue config branch
+ */
+export type ConfigVueBranchOptions = OptionsFiles & OptionsOverrides
+
+/**
  * Options type of {@link configVue}
  */
 export type ConfigVueOptions = OptionsFiles &
   OptionsOverrides &
   OptionsShareable &
   OptionsFormatter & {
+    /**
+     * Configure vue-perfectionist plugin rules
+     * @default false
+     */
+    vuePerfectionist?: boolean | ConfigVueBranchOptions
+
     /**
      * Create virtual files for Vue SFC blocks to enable linting.
      *
@@ -267,7 +280,9 @@ export const configVue = (
     ecmaVersion = 'latest',
     extraFileExtensions = [],
     typescript = false,
+    vuePerfectionist: enableVuePerfectionist = false,
   } = options
+  const vuePerfectionistOptions = resolveSubOptions(options, 'vuePerfectionist')
   const sfcBlocks: false | VueBlocksOptions =
     options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {})
 
@@ -290,7 +305,7 @@ export const configVue = (
     ])
   }
 
-  return [
+  const configs: TypedConfigItem[] = [
     {
       name: 'ntnyq/vue/setup',
       plugins: {
@@ -473,4 +488,55 @@ export const configVue = (
       },
     },
   ]
+
+  if (enableVuePerfectionist) {
+    configs.push({
+      name: 'ntnyq/vue/vue-perfectionist',
+      files: vuePerfectionistOptions.files ?? [
+        GLOB_VUE,
+        GLOB_PINIA_STORE,
+        ...GLOB_VUE_COMPOSABLES,
+      ],
+      plugins: {
+        'vue-perfectionist': pluginVuePerfectionist,
+      },
+      rules: {
+        'vue-perfectionist/callback-style': 'error',
+        'vue-perfectionist/define-macros-newline': 'error',
+        'vue-perfectionist/prefer-ref-pattern': 'error',
+        'vue-perfectionist/sort-script-setup': [
+          'error',
+          {
+            // Keep macro groups aligned with vue/define-macros-order.
+            groups: [
+              ['interface', 'type'],
+              'define-props',
+              'define-emits',
+              'define-options',
+              'define-slots',
+              'define-model',
+              'constant',
+              'inject',
+              'composable',
+              'template-ref',
+              ['ref', 'reactive'],
+              'computed',
+              'variable',
+              ['enum', 'class'],
+              'function',
+              'watch',
+              'lifecycle-hook',
+              'provide',
+              'define-expose',
+            ],
+          },
+        ],
+
+        // Overrides rules
+        ...vuePerfectionistOptions.overrides,
+      },
+    })
+  }
+
+  return configs
 }
