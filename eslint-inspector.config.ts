@@ -11,11 +11,13 @@ export default defineESLintConfig({
   svgo: true,
   test: true,
   unocss: true,
-  vue: true,
   specials: {
     shadcnVue: true,
   },
   typescript: {
     tsconfigPath: './tsconfig.json',
+  },
+  vue: {
+    vuePerfectionist: true,
   },
 })

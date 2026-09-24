@@ -502,6 +502,7 @@ export const configVue = (
       },
       rules: {
         'vue-perfectionist/callback-style': 'error',
+        'vue-perfectionist/consistent-template-ref-name': 'error',
         'vue-perfectionist/define-macros-newline': 'error',
         'vue-perfectionist/prefer-ref-pattern': 'error',
         'vue-perfectionist/sort-script-setup': [
