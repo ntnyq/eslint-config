@@ -125,7 +125,7 @@
     "eslint-plugin-depend": "^1.5.0",
     "eslint-plugin-github-action": "^0.4.0",
     "eslint-plugin-import-x": "^4.17.1",
-    "eslint-plugin-jsdoc": "^65.0.0",
+    "eslint-plugin-jsdoc": "^65.0.1",
     "eslint-plugin-jsonc": "^3.4.2",
     "eslint-plugin-n": "^18.4.0",
     "eslint-plugin-no-only-tests": "^3.4.0",
@@ -139,10 +139,10 @@
     "eslint-plugin-toml": "^1.5.0",
     "eslint-plugin-unicorn": "^76.0.0",
     "eslint-plugin-vue": "^10.11.1",
-    "eslint-plugin-vue-perfectionist": "^0.3.0",
+    "eslint-plugin-vue-perfectionist": "^0.4.0",
     "eslint-plugin-yml": "^3.8.1",
     "eslint-processor-vue-blocks": "^2.0.0",
-    "globals": "^17.12.0",
+    "globals": "^17.13.0",
     "jsonc-eslint-parser": "^3.3.0",
     "local-pkg": "^1.2.1",
     "toml-eslint-parser": "^1.0.3",
@@ -151,7 +151,7 @@
     "yaml-eslint-parser": "^2.1.0"
   },
   "devDependencies": {
-    "@types/node": "^26.6.3",
+    "@types/node": "^26.6.4",
     "@typescript-eslint/types": "^8.71.0",
     "@typescript/native-preview": "npm:typescript@^7.0.2",
     "bumpp": "^12.3.0",
@@ -169,7 +169,7 @@
     "tsx": "^4.23.15",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
     "uncase": "^0.3.0",
-    "vitest": "^5.0.2"
+    "vitest": "^5.0.3"
   },
   "engines": {
     "node": "^22.23.0 || >=24.15.0"
