@@ -78,6 +78,7 @@ export const configUnicorn = (
         'unicorn/new-for-builtins': 'error',
         'unicorn/no-console-spaces': 'error',
         'unicorn/no-instanceof-builtins': 'error',
+        'unicorn/no-invalid-intl-options': 'error',
         'unicorn/no-new-buffer': 'error',
         'unicorn/no-typeof-undefined': 'error',
         'unicorn/no-unnecessary-global-this': 'error',
@@ -87,6 +88,7 @@ export const configUnicorn = (
          * @pg Class
          */
         'unicorn/no-accessor-recursion': 'error',
+        'unicorn/no-incomplete-accessor-override': 'error',
         'unicorn/no-static-only-class': 'error',
         'unicorn/no-this-outside-of-class': 'error',
         'unicorn/no-useless-override': 'error',
@@ -146,14 +148,18 @@ export const configUnicorn = (
          */
         'unicorn/no-blob-to-file': 'error',
         'unicorn/no-canvas-to-image': 'error',
+        'unicorn/no-invalid-response-options': 'error',
+        'unicorn/no-invalid-url-protocol-comparison': 'error',
         'unicorn/no-transition-all': 'error',
         'unicorn/no-unnecessary-fetch-options': 'error',
+        'unicorn/no-url-in-search-params': 'error',
         'unicorn/prefer-abort-signal-any': 'error',
         'unicorn/prefer-abort-signal-timeout': 'error',
         'unicorn/prefer-keyboard-event-key': 'error',
         'unicorn/prefer-observer-apis': 'error',
         'unicorn/prefer-response-static-json': 'error',
         'unicorn/prefer-url-search-parameters': 'error',
+        'unicorn/require-text-decoder-streaming': 'error',
         /**
          * @pg Number
          */
@@ -184,6 +190,7 @@ export const configUnicorn = (
          * @pg Date
          */
         'unicorn/consistent-date-clone': 'error',
+        'unicorn/no-invalid-temporal-arithmetic': 'error',
         'unicorn/prefer-date-now': 'error',
         'unicorn/prefer-temporal-conversion': 'error',
         /**
@@ -206,9 +213,13 @@ export const configUnicorn = (
         'unicorn/better-dom-traversing': 'error',
         'unicorn/dom-node-dataset': 'error',
         'unicorn/no-incorrect-query-selector': 'error',
+        'unicorn/no-invalid-boolean-attribute-value': 'error',
+        'unicorn/no-invalid-dom-token': 'error',
         'unicorn/no-invalid-file-input-accept': 'error',
         'unicorn/no-invalid-remove-event-listener': 'error',
+        'unicorn/no-invalid-style-set-property': 'error',
         'unicorn/no-late-current-target-access': 'error',
+        'unicorn/no-prevent-default-in-passive-listener': 'error',
         'unicorn/prefer-add-event-listener': 'error',
         'unicorn/prefer-classlist-toggle': 'error',
         'unicorn/prefer-dom-node-append': 'error',
@@ -271,6 +282,7 @@ export const configUnicorn = (
          */
         'unicorn/consistent-conditional-object-spread': ['error', 'ternary'],
         'unicorn/consistent-existence-index-check': 'error',
+        'unicorn/no-invalid-property-descriptor': 'error',
         'unicorn/no-unsafe-property-key': 'error',
         'unicorn/prefer-object-from-entries': 'error',
         'unicorn/prefer-single-object-destructuring': 'error',
@@ -278,6 +290,7 @@ export const configUnicorn = (
          * @pg Data
          */
         'unicorn/consistent-json-file-read': 'error',
+        'unicorn/no-unsafe-json-serialization': 'error',
         'unicorn/prefer-structured-clone': 'error',
         /**
          * @pg Module
