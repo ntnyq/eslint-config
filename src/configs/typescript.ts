@@ -102,7 +102,10 @@ const typeAwareRules: TypedConfigItem['rules'] = {
 const recommendedRules: TypedConfigItem['rules'] =
   configsTypeScript.recommended.reduce<TypedConfigItem['rules']>(
     (rules, config) => {
-      return { ...rules, ...(config.rules || {}) }
+      return {
+        ...rules,
+        ...(config.rules || {}),
+      }
     },
     {},
   )

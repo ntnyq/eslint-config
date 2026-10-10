@@ -505,6 +505,14 @@ export const configVue = (
         'vue-perfectionist/consistent-template-ref-name': 'error',
         'vue-perfectionist/define-macros-newline': 'error',
         'vue-perfectionist/prefer-ref-pattern': 'error',
+        'vue-perfectionist/prefer-simple-event-handler': [
+          'error',
+          {
+            allowConditional: true,
+            allowInlineFunctions: false,
+            allowLogical: true,
+          },
+        ],
         'vue-perfectionist/sort-script-setup': [
           'error',
           {

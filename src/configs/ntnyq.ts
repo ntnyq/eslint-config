@@ -49,6 +49,7 @@ export const configNtnyq = (
           fix: true,
         },
       ],
+      'ntnyq/return-object-multiline': 'error',
 
       // Overrides rules
       ...options.overrides,
