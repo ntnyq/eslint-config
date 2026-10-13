@@ -8,7 +8,7 @@ import {
   processorVueBlocks,
 } from '../eslint'
 import { GLOB_PINIA_STORE, GLOB_VUE, GLOB_VUE_COMPOSABLES } from '../globs'
-import { resolveSubOptions } from '../utils'
+import { hasAutoImport, resolveSubOptions } from '../utils'
 import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
 import type {
   ESLintProcessor,
@@ -22,7 +22,13 @@ import type {
 /**
  * Options for a Vue config branch
  */
-export type ConfigVueBranchOptions = OptionsFiles & OptionsOverrides
+export type VuePerfectionistOptions = OptionsFiles &
+  OptionsOverrides & {
+    /**
+     * Enable settings `auto-import` of `eslint-plugin-vue-perfectionist`
+     */
+    autoImport?: boolean
+  }
 
 /**
  * Options type of {@link configVue}
@@ -35,7 +41,7 @@ export type ConfigVueOptions = OptionsFiles &
      * Configure vue-perfectionist plugin rules
      * @default false
      */
-    vuePerfectionist?: boolean | ConfigVueBranchOptions
+    vuePerfectionist?: boolean | VuePerfectionistOptions
 
     /**
      * Create virtual files for Vue SFC blocks to enable linting.
@@ -283,6 +289,8 @@ export const configVue = (
     vuePerfectionist: enableVuePerfectionist = false,
   } = options
   const vuePerfectionistOptions = resolveSubOptions(options, 'vuePerfectionist')
+  const enableAutoImport = vuePerfectionistOptions.autoImport ?? hasAutoImport()
+
   const sfcBlocks: false | VueBlocksOptions =
     options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {})
 
@@ -500,10 +508,16 @@ export const configVue = (
       plugins: {
         'vue-perfectionist': pluginVuePerfectionist,
       },
+      settings: {
+        'vue-perfectionist': {
+          autoImport: enableAutoImport,
+        },
+      },
       rules: {
         'vue-perfectionist/callback-style': 'error',
         'vue-perfectionist/consistent-template-ref-name': 'error',
         'vue-perfectionist/define-macros-newline': 'error',
+        'vue-perfectionist/no-complex-v-for-source': 'error',
         'vue-perfectionist/prefer-ref-pattern': 'error',
         'vue-perfectionist/prefer-simple-event-handler': [
           'error',

@@ -62,3 +62,9 @@ export const hasOxfmt: ExistChecker = () => isPackageExists('oxfmt')
  * Check whether Prettier is available in the current project.
  */
 export const hasPrettier: ExistChecker = () => isPackageExists('prettier')
+
+/**
+ * Check whether AutoImport is available in the current project.
+ */
+export const hasAutoImport: ExistChecker = () =>
+  isPackageExists('unplugin-auto-import')
