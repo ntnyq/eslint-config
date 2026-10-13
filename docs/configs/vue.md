@@ -11,17 +11,6 @@ sidebarDepth: 0
 - [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue)
 - [eslint-plugin-vue-perfectionist](https://github.com/ntnyq/eslint-plugin-vue-perfectionist)
 
-## Vue Perfectionist Rules
-
-These rules are disabled by default. Set `vue.vuePerfectionist: true` or provide an options object to enable them for Vue files:
-
-- `vue-perfectionist/callback-style`: require inline arrow callbacks with block bodies for Vue lifecycle and watch APIs.
-- `vue-perfectionist/define-macros-newline`: require multiline inline macro declarations. Disabled when using Prettier or oxfmt.
-- `vue-perfectionist/prefer-ref-pattern`: require template ref names to end in `Ref`.
-- `vue-perfectionist/sort-script-setup`: group top-level statements in `<script setup>`, preserving order within each group. Macro groups follow the existing order: props, emits, options, slots, model, with expose last.
-
-Customize or disable these rules through `vue.vuePerfectionist.overrides`.
-
 ## Options
 
 ### files

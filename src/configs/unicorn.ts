@@ -102,7 +102,9 @@ export const configUnicorn = (
         'unicorn/no-double-comparison': 'error',
         'unicorn/no-duplicate-logical-operands': 'error',
         'unicorn/no-for-loop': 'error',
+        'unicorn/no-impossible-length-comparison': 'error',
         'unicorn/no-lonely-if': 'error',
+        'unicorn/no-misrefactored-assignment': 'error',
         'unicorn/no-unnecessary-boolean-comparison': 'error',
         'unicorn/no-unnecessary-nested-ternary': 'error',
         'unicorn/no-useless-boolean-cast': 'error',
@@ -134,6 +136,7 @@ export const configUnicorn = (
          * @pg Promise
          */
         'unicorn/no-async-promise-finally': 'error',
+        'unicorn/no-await-in-promise-methods': 'error',
         'unicorn/no-multiple-promise-resolver-calls': 'error',
         'unicorn/no-unnecessary-await': 'error',
         'unicorn/no-unsafe-promise-all-settled-values': 'error',
@@ -148,6 +151,7 @@ export const configUnicorn = (
          */
         'unicorn/no-blob-to-file': 'error',
         'unicorn/no-canvas-to-image': 'error',
+        'unicorn/no-invalid-fetch-options': 'error',
         'unicorn/no-invalid-response-options': 'error',
         'unicorn/no-invalid-url-protocol-comparison': 'error',
         'unicorn/no-transition-all': 'error',
@@ -198,6 +202,7 @@ export const configUnicorn = (
          */
         'unicorn/consistent-template-literal-escape': 'error',
         'unicorn/escape-case': 'error',
+        'unicorn/no-invalid-character-comparison': 'error',
         'unicorn/no-unnecessary-string-trim': 'error',
         'unicorn/no-unsafe-string-replacement': 'error',
         'unicorn/prefer-code-point': 'error',
@@ -282,7 +287,9 @@ export const configUnicorn = (
          */
         'unicorn/consistent-conditional-object-spread': ['error', 'ternary'],
         'unicorn/consistent-existence-index-check': 'error',
+        'unicorn/no-collection-bracket-access': 'error',
         'unicorn/no-invalid-property-descriptor': 'error',
+        'unicorn/no-object-methods-with-collections': 'error',
         'unicorn/no-unsafe-property-key': 'error',
         'unicorn/prefer-object-from-entries': 'error',
         'unicorn/prefer-single-object-destructuring': 'error',
@@ -290,6 +297,7 @@ export const configUnicorn = (
          * @pg Data
          */
         'unicorn/consistent-json-file-read': 'error',
+        'unicorn/no-unsafe-buffer-conversion': 'error',
         'unicorn/no-unsafe-json-serialization': 'error',
         'unicorn/prefer-structured-clone': 'error',
         /**
