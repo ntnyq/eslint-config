@@ -36,6 +36,11 @@ Configure vue-perfectionist plugin rules.
 
 Set to `true` to enable the rules with default options, or pass an object with `files` and `overrides`; custom patterns should target files covered by the Vue config so its parser and processor apply. Branch `overrides` takes precedence over the default rules and formatter compatibility settings.
 
+The enabled rules include:
+
+- `vue-perfectionist/prefer-watch-effect-alias` (`error`): prefer `watchPostEffect` and `watchSyncEffect` over `watchEffect` with `flush: 'post'` or `flush: 'sync'`. Safe cases are automatically fixed. With auto-imports, fixes require an available alias import or an explicit `vueGlobals` rule option authorizing the replacement API.
+- `vue-perfectionist/prefer-define-model` (`warn`): prefer `defineModel` over matching prop and `update:` event declarations in Vue 3.4+ components. Migration is manual; no automatic fixes are provided. Disable this rule through branch `overrides` for older Vue versions.
+
 ```js
 export default defineESLintConfig({
   vue: {

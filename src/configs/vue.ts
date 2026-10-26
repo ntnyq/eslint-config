@@ -514,6 +514,7 @@ export const configVue = (
         },
       },
       rules: {
+        'vue-perfectionist/prefer-define-model': 'warn',
         'vue-perfectionist/callback-style': 'error',
         'vue-perfectionist/consistent-template-ref-name': 'error',
         'vue-perfectionist/define-macros-newline': 'error',
@@ -527,6 +528,7 @@ export const configVue = (
             allowLogical: true,
           },
         ],
+        'vue-perfectionist/prefer-watch-effect-alias': 'error',
         'vue-perfectionist/sort-script-setup': [
           'error',
           {

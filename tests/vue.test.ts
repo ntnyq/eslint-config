@@ -139,6 +139,100 @@ const title = 'title'
     )
   })
 
+  it.each([
+    { flush: 'post', alias: 'watchPostEffect' },
+    { flush: 'sync', alias: 'watchSyncEffect' },
+  ])('should report and fix $flush watch effects', ({ alias, flush }) => {
+    const configs = configVue({ typescript: true, vuePerfectionist: true })
+    const code = `<script setup lang="ts">
+import { watchEffect } from 'vue'
+
+watchEffect(() => {}, { flush: '${flush}' })
+</script>`
+    const messages = linter.verify(code, configs, { filename: 'Component.vue' })
+    const result = linter.verifyAndFix(code, configs, {
+      filename: 'Component.vue',
+    })
+
+    expect(messages).toContainEqual(
+      expect.objectContaining({
+        ruleId: 'vue-perfectionist/prefer-watch-effect-alias',
+        severity: 2,
+      }),
+    )
+    expect(result.fixed).toBe(true)
+    expect(result.messages).toEqual([])
+    expect(result.output).toContain(`${alias}(() => {})`)
+    expect(result.output).not.toContain(`flush: '${flush}'`)
+    expect(
+      linter.verifyAndFix(result.output, configs, {
+        filename: 'Component.vue',
+      }).fixed,
+    ).toBe(false)
+  })
+
+  it.each([false, true])(
+    'should respect autoImport %s for watch effect aliases',
+    autoImport => {
+      const messages = linter.verify(
+        `<script setup lang="ts">
+watchEffect(updateLayout, { flush: 'post' })
+</script>`,
+        configVue({ typescript: true, vuePerfectionist: { autoImport } }),
+        { filename: 'Component.vue' },
+      )
+
+      expect(messages.some(message => message.fatal)).toBe(false)
+      expect(
+        messages.some(
+          message =>
+            message.ruleId === 'vue-perfectionist/prefer-watch-effect-alias',
+        ),
+      ).toBe(autoImport)
+    },
+  )
+
+  it.each([
+    { overrides: {}, severity: 1 },
+    {
+      overrides: { 'vue-perfectionist/prefer-define-model': 'error' as const },
+      severity: 2,
+    },
+  ])(
+    'should report model migration with severity $severity without rewriting contracts',
+    ({ overrides, severity }) => {
+      const configs = configVue({
+        typescript: true,
+        vuePerfectionist: { overrides },
+      })
+      const code = `<script setup lang="ts">
+const props = defineProps<{ modelValue: string }>()
+
+const emit = defineEmits<{ 'update:modelValue': [value: string] }>()
+</script>
+
+<template>
+  <input :value="props.modelValue" @input="emit('update:modelValue', 'value')" />
+</template>`
+      const result = linter.verifyAndFix(code, configs, {
+        filename: 'Component.vue',
+      })
+
+      expect(result.messages.some(message => message.fatal)).toBe(false)
+      expect(result.messages).toContainEqual(
+        expect.objectContaining({
+          ruleId: 'vue-perfectionist/prefer-define-model',
+          severity,
+        }),
+      )
+      expect(result.output).toContain('defineProps<')
+      expect(result.output).toContain('modelValue: string')
+      expect(result.output).toContain('defineEmits<')
+      expect(result.output).toContain("'update:modelValue': [value: string]")
+      expect(result.output).not.toContain('defineModel')
+    },
+  )
+
   it('should fix script ordering without conflicting with Vue macro ordering', () => {
     const configs = configVue({ typescript: true, vuePerfectionist: true })
     const code = `<script setup lang="ts">
