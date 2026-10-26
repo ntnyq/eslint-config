@@ -391,6 +391,9 @@ export const configVue = (
             singleline: 1,
           },
         ],
+        'vue/no-content-outside-block': 'error',
+        'vue/no-define-model-default': 'error',
+        'vue/no-props-shadow': 'error',
         'vue/order-in-components': [
           'error',
           {
