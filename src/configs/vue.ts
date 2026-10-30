@@ -521,6 +521,7 @@ export const configVue = (
         'vue-perfectionist/callback-style': 'error',
         'vue-perfectionist/consistent-template-ref-name': 'error',
         'vue-perfectionist/define-macros-newline': 'error',
+        'vue-perfectionist/no-complex-template-expression': 'error',
         'vue-perfectionist/no-complex-v-for-source': 'error',
         'vue-perfectionist/prefer-ref-pattern': 'error',
         'vue-perfectionist/prefer-simple-event-handler': [

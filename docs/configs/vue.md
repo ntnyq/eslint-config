@@ -38,6 +38,7 @@ Set to `true` to enable the rules with default options, or pass an object with `
 
 The enabled rules include:
 
+- `vue-perfectionist/no-complex-template-expression` (`error`): limit each template expression to two logical operators and one level of ternary nesting. Checks interpolations and `v-if`, `v-else-if`, `v-show`, and `v-bind` expressions, including expressions using loop or slot variables. Extraction is manual; customize the limits through branch `overrides`.
 - `vue-perfectionist/prefer-watch-effect-alias` (`error`): prefer `watchPostEffect` and `watchSyncEffect` over `watchEffect` with `flush: 'post'` or `flush: 'sync'`. Safe cases are automatically fixed. With auto-imports, fixes require an available alias import or an explicit `vueGlobals` rule option authorizing the replacement API.
 - `vue-perfectionist/prefer-define-model` (`warn`): prefer `defineModel` over matching prop and `update:` event declarations in Vue 3.4+ components. Migration is manual; no automatic fixes are provided. Disable this rule through branch `overrides` for older Vue versions.
 

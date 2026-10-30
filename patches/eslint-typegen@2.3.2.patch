@@ -1,8 +1,7 @@
 diff --git a/dist/core.mjs b/dist/core.mjs
-index ba36262285a9f95e0008533ad6090f6a57485d96..07e90725c0fa2114e5c05c94548ff7b49dc8c472 100644
 --- a/dist/core.mjs
 +++ b/dist/core.mjs
-@@ -61,6 +61,58 @@ async function pluginsToRulesDTS(plugins, options = {}) {
+@@ -61,6 +61,58 @@
  		typeDeclarations
  	].join("\n");
  }
@@ -61,36 +60,17 @@ index ba36262285a9f95e0008533ad6090f6a57485d96..07e90725c0fa2114e5c05c94548ff7b4
  async function compileRule(ruleName, rule, compileOptions = {}) {
  	const meta = rule.meta ?? {};
  	let schemas = meta.schema ?? [];
-@@ -82,19 +134,30 @@ async function compileRule(ruleName, rule, compileOptions = {}) {
+@@ -82,11 +134,12 @@
  		items: meta.schema,
  		definitions: meta.schema?.[0]?.definitions
  	} : meta.schema;
 +	const compileSchema = prepareSchemaForCompile(schema);
  	let overriddenRootSchemaId;
  	let isRootSchema = true;
-+	const customNames = new WeakMap();
-+	const usedCustomNames = new Set();
+ 	const usedNames = /* @__PURE__ */ new Map();
  	try {
 -		const compiled = await compile(schema, id, {
 +		const compiled = await compile(compileSchema, id, {
  			unreachableDefinitions: false,
  			strictIndexSignatures: true,
  			customName(schema, keyName) {
- 				const canOverrideRootSchemaId = isRootSchema;
- 				isRootSchema = false;
-+				if (customNames.has(schema)) return customNames.get(schema);
- 				const resolved = schema.title || schema.$id || keyName;
- 				if (resolved === id) return id;
- 				if (!resolved) return void 0;
--				const normalizedName = `_${normalizeIdentifier(`${id}_${resolved}`)}`;
-+				const baseName = `_${normalizeIdentifier(`${id}_${resolved}`)}`;
-+				let normalizedName = baseName;
-+				let counter = 1;
-+				while (usedCustomNames.has(normalizedName)) {
-+					normalizedName = `${baseName}${counter++}`;
-+				}
-+				usedCustomNames.add(normalizedName);
-+				customNames.set(schema, normalizedName);
- 				if (canOverrideRootSchemaId) overriddenRootSchemaId = normalizedName;
- 				return normalizedName;
- 			},

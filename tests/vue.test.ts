@@ -28,7 +28,7 @@ describe('Vue perfectionist integration', () => {
       }
 
       const messages = linter.verify(
-        '<template><div ref="input" /></template>',
+        '<template><div ref="input" :title="a && b && c && d" /></template>',
         configs,
         { filename: 'Component.vue' },
       )
@@ -137,6 +137,69 @@ const title = 'title'
         severity: 2,
       }),
     )
+  })
+
+  it.each([
+    {
+      code: '<template><div v-if="a && b && c" /></template>',
+      count: 0,
+    },
+    {
+      code: '<template><div v-if="a && b && c && d" /></template>',
+      count: 1,
+    },
+    {
+      code: '<template><span>{{ ready ? label : fallback }}</span></template>',
+      count: 0,
+    },
+    {
+      code: '<template><span>{{ pending ? loading : failed ? error : done }}</span></template>',
+      count: 1,
+    },
+  ])(
+    'should report $count complex template expressions in $code',
+    ({ code, count }) => {
+      const messages = linter.verify(
+        code,
+        configVue({ vuePerfectionist: true }),
+        { filename: 'Component.vue' },
+      )
+      const complexityMessages = messages.filter(
+        message =>
+          message.ruleId === 'vue-perfectionist/no-complex-template-expression',
+      )
+
+      expect(messages.some(message => message.fatal)).toBe(false)
+      expect(complexityMessages).toHaveLength(count)
+      for (const message of complexityMessages) {
+        expect(message.severity).toBe(2)
+      }
+    },
+  )
+
+  it('should allow overriding template complexity limits', () => {
+    const messages = linter.verify(
+      '<template><div v-if="a && b && c && d" /></template>',
+      configVue({
+        vuePerfectionist: {
+          overrides: {
+            'vue-perfectionist/no-complex-template-expression': [
+              'error',
+              { maxLogicalExpressions: 3 },
+            ],
+          },
+        },
+      }),
+      { filename: 'Component.vue' },
+    )
+
+    expect(messages.some(message => message.fatal)).toBe(false)
+    expect(
+      messages.some(
+        message =>
+          message.ruleId === 'vue-perfectionist/no-complex-template-expression',
+      ),
+    ).toBe(false)
   })
 
   it.each([
