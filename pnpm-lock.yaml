@@ -257,8 +257,8 @@ importers:
         specifier: ^0.19.1
         version: 0.19.1(@typescript/typescript6@6.0.2)(eslint@10.14.0(jiti@2.7.0))
       eslint-plugin-oxfmt:
-        specifier: ^0.31.0
-        version: 0.31.0(@astrojs/compiler-rs@0.5.2)(eslint@10.14.0(jiti@2.7.0))(oxfmt@0.77.0(@astrojs/compiler-rs@0.5.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.1))
+        specifier: ^0.32.0
+        version: 0.32.0(@astrojs/compiler-rs@0.5.2)(eslint@10.14.0(jiti@2.7.0))(oxfmt@0.77.0(@astrojs/compiler-rs@0.5.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.1))
       eslint-plugin-perfectionist:
         specifier: ^5.13.0
         version: 5.13.0(@typescript/typescript6@6.0.2)(eslint@10.14.0(jiti@2.7.0))
@@ -2586,13 +2586,13 @@ packages:
     peerDependencies:
       eslint: ^9.5.0 || ^10.0.0
 
-  eslint-plugin-oxfmt@0.31.0:
-    resolution: {integrity: sha512-kmtmhwwa2OjWRlDWz3vmljbPAO3bNEeZFjEqkDcEJ2JUSX5UQe5APvboWpuo30PSVmOPetWK8VZTzlYrPlcxng==}
+  eslint-plugin-oxfmt@0.32.0:
+    resolution: {integrity: sha512-2migAyaZLpdIshJ7Ss6nHWju+1DFQRwU8kYsSSGoGPyVmJbLnj9nuinlkc4GfpGTS9S6GB1VphVkKwd3YuhbkQ==}
     engines: {node: ^22.13.0 || >=24}
     peerDependencies:
       '@astrojs/compiler-rs': ^0.5.0
       eslint: ^9.5.0 || ^10.0.0
-      oxfmt: '>=0.76.0'
+      oxfmt: '>=0.77.0'
       svelte: '*'
     peerDependenciesMeta:
       '@astrojs/compiler-rs':
@@ -3154,11 +3154,11 @@ packages:
   linkify-it@6.1.0:
     resolution: {integrity: sha512-wJ/TwpSDTLepCrQoYWYIExIKg5Zchex2Nn5yk2mFnB+6PtdkHtyLx742md9csRjjOnGkKIS/RrbY7l8D6gT9Vw==}
 
-  load-oxfmt-config@0.31.0:
-    resolution: {integrity: sha512-e3wye8a+aGDaQEY8mKcJmHBsaWMzYxhJ5U+2pXRUASk5i14eiCUscdMWlc9IJrHEiAnZm6RJW0njV2MWmL0uUA==}
+  load-oxfmt-config@0.32.0:
+    resolution: {integrity: sha512-Pf72nHlHKLQGvkI7pfzfMRSN1Of+3QkOIARMbI4cnElpTJzfv1P0SQH9mZ3GTySgjSIWwCNZcYKUM2RTysDVGw==}
     engines: {node: ^22.13.0 || >=24}
     peerDependencies:
-      oxfmt: '>=0.76.0'
+      oxfmt: '>=0.77.0'
 
   local-pkg@1.2.1:
     resolution: {integrity: sha512-++gUqRDEvcnN6Zhqrr+y/CkVEHhlrR96vZn3nZZPYzMcBUyBtTKzB9NadClFIsIVSsu+3i9tfk/erqy9kAmt7Q==}
@@ -6102,12 +6102,12 @@ snapshots:
       - supports-color
       - typescript
 
-  eslint-plugin-oxfmt@0.31.0(@astrojs/compiler-rs@0.5.2)(eslint@10.14.0(jiti@2.7.0))(oxfmt@0.77.0(@astrojs/compiler-rs@0.5.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.1)):
+  eslint-plugin-oxfmt@0.32.0(@astrojs/compiler-rs@0.5.2)(eslint@10.14.0(jiti@2.7.0))(oxfmt@0.77.0(@astrojs/compiler-rs@0.5.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.1)):
     dependencies:
       eslint: 10.14.0(jiti@2.7.0)
       generate-differences: 0.1.1
       ignore: 7.0.14
-      load-oxfmt-config: 0.31.0(oxfmt@0.77.0(@astrojs/compiler-rs@0.5.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1)))
+      load-oxfmt-config: 0.32.0(oxfmt@0.77.0(@astrojs/compiler-rs@0.5.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1)))
       oxfmt: 0.77.0(@astrojs/compiler-rs@0.5.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1))
       picomatch: 4.0.7
       synckit: 0.12.3
@@ -6664,7 +6664,7 @@ snapshots:
     dependencies:
       uc.micro: 3.0.0
 
-  load-oxfmt-config@0.31.0(oxfmt@0.77.0(@astrojs/compiler-rs@0.5.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1))):
+  load-oxfmt-config@0.32.0(oxfmt@0.77.0(@astrojs/compiler-rs@0.5.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1))):
     dependencies:
       '@ntnyq/utils': 0.25.0
       editorconfig: 3.0.2
