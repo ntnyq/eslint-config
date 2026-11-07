@@ -29,6 +29,7 @@ import {
   configPnpm,
   configPrettier,
   configRegexp,
+  configShell,
   configSort,
   configSpecials,
   configSvelte,
@@ -42,6 +43,7 @@ import {
   configVue,
   configYml,
 } from './configs'
+import { GLOB_SHELL } from './globs'
 import {
   getOverrides,
   hasOxfmt,
@@ -115,6 +117,7 @@ export function defineESLintConfig(
     pnpm: enablePnpm = false,
     svgo: enableSVGO = false,
     html: enableHTML = false,
+    shell: enableShell = false,
     astro: enableAstro = false,
     svelte: enableSvelte = false,
     eslintPlugin: enableESLintPlugin = false,
@@ -396,6 +399,15 @@ export function defineESLintConfig(
     configs.push(configSpecials(resolveSubOptions(options, 'specials')))
   }
 
+  if (enableShell) {
+    configs.push(
+      configShell({
+        ...resolveSubOptions(options, 'shell'),
+        overrides: getOverrides(options, 'shell'),
+      }),
+    )
+  }
+
   const formatterConfigs: TypedConfigItem[] = []
   const prettierConfigs = configPrettier({
     ...resolveSubOptions(options, 'prettier'),
@@ -426,6 +438,13 @@ export function defineESLintConfig(
       // Keep formatter configs at last
       ...formatterConfigs,
     )
+
+  if (enableShell) {
+    const { files = [GLOB_SHELL] } = resolveSubOptions(options, 'shell')
+
+    // Keep global JavaScript rules and formatter bridges out of shell scripts.
+    return composer.setDefaultIgnores(ignores => [...ignores, ...files])
+  }
 
   return composer
 }

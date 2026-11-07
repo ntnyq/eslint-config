@@ -50,6 +50,7 @@ This preset is modular. You can keep defaults, disable specific modules, or enab
 | [Svelte](./svelte)                 | Svelte files             | `svelte: true`        |
 | [SVGO](./svgo)                     | SVG linting              | `svgo: true`          |
 | [HTML](./html)                     | HTML linting             | `html: true`          |
+| [Shell](./shell)                   | Shell scripts            | `shell: true`         |
 | [PNPM](./pnpm)                     | Workspace package checks | `pnpm: true`          |
 | [ESLint Plugin](./eslint-plugin)   | For plugin authors       | `eslintPlugin: true`  |
 | [Unused Imports](./unused-imports) | Cleanup helpers          | `unusedImports: true` |

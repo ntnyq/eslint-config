@@ -111,6 +111,7 @@
     "@eslint-community/eslint-plugin-eslint-comments": "^4.8.1",
     "@eslint/js": "^10.0.1",
     "@eslint/markdown": "^8.0.3",
+    "@eslint/shell": "^0.1.2",
     "@ntnyq/utils": "^0.25.0",
     "@unocss/eslint-plugin": "^66.12.0",
     "@vitest/eslint-plugin": "^1.6.28",

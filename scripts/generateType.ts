@@ -9,6 +9,7 @@ const configs = await defineESLintConfig({
   eslintPlugin: true,
   html: true,
   pnpm: true,
+  shell: true,
   svelte: true,
   svgo: true,
   test: true,

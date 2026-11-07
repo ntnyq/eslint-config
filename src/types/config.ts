@@ -27,6 +27,7 @@ import type {
   ConfigPnpmOptions,
   ConfigPrettierOptions,
   ConfigRegexpOptions,
+  ConfigShellOptions,
   ConfigSortOptions,
   ConfigSpecialsOptions,
   ConfigSvelteOptions,
@@ -103,6 +104,7 @@ export interface ConfigOptions {
   eslintPlugin?: boolean | ConfigESLintPluginOptions
   html?: boolean | ConfigHtmlOptions
   pnpm?: boolean | ConfigPnpmOptions
+  shell?: boolean | ConfigShellOptions
   svelte?: boolean | ConfigSvelteOptions
   svgo?: boolean | ConfigSVGOOptions
   unusedImports?: boolean | ConfigUnusedImportsOptions

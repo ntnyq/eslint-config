@@ -2,6 +2,7 @@
  * @file ESLint plugins
  */
 
+export { default as pluginShell } from '@eslint/shell'
 export { default as pluginNode } from 'eslint-plugin-n'
 export { default as pluginVue } from 'eslint-plugin-vue'
 export { default as pluginYml } from 'eslint-plugin-yml'
