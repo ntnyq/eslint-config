@@ -10,6 +10,7 @@
     "source.sortImports": "never"
   },
   "js/ts.experimental.useTsgo": true,
+  "js/ts.tsdk.path": "node_modules/@typescript/native-preview",
   "eslint.validate": [
     "vue",
     "xml",
@@ -71,5 +72,5 @@
     "vitepress",
     "vuepress",
     "vueuse"
-  ]
+  ],
 }
