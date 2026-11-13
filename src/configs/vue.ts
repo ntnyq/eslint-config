@@ -533,9 +533,11 @@ export const configVue = (
           },
         ],
         'vue-perfectionist/prefer-watch-effect-alias': 'error',
+        'vue-perfectionist/require-composable-return-bindings': 'error',
         'vue-perfectionist/sort-script-setup': [
           'error',
           {
+            newlinesBetween: 1,
             // Keep macro groups aligned with vue/define-macros-order.
             groups: [
               ['interface', 'type'],
