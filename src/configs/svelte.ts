@@ -39,6 +39,7 @@ export const configSvelte = async (
     extraFileExtensions = [],
     typescript = false,
   } = options
+
   return [
     {
       name: 'ntnyq/svelte',

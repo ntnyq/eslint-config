@@ -50,6 +50,7 @@ export const configOxfmt = (
     ignores: ignoresWithoutParser = [],
     filesExtensions: plainParserFiles = [GLOB_STYLE, GLOB_HTML],
   } = options
+
   return [
     {
       name: 'ntnyq/oxfmt/native-files',

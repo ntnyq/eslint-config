@@ -9,6 +9,7 @@ export async function interopDefault<T>(
   mod: Awaitable<T>,
 ): Promise<InteropModuleDefault<T>> {
   const resolved: Awaited<T> = await mod
+
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return (resolved as { default?: any }).default || resolved
 }

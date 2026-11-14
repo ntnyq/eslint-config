@@ -257,8 +257,8 @@ importers:
         specifier: ^3.4.0
         version: 3.4.0
       eslint-plugin-ntnyq:
-        specifier: ^0.19.2
-        version: 0.19.2(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0))
+        specifier: ^0.20.0
+        version: 0.20.0(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0))
       eslint-plugin-oxfmt:
         specifier: ^0.33.0
         version: 0.33.0(@astrojs/compiler-rs@0.5.3)(eslint@10.15.0(jiti@2.7.0))(oxfmt@0.78.0(@astrojs/compiler-rs@0.5.3)(svelte@5.57.3(@typescript-eslint/types@8.72.2)))(svelte@5.57.3(@typescript-eslint/types@8.72.2))
@@ -296,8 +296,8 @@ importers:
         specifier: ^10.12.1
         version: 10.12.1(@typescript-eslint/parser@8.72.2(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0)))(eslint@10.15.0(jiti@2.7.0))(vue-eslint-parser@10.4.2(eslint@10.15.0(jiti@2.7.0)))
       eslint-plugin-vue-perfectionist:
-        specifier: ^0.17.0
-        version: 0.17.0(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0))(vue-eslint-parser@10.4.2(eslint@10.15.0(jiti@2.7.0)))(vue@3.5.45(@typescript/typescript6@6.0.2))
+        specifier: ^0.18.0
+        version: 0.18.0(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0))(vue-eslint-parser@10.4.2(eslint@10.15.0(jiti@2.7.0)))(vue@3.5.45(@typescript/typescript6@6.0.2))
       eslint-plugin-yml:
         specifier: ^3.10.0
         version: 3.10.0(eslint@10.15.0(jiti@2.7.0))
@@ -2587,8 +2587,8 @@ packages:
     resolution: {integrity: sha512-4S3/9Nb7A2tiMcpzEQE9bQSlpeOz6WJkgryBuou/SA8W2x2c8Zf4j0NvTKBjv6qNhF9T79tmkecm/0CHqV0UGg==}
     engines: {node: '>=5.0.0'}
 
-  eslint-plugin-ntnyq@0.19.2:
-    resolution: {integrity: sha512-I0959EeTxUbmhooNZpULd5YOcUkCPYMh41bKhK0BQmersq/k2TidqGit77FqobHD4aDaWL73SN4fg/RAdQufHA==}
+  eslint-plugin-ntnyq@0.20.0:
+    resolution: {integrity: sha512-IwA4zUuNFcrCOC7k3gRKNg0jeoL8CI6k4zNJHZle/TfVcUXVKtWu57sykL/is0c1h8U2UqxsKP7mo1mJtapS3Q==}
     peerDependencies:
       eslint: ^9.5.0 || ^10.0.0
 
@@ -2690,8 +2690,8 @@ packages:
       '@typescript-eslint/eslint-plugin':
         optional: true
 
-  eslint-plugin-vue-perfectionist@0.17.0:
-    resolution: {integrity: sha512-dIjhvGADHaLWn4vOgAOdzbJZ5vcEvq1dCGd3v4x/z4+b/UlFYQPf/qkqWhZIoDqbphT3WgZnKBfIZTPgKmMF+g==}
+  eslint-plugin-vue-perfectionist@0.18.0:
+    resolution: {integrity: sha512-7nLbosV+RtsC2x/4LFWlFTncl0sVoNgNOdCzgzSGQUyFjSyJsQf2EJ9LQuXs8SrqFgjkjLoXJWUzVoC4fbuEow==}
     peerDependencies:
       eslint: ^10.0.0
       vue: '>=3.5.42 <4'
@@ -6123,7 +6123,7 @@ snapshots:
 
   eslint-plugin-no-only-tests@3.4.0: {}
 
-  eslint-plugin-ntnyq@0.19.2(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0)):
+  eslint-plugin-ntnyq@0.20.0(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0)):
     dependencies:
       '@ntnyq/utils': 0.26.0
       '@typescript-eslint/utils': 8.72.2(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0))
@@ -6266,7 +6266,7 @@ snapshots:
     optionalDependencies:
       '@typescript-eslint/eslint-plugin': 8.72.2(@typescript-eslint/parser@8.72.2(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0)))(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0))
 
-  eslint-plugin-vue-perfectionist@0.17.0(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0))(vue-eslint-parser@10.4.2(eslint@10.15.0(jiti@2.7.0)))(vue@3.5.45(@typescript/typescript6@6.0.2)):
+  eslint-plugin-vue-perfectionist@0.18.0(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0))(vue-eslint-parser@10.4.2(eslint@10.15.0(jiti@2.7.0)))(vue@3.5.45(@typescript/typescript6@6.0.2)):
     dependencies:
       '@ntnyq/utils': 0.26.0
       '@typescript-eslint/scope-manager': 8.72.2

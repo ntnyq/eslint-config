@@ -173,6 +173,7 @@ export const configTypeScript = (
         parserOptions: typescriptParserOptions,
       },
     }
+
     return parserConfig
   }
 

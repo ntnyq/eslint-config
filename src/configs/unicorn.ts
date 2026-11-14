@@ -48,6 +48,7 @@ export const configUnicorn = (
       },
     ]
   }
+
   return [
     {
       name: 'ntnyq/unicorn',

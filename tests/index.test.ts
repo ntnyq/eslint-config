@@ -42,6 +42,7 @@ function enableInteractiveInstallFlow() {
 describe('composer', () => {
   it('should return composer instance', () => {
     const config = defineESLintConfig()
+
     expect(config).toBeInstanceOf(FlatConfigComposer)
   })
 
@@ -58,6 +59,7 @@ describe('composer', () => {
 
   it.each(COMPOSER_METHODS)('should have method %s', method => {
     const config = defineESLintConfig()
+
     expect(typeof config[method]).toBe('function')
   })
 
@@ -158,6 +160,7 @@ describe('composer', () => {
     )
 
     expect(oxfmtConfigs).toHaveLength(2)
+
     for (const config of oxfmtConfigs) {
       expect(config.ignores).toContain(ignoredFile)
     }

@@ -9,6 +9,7 @@ import {
 } from '../eslint'
 import { GLOB_PINIA_STORE, GLOB_VUE, GLOB_VUE_COMPOSABLES } from '../globs'
 import { hasAutoImport, resolveSubOptions } from '../utils'
+import type { VuePerfectionistSettings } from 'eslint-plugin-vue-perfectionist'
 import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
 import type {
   ESLintProcessor,
@@ -23,12 +24,8 @@ import type {
  * Options for a Vue config branch
  */
 export type VuePerfectionistOptions = OptionsFiles &
-  OptionsOverrides & {
-    /**
-     * Enable settings `auto-import` of `eslint-plugin-vue-perfectionist`
-     */
-    autoImport?: boolean
-  }
+  OptionsOverrides &
+  VuePerfectionistSettings
 
 /**
  * Options type of {@link configVue}
@@ -290,6 +287,7 @@ export const configVue = (
   } = options
   const vuePerfectionistOptions = resolveSubOptions(options, 'vuePerfectionist')
   const enableAutoImport = vuePerfectionistOptions.autoImport ?? hasAutoImport()
+  const enableVueuseFunctions = vuePerfectionistOptions.vueuse ?? false
 
   const sfcBlocks: false | VueBlocksOptions =
     options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {})
@@ -514,6 +512,7 @@ export const configVue = (
       settings: {
         'vue-perfectionist': {
           autoImport: enableAutoImport,
+          vueuse: enableVueuseFunctions,
         },
       },
       rules: {

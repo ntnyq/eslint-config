@@ -17,6 +17,7 @@ function supportViewTransition() {
 provide('toggle-appearance', async (event: MouseEvent) => {
   if (!supportViewTransition()) {
     isDark.value = !isDark.value
+
     return
   }
 

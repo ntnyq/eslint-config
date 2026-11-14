@@ -60,6 +60,7 @@ export const configJavaScript = (
   options: ConfigJavaScriptOptions = {},
 ): TypedConfigItem[] => {
   const { ecmaVersion = 'latest' } = options
+
   return [
     {
       ...jsConfig.configs.recommended,

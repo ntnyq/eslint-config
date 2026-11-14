@@ -26,6 +26,7 @@ export const configHtml = async (
   ])
 
   const { files = [GLOB_HTML] } = options
+
   return [
     {
       name: 'ntnyq/html',

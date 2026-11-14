@@ -40,6 +40,67 @@ export const configNtnyq = (
           ],
         },
       ],
+      'ntnyq/padding-line-between-statements': [
+        'error',
+        // The last matching entry wins; keep exceptions after broader rules.
+        // Require a blank line before control flow statements, return, and throw.
+        {
+          blankLine: 'always',
+          prev: '*',
+          next: [
+            'if',
+            'for',
+            'while',
+            'do',
+            'switch',
+            'try',
+            'return',
+            'throw',
+          ],
+        },
+        // Require a blank line after conditionals, loops, switch, and try statements.
+        {
+          blankLine: 'always',
+          next: '*',
+          prev: ['if', 'for', 'while', 'do', 'switch', 'try'],
+        },
+        // Separate variable declarations from the following statement.
+        {
+          blankLine: 'always',
+          next: '*',
+          prev: ['const', 'let', 'var'],
+        },
+        // Allow consecutive variable declarations with or without blank lines.
+        {
+          blankLine: 'any',
+          next: ['const', 'let', 'var'],
+          prev: ['const', 'let', 'var'],
+        },
+        // Require a blank line before function and class declarations.
+        {
+          blankLine: 'always',
+          next: ['function', 'class'],
+          prev: '*',
+        },
+        // Require a blank line after function and class declarations.
+        {
+          blankLine: 'always',
+          next: '*',
+          prev: ['function', 'class'],
+        },
+        // Separate imports from the following statement.
+        {
+          blankLine: 'always',
+          next: '*',
+          prev: 'import',
+        },
+        // Disallow blank lines between consecutive imports.
+        {
+          blankLine: 'never',
+          next: 'import',
+          prev: 'import',
+        },
+      ],
       'ntnyq/prefer-newline-after-file-header': 'error',
       'ntnyq/prefer-object-method-syntax': [
         'error',

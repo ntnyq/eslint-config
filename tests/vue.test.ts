@@ -88,6 +88,7 @@ describe('Vue perfectionist integration', () => {
         message.ruleId?.startsWith('vue-perfectionist/'),
       ),
     ).toBe(false)
+
     for (const messages of [included, excluded]) {
       expect(messages.some(message => message.fatal)).toBe(false)
       expect(messages).toContainEqual(
@@ -171,6 +172,7 @@ const title = 'title'
 
       expect(messages.some(message => message.fatal)).toBe(false)
       expect(complexityMessages).toHaveLength(count)
+
       for (const message of complexityMessages) {
         expect(message.severity).toBe(2)
       }
