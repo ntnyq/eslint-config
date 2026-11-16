@@ -136,7 +136,6 @@ export const configUnicorn = (
         /**
          * @pg Promise
          */
-        'unicorn/no-async-promise-finally': 'error',
         'unicorn/no-await-in-promise-methods': 'error',
         'unicorn/no-multiple-promise-resolver-calls': 'error',
         'unicorn/no-unnecessary-await': 'error',
@@ -190,6 +189,7 @@ export const configUnicorn = (
         /**
          * @pg RegExp
          */
+        'unicorn/prefer-regexp-exec': 'error',
         'unicorn/prefer-regexp-test': 'error',
         /**
          * @pg Date
@@ -294,6 +294,7 @@ export const configUnicorn = (
         'unicorn/no-unsafe-property-key': 'error',
         'unicorn/prefer-object-from-entries': 'error',
         'unicorn/prefer-single-object-destructuring': 'error',
+        'unicorn/require-spread-parentheses': 'error',
         /**
          * @pg Data
          */

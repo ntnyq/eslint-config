@@ -9,6 +9,15 @@ sidebarDepth: 0
 
 - [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn)
 
+## Default Rules
+
+The curated rule list enables `unicorn/prefer-regexp-exec` for non-global regular
+expression matches and `unicorn/require-spread-parentheses` for complex spread
+arguments. `unicorn/prefer-regexp-test` remains enabled for boolean checks.
+
+`unicorn/no-async-promise-finally` is not enabled by default. Use `overrides` to
+enable it when your project disallows async `Promise#finally()` callbacks.
+
 ## Options
 
 ### preset
