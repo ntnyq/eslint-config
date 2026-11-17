@@ -83,6 +83,7 @@ const typeAwareRules: TypedConfigItem['rules'] = {
   '@typescript-eslint/no-unsafe-argument': 'error',
   '@typescript-eslint/no-unsafe-assignment': 'error',
   '@typescript-eslint/no-unsafe-call': 'error',
+  '@typescript-eslint/no-unsafe-class-instance-assignment': 'error',
   '@typescript-eslint/no-unsafe-member-access': 'error',
   '@typescript-eslint/no-unsafe-return': 'error',
   '@typescript-eslint/only-throw-error': 'error',
