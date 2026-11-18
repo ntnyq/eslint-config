@@ -68,10 +68,10 @@
     "eslint-plugin-astro": "^3.2.1",
     "eslint-plugin-eslint-plugin": "^7.6.2",
     "eslint-plugin-pnpm": "^1.9.1",
-    "eslint-plugin-svelte": "^3.23.0",
+    "eslint-plugin-svelte": "^3.24.1",
     "eslint-plugin-unused-imports": "^4.4.1",
-    "svelte": "^5.57.1",
-    "svelte-eslint-parser": "^1.8.1"
+    "svelte": "^5.57.3",
+    "svelte-eslint-parser": "^1.10.1"
   },
   "peerDependenciesMeta": {
     "@html-eslint/eslint-plugin": {
@@ -110,7 +110,7 @@
     "@clack/prompts": "^1.9.0",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.8.1",
     "@eslint/js": "^10.0.1",
-    "@eslint/markdown": "^8.0.3",
+    "@eslint/markdown": "^9.0.0",
     "@eslint/shell": "^0.1.2",
     "@ntnyq/utils": "^0.27.0",
     "@unocss/eslint-plugin": "^66.13.0",
@@ -126,7 +126,7 @@
     "eslint-plugin-depend": "^1.5.0",
     "eslint-plugin-github-action": "^0.5.0",
     "eslint-plugin-import-x": "^4.18.1",
-    "eslint-plugin-jsdoc": "^65.4.9",
+    "eslint-plugin-jsdoc": "^65.4.12",
     "eslint-plugin-jsonc": "^3.4.2",
     "eslint-plugin-n": "^18.5.0",
     "eslint-plugin-no-only-tests": "^3.4.0",
@@ -170,7 +170,7 @@
     "tsx": "^4.23.15",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
     "uncase": "^0.3.0",
-    "vitest": "^5.1.0"
+    "vitest": "^5.1.1"
   },
   "engines": {
     "node": "^22.23.0 || >=24.15.0"
