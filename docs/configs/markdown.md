@@ -9,14 +9,16 @@ sidebarDepth: 0
 
 - [eslint-plugin-markdown](https://github.com/eslint/markdown)
 
+Markdown fences use the parser and lint rules for their file extensions. Type-aware checks and unused-import checks are disabled for snippets by default. The configured formatter can still format the Markdown document.
+
 ## Options
 
 ### files
 
-Glob patterns for code block files.
+Glob patterns for applying Markdown-specific rule overrides to code blocks.
 
 - **Type**: `string[]`
-- **Default**: `['**/*.md/**']`
+- **Default**: `[GLOB_MARKDOWN_CODE]` (JavaScript and TypeScript files inside Markdown virtual paths)
 
 ### extraFileExtensions
 

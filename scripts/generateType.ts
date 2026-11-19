@@ -3,30 +3,9 @@ import { consola } from 'consola'
 import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
 import { builtinRules } from 'eslint/use-at-your-own-risk'
 import { defineESLintConfig } from '../src/core'
+import { FULL_CONFIG_OPTIONS } from './fullConfigOptions'
 
-const configs = await defineESLintConfig({
-  astro: true,
-  eslintPlugin: true,
-  html: true,
-  pnpm: true,
-  shell: true,
-  svelte: true,
-  svgo: true,
-  test: true,
-  unocss: true,
-  pinia: true,
-  vue: {
-    vuePerfectionist: true,
-  },
-  oxfmt: true,
-  specials: {
-    shadcnVue: true,
-  },
-  typescript: {
-    tsconfigPath: './tsconfig.json',
-  },
-  __DEV__: true,
-}).prepend({
+const configs = await defineESLintConfig(FULL_CONFIG_OPTIONS).prepend({
   plugins: {
     '': {
       rules: Object.fromEntries(builtinRules.entries()),

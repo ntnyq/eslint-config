@@ -17,6 +17,8 @@ defineESLintConfig(options, ...userConfigs)
 
 ### 1) Enable optional modules
 
+When an interactive run needs packages for multiple modules, it handles each confirmation and installation in sequence.
+
 ```js
 import { defineESLintConfig } from '@ntnyq/eslint-config'
 
@@ -161,6 +163,8 @@ export default defineESLintConfig({
   },
 })
 ```
+
+For TypeScript, Vue, Astro, Svelte, and Markdown, `extraFileExtensions` combines shared values, the extensions of enabled frameworks, and values set on that module. The factory keeps the first occurrence of each extension.
 
 ## Debugging Resolved Config
 

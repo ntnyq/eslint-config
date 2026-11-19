@@ -12,7 +12,7 @@ This package publishes `@ntnyq/eslint-config`, an ESLint flat config preset. Cor
 - `pnpm test` runs the Vitest suite.
 - `pnpm lint` runs ESLint with cache.
 - `pnpm format:check` verifies formatting with `oxfmt`.
-- `pnpm typecheck` runs `tsgo --noEmit`.
+- `pnpm typecheck` runs `tsc --noEmit`.
 - `pnpm release:check` runs the full pre-release validation loop.
 - `pnpm docs:dev` starts the docs site locally.
 
@@ -30,4 +30,4 @@ Git history uses Conventional Commits, such as `feat: bump eslint-plugin-unicorn
 
 ## Agent-Specific Instructions
 
-For shell commands in this repository, prefix commands with `rtk` as configured in `~/.codex/RTK.md` (for example, `rtk pnpm test`) except `pnpm typecheck` command. Do not manually edit generated type output; run `pnpm types:generate` instead. Keep docs in `docs/configs/` synchronized with config behavior changes.
+Run `pnpm types:generate` to update generated type output. Keep docs in `docs/configs/` synchronized with config behavior changes.

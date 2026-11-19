@@ -57,18 +57,18 @@ export const configMarkdown = (
      */
     {
       name: 'ntnyq/markdown/processor',
-      files,
+      files: [GLOB_MARKDOWN],
       ignores: [GLOB_MARKDOWN_NESTED],
       processor: mergeProcessors([
         pluginMarkdown.processors.markdown,
-        // Just pass through processor
+        // Keep the original document available to formatters.
         processorPassThrough,
       ]),
     },
 
     {
       name: 'ntnyq/markdown/parser',
-      files,
+      files: [GLOB_MARKDOWN],
       languageOptions: {
         parser: parserPlain,
       },

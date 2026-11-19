@@ -1,23 +1,4 @@
+import { FULL_CONFIG_OPTIONS } from './scripts/fullConfigOptions'
 import { defineESLintConfig } from './src'
 
-export default defineESLintConfig({
-  __DEV__: true,
-  astro: true,
-  eslintPlugin: true,
-  html: true,
-  oxfmt: true,
-  pnpm: true,
-  svelte: true,
-  svgo: true,
-  test: true,
-  unocss: true,
-  specials: {
-    shadcnVue: true,
-  },
-  typescript: {
-    tsconfigPath: './tsconfig.json',
-  },
-  vue: {
-    vuePerfectionist: true,
-  },
-})
+export default defineESLintConfig(FULL_CONFIG_OPTIONS)

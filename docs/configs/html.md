@@ -9,6 +9,8 @@ sidebarDepth: 0
 
 - [@html-eslint/eslint-plugin](https://github.com/yeonjuan/html-eslint)
 
+Files matched by both HTML and oxfmt use the HTML parser for linting and oxfmt for formatting. On those files, oxfmt handles line breaks, indentation, tag spacing, and attribute quotes. The closing-tag rule accepts oxfmt's self-closing style for void elements.
+
 ## Options
 
 ### files

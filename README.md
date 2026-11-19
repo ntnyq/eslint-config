@@ -220,6 +220,7 @@ export default defineConfig()
 - `eslintPlugin`
 - `html`
 - `pnpm`
+- `shell`
 - `svelte`
 - `svgo`
 - `unusedImports`

@@ -71,6 +71,7 @@
     "unrs",
     "vitepress",
     "vuepress",
-    "vueuse"
+    "vueuse",
+    "webp"
   ],
 }

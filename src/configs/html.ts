@@ -13,10 +13,12 @@ export type ConfigHtmlOptions = OptionsFiles & OptionsOverrides
  * @see {@link https://github.com/yeonjuan/html-eslint}
  *
  * @param options - {@link ConfigHtmlOptions}
+ * @param oxfmtConfigs - File scopes formatted by oxfmt
  * @returns ESLint configs
  */
 export const configHtml = async (
   options: ConfigHtmlOptions = {},
+  oxfmtConfigs: Pick<TypedConfigItem, 'name' | 'files' | 'ignores'>[] = [],
 ): Promise<TypedConfigItem[]> => {
   await ensurePackages(['@html-eslint/parser', '@html-eslint/eslint-plugin'])
 
@@ -63,5 +65,27 @@ export const configHtml = async (
         ...options.overrides,
       },
     },
+    ...oxfmtConfigs.map<TypedConfigItem>(
+      ({ name, files: formattedFiles = [], ignores }) => ({
+        name: `${name}/html`,
+        files: files.flatMap(file =>
+          formattedFiles.map(formattedFile => [file, formattedFile].flat()),
+        ),
+        ignores,
+        rules: {
+          '@html-eslint/attrs-newline': 'off',
+          '@html-eslint/element-newline': 'off',
+          '@html-eslint/indent': 'off',
+          '@html-eslint/no-extra-spacing-tags': 'off',
+          '@html-eslint/quotes': 'off',
+          '@html-eslint/require-closing-tags': [
+            'error',
+            { selfClosing: 'always' },
+          ],
+
+          ...options.overrides,
+        },
+      }),
+    ),
   ]
 }

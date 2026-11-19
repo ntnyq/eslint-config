@@ -145,6 +145,10 @@ export function defineESLintConfig(
     extraFileExtensions.push('.svelte')
   }
 
+  function mergeExtraFileExtensions(moduleExtensions: string[] = []): string[] {
+    return [...new Set([...extraFileExtensions, ...moduleExtensions])]
+  }
+
   if (enableGitIgnore) {
     configs.push(configGitIgnore(resolveSubOptions(options, 'gitignore')))
   }
@@ -227,25 +231,33 @@ export function defineESLintConfig(
   }
 
   if (enableTypeScript) {
+    const typescriptOptions = resolveSubOptions(options, 'typescript')
+
     configs.push(
       configTypeScript({
         ecmaVersion,
-        ...resolveSubOptions(options, 'typescript'),
+        ...typescriptOptions,
         overrides: getOverrides(options, 'typescript'),
-        extraFileExtensions,
+        extraFileExtensions: mergeExtraFileExtensions(
+          typescriptOptions.extraFileExtensions,
+        ),
       }),
     )
   }
 
   if (enableVue) {
+    const vueOptions = resolveSubOptions(options, 'vue')
+
     configs.push(
       configVue({
         ecmaVersion,
         usingFormatter: !!usingFormatter,
         typescript: !!enableTypeScript,
-        ...resolveSubOptions(options, 'vue'),
+        ...vueOptions,
         overrides: getOverrides(options, 'vue'),
-        extraFileExtensions,
+        extraFileExtensions: mergeExtraFileExtensions(
+          vueOptions.extraFileExtensions,
+        ),
       }),
     )
   }
@@ -280,25 +292,33 @@ export function defineESLintConfig(
   }
 
   if (enableAstro) {
+    const astroOptions = resolveSubOptions(options, 'astro')
+
     configs.push(
       configAstro({
         ecmaVersion,
         typescript: !!enableTypeScript,
-        ...resolveSubOptions(options, 'astro'),
+        ...astroOptions,
         overrides: getOverrides(options, 'astro'),
-        extraFileExtensions,
+        extraFileExtensions: mergeExtraFileExtensions(
+          astroOptions.extraFileExtensions,
+        ),
       }),
     )
   }
 
   if (enableSvelte) {
+    const svelteOptions = resolveSubOptions(options, 'svelte')
+
     configs.push(
       configSvelte({
         ecmaVersion,
         typescript: !!enableTypeScript,
-        ...resolveSubOptions(options, 'svelte'),
+        ...svelteOptions,
         overrides: getOverrides(options, 'svelte'),
-        extraFileExtensions,
+        extraFileExtensions: mergeExtraFileExtensions(
+          svelteOptions.extraFileExtensions,
+        ),
       }),
     )
   }
@@ -312,21 +332,7 @@ export function defineESLintConfig(
   }
 
   if (enableUnoCSS) {
-    configs.push(
-      configUnoCSS({
-        overrides: getOverrides(options, 'unocss'),
-      }),
-    )
-  }
-
-  if (enableMarkdown) {
-    configs.push(
-      configMarkdown({
-        ...resolveSubOptions(options, 'markdown'),
-        overrides: getOverrides(options, 'markdown'),
-        extraFileExtensions,
-      }),
-    )
+    configs.push(configUnoCSS(resolveSubOptions(options, 'unocss')))
   }
 
   if (enableAntfu) {
@@ -355,11 +361,7 @@ export function defineESLintConfig(
   }
 
   if (enableGitHubAction) {
-    configs.push(
-      configGitHubAction({
-        overrides: getOverrides(options, 'githubAction'),
-      }),
-    )
+    configs.push(configGitHubAction(resolveSubOptions(options, 'githubAction')))
   }
 
   if (enableESLintPlugin) {
@@ -386,12 +388,36 @@ export function defineESLintConfig(
     )
   }
 
+  // Apply Markdown snippet exceptions after unused-imports rules.
+  if (enableMarkdown) {
+    const markdownOptions = resolveSubOptions(options, 'markdown')
+
+    configs.push(
+      configMarkdown({
+        ...markdownOptions,
+        overrides: getOverrides(options, 'markdown'),
+        extraFileExtensions: mergeExtraFileExtensions(
+          markdownOptions.extraFileExtensions,
+        ),
+      }),
+    )
+  }
+
+  const useOxfmt = options.__DEV__ || (!enablePrettier && !!enableOxfmt)
+  const [oxfmtParserConfig, ...oxfmtRuleConfigs] = configOxfmt({
+    ...resolveSubOptions(options, 'oxfmt'),
+    overrides: getOverrides(options, 'oxfmt'),
+  })
+
   if (enableHTML) {
     configs.push(
-      configHtml({
-        ...resolveSubOptions(options, 'html'),
-        overrides: getOverrides(options, 'html'),
-      }),
+      configHtml(
+        {
+          ...resolveSubOptions(options, 'html'),
+          overrides: getOverrides(options, 'html'),
+        },
+        useOxfmt ? oxfmtRuleConfigs : [],
+      ),
     )
   }
 
@@ -413,19 +439,15 @@ export function defineESLintConfig(
     ...resolveSubOptions(options, 'prettier'),
     overrides: getOverrides(options, 'prettier'),
   })
-  const oxfmtConfigs = configOxfmt({
-    ...resolveSubOptions(options, 'oxfmt'),
-    overrides: getOverrides(options, 'oxfmt'),
-  })
 
-  if (options.__DEV__) {
-    formatterConfigs.push(...prettierConfigs, ...oxfmtConfigs)
-  } else {
-    if (enablePrettier) {
-      formatterConfigs.push(...prettierConfigs)
-    } else if (enableOxfmt) {
-      formatterConfigs.push(...oxfmtConfigs)
-    }
+  if (options.__DEV__ || enablePrettier) {
+    formatterConfigs.push(...prettierConfigs)
+  }
+
+  if (useOxfmt) {
+    // Let dedicated language parsers take precedence over the plain parser.
+    configs.unshift(oxfmtParserConfig)
+    formatterConfigs.push(...oxfmtRuleConfigs)
   }
 
   const composer: FlatConfigComposer<TypedConfigItem, ConfigNames> =

@@ -27,7 +27,7 @@ Glob patterns for files to ignore.
 
 ### filesExtensions
 
-File extensions to format.
+Glob patterns for additional files to format. The preset's plain parser serves as a fallback for these files when no later config sets a dedicated parser.
 
 - **Type**: `string[]`
 - **Default**: `[GLOB_STYLE, GLOB_HTML]`

@@ -5,11 +5,13 @@ sidebarDepth: 0
 
 # Sort
 
+Sorting applies to its configured files even when `jsonc` or `yml` is disabled. Use the options below to disable individual sorts, or set `sort: false` to disable all sorting.
+
 ## Options
 
 ### packageJson
 
-Enable package.json sorting.
+Enable `package.json` sorting. Within `exports`, keys follow the order `./package.json`, `types`, `import`, `require`, and `default` where present. Remaining keys sort alphabetically. Reordering conditions can change which entry point is resolved. Keys inside `publishConfig.exports` keep their original order.
 
 - **Type**: `boolean`
 - **Default**: `true`

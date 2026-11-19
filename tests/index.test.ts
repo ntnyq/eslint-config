@@ -16,6 +16,7 @@ afterEach(() => {
   vi.resetModules()
   vi.doUnmock('@clack/prompts')
   vi.doUnmock('@antfu/install-pkg')
+  vi.doUnmock('local-pkg')
 
   if (stdoutIsTTY) {
     Object.defineProperty(process.stdout, 'isTTY', stdoutIsTTY)
@@ -37,6 +38,21 @@ function enableInteractiveInstallFlow() {
   delete process.env.GIT_PARAMS
   delete process.env.VSCODE_GIT_COMMAND
   process.env.npm_lifecycle_script = 'vitest --run'
+}
+
+function createDeferred<T>() {
+  let resolve!: (value: T) => void
+  let reject!: (reason: Error) => void
+  const promise = new Promise<T>((resolvePromise, rejectPromise) => {
+    resolve = resolvePromise
+    reject = rejectPromise
+  })
+
+  return {
+    promise,
+    resolve,
+    reject,
+  }
 }
 
 describe('composer', () => {
@@ -102,6 +118,54 @@ describe('composer', () => {
     ).toBe(true)
   })
 
+  it('should forward module options and merge shared and local file extensions', async () => {
+    const githubActionFiles = ['ci/*.yaml']
+    const configs = await defineESLintConfig({
+      astro: { extraFileExtensions: ['.custom-astro'] },
+      githubAction: { files: githubActionFiles },
+      markdown: { extraFileExtensions: ['.custom-md'] },
+      shareable: { extraFileExtensions: ['.mdx', '.vue'] },
+      svelte: { extraFileExtensions: ['.custom-svelte'] },
+      typescript: { extraFileExtensions: ['.custom-ts', '.mdx'] },
+      unocss: { attributify: true },
+      vue: { extraFileExtensions: ['.custom-vue'] },
+    })
+
+    expect(
+      configs.find(config => config.name === 'ntnyq/unocss')?.rules,
+    ).toMatchObject({
+      'unocss/order-attributify': 'error',
+    })
+    expect(
+      configs.find(config => config.name === 'ntnyq/github-action')?.files,
+    ).toEqual(githubActionFiles)
+
+    const sharedExtensions = ['.mdx', '.vue', '.astro', '.svelte']
+
+    for (const [name, extension] of [
+      ['ntnyq/typescript/parser', '.custom-ts'],
+      ['ntnyq/vue/rules', '.custom-vue'],
+      ['ntnyq/astro', '.custom-astro'],
+      ['ntnyq/svelte', '.custom-svelte'],
+    ]) {
+      const config = configs.find(item => item.name === name)
+
+      expect(config?.languageOptions?.parserOptions).toMatchObject({
+        extraFileExtensions: [...sharedExtensions, extension],
+      })
+    }
+
+    const markdown = configs.find(
+      config => config.name === 'ntnyq/markdown/code-blocks',
+    )
+
+    expect(markdown?.files?.slice(1)).toEqual(
+      [...sharedExtensions, '.custom-md'].map(
+        extension => `**/*.md/**/*${extension}`,
+      ),
+    )
+  })
+
   it('should forward shareable parser options to framework configs', async () => {
     const disabledConfigs = await defineESLintConfig({
       astro: true,
@@ -147,7 +211,7 @@ describe('composer', () => {
     }
   })
 
-  it('should apply oxfmt ignores to all formatter configs', async () => {
+  it('should apply oxfmt ignores to the parser and formatter configs', async () => {
     const ignoredFile = '**/vendor/**'
     const configs = await defineESLintConfig({
       oxfmt: {
@@ -159,10 +223,32 @@ describe('composer', () => {
       item.name?.startsWith('ntnyq/oxfmt/'),
     )
 
-    expect(oxfmtConfigs).toHaveLength(2)
+    expect(oxfmtConfigs.map(config => config.name)).toEqual([
+      'ntnyq/oxfmt/plain-parser',
+      'ntnyq/oxfmt/native-files',
+      'ntnyq/oxfmt/plain-parser-files',
+    ])
 
     for (const config of oxfmtConfigs) {
       expect(config.ignores).toContain(ignoredFile)
+    }
+  })
+
+  it('should include optional plugins and both formatters in the Inspector preset', async () => {
+    const { default: inspectorConfig } =
+      await import('../eslint-inspector.config')
+    const configs = await inspectorConfig
+
+    for (const [name, plugin] of [
+      ['ntnyq/pinia', 'pinia'],
+      ['ntnyq/shell', 'shell'],
+      ['ntnyq/unused-imports', 'unused-imports'],
+      ['ntnyq/oxfmt/native-files', 'oxfmt'],
+      ['ntnyq/prettier', 'prettier'],
+    ]) {
+      expect(
+        configs.find(config => config.name === name)?.plugins,
+      ).toHaveProperty(plugin)
     }
   })
 
@@ -373,6 +459,90 @@ describe('composer', () => {
 })
 
 describe('ensurePackages', () => {
+  it('should serialize optional installs from the factory and continue after failure or cancellation', async () => {
+    enableInteractiveInstallFlow()
+
+    const missingPackages = new Set([
+      'astro-eslint-parser',
+      'svelte-eslint-parser',
+      'eslint-plugin-svelte',
+      '@html-eslint/parser',
+    ])
+    const canceled = Symbol('cancel')
+    const firstConfirmation = createDeferred<boolean>()
+    const firstInstallation = createDeferred<void>()
+    const confirm = vi
+      .fn<(options: { message: string }) => Promise<boolean | symbol>>()
+      .mockReturnValueOnce(firstConfirmation.promise)
+      .mockResolvedValueOnce(canceled)
+      .mockResolvedValue(true)
+    const installPackage = vi
+      .fn<(packages: string[], options: { dev: boolean }) => Promise<void>>()
+      .mockReturnValueOnce(firstInstallation.promise)
+      .mockResolvedValue(undefined)
+
+    vi.doMock(import('local-pkg'), async importOriginal => {
+      const actual = await importOriginal()
+
+      return {
+        ...actual,
+        isPackageExists(...args: Parameters<typeof actual.isPackageExists>) {
+          return (
+            !missingPackages.has(args[0]) && actual.isPackageExists(...args)
+          )
+        },
+      }
+    })
+    vi.doMock('@clack/prompts', () => ({
+      confirm,
+      isCancel: (value: unknown) => value === canceled,
+    }))
+    vi.doMock('@antfu/install-pkg', () => ({
+      installPackage,
+    }))
+
+    const { defineESLintConfig } = await import('../src')
+    const result = Promise.resolve(
+      defineESLintConfig({ astro: true, html: true, svelte: true }),
+    ).catch((error: unknown) => error)
+
+    try {
+      await vi.dynamicImportSettled()
+      expect(confirm).toHaveBeenCalledOnce()
+
+      firstConfirmation.resolve(true)
+      await vi.dynamicImportSettled()
+      expect(installPackage).toHaveBeenCalledExactlyOnceWith(
+        ['astro-eslint-parser'],
+        { dev: true },
+      )
+      expect(confirm).toHaveBeenCalledOnce()
+
+      missingPackages.delete('svelte-eslint-parser')
+      firstInstallation.reject(new Error('install failed'))
+
+      await expect(result).resolves.toMatchObject({
+        message: 'Failed to install required packages: astro-eslint-parser',
+      })
+      await vi.dynamicImportSettled()
+
+      expect(confirm).toHaveBeenCalledTimes(3)
+      expect(confirm.mock.calls[1][0].message).toContain('eslint-plugin-svelte')
+      expect(confirm.mock.calls[1][0].message).not.toContain(
+        'svelte-eslint-parser',
+      )
+      expect(installPackage.mock.calls).toEqual([
+        [['astro-eslint-parser'], { dev: true }],
+        [['@html-eslint/parser'], { dev: true }],
+      ])
+    } finally {
+      firstConfirmation.resolve(false)
+      firstInstallation.resolve()
+      await result
+      await vi.dynamicImportSettled()
+    }
+  })
+
   it('should not install packages when the prompt is canceled', async () => {
     enableInteractiveInstallFlow()
 

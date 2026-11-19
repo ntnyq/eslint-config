@@ -7,6 +7,7 @@ import {
 } from '../eslint'
 import {
   GLOB_ASTRO,
+  GLOB_ASTRO_TS,
   GLOB_MARKDOWN,
   GLOB_TS,
   GLOB_TSX,
@@ -35,7 +36,7 @@ export type ConfigTypeScriptOptions = OptionsFiles &
 
     /**
      * Glob patterns for files that should not be type aware.
-     * @default ['**\/*.md\/**', '**\/*.astro/*.ts']
+     * @default [GLOB_ASTRO, GLOB_ASTRO_TS, `${GLOB_MARKDOWN}/**`]
      */
     ignoresTypeAware?: string[]
 
@@ -131,7 +132,7 @@ export const configTypeScript = (
     ecmaVersion = 'latest',
     extraFileExtensions = [],
     filesTypeAware = [GLOB_TS, GLOB_TSX],
-    ignoresTypeAware = [GLOB_ASTRO, `${GLOB_MARKDOWN}/**`],
+    ignoresTypeAware = [GLOB_ASTRO, GLOB_ASTRO_TS, `${GLOB_MARKDOWN}/**`],
     overridesTypeAwareRules = {},
     parserOptions = {},
   } = options

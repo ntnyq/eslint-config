@@ -8,6 +8,8 @@ import { isInGitHooksOrRunBySpecifyPackages } from './isInGitHooksOrRunBySpecify
 
 const isCwdInScope: boolean = isPackageExists('@ntnyq/eslint-config')
 
+let installationQueue = Promise.resolve()
+
 /**
  * Check whether a package can be resolved from this config package scope.
  */
@@ -15,6 +17,12 @@ function isPackageInScope(name: string): boolean {
   return isPackageExists(name, {
     paths: [import.meta.dirname],
   })
+}
+
+function getMissingPackages(packages: (string | undefined)[]): string[] {
+  return packages.filter(
+    (pkg): pkg is string => !!pkg && !isPackageInScope(pkg),
+  )
 }
 
 /**
@@ -30,39 +38,43 @@ export async function ensurePackages(packages: (string | undefined)[]) {
     process.env.CI ||
     !process.stdout.isTTY ||
     isInGitHooksOrRunBySpecifyPackages() ||
-    !isCwdInScope
+    !isCwdInScope ||
+    getMissingPackages(packages).length === 0
   ) {
     return
   }
 
-  const nonExistingPackages: string[] = packages.filter(
-    pkg => !!pkg && !isPackageInScope(pkg),
-  ) as string[]
+  const installation = installationQueue.then(async () => {
+    const missingPackages = getMissingPackages(packages)
 
-  if (nonExistingPackages.length === 0) {
-    return
-  }
+    if (missingPackages.length === 0) {
+      return
+    }
 
-  const { confirm, isCancel } = await import('@clack/prompts')
+    const { confirm, isCancel } = await import('@clack/prompts')
 
-  const confirmInstall: boolean | symbol = await confirm({
-    message: `${nonExistingPackages.length === 1 ? 'Package is' : 'Packages are'} required for this config: ${nonExistingPackages.join(', ')}. Do you want to install them?`,
+    const confirmInstall: boolean | symbol = await confirm({
+      message: `${missingPackages.length === 1 ? 'Package is' : 'Packages are'} required for this config: ${missingPackages.join(', ')}. Do you want to install them?`,
+    })
+
+    if (isCancel(confirmInstall) || !confirmInstall) {
+      return
+    }
+
+    try {
+      const { installPackage } = await import('@antfu/install-pkg')
+
+      await installPackage(missingPackages, { dev: true })
+    } catch (error) {
+      throw new Error(
+        `Failed to install required packages: ${missingPackages.join(', ')}`,
+        { cause: error },
+      )
+    }
   })
 
-  if (isCancel(confirmInstall) || !confirmInstall) {
-    return
-  }
+  // Keep the queue moving while each caller still receives its own failure.
+  installationQueue = installation.catch(() => undefined)
 
-  try {
-    const { installPackage } = await import('@antfu/install-pkg')
-
-    await installPackage(nonExistingPackages, { dev: true })
-  } catch (error) {
-    throw new Error(
-      `Failed to install required packages: ${nonExistingPackages.join(', ')}`,
-      {
-        cause: error,
-      },
-    )
-  }
+  await installation
 }

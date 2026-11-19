@@ -9,6 +9,8 @@ sidebarDepth: 0
 
 - [eslint-plugin-astro](https://github.com/ota-meshi/eslint-plugin-astro)
 
+When TypeScript linting is enabled, Astro client-side script blocks use the TypeScript parser and skip project-based checks by default. ESLint reports script diagnostics on the original `.astro` file.
+
 ## Options
 
 ### files

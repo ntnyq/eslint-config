@@ -35,7 +35,7 @@ export interface ConfigOxfmtOptions
  */
 export const configOxfmt = (
   options: ConfigOxfmtOptions = {},
-): TypedConfigItem[] => {
+): [parser: TypedConfigItem, ...rules: TypedConfigItem[]] => {
   const {
     files: nativeFiles = [
       GLOB_SRC,
@@ -47,15 +47,24 @@ export const configOxfmt = (
       GLOB_TOML,
       GLOB_MARKDOWN,
     ],
-    ignores: ignoresWithoutParser = [],
+    ignores = [],
     filesExtensions: plainParserFiles = [GLOB_STYLE, GLOB_HTML],
   } = options
+  const plainParserIgnores = [...nativeFiles.flat(), ...ignores]
 
   return [
     {
+      name: 'ntnyq/oxfmt/plain-parser',
+      files: plainParserFiles,
+      ignores: plainParserIgnores,
+      languageOptions: {
+        parser: parserPlain,
+      },
+    },
+    {
       name: 'ntnyq/oxfmt/native-files',
       files: nativeFiles,
-      ignores: ignoresWithoutParser,
+      ignores,
       plugins: {
         oxfmt: pluginOxfmt,
       },
@@ -68,12 +77,9 @@ export const configOxfmt = (
     {
       name: 'ntnyq/oxfmt/plain-parser-files',
       files: plainParserFiles,
-      ignores: [...nativeFiles.flat(), ...ignoresWithoutParser],
+      ignores: plainParserIgnores,
       plugins: {
         oxfmt: pluginOxfmt,
-      },
-      languageOptions: {
-        parser: parserPlain,
       },
       rules: {
         'oxfmt/oxfmt': 'error',

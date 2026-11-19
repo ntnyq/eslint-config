@@ -1,3 +1,4 @@
+import { parserJsonc, parserYaml, pluginJsonc, pluginYml } from '../eslint'
 import {
   GLOB_JSON_SCHEMA,
   GLOB_PACKAGE_JSON,
@@ -66,10 +67,28 @@ export const configSort = (
     tsconfig: enableSortTsconfig = true,
   } = options
 
+  const jsoncLanguageConfig = {
+    plugins: {
+      jsonc: pluginJsonc,
+    },
+    languageOptions: {
+      parser: parserJsonc,
+    },
+  }
+  const yamlLanguageConfig = {
+    plugins: {
+      yml: pluginYml,
+    },
+    languageOptions: {
+      parser: parserYaml,
+    },
+  }
+
   if (enableSortTsconfig) {
     configs.push({
       name: 'ntnyq/sort/tsconfig',
       files: [...GLOB_TSCONFIG_JSON],
+      ...jsoncLanguageConfig,
       rules: {
         'jsonc/sort-keys': [
           'error',
@@ -216,6 +235,7 @@ export const configSort = (
     configs.push({
       name: 'ntnyq/sort/package-json',
       files: [GLOB_PACKAGE_JSON],
+      ...jsoncLanguageConfig,
       rules: {
         'jsonc/sort-array-values': [
           'error',
@@ -339,6 +359,8 @@ export const configSort = (
             order: { type: 'asc' },
             pathPattern: '^(?:resolutions|overrides|pnpm.overrides)$',
           },
+          // Reordering export conditions can change which entry point is resolved.
+          // The ascending fallback can move conditions such as node after default.
           {
             pathPattern: '^exports.*$',
             order: [
@@ -365,7 +387,6 @@ export const configSort = (
            * @see {@link https://pnpm.io/package_json#publishconfig}
            */
           {
-            pathPattern: '^publishConfig.*$',
             order: [
               './package.json',
               'types',
@@ -379,6 +400,9 @@ export const configSort = (
                 },
               },
             ],
+            // Condition order determines which export or import is resolved.
+            pathPattern:
+              '^publishConfig(?!\\.(?:exports|imports)(?:\\.|\\[|$)).*$',
           },
           // npm scripts
           {
@@ -417,6 +441,7 @@ export const configSort = (
       {
         name: 'ntnyq/sort/i18n-locale/json',
         files: ['**/{i18n,langs,locales}/*.json'],
+        ...jsoncLanguageConfig,
         rules: {
           'jsonc/sort-keys': [
             'error',
@@ -430,6 +455,7 @@ export const configSort = (
       {
         name: 'ntnyq/sort/i18n-locale/yaml',
         files: ['**/{i18n,langs,locales}/*.y?(a)ml'],
+        ...yamlLanguageConfig,
         rules: {
           'yml/sort-keys': [
             'error',
@@ -451,6 +477,7 @@ export const configSort = (
       name: 'ntnyq/sort/json-schema',
       files: [...GLOB_JSON_SCHEMA],
       ignores: [GLOB_PACKAGE_JSON],
+      ...jsoncLanguageConfig,
       rules: {
         'jsonc/sort-array-values': [
           'error',
@@ -499,6 +526,7 @@ export const configSort = (
     configs.push({
       name: 'ntnyq/sort/pnpm-workspace',
       files: [GLOB_PNPM_WORKSPACE_YAML],
+      ...yamlLanguageConfig,
       rules: {
         'yml/sort-keys': [
           'error',
@@ -573,6 +601,7 @@ export const configSort = (
     configs.push({
       name: 'ntnyq/sort/additional-json',
       files: additionalJsonFiles,
+      ...jsoncLanguageConfig,
       rules: {
         'jsonc/sort-keys': [
           'error',
@@ -594,6 +623,7 @@ export const configSort = (
     configs.push({
       name: 'ntnyq/sort/additional-yaml',
       files: additionalYamlFiles,
+      ...yamlLanguageConfig,
       rules: {
         'yml/sort-keys': [
           'error',

@@ -30,11 +30,11 @@ Glob patterns for files that should be type aware.
 Glob patterns for files that should not be type aware.
 
 - **Type**: `string[]`
-- **Default**: `['**/*.md/**', '**/*.astro/*.ts']`
+- **Default**: `['**/*.astro', '**/*.astro/*.ts', '**/*.md/**']`
 
 ### tsconfigPath
 
-Enable type aware check for TypeScript files.
+Enable type-aware linting for TypeScript files. This path selects the default project for out-of-project files matched by `allowDefaultProject`.
 
 - **Type**: `string`
 
