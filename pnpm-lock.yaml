@@ -272,9 +272,6 @@ importers:
       eslint-plugin-n:
         specifier: ^18.5.0
         version: 18.5.0(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0))
-      eslint-plugin-no-only-tests:
-        specifier: ^3.4.0
-        version: 3.4.0
       eslint-plugin-ntnyq:
         specifier: ^0.20.0
         version: 0.20.0(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0))
@@ -2609,10 +2606,6 @@ packages:
         optional: true
       typescript:
         optional: true
-
-  eslint-plugin-no-only-tests@3.4.0:
-    resolution: {integrity: sha512-4S3/9Nb7A2tiMcpzEQE9bQSlpeOz6WJkgryBuou/SA8W2x2c8Zf4j0NvTKBjv6qNhF9T79tmkecm/0CHqV0UGg==}
-    engines: {node: '>=5.0.0'}
 
   eslint-plugin-ntnyq@0.20.0:
     resolution: {integrity: sha512-IwA4zUuNFcrCOC7k3gRKNg0jeoL8CI6k4zNJHZle/TfVcUXVKtWu57sykL/is0c1h8U2UqxsKP7mo1mJtapS3Q==}
@@ -6148,8 +6141,6 @@ snapshots:
       semver: 7.8.6
     optionalDependencies:
       typescript: '@typescript/typescript6@6.0.2'
-
-  eslint-plugin-no-only-tests@3.4.0: {}
 
   eslint-plugin-ntnyq@0.20.0(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0)):
     dependencies:

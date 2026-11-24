@@ -8,7 +8,6 @@ sidebarDepth: 0
 ## 🔌 Plugins
 
 - [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest)
-- [eslint-plugin-no-only-tests](https://github.com/levibuzolic/eslint-plugin-no-only-tests)
 
 ## Options
 
@@ -31,7 +30,8 @@ object to customize its files and rules.
 ### vitest
 
 Configure Vitest plugin rules. Set it to `false` to disable this branch, or pass
-an object to customize its files and rules.
+an object to customize its files and rules. The recommended rules include
+`vitest/no-focused-tests`, which reports focused tests such as `test.only`.
 
 - **Type**: `boolean | { files?: string[], overrides?: Rules }`
 - **Default**: `true` if Vitest is in dependencies

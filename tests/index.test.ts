@@ -371,16 +371,20 @@ describe('composer', () => {
     const baseConfig = configs.find(item => item.name === 'ntnyq/test/base')
     const vitestConfig = configs.find(item => item.name === 'ntnyq/test/vitest')
 
-    expect(baseConfig).toMatchObject({
+    expect(baseConfig).toEqual({
+      name: 'ntnyq/test/base',
       files: ['**/*.check.ts'],
       rules: {
+        'max-lines-per-function': 'off',
         'no-console': 'off',
+        'no-unused-expressions': 'off',
       },
     })
     expect(vitestConfig).toMatchObject({
       files: ['**/*.vitest.ts'],
       rules: {
         'vitest/expect-expect': 'warn',
+        'vitest/no-focused-tests': 'error',
       },
     })
   })

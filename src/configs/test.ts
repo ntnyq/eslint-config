@@ -1,4 +1,4 @@
-import { pluginNoOnlyTests, pluginVitest } from '../eslint'
+import { pluginVitest } from '../eslint'
 import { GLOB_TEST } from '../globs'
 import { hasVitest, resolveSubOptions } from '../utils'
 import type { OptionsFiles, OptionsOverrides, TypedConfigItem } from '../types'
@@ -47,26 +47,17 @@ export const configTest = (
   const configs: TypedConfigItem[] = []
 
   if (enableBase) {
-    configs.push(
-      {
-        name: 'ntnyq/test/setup',
-        plugins: {
-          'no-only-tests': pluginNoOnlyTests,
-        },
-      },
-      {
-        name: 'ntnyq/test/base',
-        files: baseOptions.files ?? files,
-        rules: {
-          'max-lines-per-function': 'off',
-          'no-unused-expressions': 'off',
-          'no-only-tests/no-only-tests': 'error',
+    configs.push({
+      name: 'ntnyq/test/base',
+      files: baseOptions.files ?? files,
+      rules: {
+        'max-lines-per-function': 'off',
+        'no-unused-expressions': 'off',
 
-          // Overrides rules
-          ...baseOptions.overrides,
-        },
+        // Overrides rules
+        ...baseOptions.overrides,
       },
-    )
+    })
   }
 
   if (enableVitest) {
